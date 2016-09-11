@@ -97,7 +97,6 @@ Instead of setting a single threshold requirement for accuracy, it is more infor
 If one targets a three-fold reduction, the answer appears to be that calculations with a 2 kcal/mol RMS error will suffice~\cite{shirts_free-energy_2010, mobley_perspective_2012}. 
 Thus, one can gain substantial benefit from simulations that are good yet still quite imperfect.
 
-% Following paragraph could be cut for space reasons if needed.
 More broadly, this analysis does not address the net value of computational affinity predictions in drug discovery.
 Costs include those of the software, computer time, and personnel required to incorporate calculations into the workflow; while benefits include the savings, revenue gains, and externalities attributable to reducing the number of low-affinity compounds synthesized and arriving earlier at a potent drug candidate.
 In addition, with sufficiently reliable predictions, chemists may choose to tackle difficult synthesis efforts they otherwise might have avoided, resulting in more novel and valuable chemical matter.
@@ -523,7 +522,7 @@ Even the host protonation state may be unclear; while OA is often assumed to hav
 Thus, there are uncertainties as to the host protonation state~\cite{muddana_sampl4_2014, ewell_water_2008}, which perhaps also could be modulated by guest binding.  
 
 %FORCE FIELD, etc.:
-%The challenges of system definition and conformational sampling appear to be greater for OA and TEMOA than for CB7, , so evidence of force field limitations, if present, is not yet as clear. There have been some comparisons of charge~\cite{mikulskis_free-energy_2014, muddana_sampl4_2014, monroe_converging_2014} and water models~\cite{yin_sampl5_2016}, but differences so far seem mostly inconclusive or at least not that large. Similarly, OPLS and GAFF results did not appear dramatically different in accuracy~\cite{bhakat_resolving_2016} 
+The challenges of system definition and conformational sampling appear to be greater for OA and TEMOA than for CB7, , so evidence of force field limitations, if present, is not yet as clear. There have been some comparisons of charge~\cite{mikulskis_free-energy_2014, muddana_sampl4_2014, monroe_converging_2014} and water models~\cite{yin_sampl5_2016}, but differences so far seem mostly inconclusive or at least not that large. Similarly, OPLS and GAFF results did not appear dramatically different in accuracy~\cite{bhakat_resolving_2016} 
 %The above paragraph could be cut for space if we need
 
 Several groups used different methods but the same force field and water model in SAMPL5, with rather varied levels of success because of discrepancies in calculated free energies~\cite{yin_sampl5_preprint, bosisio_blinded_2016, bhakat_resolving_2016}). 
@@ -671,7 +670,7 @@ Timescales for this motion appear to be on the order of 50 ns, so it can pose sa
 Including part of the protein in the enhanced sampling region via REST2 provides some benefits, but sampling these motions will likely prove a valuable test for enhanced sampling methods.
 
 %This paragraph could be cut for space since it's speculative:
-%Potentially, water sampling could also be a challenge in the polar binding site, as phenol binds with one ordered water~\cite{wei_model_2002} but to our knowledge, timescales for water sampling have not yet been examined, other than noting that water does not enter the polar binding site as ligands are removed~\cite{boyce_predicting_2009}. The apolar cavity is dry both with ligands present and with empty, so water sampling in the there cavity seems unlikely to be a challenge.
+Potentially, water sampling could also be a challenge in the polar binding site, as phenol binds with one ordered water~\cite{wei_model_2002} but to our knowledge, timescales for water sampling have not yet been examined, other than noting that water does not enter the polar binding site as ligands are removed~\cite{boyce_predicting_2009}. The apolar cavity is dry both with ligands present and with empty, so water sampling in the there cavity seems unlikely to be a challenge.
 
 \section{THE FUTURE OF BENCHMARKS AND OF THIS REVIEW}
 \label{sec:updates}
