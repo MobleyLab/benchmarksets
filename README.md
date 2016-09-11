@@ -6,7 +6,7 @@ This repository relates to the *perpetual review* paper called "Predicting bindi
 
 The paper was just submitted (Sept. 10, 2016) to bioRxiv and Annual Reviews in Biophysics. Its source files are deposited here, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
 
-The paper's authors are David L. Mobley (UC Irvine) and Michael K. Gilson(UCSD).
+The paper's authors are David L. Mobley (UC Irvine) and Michael K. Gilson (UCSD).
 
 ## The vision
 
@@ -37,7 +37,7 @@ We need your help to pick the most informative systems, identify the challenges 
 
 ### Vote on what we should do next
 
-For long-term directions, please help us prioritize what we ought to be doing in terms of benchmarks and other changes:
+For long-term directions, please help us prioritize what we ought to be doing in terms of benchmarks and other changes. Please click below to vote on one of these priorities or to suggest your own (such as addition of specific benchmark systems):
 [![Feature Requests](http://feathub.com/MobleyLab/benchmarksets?format=svg)](http://feathub.com/MobleyLab/benchmarksets)
 
 ### Submit an issue
