@@ -673,6 +673,56 @@ Including part of the protein in the enhanced sampling region via REST2 provides
 %This paragraph could be cut for space since it's speculative:
 %Potentially, water sampling could also be a challenge in the polar binding site, as phenol binds with one ordered water~\cite{wei_model_2002} but to our knowledge, timescales for water sampling have not yet been examined, other than noting that water does not enter the polar binding site as ligands are removed~\cite{boyce_predicting_2009}. The apolar cavity is dry both with ligands present and with empty, so water sampling in the there cavity seems unlikely to be a challenge.
 
+\section{HOW TO USE BENCHMARK SYSTEMS}
+
+Benchmark systems will have several uses, as noted above~\ref{sec:purposes}, but not all benchmark systems can cover all uses. 
+Some will be particularly valuable for testing the accuracy of methods (and in this case, relatively large numbers of ligands or binders are needed to get good statistics) either against gold-standard results or against experimental values (for assessing force field accuracy). 
+But other benchmark systems will be more useful for testing sampling techniques, and still others will initially serve primarily as a test bed to determine the sensitivity of the results to different factors.
+
+In our view, benchmark systems will serve also to help design careful computational experiments. 
+Researchers can test whether a particular method is sampling the motions which others have already shown to be important, or how the choice of starting conformation impacts the rate of convergence to a known, gold standard value for a particular force field and system composition. 
+The availability of benchmark systems will also facilitate comparisons where only a single piece of a workflow is modified; for example, if a different protonation state assignment tool is applied to the receptor, how does that impact computed binding free energies without any other variations in the protocol? 
+Of course these types of comparisons can already be done, but in the context of a benchmark system this will be more valuable information, as it provides insight for other researchers working on the same system into the relative importance of different protonation states, etc. 
+
+As noted above (Section ~\ref{sec:measureprogress}), the hope is that ultimately, gold standard binding free energy results will be made available for a set of benchmark systems. 
+These would be from fully converged binding free energy calculations, and give correct results for a particular force field and system preparation, allowing quantitative comparison of the force field results with experiment. 
+But such results will also facilitate a great deal of science on method efficiency; new methods which purport to be more efficient could easily and \emph{automatically} be run on a standard set of systems to see how much more efficient they are than the (perhaps brute-force) method which yielded the gold standard results, and different enhanced sampling methods could easily be observed to have strengths and weaknesses on known problem classes. 
+Ultimately, these systems can allow automated testing of the efficiency of new methods on real-world problems. 
+
+\section{WE NEED WORKFLOW SCIENCE}
+
+While the benchmark systems discussed here will already be useful, to fully realize their benefits a great deal of engineering needs to be done to facilitate workflow science. 
+Currently, a wide variety of different tools are available for different stages of the free energy calculation process, from system preparation (protonation state assignment, building in missing residues and loops, adding counterions, etc.) to force field assignment, to planning and conducting the calculations themselves (choice of method, simulation package, and so on). 
+Often, these tools live in their own ecosystems and are not typically designed to be easily interchangeable with tools from another ecosystem.  
+What one would like to do is to easily interchange pieces of a particular workflow to assess how much difference each piece makes. 
+For example, swapping different tools for assigning protein protonation states could yield valuable insights into the relative merits of these tools and the importance of protonation at specific residues, but currently, this is an arduous task.
+
+\subsection{Workflow automation is needed}
+
+At the most basic level, we need to allow calculations to be easily repeated on all of the benchmark systems via automated workflows.  
+One should not have to become an expert in the systems being studied in order to be able to successfully apply calculations to them; inputs should be easily available and repeating calculations should become fully automated so that a new method can be tested by simply specifying the set of benchmarks to run on.
+
+To achieve this, at least two major innovations are needed. 
+First, we need automated workflows that can proceed from the specification of a system to target to yielding the desired results without human intervention. 
+Second, we need a standard data structure for input to and output from these workflows so that people can easily obtain inputs for benchmark systems and only change the component they want to change (such as the force field or system preparation) and leave the other components unchanged so that, in an automated manner, they can focus their testing on only the components they want to test. 
+
+\subsection{Analysis automation will also be needed}
+At the most basic level, we can simply check whether we are getting the expected answer for each calculation performed, at least for systems where a gold standard result is available. 
+However, this does not provide nearly enough insight.  
+Are the relevant motions being sampled? 
+We need ways to automatically check that we are sampling the right motions, identifying correct binding modes/conformations, and so on, without having to become experts on the specific systems examined. 
+Probably we will need to define ways to automatically specify what order parameters should be monitored to assess for adequate sampling. 
+
+\subsection{Modularization will be key}
+To achieve these goals, we will need to develop or package tools so that they take a set of well specified inputs and provide well specified outputs in an interchangeable way. 
+This may involve containerizing key pieces of workflows such as in Docker~\cite{docker_what_2015} containers, and developing standards as to what inputs and outputs are provided to each component of the workflow. 
+Again, the goal of this is to allow components (such as different tools for protein preparation, or different methods for free energy calculation) to be swapped without requiring changes elsewhere in the workflow. Currently, a change anywhere in the workflow often requires changes throughout the entire workflow.
+
+Another key goal of modularization is to separate the \emph{operator} from the \emph{method}. 
+Currently, binding calculations are most often done by a human expert who makes a variety of decisions along the way (though Schr\"odinger's workflow has gone a reasonable ways towards changing this~\cite{schrodinger_accurate_2015}) and it is difficult to separate the importance of human expertise from the relative merits of the methods employed. 
+Containerizing and modularization will be key for this, allowing methods to be employed only in a well-defined way which is reproducible. It is this type of science -- coupled with benchmark tests -- which is needed to advance the field.
+
+
 \section{THE FUTURE OF BENCHMARKS AND OF THIS REVIEW}
 \label{sec:updates}
 This work has so far presented a small set of benchmark systems for binding free energy calculations, and has highlighted some of the ways in which they have already proven their utility. 
