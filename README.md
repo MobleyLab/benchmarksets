@@ -10,9 +10,15 @@ The paper's authors are David L. Mobley (UC Irvine) and Michael K. Gilson (UCSD)
 
 ## The vision
 
-Specific contributions there are welcome either via the issue tracker or via pull requests to actually propose changes to the text of the paper itself. The full list of contributors to the updated paper via GitHub can then be appended to subsequent versions of this work, as they would be for a software project.
+The field vitally needs benchmark sets to test and advance free energy calculations, as we detail in our paper. 
+Currently, there are no such standard benchmark systems.
+And when good test systems are found, the relevant data tends to be published but then forgotten, and never becomes widely available. 
+Here, we want the community to be involved in selecting benchmark systems, highlighting their key challenges, and making the data and results readily available to drive new science.
 
-Community input is needed for updates: Please bring new, relevant work to our attention, including experimental or modeling work on the benchmark systems currently available here, or new work on systems that might make good candidate benchmark systems for the future. Contacting us by e-mail or by raising an issue on the GitHub issue tracker will be the best way to do this.
+To make this happen, we need community input. 
+Please bring new, relevant work to our attention, including experimental or modeling work on the benchmark systems currently available here, or new work on systems that might make good candidate benchmark systems for the future. 
+And please help us create consensus around a modest set of benchmark systems which can be used to drive forward progress in the field.
+
 
 ## The benchmark sets
 
@@ -46,7 +52,7 @@ If you have a specific suggestion or request relating to the material on GitHub 
 
 ### Submit a pull request
 
-We also welcome contributions to the material which is already here to extend it (see Section IV in our paper) and encourage you to actually propose changes via a "pull request", even to the paper itself. This will allow us to track your contributions, as well. 
+We also welcome contributions to the material which is already here to extend it (see Section IV in our paper) and encourage you to actually propose changes via a "pull request", even to the paper itself. This will allow us to track your contributions, as well. Specifically, the full list of contributors to the updated paper and data can be appended to subsequent versions of this work, as they would be for a software project.
 
 ## Manifest
 
