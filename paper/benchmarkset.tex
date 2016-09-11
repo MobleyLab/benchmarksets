@@ -673,7 +673,75 @@ Including part of the protein in the enhanced sampling region via REST2 provides
 %This paragraph could be cut for space since it's speculative:
 %Potentially, water sampling could also be a challenge in the polar binding site, as phenol binds with one ordered water~\cite{wei_model_2002} but to our knowledge, timescales for water sampling have not yet been examined, other than noting that water does not enter the polar binding site as ligands are removed~\cite{boyce_predicting_2009}. The apolar cavity is dry both with ligands present and with empty, so water sampling in the there cavity seems unlikely to be a challenge.
 
+\section{BENCHMARK SYSTEMS FOR THE FUTURE}
+\major{Write some intro text here}
+[Intro text goes here]
+
+\subsection{CCP model sites}
+
+Two model binding sites in cytochrome C peroxidase (CCP) created by the W191G mutant (the ``closed'' site~\cite{fitzgerald_ligand-gated_1996, rocklin_blind_2013} and then supplemented by an additional partial loop deletion (creating the ``open'' site~\cite{musah_artificial_2002, rosenfeld_excision_2002, rocklin_blind_2013}) have many similarities to the lysozyme binding sites. 
+These, too, bind simple, fragment-like ligands in a buried cavity yet pose surprising challenges for simulations. Like lysozyme, discovery of new ligands is relatively straightforward~\cite{brenk_probing_2006, rocklin_blind_2013} and new crystal structures can be obtained fairly readily, driving use for blind tests of free energy calculations~\cite{rocklin_blind_2013}. 
+Like lysozyme, binding free energies are mostly relatively weak (roughly -3.4 to -6.6 kcal/mol in the open site~\cite{rocklin_blind_2013}; however, ligands now include charged compounds, and the binding site contains a buried, charged ASP which makes strong electrostatic interactions with the ligands. 
+Despite this strong interaction, however, some polar but neutral compounds still bind.
+
+These binding sites appear to introduce new computational challenges as well. Particularly, work with two different force fields and rather different computational methods has found that alchemical techniques overestimate the range of affinities, by roughly a factor of three, in the closed site~\cite{banba_free_2000, banba_efficient_2000} and the same seems to hold true in the open site~\cite{rocklin_blind_2013}. 
+There are some suggestions and evidence that this may be a result of force field artifacts -- particularly, a lack of screening of strong charge-charge interactions in a buried, otherwise relatively nonpolar environment~\cite{rocklin_blind_2013}. 
+In addition to these potential force field challenges, the fact that ligands vary in formal charge also poses methodological challenges~\cite{rocklin_calculating_2013}. 
+Since this system seems challenging yet tractable, and has been the focus of several free energy studies already may mean it is a good near-term benchmark for free energy methods.
+
+\subsection{Thrombin}
+
+Thrombin is a serine protease which is interesting both as a target in the coagulation cascade and as a representative serine protease. 
+Because of its relevance as a pharmaceutical target, a wide variety of ligands and structures are available, driving its use in several prior free energy studies~\cite{wang_achieving_2012, schrodinger_accurate_2015, calabro_elucidation_2016}. 
+Some of the available experimental binding data is of particularly high quality, from isothermal titration calorimetry, and highlights interesting trends such as non-additivity (in the form of positive coupling) between functional groups at different locations within two compound series~\cite{baum_non-additivity_2010, calabro_elucidation_2016}. 
+Relative free energy calculations capture the experimental trends and, qualitatively, the non-additivity for these series (and achieve an overall mean unsigned error of 0.74 kcal/mol over a range of roughly 5 kcal/mol), though they do better at one series than the other~\cite{calabro_elucidation_2016}. 
+This study suggests thrombin may be at the ``sweet spot'' for benchmark systems, where the system is relatively tractable yet clear challenges (methodological issues relating to soft core potentials, questions about why one series is predicted well while the other has a slope which is systematically off~\cite{calabro_elucidation_2016}, and dihedral sampling problems~\cite{calabro_accelerating_2015}) are still present. 
+Another study performed relative free energy calculations between two ligands binding to thrombin and looked at dependence on starting ligand conformation, as well as force-field, finding substantial dependence on both. 
+Enhanced sampling techniques reduced the dependance on starting ligand orientation~\cite{wang_achieving_2012}.
+
+
+\subsection{Bromodomain proteins}
+
+Bromodomains (BRDs) help read epigenetic markers and are present in many different human proteins; because of their role in transcription, they are being explored as potential drug targets in a range of clinical trials for various cancers and atherosclerosis~\cite{aldeghi_accurate_2016}. 
+While little work with free energy calculations has focused on these proteins so far, the group of Philip Biggin from Oxford has recently begun studying these systems, as recently discussed at the 2016 Workshop on Free Energy Methods in Drug Design; their first study applying alchemical techniques to compute absolute binding free energies of 11 different ligands to BRD4 was recently published~\cite{aldeghi_accurate_2016}. 
+This study is particularly interesting because it achieves a remarkable level of accuracy (an RMS error of $0.8\pm0.2$ kcal/mol) for absolute binding free energies spanning a range of 4 kcal/mol (with a magnitude up to $-9.8$ kcal/mol), and the relevant experimental results are high quality based on isothermal titration calorimetry. 
+Even if crystal structures are not used as input and docking is substituted instead, the RMS error only degrades modestly. The compounds are relatively disparate, and not easily amenable to traditional relative free energy calculations. 
+Thus, overall, this appears to be a case where free energy calculations can work quite well, in contrast to docking methods which were also examined. 
+However, application of the techniques is not without challenges -- some ligands have multiple plausible binding modes, necessitating several calculations. 
+This system would also pose severe challenges for relative free energy techniques.And work discussed at the Workshop noted above highlighted other challenges which are still to be resolved. 
+
+\subsection{Cyclodextrins}
+In the category of host-guest systems, cyclodextrins, and especially $\beta$ cyclodextrin, seem particularly interesting, possibly even as a near-term benchmark system. It is easily available, has good aqueous solubility, and has a wide variety of guests and host-derivatives which are easily accessible.  
+Substantial work has already been done on $\beta$-cyclodextrin in particular~\cite{henriksen_computational_2015}; it has similar features to the other host-guest systems noted above, though in some cases some additional complexities such as two possible binding orientations that do not exchange on microsecond timescales~\cite{henriksen_computational_2015}, necessitating consideration of multiple possible binding modes. 
+Parameters can also pose clear challenges there -- specifically, sodium and phosphate buffer has been observed to aggregate when using standard parameters at experimentally relevant conditions, so parameter modifications appear to be needed to adequately model experimental conditions~\cite{henriksen_computational_2015}. $\beta$ cyclodextrin has also been used to parameterize implicit solvent models explicitly for predicting binding interactions~\cite{wickstrom_parameterization_2016}.
+\adddetail{This would need a careful look from Gilson as there is a lot to be said about cyclodextrins and I (DLM) don't know this literature like he does; he would need to expand.}
+
+\subsection{Other systems of possible future interest}
+
+Several other systems may be of possible interest because of the wealth and quality of experimental data, the extent of prior computational work, or the combination of pharmaceutical relevance with important challenges. 
+None of these seem to be well-characterized or well-studied enough yet to be benchmark systems, but they may be interesting choices for the future. 
+The first system we would put in this category is trypsin, and especially binding of benzamidine and its derivatives. 
+While trypsin has been the focus of several free energy studies~\cite{talhout_understanding_2003, villa_sampling_2003, jiao_calculation_2008, jiao_trypsin_2009, de_ruiter_efficient_2012} and the SAMPL3 challenge~\cite{newman_dingo_2011, skillman_sampl3_2012}, it also appears to be subject to extremely slow protein motions (on the tens of microsecond timescale) which are only beginning to be characterized~\cite{plattner_protein_2015}, suggesting that short free energy calculations may appear to converge~\cite{talhout_understanding_2003, jiao_calculation_2008, jiao_trypsin_2009} but longer calculations can reveal a profound lack of convergence~\cite{plattner_protein_2015}. 
+Coupled with work on Markov state modeling, trypsin may become a good benchmark for studying binding coupled with slow conformational dynamics~\cite{plattner_protein_2015}, but this will require more study to confirm.
+
+HIV integrase may also be of potential interest as a benchmark system, in part because blind predictions for a set of fragments binding to several sites formed part of the basis of the SAMPL4 challenge~\cite{mobley_blind_2014, peat_interrogating_2014}. 
+While the range of affinities in this specific set is relatively small, many crystal structures are available along with a wealth of verified nonbinders~\cite{peat_interrogating_2014}. 
+One group actually did remarkably well using free energy calculations to recognize binding modes and predict nonbinders~\cite{gallicchio_virtual_2014, mobley_blind_2014}. 
+Coupled with other HIV integrase data which is already available or becoming available, this may make this system attractive for future benchmarks.
+
+FKBP has also been the focus of several different free energy studies on the same series of ligands over the years~\cite{shirts_calculating_2004, fujitani_direct_2005, jayachandran_parallelized-over-parts_2006, lee_calculation_2006, wang_absolute_2006, fujitani_massively_2009, ytreberg_absolute_2009}. 
+However, in many cases, differences in calculated values between different studies -- even with what appears to be the same force field and system preparation -- are larger than differences relative to experiment~\cite{fujitani_direct_2005, jayachandran_parallelized-over-parts_2006}. 
+Some challenges are clear, such as conformational sampling for some of the larger ligands~\cite{shirts_calculating_2004}, and there have been some suggestions of force field issues and long equilibration times for the protein~\cite{fujitani_massively_2009}. 
+However, much more study is needed to be confident of the relevant issues before this will be suitable as a general-purpose benchmark system.
+
+Some other systems which have been proposed include influenza neuraminidase inhibitors, some of which~\cite{smith_dihydropyrancarboxamides_1998} have been studied previously with some success~\cite{michel_protein_2006}, but other series include more complicated structure-activity relationships and protein loop motions~\cite{kerry_structural_2013}. 
+Periplasmic oligopeptide binding protein A (OppA) may also be interesting as it binds a series of peptides two to five residues in length, regardless of composition; a large amount of calorimetric and crystallographic binding data is available~\cite{tame_crystal_1995, davies_relating_1999, sleigh_crystallographic_1999}, and the system appears challenging but potentially tractable for free energy calculations~\cite{maurer_calculation_2016}. 
+JNK kinase may also pose interesting challenges for relative free energy calculations due to slow interconversion between binding modes for some ligands~\cite{kaus_how_2015}.
+
 \section{THE FUTURE OF BENCHMARKS AND OF THIS REVIEW}
+\adddetail{Change this header since now there is future stuff above and not much here}
+[Header needs changing since there is future stuff above which replaces the stuff here]
+
 \label{sec:updates}
 This work has so far presented a small set of benchmark systems for binding free energy calculations, and has highlighted some of the ways in which they have already proven their utility. 
 However, the scope of these sets is still quite limited. 
@@ -690,6 +758,8 @@ Experimental data exhibits interesting trends~\cite{baum_non-additivity_2010} th
 Bromodomains may also be interesting, especially given that relatively high accuracies have been reported, relative to experiment. 
 At the same time, binding modes may be non-obvious and the diversity of ligands could pose problems for relative free energy calculations~\cite{aldeghi_accurate_2016}.
 Other systems will undoubtedly emerge as promising benchmarks as well, and we seek community input to help identify these.
+\major{Remove this paragraph beginning with ``several'' as we now have a new section above which replaces it}
+{\bf [ Remove this paragraph because of the new material above which is more extensive] }
 
 In order to provide for updates of this material as new benchmark systems are defined, and to enable community input into the process of choosing them, we will make the LaTeX source for this article on GitHub at \url{http://www.github.com/mobleylab/benchmarksets}. 
 We encourage use of the issue tracker for discussion, comments, and proposed updates. We plan to incorporate new material via GitHub as one would for a coding project, then make it available via a preprint server, likely bioRxiv.
@@ -719,7 +789,7 @@ We also appreciate helpful discussions with a huge number of people in the field
 Conversations with John Chodera (MSKCC), Chris Oostenbrink (BOKU), Julien Michel (Edinburgh), Robert Abel (Schr\"{o}dinger), Bruce Gibb (Tulane), Matt Sullivan (Tulane), and Lyle Isaacs (Maryland) were particularly helpful.
 
 %Remaining todos
-%\listoftodos
+\listoftodos
 
 
 \bibliographystyle{abbrv}
