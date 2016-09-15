@@ -39,6 +39,10 @@
 \usepackage{enumitem}
 \setlist{nolistsep}
 
+\usepackage{siunitx}
+\sisetup{separate-uncertainty=true}
+\AtBeginDocument{\usepackage{booktabs}}
+
 \begin{document}
 
 
@@ -267,7 +271,7 @@ The present focus is on cases where experimental data are available and add valu
 \subsection{Host-guest benchmarks}
 Chemical hosts are small molecules, often comprising fewer than 100 non-hydrogen atoms, with a cavity or cleft that allows them to bind other compounds, called guests, with significant affinity.  
 Hosts bind their guests via the same basic forces that proteins used to bind their ligands, so they can serve as simple test systems for computational models of noncovalent binding. 
-Moreover, their small size, and, in many cases, their rigidity, can make it feasible to sample all relevant conformations, making for "hard" benchmarks as defined above (Section~\ref{subsec:benchmarktypes}).  
+Moreover, their small size, and, in many cases, their rigidity, can make it feasible to sample all relevant conformations, making for ``hard" benchmarks as defined above (Section~\ref{subsec:benchmarktypes}).  
 Furthermore, experiments can often be run under conditions that make the protonation states of the host and guest unambiguous. Under these conditions, the level of agreement of correctly executed calculations with experiment effectively reports on the validity of the force field (Section~\ref{pgph:accuracy}. 
 For a number of host-guest systems, the use of isothermal titration calorimetry (ITC) to characterize binding provides both binding free energies and binding enthalpies. 
 Binding enthalpies can often also be computed to good numerical precision~\cite{henriksen_computational_2015}, so they provide an additional check of the validity of simulations. 
@@ -335,7 +339,7 @@ Cationic guests could also have substantial and differing interactions with the 
 Thus, one group found a 6.4-6.8 kcal/mol dependence on salt concentration~\cite{hsiao_prediction_2014}, possibly impacting other studies as well~\cite{monroe_converging_2014}
 
 %Force field
-Despite these issues, CB7 appears to be at the point where careful studies can probe the true accuracy of our force fields~\cite{henriksen_computational_2015, gao_binding_2015, yin_toward_2015}, and the results can be sobering, with RMS errors in the binding free energies as high as 8 kcal/mol~\cite{henriksen_computational_2015, monroe_converging_2014}. More encouragingly, the values of $R^2$ values can be as high as 0.92~\cite{henriksen_computational_2015}.) 
+Despite these issues, CB7 appears to be at the point where careful studies can probe the true accuracy of our force fields~\cite{henriksen_computational_2015, gao_binding_2015, yin_toward_2015}, and the results can be sobering, with RMS errors in the binding free energies as high as 8 kcal/mol~\cite{henriksen_computational_2015, monroe_converging_2014}. More encouragingly, the values of $R^2$ values can be as high as 0.92~\cite{henriksen_computational_2015}. 
 Some force fields appear relatively worse than others~\cite{hsiao_prediction_2014, muddana_prediction_2012}.
 Calculated values are in many cases quite sensitive to details of force field parameters~\cite{monroe_converging_2014, moghaddam_new_2011, muddana_prediction_2012}. For example, modest modification of some Lennard-Jones parameters yielded dramatic improvements in calculated values~\cite{yin_toward_2015}, and host-guest binding data has, accordingly, been suggested as an input for force field development~\cite{yin_toward_2015, henriksen_computational_2015, gao_binding_2015}.
 Water structure around CB7 and calculated binding enthalpies also appear particularly sensitive to the choice of water model~\cite{rogers_role_2013, fenley_bridging_2014, gao_binding_2015}, and water is clearly important for modulating binding~\cite{nguyen_grid_2012}.
@@ -343,28 +347,41 @@ The water model also impacts the number of sodium ions which must be displaced (
 
 Despite its apparent simplicity, CB7 is still a challenging benchmark that can put important issues into high relief. For example, in SAMPL4, free energy methods yielded $R^2$ values from 0.1 to 0.8 and RMS errors of about 1.9 to 4.9 kcal/mol for the same set of CB7 cases. This spread of results across rather similar methods highlights the need for shared benchmarks. Potential explanations include convergence difficulties, subtle methodological differences, and details of how the methods were applied~\cite{muddana_sampl4_2014}. Until the origin of such discrepancies is clear, it is difficult to know how accurate our methods truly are. 
 
+% Changes
+% Used booktabs for formatting (may not be completely compatible with revtex...).
+% Used siunitx to format the numbers and set automatic alignment with uncertainty.
+% Changed the width of the figures to be a scale factor, so common chemical features are constant size for all compounds.
+% To make room for the new figures, I chagned the column to type `p`.
+% Used \ttfamily for the SMILES strings.
+% Used multicolumn to center the titles, even though the text is left aligned.
+% Added superscript annotation in another column.
+% Fixed casing so all compounds are lowercase unless started with a symbol or element.
+% Got rid of \tabcolsep
+% Aligned the table in auctex.
+
 \begingroup
 \squeezetable
 \begin{table*}
-\tabcolsep7.5pt
+%\tabcolsep7pt
 \caption{Proposed CB7 Set 1 benchmark data}
 \label{cb7_benchmark1}
-\begin{tabular}{@{}| c | c | c | c | c | c | c@{}}
-\hline
-ID$^{\rm a}$ & name & PC CID$^{\rm b}$ &  2D      & SMILES &  $\Delta G$$^{\rm c}$ \\\
-               &           &                   &               &        & ($kcal/mol$)                \\\hline
+\begin{tabular}{lllp{1.5cm}>{\ttfamily}lS[table-format=-1.2, table-figures-uncertainty=1]l}
+\toprule
+\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$} & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} & \\
+\midrule
 
-1 &	\tiny{Memantine}	& 4054 & \includegraphics[width=0.04\textwidth]{figures/4054.pdf} &	\tiny{CC12CC3CC(C1)(CC(C3)(C2)N)C} & $-5.99 \pm 0.05$ $^{\rm d}$ \\
-3 &	\tiny{1,3-Bis(trimethylaminio)adamantane}	& 101379195 & \includegraphics[width=0.04\textwidth]{figures/101379195.pdf}	& \tiny{C[N+](C)(C)C12CC3CC(C1)CC(C3)(C2)[N+](C)(C)C} & $-6.55 \pm 0.05$   $^{\rm d}$ \\
-5 &	\tiny{N-(1-Adamantyl)ethylenediamine} &	303798 & \includegraphics[width=0.04\textwidth]{figures/303798.pdf} &	\tiny{C1C2CC3CC1CC(C2)(C3)NCCN} & $-18.22 \pm 0.09 $  $^{\rm e}$ \\
-17 &	\tiny{Adamantane-1,3-diamine} &	213512 & \includegraphics[width=0.04\textwidth]{figures/213512.pdf} & 	\tiny{C1C2CC3(CC1CC(C2)(C3)N)N} & $-11.33 \pm 0.05 $   $^{\rm d}$ \\
-18 &	\tiny{1-Adamantanecarboxylic acid} &	13235 &	\includegraphics[width=0.04\textwidth]{figures/13235.pdf} & \tiny{C1C2CC3CC1CC(C2)(C3)C(=O)O} & $-11.59 \pm 0.06$  $^{\rm d}$ \\
-22 &	\tiny{1-Adamantyltrimethylaminium} &	3010127	& \includegraphics[width=0.04\textwidth]{figures/3010127.pdf} & \tiny{C[N+](C)(C)C12CC3CC(C1)CC(C3)C2} & $-16.66 \pm 0.08$  $^{\rm d}$ \\
-23 &	\tiny{amantadine} &	2130 &	\includegraphics[width=0.04\textwidth]{figures/2130.pdf} & \tiny{C1C2CC3CC1CC(C2)(C3)N} & $-17.19 \pm 0.08$  $^{\rm d}$ \\
-24 &	\tiny{N-(1-Adamantyl)pyridinium} &	3848257 & \includegraphics[width=0.04\textwidth]{figures/3848257.pdf} & 	\tiny{C1C2CC3CC1CC(C2)(C3)[N+]4=CC=CC=C4} & $-16.75 \pm 0.07$  $^{\rm d}$ \\
+1  & memantine                          & 4054      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/4054.pdf}}      & CC12CC3CC(C1)(CC(C3)(C2)N)C                  & -5.99 \pm 0.05  & \kern-1em {$^{\rm d}$}  \\
+3  & 1,3-Bis(trimethylaminio)adamantane	& 101379195 & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/101379195.pdf}} & C[N+](C)(C)C12CC3CC(C1)CC(C3)(C2)[N+](C)(C)C & -6.55 \pm 0.05  & \kern-1em {$^{\rm d}$}  \\
+5  & N-(1-Adamantyl)ethylenediamine     & 303798    & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/303798.pdf}}    & C1C2CC3CC1CC(C2)(C3)NCCN                     & -18.22 \pm 0.09 & \kern-1em {$^{\rm e}$}  \\
+17 & adamantane-1,3-diamine             & 213512    & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/213512.pdf}}    & C1C2CC3(CC1CC(C2)(C3)N)N                     & -11.33 \pm 0.05 & \kern-1em {$^{\rm d}$}  \\
+18 & 1-Adamantanecarboxylic acid        & 13235     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/13235.pdf}}     & C1C2CC3CC1CC(C2)(C3)C(=O)O                   & -11.59 \pm 0.06 & \kern-1em {$^{\rm d}$}  \\
+22 & 1-Adamantyltrimethylaminium        & 3010127   & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/3010127.pdf}}   & C[N+](C)(C)C12CC3CC(C1)CC(C3)C2              & -16.66 \pm 0.08 & \kern-1em {$^{\rm d}$}  \\
+23 & amantadine                         & 2130      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/2130.pdf}}      & C1C2CC3CC1CC(C2)(C3)N                        & -17.19 \pm 0.08 & \kern-1em {$^{\rm d}$}  \\
+24 & N-(1-Adamantyl)pyridinium          & 3848257   & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/3848257.pdf}}   & C1C2CC3CC1CC(C2)(C3)[N+]4=CC=CC=C4           & -16.75 \pm 0.07 & \kern-1em {$^{\rm d}$}  \\
 
-\hline
+\bottomrule
 \end{tabular}\\
+
 $^{\rm a}$ Compound ID from original paper; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy, where all measurements were done via NMR in 50mM sodium acetate buffer in $D_2O$ at pH 4.74 and 298 K. Uncertainties are obtained by taking the reported standard deviations across triplicate measurements~\cite{isaacs_personal_2016} and dividing by $\sqrt 3$;  $^{\rm d}$ drawn from~\cite{liu_cucurbituril_2005}; $^{\rm e}$ drawn from ~\cite{cao_attomolar_2014}.
 \end{table*}
 \endgroup
@@ -375,22 +392,19 @@ $^{\rm a}$ Compound ID from original paper; $^{\rm b}$ PubChem Compound ID; $^{\
 \tabcolsep7.5pt
 \caption{Proposed CB7 Set 2 benchmark data}
 \label{cb7_benchmark2}
-\begin{tabular}{@{}| c | c | c | c | c | c | c@{}}
-\hline
-ID$^{\rm a}$ & name & PC CID$^{\rm b}$   & 2D    & SMILES &  $\Delta G$$^{\rm c, d}$ \\\
-               &           &                   &                &          & ($kcal/mol$)                \\\hline
-
-2 &	Dopamine	 & 681 & \includegraphics[width=0.04\textwidth]{figures/681.pdf} &	C1=CC(=C(C=C1CCN)O)O & $-6.31 \pm 0.05$ \\
-4 &	O-phenylenediamine	 & 7243 & 	\includegraphics[width=0.04\textwidth]{figures/7243.pdf} & C1=CC=C(C(=C1)N)N & $-6.68 \pm 0.05$\\
-5 &	m-Phenylenediamine & 	7935	 & \includegraphics[width=0.04\textwidth]{figures/7935.pdf} & C1=CC(=CC(=C1)N)N &  $-6.69 \pm 0.02$\\
-7 &	4-(Aminomethyl)pyridine & 	77317 & \includegraphics[width=0.04\textwidth]{figures/77317.pdf} & 	C1=CN=CC=C1CN & $-7.56 \pm 0.06 $ \\
-8 &	p-Phenylenediamine	& 7814 & 	\includegraphics[width=0.04\textwidth]{figures/7814.pdf} & C1=CC(=CC=C1N)N & $-8.60 \pm 0.06 $ \\
-9 &	P-toluidine & 	7813	 & \includegraphics[width=0.04\textwidth]{figures/7813.pdf} & CC1=CC=C(C=C1)N & $-9.43 \pm 0.05 $ \\
-20 &	P-Xylylenediamine & 	68315 & 	\includegraphics[width=0.04\textwidth]{figures/68315.pdf} & C1=CC(=CC=C1CN)CN &  $-12.62 \pm 0.06$ \\
-
-
-\hline
-\end{tabular}\\
+\begin{tabular}{lllp{2cm}>{\ttfamily}lS[table-format=-1.2, table-figures-uncertainty=1]}
+\toprule
+\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$} & \multicolumn{1}{c}{2D}  & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm c,d}$ \,{(}kcal/mol{)}} \\
+\midrule
+2   & dopamine                 & 681       & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/681.pdf}}   & C1=CC(=C(C=C1CCN)O)O                 & -6.31 \pm 0.05                                            \\
+4   & o-phenylenediamine       & 7243      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7243.pdf}}  & C1=CC=C(C(=C1)N)N                    & -6.68 \pm 0.05                                            \\
+5   & m-phenylenediamine       & 7935      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7935.pdf}}  & C1=CC(=CC(=C1)N)N                    & -6.69 \pm 0.02                                            \\
+7   & 4-(Aminomethyl)pyridine  & 77317     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/77317.pdf}} & C1=CN=CC=C1CN                        & -7.56 \pm 0.06                                            \\
+8   & p-phenylenediamine       & 7814      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7814.pdf}}  & C1=CC(=CC=C1N)N                      & -8.60 \pm 0.06                                            \\
+9   & p-toluidine              & 7813      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7813.pdf}}  & CC1=CC=C(C=C1)N                      & -9.43 \pm 0.05                                            \\
+20  & p-xylylenediamine        & 68315     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/68315.pdf}} & C1=CC(=CC=C1CN)CN                    & -12.62 \pm 0.06                                           \\
+\bottomrule
+\end{tabular}                                                                                                                                                                                                                                                           \\
 $^{\rm a}$ Compound ID from original paper; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy, where all measurements were done via NMR in 50mM sodium acetate buffer in $D_2O$ at pH 4.74 and 298 K. Uncertainties are obtained by taking the reported standard deviations across triplicate measurements~\cite{isaacs_personal_2016} and dividing by $\sqrt 3$;  $^{\rm d}$ drawn from~\cite{liu_cucurbituril_2005}.
 \end{table*}
 \endgroup
@@ -417,7 +431,7 @@ Much of the experimental binding data comes from ITC, so binding enthalpies are 
 
 Two experimental aspects of binding are particularly intriguing and noteworthy. 
 First, the binding thermodynamics of OA is sensitive to the type and concentration of anions in solution. 
-Although NaCl produces relatively modest effects, 100mM sodium perchlorate, chlorate and isothiocyanate can shift binding enthalpies by up to about 10 kcal/mol and free energies by around 2 kcal/mol~\cite{gibb_anion_2011}. 
+Although NaCl produces relatively modest effects, 100 mM sodium perchlorate, chlorate and isothiocyanate can shift binding enthalpies by up to about 10 kcal/mol and free energies by around 2 kcal/mol~\cite{gibb_anion_2011}. 
 These effects are due in part to binding of anions by the host; indeed, trichloroacetate is reported to bind OA with a free energy of -5.2 kcal/mol~\cite{sokkalingam_binding_2016}, and competition of other guests with bound anions leads to entropy-enthalpy tradeoffs. 
 Second, elongated guests can generate ternary complexes, in which two OA hosts encapsulate one guest, especially if both ends of the guest are not very polar~\cite{gibb_guests_2009}.  
 
@@ -434,7 +448,7 @@ The TEMOA methyls groups can additionally hinder sampling of guest poses in the 
 As a consequence, it may be important to ensure their conformations are well sampled, though motions may be slow~\cite{mikulskis_free-energy_2014}. 
 Similarly, benzoic acid flips~\cite{yin_sampl5_2016, tofoleanu_absolute_2016} could potentially be an important challenge in some force fields.}
 
-\item{{\bf Water binding and unbinding:} Water appears to undergo slow motions into and out of the OA host, on timescales upwards of 5ns~\cite{ewell_water_2008}. 
+\item{{\bf Water binding and unbinding:} Water appears to undergo slow motions into and out of the OA host, on timescales upwards of 5 ns~\cite{ewell_water_2008}. 
 This poses significant challenges for some approaches, such as metadynamics, where deliberately restraining water to stay out of the cavity when the host is not bound (and computing the free energy of doing so) can help convergence~\cite{bhakat_resolving_2016}, and perhaps for other methods as well.}
 
 \item{{\bf Salt concentration and buffer conditions:} As in the case of CB7, binding to GDCCs is modulated by the composition of dissolved salts, both experimentally~\cite{gibb_anion_2011, sokkalingam_binding_2016} and computationally~\cite{pal_combined_2016, tofoleanu_absolute_2016}. As a consequence, to be valid, a comparison of calculation with experiment must adequately model the experimental salt conditions.
@@ -449,31 +463,31 @@ Thus, attention should be given to ionization states and their modulation by bin
 \begingroup
 \squeezetable
 \begin{table*}
-\tabcolsep7.5pt
+% \tabcolsep7.5pt
 \caption{Proposed GDCC Set 1 benchmark data}
 \label{gdcc_benchmark1}
-\begin{tabular}{@{}| c | c | c | c | c | c | c | @{}}
-\hline
-ID$^{\rm a}$ & name & PC CID$^{\rm b}$   & 2D    & SMILES &  $\Delta G$$^{\rm c}$ & $\Delta H$$^{\rm d}$ \\\
-               &           &                   &          &      & ($kcal/mol$)    &    ($kcal/mol$)         \\\hline
-\multicolumn{6}{|c|}{Octa Acid binders} \\\hline
-3 / OA-G1 &	\tiny{5-Hexynoic acid} &	 143036  & \includegraphics[width=0.04\textwidth]{figures/143036.pdf} & \tiny{C\#CCCCC(=O)O} & $-5.40 \pm 0.003$ & $-7.71 \pm 0.05$  \\
-4 / OA-G6 &	\tiny{3-nitrobenzoic acid} & 	8497 & \includegraphics[width=0.04\textwidth]{figures/8497.pdf} & \tiny{C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O} &  $-5.34 \pm 0.005$ &  $-5.67 \pm 0.01$ \\
-5 / OA-G2	& \tiny{4-cyanobenzoic acid} &	12087 & \includegraphics[width=0.04\textwidth]{figures/12087.pdf} & \tiny{C1=CC(=CC=C1C\#N)C(=O)O} & $-4.73 \pm 0.01$ & $-4.45 \pm 0.08 $ \\
-6 / OA-G4	& \tiny{4-bromoadamantane-1-carboxylic acid} & 12598766 & \includegraphics[width=0.04\textwidth]{figures/12598766.pdf} &  \tiny{C1C2CC3CC(C2)(CC1C3Br)C(=O)O} & $-9.37 \pm 0.01$  & $-14.78 \pm 0.02$ \\  
-7 /  OA-G3 &	\tiny{N,N,N-trimethylhexan-1-aminium} &	84774 & \includegraphics[width=0.04\textwidth]{figures/84774.pdf} &  \tiny{CCCCCC[N+](C)(C)C} & $-4.49 \pm 0.01 $ & $-5.91 \pm 0.10$ \\ 
-8 / OA-G5	 & \tiny{trimethylphenethylaminium} &	14108 & \includegraphics[width=0.04\textwidth]{figures/14108.pdf} &  \tiny{C[N+](C)(C)CCC1=CC=CC=C1} &  $-3.72 \pm 0.01$ & $-9.96 \pm 0.11$ \\
-\hline
-\multicolumn{6}{|c|}{TEMOA/OAMe binders} \\\hline
-3 / OA-G1 &	\tiny{5-Hexynoic acid} &	 143036  & \includegraphics[width=0.04\textwidth]{figures/143036.pdf} &  \tiny{C\#CCCCC(=O)O} & $-5.476 \pm 0.006$ & $-9.961 \pm 0.006$  \\
-4 / OA-G6 &	\tiny{3-nitrobenzoic acid} & 	8497 & \includegraphics[width=0.04\textwidth]{figures/8497.pdf} &  \tiny{C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O} &  $-4.52 \pm 0.02$ &  $-9.1 \pm 0.1$ \\
-5 / OA-G2	& \tiny{4-cyanobenzoic acid} &	12087 & \includegraphics[width=0.04\textwidth]{figures/12087.pdf} &  \tiny{C1=CC(=CC=C1C\#N)C(=O)O} & $-5.26 \pm 0.01$ & $-7.6 \pm 0.1 $ \\
-6 / OA-G4	& \tiny{4-bromoadamantane-1-carboxylic acid} & 12598766 & \includegraphics[width=0.04\textwidth]{figures/12598766.pdf} &  \tiny{C1C2CC3CC(C2)(CC1C3Br)C(=O)O} & ND$^{\rm e}$  & ND$^{\rm e}$ \\  
-7 /  OA-G3 &	\tiny{N,N,N-trimethylhexan-1-aminium} &	84774 & \includegraphics[width=0.04\textwidth]{figures/84774.pdf} & \tiny{CCCCCC[N+](C)(C)C} & $-5.73 \pm 0.06 $ & $-6.62 \pm 0.2$ \\ 
-8 / OA-G5	 & \tiny{trimethylphenethylaminium} &	14108 & \includegraphics[width=0.04\textwidth]{figures/14108.pdf} & \tiny{C[N+](C)(C)CCC1=CC=CC=C1} & ND$^{\rm e}$ & ND$^{\rm e}$ \\
-
-
-\hline
+\begin{tabular}{lllp{1.5cm}>{\ttfamily}lS[table-format=-1.3, table-figures-uncertainty=1]S[table-format=-1.2, table-figures-uncertainty=1]}
+\toprule
+\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$}  & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{$\Delta H^{\rm d}$ \,{(}kcal/mol{)}} \\
+\midrule
+\multicolumn{7}{c}{Octa Acid binders} \\ 
+\midrule                                                                                                                                                        
+3 / OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.40 \pm 0.003    & -7.71 \pm 0.05     \\
+4 / OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -5.34 \pm 0.005    & -5.67 \pm 0.01     \\
+5 / OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -4.73 \pm 0.01     & -4.45 \pm 0.08     \\
+6 / OA-G4    & 4-bromoadamantane-1-carboxylic acid & 12598766         & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12598766.pdf}} & C1C2CC3CC(C2)(CC1C3Br)C(=O)O       & -9.37 \pm 0.01     & -14.78 \pm 0.02    \\  
+7 / OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -4.49 \pm 0.01     & -5.91 \pm 0.10     \\ 
+8 / OA-G5    & trimethylphenethylaminium           & 14108            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/14108.pdf}}    & C[N+](C)(C)CCC1=CC=CC=C1           & -3.72 \pm 0.01     & -9.96 \pm 0.11     \\
+\midrule
+\multicolumn{7}{c}{TEMOA/OAMe binders} \\ 
+\midrule
+3 / OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.476 \pm 0.006   & -9.961 \pm 0.006   \\
+4 / OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -4.52 \pm 0.02     & -9.1 \pm 0.1       \\
+5 / OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -5.26 \pm 0.01     & -7.6 \pm 0.1       \\
+6 / OA-G4    & 4-bromoadamantane-1-carboxylic acid & 12598766         & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12598766.pdf}} & C1C2CC3CC(C2)(CC1C3Br)C(=O)O       & {ND$^{\rm e}$}       & {ND$^{\rm e}$}      \\  
+7 / OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -5.73 \pm 0.06     & -6.62 \pm 0.2      \\ 
+8 / OA-G5    & trimethylphenethylaminium           & 14108            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/14108.pdf}}    & C[N+](C)(C)CCC1=CC=CC=C1           & {ND$^{\rm e}$}       & {ND$^{\rm e}$}      \\
+\bottomrule
 \end{tabular}\\
 $^{\rm a}$ Compound ID from ~\cite{sullivan_binding_2016} and SAMPL5 ID from ~\cite{yin_sampl5_preprint}; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from~\cite{sullivan_binding_2016}, where all measurements were done via ITC in 50 mM sodium phosphate buffer at pH 11.5 and 298 K. Uncertainties, drawn from the experimental paper, were computed from triplicate measurements taken with freshly made solutions of host and guest. However, based on personal communication with the authors, it may be advisable to regard the accuracy more conservatively, at $\sim$2\% for $\Delta$G and $\sim$6\% for $\Delta$H;  $^{\rm d}$ measured binding enthalpy~\cite{sullivan_binding_2016}, subject to the same conditions/caveats as $^{\rm c}$. $^{\rm e}$ not done.
 \end{table*}
@@ -482,23 +496,21 @@ $^{\rm a}$ Compound ID from ~\cite{sullivan_binding_2016} and SAMPL5 ID from ~\c
 \begingroup
 \squeezetable
 \begin{table*}
-\tabcolsep7.5pt
+% \tabcolsep7.5pt
 \caption{Proposed GDCC Set 2 benchmark data}
 \label{gdcc_benchmark2}
-\begin{tabular}{@{}| c | c | c | c | c | c | c | @{}}
-\hline
-ID$^{\rm a}$ & name & PC CID$^{\rm b}$  & 2D    & SMILES &  Method & $\Delta G$$^{\rm c}$  \\\
-               &           &                   &            &          &                               & ($kcal/mol$)       \\\hline
-1 & 	\tiny{Benzoic acid} & 	243	& \includegraphics[width=0.04\textwidth]{figures/243.pdf} &  \tiny{C1=CC=C(C=C1)C(=O)O} & 	NMR & $-3.72 \pm 0.03$ \\
-2 & 	\tiny{4-Methylbenzoic acid} & 	7470 & \includegraphics[width=0.04\textwidth]{figures/7470.pdf} & 	\tiny{CC1=CC=C(C=C1)C(=O)O} & 	NMR & $-5.85 \pm 0.06$ \\
-3 & 	\tiny{4-ethylbenzoic acid} & 	12086 & \includegraphics[width=0.04\textwidth]{figures/12086.pdf} & 	\tiny{CCC1=CC=C(C=C1)C(=O)O} & 	ITC & $-6.27 \pm 0.01$ \\
-4 & 	\tiny{4-Chlorobenzoic acid} & 	6318	 & \includegraphics[width=0.04\textwidth]{figures/6318.pdf} &  \tiny{C1=CC(=CC=C1C(=O)O)Cl}	& ITC & $-6.72 \pm 0.01$ \\
-5 & 	\tiny{3-chlorobenzoic acid}	 & 447 & \includegraphics[width=0.04\textwidth]{figures/447.pdf} &	\tiny{C1=CC(=CC(=C1)Cl)C(=O)O}	& NMR & $ -5.24 \pm 0.02 $ \\
-6 & 	\tiny{cyclohexanecarboxylic acid} & 	7413 &  \includegraphics[width=0.04\textwidth]{figures/7413.pdf} & 	\tiny{C1CCC(CC1)C(=O)O} & 	NMR  & $-5.62 \pm 0.04$  \\
-7 & 	\tiny{trans-4-Methylcyclohexanecarboxylic acid}	 & 20330 & \includegraphics[width=0.04\textwidth]{figures/20330.pdf} & 	\tiny{[C@@H]1(CC[C@@H](CC1)C(=O)O[H])C} & 	ITC & $-7.61 \pm 0.04$ \\
-
-
-\hline
+\begin{tabular}{lllp{2cm}>{\ttfamily}llS[table-format=-1.2, table-figures-uncertainty=1]}
+\toprule
+\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$} & \multicolumn{1}{c}{2D}  & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{Method} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} \\
+\midrule
+1            & benzoic acid                             & 243              & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/243.pdf}}   & C1=CC=C(C=C1)C(=O)O              & NMR    & -3.72 \pm 0.03     \\
+2            & 4-methylbenzoic acid                     & 7470             & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7470.pdf}}  & CC1=CC=C(C=C1)C(=O)O             & NMR    & -5.85 \pm 0.06     \\
+3            & 4-ethylbenzoic acid                      & 12086            & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/12086.pdf}} & CCC1=CC=C(C=C1)C(=O)O            & ITC    & -6.27 \pm 0.01     \\
+4            & 4-chlorobenzoic acid                     & 6318             & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/6318.pdf}}  & C1=CC(=CC=C1C(=O)O)Cl            & ITC    & -6.72 \pm 0.01     \\
+5            & 3-chlorobenzoic acid                     & 447              & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/447.pdf}}   & C1=CC(=CC(=C1)Cl)C(=O)O          & NMR    &  -5.24 \pm 0.02    \\
+6            & cyclohexanecarboxylic acid               & 7413             & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7413.pdf}}  & C1CCC(CC1)C(=O)O                 & NMR    & -5.62 \pm 0.04     \\
+7            & trans-4-methylcyclohexanecarboxylic acid & 20330            & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/20330.pdf}} & [C@@H]1(CC[C@@H](CC1)C(=O)O[H])C & ITC    & -7.61 \pm 0.04     \\
+\bottomrule
 \end{tabular}\\
 $^{\rm a}$ Compound ID from original paper ~\cite{gibb_binding_2013}; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from ~\cite{gibb_binding_2013}, where all measurements were done in 10 mM sodium tetraborate buffer at pH 9.2 and 298 K. A quirk is that for the NMR measurements, the guest was titrated in from 50 mM sodium tetraborate buffer, so the buffer concentration changed during the titration. Uncertainty is the standard error of the mean in free energy, computed from the reported standard deviations in $K_a$. Again, based on personal communication with the authors, uncertainties of perhaps 10\% may be more appropriate.
 \end{table*}
@@ -526,7 +538,7 @@ Thus, there are uncertainties as to the host protonation state~\cite{muddana_sam
 %The challenges of system definition and conformational sampling appear to be greater for OA and TEMOA than for CB7, , so evidence of force field limitations, if present, is not yet as clear. There have been some comparisons of charge~\cite{mikulskis_free-energy_2014, muddana_sampl4_2014, monroe_converging_2014} and water models~\cite{yin_sampl5_2016}, but differences so far seem mostly inconclusive or at least not that large. Similarly, OPLS and GAFF results did not appear dramatically different in accuracy~\cite{bhakat_resolving_2016} 
 %The above paragraph could be cut for space if we need
 
-Several groups used different methods but the same force field and water model in SAMPL5, with rather varied levels of success because of discrepancies in calculated free energies~\cite{yin_sampl5_preprint, bosisio_blinded_2016, bhakat_resolving_2016}). 
+Several groups used different methods but the same force field and water model in SAMPL5, with rather varied levels of success because of discrepancies in calculated free energies~\cite{yin_sampl5_preprint, bosisio_blinded_2016, bhakat_resolving_2016}. 
 However, some of these issues were resolved in follow-up work~\cite{bhakat_resolving_2016}, bringing the methods into fairly good agreement for the majority of cases~\cite{yin_sampl5_2016, bosisio_blinded_2016}.
 
 \subsection{Protein-ligand benchmarks: the T4 lysozyme model binding sites}
@@ -543,16 +555,16 @@ These two binding sites, called L99A~\cite{morton_energetic_1995, morton_specifi
 As protein-ligand systems, they introduce additional complexities beyond those observed in host-guest systems, yet they share some of the same simplicity.
 The ligands are generally small, neutral, and relatively rigid, with clear protonation states.
 In many cases, substantial protein motions are absent, allowing calculated binding free energies to apparently converge relatively easily. 
-However, like host-guest systems, these binding sites are still surprisingly challenging~\cite{mobley_use_2006, mobley_confine_2007, mobley_predicting_2007, boyce_predicting_2009, jiang_free_2010, gallicchio_binding_2010, lim_sensitivity_2016}. In addition, precise convergence is sometimes difficult to achieve, and it is in all cases essentially impossible to fully verify.  As a consequence, these are "soft benchmarks" as defined above (Section~\ref{subsec:benchmarktypes}).
+However, like host-guest systems, these binding sites are still surprisingly challenging~\cite{mobley_use_2006, mobley_confine_2007, mobley_predicting_2007, boyce_predicting_2009, jiang_free_2010, gallicchio_binding_2010, lim_sensitivity_2016}. In addition, precise convergence is sometimes difficult to achieve, and it is in all cases essentially impossible to fully verify.  As a consequence, these are ``soft benchmarks" as defined above (Section~\ref{subsec:benchmarktypes}).
 The importance of the lysozyme model sites is also driven by the relative wealth of experimental data. 
 It is relatively easy to identify new ligands and obtain high quality crystal structures and affinity measurements, allowing two different rounds of blind predictions testing free energy calculations~\cite{mobley_predicting_2007, boyce_predicting_2009}. 
 
 
 \subsubsection{The apolar and polar cavities and their ligands}
-The L99A site is also called the ``apolar'' cavity. It is relatively flat and elongated, and binds mostly nonpolar molecules such as benzene, toluene, p-xylene, and n-butylbenzene: basically, a fairly broad range of nonpola,r planar five- and six-membered rings and ring systems (such as indole).
+The L99A site is also called the ``apolar'' cavity. It is relatively flat and elongated, and binds mostly nonpolar molecules such as benzene, toluene, p-xylene, and n-butylbenzene: basically, a fairly broad range of nonpolar planar five- and six-membered rings and ring systems (such as indole).
 The polar version, L99A/M102Q, introduces an additional point mutation along one edge of the binding site, providing a glutamine that introduces polarity and the potential for hydrogen bonding. 
 It still binds a variety of nonpolar ligands such as toluene (though not benzene). 
-One small downside of these binding sites is that the range of affinities is relatively narrow: about -4.5 to -6.7 kcal/mol in the apolar site~\cite{morton_energetic_1995, mobley_predicting_2007}, and about -4 to -5.5 kcal/mol in the polar site~\cite{boyce_predicting_2009}). Thus, even the strongest binders are not particularly strong, and the weakest binders tend to run up against their solubility limits. 
+One small downside of these binding sites is that the range of affinities is relatively narrow: about -4.5 to -6.7 kcal/mol in the apolar site~\cite{morton_energetic_1995, mobley_predicting_2007}, and about -4 to -5.5 kcal/mol in the polar site~\cite{boyce_predicting_2009}. Thus, even the strongest binders are not particularly strong, and the weakest binders tend to run up against their solubility limits. 
 Still, these sites offer immensely useful tests for free energy calculations.
 
 For both sites, fixed charge force fields seem to yield reasonably accurate free energies, with RMS errors between 1-2 kcal/mol, and some level of correlation with experiment, despite limited dynamic range~\cite{deng_calculation_2006, mobley_predicting_2007, boyce_predicting_2009, gallicchio_binding_2010, wang_identifying_2013}. 
@@ -593,21 +605,20 @@ Because of the extent of the sampling challenges in lysozyme, binding of most li
 \caption{Proposed Lysozyme L99A Set benchmark data}
 \label{apolar_benchmark}
 \begin{center}
-\begin{tabular}{@{}| c | c | c | c | c | c | c | c@{}}
-\hline
-name & PC CID$^{\rm h}$ & 2D &  SMILES & $\Delta G$$^{\rm a}$ & PDB code & reference\\\
-           &     &        &    & ($kcal/mol$) &                  &                 \\\hline
-
-benzene$^{\rm b}$ &  241 &  \includegraphics[width=0.03\textwidth]{figures/241.pdf} & c1ccccc1 & $-5.19\pm0.16$  &  181L~\cite{morton_specificity_1995}, 4W52~\cite{merski_homologous_2015}  &   \cite{morton_energetic_1995}\\   %PNAS series; 
-toluene$^{\rm b}$  &  1140  & \includegraphics[width=0.04\textwidth]{figures/1140.pdf} & Cc1ccccc1 & $-5.52\pm0.04$ &   4W53~\cite{merski_homologous_2015}                                                              &  \cite{morton_energetic_1995}\\   %PNAS series
-ethylbenzene$^{\rm b}$ & 7500 &  \includegraphics[width=0.04\textwidth]{figures/7500.pdf} & CCc1ccccc1 & $-5.76\pm0.07$  &   1NHB~\cite{morton_specificity_1995}, 4W54~\cite{merski_homologous_2015} & \cite{morton_energetic_1995} \\ %PNAS series
-propylbenzene$^{\rm b}$ & 7668 & \includegraphics[width=0.04\textwidth]{figures/7668.pdf} & CCCc1ccccc1 & $-6.55\pm0.02$  &  4W55~\cite{merski_homologous_2015}  &  \cite{morton_energetic_1995} \\ %#PNAS series
-butylbenzene$^{\rm b}$ &  7705 & \includegraphics[width=0.04\textwidth]{figures/7705.pdf} & CCCCc1ccccc1 &  $-6.70\pm0.02$ &  186L~\cite{morton_specificity_1995}, 4W57~\cite{merski_homologous_2015}  &   \cite{morton_energetic_1995} \\%PNAS series
-hexylbenzene$^{\rm b}$ & 14109 & \includegraphics[width=0.04\textwidth]{figures/14109.pdf} & CCCCCCc1ccccc1 & UNK$^{\rm c}$   &    4W59~\cite{merski_homologous_2015}  &   \cite{morton_energetic_1995} \\%PNAS series
-\emph{p}-xylene$^{\rm d}$ & 7809 &  \includegraphics[width=0.04\textwidth]{figures/7809.pdf} & Cc1ccc(cc1)C  & $-4.67\pm0.06$  &   187L~\cite{morton_specificity_1995}  &  \cite{morton_energetic_1995} \\%Conformational change L99A
-benzofuran & 9223  & \includegraphics[width=0.04\textwidth]{figures/9223.pdf} & c1ccc2c(c1)cco2  &  $-5.46\pm0.03$ & 182L~\cite{morton_specificity_1995} & \cite{morton_energetic_1995}\\
-thieno[2,3-c]pyridine & 9224 & \includegraphics[width=0.04\textwidth]{figures/9224.pdf} & c1cncc2c1ccs2 & NB$^{\rm e}$ &  ND$^{\rm f}$ & \cite{mobley_predicting_2007} \\        %Isosteric with ligands
-phenol$^{\rm g}$ & 996 & \includegraphics[width=0.04\textwidth]{figures/996.pdf} & c1ccc(cc1)O & NB$^{\rm e}$  & ND$^{\rm f}$ & \cite{morton_energetic_1995, mobley_predicting_2007} \\%Isosteric with ligands; binds in polar site (included for symmetry)
+\begin{tabular}{llp{2cm}>{\ttfamily}lS[table-format=-1.2, table-figures-uncertainty=1]ll}
+\toprule
+\multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm h}$}  & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm a}$ \,{(}kcal/mol{)}}               & \multicolumn{1}{c}{PDB code} & \multicolumn{1}{c}{reference} \\
+\midrule
+benzene$^{\rm b}$                & 241                      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/241.pdf}}   & c1ccccc1               & -5.19\pm0.16                       & 181L~\cite{morton_specificity_1995}, 4W52~\cite{merski_homologous_2015} & \cite{morton_energetic_1995}                                 \\   %PNAS series; 
+toluene$^{\rm b}$                & 1140                     &  \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/1140.pdf}}  & Cc1ccccc1              & -5.52\pm0.04                       & 4W53~\cite{merski_homologous_2015}                                      & \cite{morton_energetic_1995}                                 \\   %PNAS series
+ethylbenzene$^{\rm b}$           & 7500                     &  \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7500.pdf}}  & CCc1ccccc1             & -5.76\pm0.07                       & 1NHB~\cite{morton_specificity_1995}, 4W54~\cite{merski_homologous_2015} & \cite{morton_energetic_1995}                                 \\ %PNAS series
+propylbenzene$^{\rm b}$          & 7668                     &  \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7668.pdf}}  & CCCc1ccccc1            & -6.55\pm0.02                       & 4W55~\cite{merski_homologous_2015}                                      & \cite{morton_energetic_1995}                                 \\ %#PNAS series
+butylbenzene$^{\rm b}$           & 7705                     &  \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7705.pdf}}  & CCCCc1ccccc1           & -6.70\pm0.02                       & 186L~\cite{morton_specificity_1995}, 4W57~\cite{merski_homologous_2015} & \cite{morton_energetic_1995}                                 \\%PNAS series
+hexylbenzene$^{\rm b}$           & 14109                    &  \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/14109.pdf}} & CCCCCCc1ccccc1         & {UNK$^{\rm c}$}                       & 4W59~\cite{merski_homologous_2015}                                      & \cite{morton_energetic_1995}                                 \\%PNAS series
+\emph{p}-xylene$^{\rm d}$        & 7809                     &  \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7809.pdf}}  & Cc1ccc(cc1)C           & -4.67\pm0.06                       & 187L~\cite{morton_specificity_1995}                                     & \cite{morton_energetic_1995}                                 \\%Conformational change L99A
+benzofuran                       & 9223                    &  \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/9223.pdf}}  & c1ccc2c(c1)cco2        & -5.46\pm0.03                       & 182L~\cite{morton_specificity_1995}                                     & \cite{morton_energetic_1995}                                 \\
+thieno[2,3-c]pyridine            & 9224                    &  \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/9224.pdf}}  & c1cncc2c1ccs2          & {NB$^{\rm e}$}                         & ND$^{\rm f}$                                                            & \cite{mobley_predicting_2007}                                \\        %Isosteric with ligands
+phenol$^{\rm g}$                 & 996                      &  \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/996.pdf}}   & c1ccc(cc1)O            & {NB$^{\rm e}$}                         & ND$^{\rm f}$                                                            & \cite{morton_energetic_1995, mobley_predicting_2007}         \\%Isosteric with ligands; binds in polar site (included for symmetry)
 
 \hline
 \end{tabular}\\
@@ -619,27 +630,26 @@ $^{\rm a}$T=302K, with compounds from \cite{morton_energetic_1995} measured in 5
 \begingroup
 \squeezetable
 \begin{table*}
-\tabcolsep7.5pt
+% \tabcolsep7.5pt
 \caption{Proposed Lysozyme L99A/M102Q Set benchmark data}
 \label{polar_benchmark}
 \begin{center}
-\begin{tabular}{@{}| c | c | c | c | c | c | c | c@{}}
-\hline
-ligand & PC CID$^{\rm k}$ & 2D & SMILES & $\Delta G$$^{\rm a}$ & PDB code & reference\\\
-           &      &         &  & ($kcal/mol$) &                  &                 \\\hline
-
-toluene$^{\rm b}$ & 1140 & \includegraphics[width=0.04\textwidth]{figures/1140.pdf} &  Cc1ccccc1 & $-4.93$ &  ND$^{\rm c}$ &  \cite{wei_model_2002}\\ %included for symmetry with L99A site
-phenol & 996 & \includegraphics[width=0.04\textwidth]{figures/996.pdf} & c1ccc(cc1)O  & $-5.24$ &  1LI2~\cite{wei_model_2002} &  \cite{wei_model_2002}\\ % relative set we did
-catechol$^{\rm h}$ & 289 & \includegraphics[width=0.04\textwidth]{figures/289.pdf} &  c1ccc(c(c1)O)O & $-4.16\pm0.03$  & 1XEP~\cite{graves_decoys_2005} & \cite{wei_model_2002}\\ % relative set we did
-2-ethoxyphenol$^{\rm d}$ & 66755 & \includegraphics[width=0.04\textwidth]{figures/66755.pdf} &CCOc1ccccc1O & $-4.02\pm0.03$ & 3HU8~\cite{boyce_predicting_2009} & \cite{boyce_predicting_2009} \\% relative set we did
-benzyl acetate$^{\rm e, f}$ & 8785 & \includegraphics[width=0.04\textwidth]{figures/8785.pdf} & CC(=O)OCc1ccccc1 & $-4.48\pm0.16$ & 3HUK~\cite{boyce_predicting_2009} & \cite{boyce_predicting_2009} \\ %induces helix motions
-4,5,6,7-tetrahydroindole$^{\rm f}$ & 57452536 &  \includegraphics[width=0.04\textwidth]{figures/57452536.pdf} & c1c[nH]c2c1CCCC2 & $-4.61\pm0.09$ & 3HUA~\cite{boyce_predicting_2009} &  \cite{boyce_predicting_2009} \\ % induces helix motion
-n-phenylglycinonitrile$^{\rm g}$ & 76372 & \includegraphics[width=0.04\textwidth]{figures/76372.pdf} & c1ccccc1NCC\#N & $-5.52\pm0.18$ & 2RBO~\cite{boyce_predicting_2009} &  \cite{boyce_predicting_2009} \\ 
-3-chlorophenol & 7933 & \includegraphics[width=0.04\textwidth]{figures/7933.pdf} & c1cc(cc(c1)Cl)O & $-5.51$ & 1LI3~\cite{wei_model_2002} & \cite{wei_model_2002} \\ 
-2-methoxyphenol & 460 & \includegraphics[width=0.04\textwidth]{figures/460.pdf} & COc1ccccc1O & NB$^{\rm i}$ & ND$^{\rm c}$ & \cite{boyce_predicting_2009} \\ % relative set
-4-vinylpyridine & 7502 & \includegraphics[width=0.025\textwidth]{figures/7502.pdf} & C=Cc1ccncc1 & NB$^{\rm i}$ & ND$^{\rm c}$ & \cite{wei_model_2002} \\ 
-\hline
-\end{tabular}\\
+\begin{tabular}{llp{2cm}>{\ttfamily}lS[table-format=-1.2, table-figures-uncertainty=1]ll}
+\toprule
+\multicolumn{1}{c}{ligand}         & \multicolumn{1}{c}{PC CID$^{\rm k}$} & \multicolumn{1}{c}{2D}                                             & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm a}$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{PDB code}      & \multicolumn{1}{c}{reference} \\
+\midrule
+toluene$^{\rm b}$                  & 1140                                 & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/1140.pdf}}     & Cc1ccccc1                            & -4.93                                                   & ND$^{\rm c}$                      & \cite{wei_model_2002}         \\ %included for symmetry with L99A site
+phenol                             & 996                                & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/996.pdf}}      & c1ccc(cc1)O                          & -5.24                                                   & 1LI2~\cite{wei_model_2002}        & \cite{wei_model_2002}         \\ % relative set we did
+catechol$^{\rm h}$                 & 289                                  & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/289.pdf}}      & c1ccc(c(c1)O)O                       & -4.16\pm0.03                                            & 1XEP~\cite{graves_decoys_2005}    & \cite{wei_model_2002}         \\ % relative set we did
+2-ethoxyphenol$^{\rm d}$           & 66755                                & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/66755.pdf}}    & CCOc1ccccc1O                         & -4.02\pm0.03                                            & 3HU8~\cite{boyce_predicting_2009} & \cite{boyce_predicting_2009}  \\% relative set we did
+benzyl acetate$^{\rm e, f}$        & 8785                                 & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8785.pdf}}     & CC(=O)OCc1ccccc1                     & -4.48\pm0.16                                            & 3HUK~\cite{boyce_predicting_2009} & \cite{boyce_predicting_2009}  \\ %induces helix motions
+4,5,6,7-tetrahydroindole$^{\rm f}$ & 57452536                             & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/57452536.pdf}} & c1c[nH]c2c1CCCC2                     & -4.61\pm0.09                                            & 3HUA~\cite{boyce_predicting_2009} & \cite{boyce_predicting_2009}  \\ % induces helix motion
+n-phenylglycinonitrile$^{\rm g}$   & 76372                                & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/76372.pdf}}    & c1ccccc1NCC\#N                       & -5.52\pm0.18                                            & 2RBO~\cite{boyce_predicting_2009} & \cite{boyce_predicting_2009}  \\ 
+3-chlorophenol                     & 7933                                 & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7933.pdf}}     & c1cc(cc(c1)Cl)O                      & -5.51                                                   & 1LI3~\cite{wei_model_2002}        & \cite{wei_model_2002}         \\ 
+2-methoxyphenol                    & 460                                  & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/460.pdf}}      & COc1ccccc1O                          & {NB$^{\rm i}$}                                          & ND$^{\rm c}$                      & \cite{boyce_predicting_2009}  \\ % relative set
+4-vinylpyridine                    & 7502                                 & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7502.pdf}}     & C=Cc1ccncc1                          & {NB$^{\rm i}$}                                          & ND$^{\rm c}$                      & \cite{wei_model_2002}         \\ 
+\bottomrule
+\end{tabular}                                                                                                                                                                                                                                                                                                       \\
 \end{center}
 $^{\rm a}$T=283K, with measurements done at pH 6.8 in 50 mM potassium phosphate, 200 mM potassium chloride buffer in the case of \cite{boyce_predicting_2009}; $^{\rm b}$ included for symmetry with the L99A site since this (unlike phenol and benzene) binds in both; $^{\rm c}$ not determined; $^{\rm d}$ fails to make crystallographic hydrogen bond~\cite{boyce_predicting_2009}; $^{\rm e}$ multiple binding modes; $^{\rm f}$ induces helix F motion; $^{\rm g}$ induces flip of Val111 sidechain; $^{\rm h}$ induces flip of Leu118 sidechain; $^{\rm j}$ nonbinder; $^{\rm k}$ PubChem compound ID.
 \end{table*}
