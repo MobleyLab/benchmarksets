@@ -1,6 +1,6 @@
 # Benchmark sets for free energy calculations
 
-This repository relates to the *[perpetual review](https://arxiv.org/abs/1502.01329)* paper called "Predicting binding free energies: Frontiers and benchmarks" by David L. Mobley and Michael Gilson. Its focus is benchmark sets for binding free energy calculations, including the perpetual review paper, but also all things relating to benchmark sets for free energy calculations. This includes discussion, datasets, and standards for datasets and data deposition.
+This repository relates to the *[perpetual review](https://arxiv.org/abs/1502.01329)* paper called "[Predicting binding free energies: Frontiers and benchmarks](http://biorxiv.org/content/early/2016/09/11/074625)" by David L. Mobley and Michael Gilson. Its focus is benchmark sets for binding free energy calculations, including the perpetual review paper, but also all things relating to benchmark sets for free energy calculations. This includes discussion, datasets, and standards for datasets and data deposition.
 
 ## The paper
 
