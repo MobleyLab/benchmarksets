@@ -2,6 +2,9 @@
 
 This repository relates to the *[perpetual review](https://arxiv.org/abs/1502.01329)* paper called "[Predicting binding free energies: Frontiers and benchmarks](http://biorxiv.org/content/early/2016/09/11/074625)" by David L. Mobley and Michael Gilson. Its focus is benchmark sets for binding free energy calculations, including the perpetual review paper, but also all things relating to benchmark sets for free energy calculations. This includes discussion, datasets, and standards for datasets and data deposition.
 
+All versions -- current and prior -- are available via Zenodo DOIs, with the latest version at this DOI: [![DOI](https://zenodo.org/badge/67898475.svg)](https://zenodo.org/badge/latestdoi/67898475)
+
+
 ## The paper
 
 The paper was just submitted (Sept. 10, 2016) to [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625) and Annual Reviews in Biophysics. Its source files are deposited here, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
@@ -61,6 +64,7 @@ We also welcome contributions to the material which is already here to extend it
 
 ## Versions
 - [v1.0](https://github.com/MobleyLab/benchmarksets/releases/tag/v1.0): As posted to bioRxiv 
+- v1.0.1 [10.5281/zenodo.155330](https://doi.org/10.5281/zenodo.15533): Incorporating improved tables and typo fixes fro D. Slochower; also, versions now have unique DOIs via Zenodo.
 
 ## Manifest
 
