@@ -60,7 +60,7 @@ We also welcome contributions to the material which is already here to extend it
 
 ## Contributors
 - David Slochower (UCSD): Grammar corrections and improved table formatting
-
+- Nascimento (in a comment on biorxiv): Highlighted PDB code error for n-phenylglycinonitrile
 
 ## Versions
 - [v1.0](https://github.com/MobleyLab/benchmarksets/releases/tag/v1.0): As posted to bioRxiv 
