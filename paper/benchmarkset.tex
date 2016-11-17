@@ -523,8 +523,9 @@ Even the host protonation state may be unclear; while OA is often assumed to hav
 Thus, there are uncertainties as to the host protonation state~\cite{muddana_sampl4_2014, ewell_water_2008}, which perhaps also could be modulated by guest binding.  
 
 %FORCE FIELD, etc.:
-%The challenges of system definition and conformational sampling appear to be greater for OA and TEMOA than for CB7, , so evidence of force field limitations, if present, is not yet as clear. There have been some comparisons of charge~\cite{mikulskis_free-energy_2014, muddana_sampl4_2014, monroe_converging_2014} and water models~\cite{yin_sampl5_2016}, but differences so far seem mostly inconclusive or at least not that large. Similarly, OPLS and GAFF results did not appear dramatically different in accuracy~\cite{bhakat_resolving_2016} 
-%The above paragraph could be cut for space if we need
+The challenges of system definition and conformational sampling appear to be greater for OA and TEMOA than for CB7, as discussed above, so evidence of force field limitations, if present, is not yet as clear. 
+There have been some comparisons of charge~\cite{mikulskis_free-energy_2014, muddana_sampl4_2014, monroe_converging_2014} and water models~\cite{yin_sampl5_2016}, but differences so far seem mostly inconclusive or at least not that large. 
+Similarly, OPLS and GAFF results did not appear dramatically different in accuracy~\cite{bhakat_resolving_2016} 
 
 Several groups used different methods but the same force field and water model in SAMPL5, with rather varied levels of success because of discrepancies in calculated free energies~\cite{yin_overview_2016, bosisio_blinded_2016, bhakat_resolving_2016}. 
 However, some of these issues were resolved in follow-up work~\cite{bhakat_resolving_2016}, bringing the methods into fairly good agreement for the majority of cases~\cite{yin_sampl5_2016, bosisio_blinded_2016}.
@@ -668,8 +669,8 @@ However, recent work noted above highlighted how a helix in the apolar cavity ca
 Timescales for this motion appear to be on the order of 50 ns, so it can pose sampling challenges, even for relative free energy calculations~\cite{lim_sensitivity_2016}. 
 Including part of the protein in the enhanced sampling region via REST2 provides some benefits, but sampling these motions will likely prove a valuable test for enhanced sampling methods.
 
-%This paragraph could be cut for space since it's speculative:
-%Potentially, water sampling could also be a challenge in the polar binding site, as phenol binds with one ordered water~\cite{wei_model_2002} but to our knowledge, timescales for water sampling have not yet been examined, other than noting that water does not enter the polar binding site as ligands are removed~\cite{boyce_predicting_2009}. The apolar cavity is dry both with ligands present and with empty, so water sampling in the there cavity seems unlikely to be a challenge.
+Potentially, water exchange into and out of binding sites could also be a challenge in the polar binding site, as phenol binds with one ordered water~\cite{wei_model_2002} but to our knowledge, timescales for water sampling have not yet been examined, other than noting that water does not enter the polar binding site as ligands are removed~\cite{boyce_predicting_2009}. 
+The apolar cavity is dry both with ligands present and with empty, so water sampling in the there cavity seems unlikely to be a challenge.
 
 \section{BENCHMARK SYSTEMS FOR THE FUTURE}
 
