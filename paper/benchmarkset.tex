@@ -85,7 +85,7 @@ The chemist then looks through the predicted properties for the top few compound
 If synthesizing and testing each compound takes several days, this workflow compresses roughly a year's work into a few days.
 
 
-While this workflow is not yet a reality, huge strides have been made in this direction, with calculated binding affinity predictions now showing real promise~\cite{mobley_perspective_2012, christ_accuracy_2014, deng_distinguishing_2015, sherborne_preprint_2016, schrodinger_accurate_2015, christ_binding_2016, cui_affinity_2016, verras_free_2016}, solubility predictions beginning to come online~\cite{schnieders_structure_2012, park_absolute_2014, liu_using_2016}, and predicted drug resistance/selectivity also apparently tractable~\cite{leonis_contribution_2013, leonis_contribution_2013}, with some headway apparent on membrane permeability~\cite{lee_permeability_2016, comer_permeability_2014}. 
+While this workflow is not yet a reality, huge strides have been made in this direction, with calculated binding affinity predictions now showing real promise~\cite{mobley_perspective_2012, christ_accuracy_2014, deng_distinguishing_2015, sherborne_preprint_2016, schrodinger_accurate_2015, christ_binding_2016, cui_affinity_2016, verras_free_2016}, solubility predictions beginning to come online~\cite{Schnieders:2012:J.Chem.TheoryComput., park_absolute_2014, liu_using_2016}, and predicted drug resistance/selectivity also apparently tractable~\cite{leonis_contribution_2013, leonis_contribution_2013}, with some headway apparent on membrane permeability~\cite{lee_permeability_2016, comer_permeability_2014}. 
 A considerable amount of science and engineering still remains to make this vision a reality, but, given recent progress, the question now seems more one of \emph{when} rather than \emph{whether}. 
 
 \subsection{Increasing accuracy will yield increasing payoffs}
@@ -119,12 +119,12 @@ The pathway of this change may be one that is physically realizable, or one that
 Physical pathway methods provide the standard binding free energy by computing the reversible work of, in effect, pulling the ligand out of the binding site. 
 Although, by definition, the pathway used must be a physical one that could occur in nature, it need not be probable, and improbable pathways, governed by an order parameter specifying how far the ligand is from the binding site, are often used~\cite{woo_calculation_2005, ytreberg_absolute_2009, velez-vega_overcoming_2013, henriksen_computational_2015, hsiao_prediction_2014, bhakat_resolving_2016}.  
 In addition, artificial restraints may be useful to avoid sampling problems in the face of often complex barriers along the pathway ~\cite{woo_calculation_2005, velez-vega_overcoming_2013, henriksen_computational_2015, hsiao_prediction_2014, bhakat_resolving_2016}. 
-By contrast, alchemical pathway methods artificially decouple the ligand from the binding site and then recouple it to solution from the protein~\cite{jorgensen_efficient_1988, hermans_free_1986, gilson_statistical-thermodynamic_1997, boresch_absolute_2003, mobley_use_2006}.
+By contrast, alchemical pathway methods artificially decouple the ligand from the binding site and then recouple it to solution from the protein~\cite{jorgensen_efficient_1988, Hermans:1986:Isr.J.Chem., gilson_statistical-thermodynamic_1997, boresch_absolute_2003, mobley_use_2006}.
 Although alchemical decoupling methods may avoid clashes of the ligand with the protein that might be problematic in pathway methods for a tight binding site, they still can pose some of the same sampling challenges.
 For example, sampling of the unbound receptor must be adequate after the ligand is removed, and water molecules must have time to equilibrate in the vacated binding site.
-Given that free energy is a state function, it is not surprising that alchemical and physical pathway approaches yield apparently comparable results when applied to the same systems~\cite{lee_calculation_2006, gumbart_standard_2013, de_ruiter_proteinligand_2013, yin_sampl5_preprint}.  
+Given that free energy is a state function, it is not surprising that alchemical and physical pathway approaches yield apparently comparable results when applied to the same systems~\cite{lee_calculation_2006, gumbart_standard_2013, de_ruiter_proteinligand_2013, yin_overview_2016}.  
 
-The second general approach computes the difference between the binding free energies of two different ligands for the same receptor, by computing the work of artificially converting one ligand into another, first in the bound state and then free in solution \cite{tembe_ligand_1984, michel_prediction_2010, christ_basic_2010,  chodera_alchemical_2011}. 
+The second general approach computes the difference between the binding free energies of two different ligands for the same receptor, by computing the work of artificially converting one ligand into another, first in the bound state and then free in solution \cite{Tembe:1984:ComputChem, michel_prediction_2010, christ_basic_2010,  chodera_alchemical_2011}. 
 Because these conversions are not physically realizable, such calculations are, again, called alchemical. These calculations can be quite efficient if the two ligands are very similar to each other, but they become more complicated and pose greater sampling problems if the two ligands are very different chemically or if there is a high barrier to interconversion between their most stable bound conformations ~\cite{liu_lead_2013}. 
 In addition, there may be concerns about slow conformational relaxation of the protein in response to the change in ligand. 
 Nonetheless, alchemical relative free energy calculations currently are the best automated and most widely used free energy methods~\cite{mobley_perspective_2012, liu_lead_2013, schrodinger_accurate_2015}.
@@ -150,7 +150,7 @@ In the case of the more widely used alchemical relative free energy approach, th
 \end{itemize}
 \vspace{2mm}
 
-Beyond this domain of applicability---whose dimensions are, in fact, still somewhat vague --- substantial challenges may be encountered. 
+Beyond this domain of applicability---whose dimensions are, in fact, still somewhat vague~\cite{Abel:2016:vertex} --- substantial challenges may be encountered. 
 For example, binding free energy calculations for a cytochrome C peroxidase mutant suggest limitations of fixed-charge force fields. In this case, the strength of electrostatic interactions in a buried, relatively nonpolar binding site appears to be overestimated by a conventional fixed-charge force field, likely due to underestimation of polarization effects~\cite{rocklin_blind_2013}. 
 Sampling problems are also common, with slow sidechain rearrangements and ligand binding mode rearrangements in model binding sites in T4 lysozyme posing timescale problems unless enhanced or biased sampling methods are carefully applied~\cite{mobley_confine_2007, boyce_predicting_2009, mobley_predicting_2007, jiang_free_2010, gallicchio_binding_2010, wang_achieving_2012}; and larger-scale protein motions induced by some ligands also posing challenges~\cite{boyce_predicting_2009, lim_sensitivity_2016}. 
 
@@ -170,7 +170,7 @@ As a consequence, it is not clear what steps are most urgently needed to advance
 Although tests of individual free energy methods are not uncommon today~\cite{mikulskis_large-scale_2014, schrodinger_accurate_2015, christ_binding_2016, cui_affinity_2016, verras_free_2016}, the use of nonoverlapping molecular systems and computational protocols makes it difficult to compare methods on a rigorous basis.
 In addition, few studies are designed to identify key sources of error and thereby focus future research and development.
 A few molecular systems have now emerged as \emph{de facto} standards for general study (Section~\ref{benchmarks}). 
-These selections result in part from two series of blinded prediction challenges (SAMPL~\cite{muddana_sampl4_2014}, and CSAR~\cite{dunbar_csar_2011} followed by D3R~\cite{gathiaka_d3r_2016}), which have helped focus the computational chemistry community on a succession of test cases and highlighted the need for methodological improvements. 
+These selections result in part from two series of blinded prediction challenges (SAMPL~\cite{muddana_sampl4_2014}, and CSAR~\cite{dunbar_csar_2011} followed by D3R~\cite{Gathiaka:2016:JComputAidedMolDes}), which have helped focus the computational chemistry community on a succession of test cases and highlighted the need for methodological improvements. 
 However, broader adoption of a larger and more persistent set of test cases is needed. 
 By coalescing around a compact set of benchmarks, well chosen to challenge and probe free energy calculations, practitioners and developers will be able to better assess and drive progress in binding free energy calculations. 
 
@@ -280,7 +280,7 @@ Hosts fall into chemical families, such that all members of each family share a 
 For example, all members of the cyclodextrin family are chiral rings of glucose monomers; family members then differ in the number of monomers and in the presence or absence of various chemical substituents. 
 For tests of computational methods ultimately aimed at predicting protein-ligand binding affinities in aqueous solution, water soluble hosts are, arguably, most relevant. 
 On the other hand, host-guest systems in organic solvents may usefully test how well force fields work in the nonaqueous environment within a lipid membrane. 
-Here, we focus on two host families, the cucurbiturils \cite{freeman_cucurbituril_1981,mock_host-guest_1983}; and the octa-acids (more generally, Gibb deep cavity cavitands)~\cite{gibb_well-defined_2004, hillyer_synthesis_2016}, which have already been the subject of concerted attention from the simulation community, due in part to their use in the SAMPL blinded prediction challenges~\cite{muddana_sampl3_2012, muddana_sampl4_2014, yin_sampl5_preprint}.  
+Here, we focus on two host families, the cucurbiturils \cite{freeman_cucurbituril_1981,mock_host-guest_1983}; and the octa-acids (more generally, Gibb deep cavity cavitands)~\cite{gibb_well-defined_2004, hillyer_synthesis_2016}, which have already been the subject of concerted attention from the simulation community, due in part to their use in the SAMPL blinded prediction challenges~\cite{muddana_sampl3_2012, muddana_sampl4_2014, yin_overview_2016}.  
 
 \begin{figure*}
 \includegraphics[width=\textwidth]{figures/hosts.pdf}
@@ -292,7 +292,7 @@ Here, we focus on two host families, the cucurbiturils \cite{freeman_cucurbituri
 The cucurbiturils ({\bf Figure~\ref{hosts}}) are achiral rings of glycoluril monomers~\cite{freeman_cucurbituril_1981}. The first characterized family member, cucurbit[6]uril, has six glycoluril units, and subsequent synthetic efforts led to the five-, seven-, eight- and ten-monomer versions, cucurbit[n]uril (n=5,6,7,8,10)~\cite{liu_cucurbituril_2005},
 which have been characterized to different extents. 
 Of note, the n=6,7,8 variants accommodate guests of progressively larger size, but are consistent in preferring to bind guests with a hydrophobic core sized to fit snugly into the relatively nonpolar binding cavity, along with at least one cationic moiety (though neutral compounds do bind~\cite{wyman_cucurbituril_2008, lee_deciphering_2015}) that forms stabilizing interactions with the oxygens of the carbonyl groups fringing both portals of the host~\cite{liu_cucurbituril_2005}. 
-Although derivatives of these parent compounds, have been made \cite{lee_cucurbituril_2003, vinciguerra_synthesis_2015, assaf_cucurbiturils:_2015, cong_synthesis_2016},
+Although derivatives of these parent compounds, have been made \cite{Lee:2003:AccountsofChemicalResearch, vinciguerra_synthesis_2015, assaf_cucurbiturils:_2015, Cong:2016:Org.Biomol.Chem.},
 most of the binding data published for this class of hosts pertain to the non-derivatized forms. 
 
 
@@ -416,7 +416,7 @@ $^{\rm a}$ Compound ID from original paper; $^{\rm b}$ PubChem Compound ID; $^{\
 The octa-acids (OA) ({\bf Figure~\ref{hosts}}) are synthetic hosts with deep, basket-shaped, hydrophobic binding sites~\cite{gibb_well-defined_2004}. 
 The eight carboxylic acidic groups for which they were originally named make these hosts water-soluble, but do not interact directly with bound hosts; instead, they project outward into solvent. 
 Binding data have been reported for the original form of this host (OA)~\cite{gibb_well-defined_2004} and for a derivative with four added methyl groups at equivalent locations in the entryway, where they can contact a bound guest (TEMOA)~\cite{gan_nonmonotonic_2011, sullivan_binding_2016}. 
-(Note that OA and TEMOA have also been called OAH and OAMe, respectively~\cite{yin_sampl5_preprint}.) 
+(Note that OA and TEMOA have also been called OAH and OAMe, respectively~\cite{yin_overview_2016}.) 
 Additional family members with other substituents around the portal have been reported, as has a new series in which the eponymic carboxylic groups are replaced by various other groups, including a number of basic amines~\cite{hillyer_synthesis_2016}. 
 However, we are not aware of binding data for these derivatives. 
 In view of these other hosts, however, we propose the more general name Gibb deep cavity cavitands (GDCCs) for this family of hosts. 
@@ -436,13 +436,13 @@ These effects are due in part to binding of anions by the host; indeed, trichlor
 Second, elongated guests can generate ternary complexes, in which two OA hosts encapsulate one guest, especially if both ends of the guest are not very polar~\cite{gibb_guests_2009}.  
 
 \paragraph{The proposed GDCC benchmark sets are drawn from SAMPL}
-As a core benchmark series for this family, we propose two sets which formed part of the SAMPL4 and SAMPL5 challenges, based on adamantane derivatives (Table~\ref{gdcc_benchmark1}) and cyclic (aromatic and saturated) carboxylic acids (Table~\ref{gdcc_benchmark2}) binding to hosts OA and TEMOA with free energies of -3.7 to -7.6 kcal/mol. These cases offer aqueous binding data with a reasonably broad range of binding free energies, frequently along with binding enthalpies; the hosts and many or all of their guests are small and rigid enough to allow convincing convergence of binding thermodynamics with readily feasible simulations; and, like the cucurbiturils, they are already emerging as \emph{de facto} computational benchmarks, due to their use in the SAMPL4 and SAMPL5 challenges~\cite{muddana_sampl4_2014, yin_sampl5_preprint}. 
+As a core benchmark series for this family, we propose two sets which formed part of the SAMPL4 and SAMPL5 challenges, based on adamantane derivatives (Table~\ref{gdcc_benchmark1}) and cyclic (aromatic and saturated) carboxylic acids (Table~\ref{gdcc_benchmark2}) binding to hosts OA and TEMOA with free energies of -3.7 to -7.6 kcal/mol. These cases offer aqueous binding data with a reasonably broad range of binding free energies, frequently along with binding enthalpies; the hosts and many or all of their guests are small and rigid enough to allow convincing convergence of binding thermodynamics with readily feasible simulations; and, like the cucurbiturils, they are already emerging as \emph{de facto} computational benchmarks, due to their use in the SAMPL4 and SAMPL5 challenges~\cite{muddana_sampl4_2014, yin_overview_2016}. 
 
 \paragraph{OA introduces new challenges beyond CB7} Issues deserving attention when interpreting the experimental data and calculating the binding thermodynamics of these systems include the following:
 
 \begin{enumerate}
 \item{{\bf Tight exit portal}: The methyl groups of the TEMOA variant narrow the entryway and can generate a barrier to the entry or exit of guest molecules with bulky hydrophobic cores, though the degree of constriction is not as marked as for CB7 (above). 
-The TEMOA methyls groups can additionally hinder sampling of guest poses in the bound state, leading to convergence problems~\cite{yin_sampl5_preprint} specific to TEMOA. }
+The TEMOA methyls groups can additionally hinder sampling of guest poses in the bound state, leading to convergence problems~\cite{yin_overview_2016} specific to TEMOA. }
 
 \item{{\bf Host conformational sampling}: Although the flexible propionate groups are not proximal to the binding cavity, they are charged and so can have long-ranged interactions. 
 As a consequence, it may be important to ensure their conformations are well sampled, though motions may be slow~\cite{mikulskis_free-energy_2014}. 
@@ -489,7 +489,7 @@ Thus, attention should be given to ionization states and their modulation by bin
 8 / OA-G5    & trimethylphenethylaminium           & 14108            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/14108.pdf}}    & C[N+](C)(C)CCC1=CC=CC=C1           & {ND$^{\rm e}$}       & {ND$^{\rm e}$}      \\
 \bottomrule
 \end{tabular}\\
-$^{\rm a}$ Compound ID from ~\cite{sullivan_binding_2016} and SAMPL5 ID from ~\cite{yin_sampl5_preprint}; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from~\cite{sullivan_binding_2016}, where all measurements were done via ITC in 50 mM sodium phosphate buffer at pH 11.5 and 298 K. Uncertainties, drawn from the experimental paper, were computed from triplicate measurements taken with freshly made solutions of host and guest. However, based on personal communication with the authors, it may be advisable to regard the accuracy more conservatively, at $\sim$2\% for $\Delta$G and $\sim$6\% for $\Delta$H;  $^{\rm d}$ measured binding enthalpy~\cite{sullivan_binding_2016}, subject to the same conditions/caveats as $^{\rm c}$. $^{\rm e}$ not done.
+$^{\rm a}$ Compound ID from ~\cite{sullivan_binding_2016} and SAMPL5 ID from ~\cite{yin_overview_2016}; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from~\cite{sullivan_binding_2016}, where all measurements were done via ITC in 50 mM sodium phosphate buffer at pH 11.5 and 298 K. Uncertainties, drawn from the experimental paper, were computed from triplicate measurements taken with freshly made solutions of host and guest. However, based on personal communication with the authors, it may be advisable to regard the accuracy more conservatively, at $\sim$2\% for $\Delta$G and $\sim$6\% for $\Delta$H;  $^{\rm d}$ measured binding enthalpy~\cite{sullivan_binding_2016}, subject to the same conditions/caveats as $^{\rm c}$. $^{\rm e}$ not done.
 \end{table*}
 \endgroup
 
@@ -520,7 +520,7 @@ $^{\rm a}$ Compound ID from original paper ~\cite{gibb_binding_2013}; $^{\rm b}$
 
 %SAMPLING
 As noted, two different host conformational sampling issues have been observed, with dihedral transitions for the proprionate groups occurring on 1-2 ns timescales~\cite{mikulskis_free-energy_2014}); motions of the benzoic acid flaps were also relatively slow~\cite{yin_sampl5_2016, tofoleanu_absolute_2016} though perhaps thermodynamically unimportant. 
-Guest sampling can also be an issue, at least in TEMOA~\cite{yin_sampl5_preprint}, and this hosts's tight cavity may also have implications for binding entropy~\cite{yin_sampl5_2016}.
+Guest sampling can also be an issue, at least in TEMOA~\cite{yin_overview_2016}, and this hosts's tight cavity may also have implications for binding entropy~\cite{yin_sampl5_2016}.
 
 % SYSTEM:
 Salt concentration strongly modulates binding affinity, at least for anions, and the nature of the salt also plays an important role~\cite{carnegie_anion_2014}. 
@@ -538,7 +538,7 @@ Thus, there are uncertainties as to the host protonation state~\cite{muddana_sam
 %The challenges of system definition and conformational sampling appear to be greater for OA and TEMOA than for CB7, , so evidence of force field limitations, if present, is not yet as clear. There have been some comparisons of charge~\cite{mikulskis_free-energy_2014, muddana_sampl4_2014, monroe_converging_2014} and water models~\cite{yin_sampl5_2016}, but differences so far seem mostly inconclusive or at least not that large. Similarly, OPLS and GAFF results did not appear dramatically different in accuracy~\cite{bhakat_resolving_2016} 
 %The above paragraph could be cut for space if we need
 
-Several groups used different methods but the same force field and water model in SAMPL5, with rather varied levels of success because of discrepancies in calculated free energies~\cite{yin_sampl5_preprint, bosisio_blinded_2016, bhakat_resolving_2016}. 
+Several groups used different methods but the same force field and water model in SAMPL5, with rather varied levels of success because of discrepancies in calculated free energies~\cite{yin_overview_2016, bosisio_blinded_2016, bhakat_resolving_2016}. 
 However, some of these issues were resolved in follow-up work~\cite{bhakat_resolving_2016}, bringing the methods into fairly good agreement for the majority of cases~\cite{yin_sampl5_2016, bosisio_blinded_2016}.
 
 \subsection{Protein-ligand benchmarks: the T4 lysozyme model binding sites}
@@ -718,6 +718,7 @@ Here, we proposed several benchmark systems for binding free energy calculations
 These embody a subset of the key challenges facing the field, and we plan to expand the set as consensus emerges. 
 Hopefully, these systems will serve as challenging standard test cases for new methods, force fields, protocols, and workflows. 
 Our desire is that these benchmarks will advance the science and technology of modeling and predicting molecular interactions, and that other researchers in the field will contribute to identifying new benchmark sets and updating the information provided about these informative systems.
+
 
 \section*{DISCLOSURE STATEMENT}
 D.L.M. is a member of the Scientific Advisory Board for Schr\"{o}dinger, LLC. M.K.G. is a cofounder and has equity interest in the company VeraChem LLC.
