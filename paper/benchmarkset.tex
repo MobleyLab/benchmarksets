@@ -470,32 +470,31 @@ Thus, attention should be given to ionization states and their modulation by bin
 \begin{table*}
 % \tabcolsep7.5pt
 \caption{Proposed GDCC Set 1 benchmark data}
-%{\bf I suggest putting the compound IDs from articles in to a separate column from the compound IDs from SAMPL, for clarity. I found the / format confusing. And the ``ID'' column header is confusing, since a) there are two ids provided; and b) other columns provide additional IDs}. I didn't make this change, however, because I knew I'd get tied up with all the multicolumn complexities!}
 
 \label{gdcc_benchmark1}
-\begin{tabular}{lllp{1.5cm}>{\ttfamily}lS[table-format=-1.3, table-figures-uncertainty=1]S[table-format=-1.2, table-figures-uncertainty=1]}
+\begin{tabular}{llllp{1.5cm}>{\ttfamily}lS[table-format=-1.3, table-figures-uncertainty=1]S[table-format=-1.2, table-figures-uncertainty=1]}
 \toprule
-\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$}  & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{$\Delta H^{\rm d}$ \,{(}kcal/mol{)}} \\
+\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{SAMPL$^{\rm b}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm c}$}  & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{$\Delta H^{\rm d}$ \,{(}kcal/mol{)}} \\
+
 \midrule
-\multicolumn{7}{c}{OA host} \\ 
+\multicolumn{8}{c}{OA host} \\ 
 \midrule                                                                                                                                                        
-3/OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.40 \pm 0.003    & -7.71 \pm 0.05     \\
-4/OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -5.34 \pm 0.005    & -5.67 \pm 0.01     \\
-5/OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -4.73 \pm 0.01     & -4.45 \pm 0.08     \\
-6/OA-G4    & 4-bromoadamantane-1-carboxylic acid & 12598766         & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12598766.pdf}} & C1C2CC3CC(C2)(CC1C3Br)C(=O)O       & -9.37 \pm 0.01     & -14.78 \pm 0.02    \\  
-7/OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -4.49 \pm 0.01     & -5.91 \pm 0.10     \\ 
-8/OA-G5    & trimethylphenethylaminium           & 14108            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/14108.pdf}}    & C[N+](C)(C)CCC1=CC=CC=C1           & -3.72 \pm 0.01     & -9.96 \pm 0.11     \\
+3 & OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.40 \pm 0.003    & -7.71 \pm 0.05     \\
+4 & OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -5.34 \pm 0.005    & -5.67 \pm 0.01     \\
+5 & OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -4.73 \pm 0.01     & -4.45 \pm 0.08     \\
+6 & OA-G4    & 4-bromoadamantane-1-carboxylic acid & 12598766         & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12598766.pdf}} & C1C2CC3CC(C2)(CC1C3Br)C(=O)O       & -9.37 \pm 0.01     & -14.78 \pm 0.02    \\  
+7 & OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -4.49 \pm 0.01     & -5.91 \pm 0.10     \\ 
+8 & OA-G5    & trimethylphenethylaminium           & 14108            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/14108.pdf}}    & C[N+](C)(C)CCC1=CC=CC=C1           & -3.72 \pm 0.01     & -9.96 \pm 0.11     \\
 \midrule
-\multicolumn{7}{c}{TEMOA/OAMe host} \\ 
+\multicolumn{8}{c}{TEMOA/OAMe host} \\ 
 \midrule
-3/OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.476 \pm 0.006   & -9.961 \pm 0.006   \\
-4/OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -4.52 \pm 0.02     & -9.1 \pm 0.1       \\
-5/OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -5.26 \pm 0.01     & -7.6 \pm 0.1       \\
-7/OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -5.73 \pm 0.06     & -6.62 \pm 0.2      \\ 
+3 & OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.476 \pm 0.006   & -9.961 \pm 0.006   \\
+4 & OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -4.52 \pm 0.02     & -9.1 \pm 0.1       \\
+5 & OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -5.26 \pm 0.01     & -7.6 \pm 0.1       \\
+7 & OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -5.73 \pm 0.06     & -6.62 \pm 0.2      \\ 
 \bottomrule
 \end{tabular}\\
-%{\bf If we split the first column, then this info on the compound IDs should be updated} 
-$^{\rm a}$ Compound ID from ~\cite{sullivan_binding_2016} and SAMPL5 ID from ~\cite{yin_overview_2016}; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from~\cite{sullivan_binding_2016}, where all measurements were done via ITC in 50 mM sodium phosphate buffer at pH 11.5 and 298 K. Uncertainties, drawn from the experimental paper, were computed from triplicate measurements taken with freshly made solutions of host and guest. However, based on personal communication with the authors, it may be advisable to regard the accuracy more conservatively, at $\sim$2\% for $\Delta$G and $\sim$6\% for $\Delta$H;  $^{\rm d}$ measured binding enthalpy~\cite{sullivan_binding_2016}, subject to the same conditions/caveats as $^{\rm c}$. $^{\rm e}$ not done.
+$^{\rm a}$ Compound ID from ~\cite{sullivan_binding_2016}; $^{\rm b}$ SAMPL5 ID from ~\cite{yin_overview_2016}; $^{\rm c}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from~\cite{sullivan_binding_2016}, where all measurements were done via ITC in 50 mM sodium phosphate buffer at pH 11.5 and 298 K. Uncertainties, drawn from the experimental paper, were computed from triplicate measurements taken with freshly made solutions of host and guest. However, based on personal communication with the authors, it may be advisable to regard the accuracy more conservatively, at $\sim$2\% for $\Delta$G and $\sim$6\% for $\Delta$H;  $^{\rm d}$ measured binding enthalpy~\cite{sullivan_binding_2016}, subject to the same conditions/caveats as $^{\rm c}$. $^{\rm e}$ not done.
 \end{table*}
 \endgroup
 
@@ -722,13 +721,13 @@ One complicating feature for calculations, relative to CB7, is that the two entr
 As these two binding modes typically do not interchange on the microsecond timescale, they must be considered separately when one computes binding thermodynamics ~\cite{henriksen_computational_2015}.
 It is also worth noting that, because the CDs are glucose polymers, they may be best modeled with dedicated carbohydrate force fields \cite{}, rather than generalized small molecule force fields. 
 %Get Gilson refs
-A number of CD (and other host guest) binding systems are available for download in electronic format at the BindingDB \cite{} website (www.bindingdb.org/bind/HostGuest.jsp)
+A number of CD (and other host guest) binding systems are available for download in electronic format at the BindingDB~\cite{Liu:2007:Nucl.AcidsRes.} website (\url{www.bindingdb.org/bind/HostGuest.jsp})
 %Add website cite
 
 \subsection{Protein-Ligand Systems}
-On the order of a million experimental protein-ligand binding measurements are currently accessible through open-access databases, notably BindingDB \cite{}, ChEMBL \cite{} and PubChem \cite{}.
+On the order of a million experimental protein-ligand binding measurements are currently accessible through open-access databases, notably BindingDB~\cite{Liu:2007:Nucl.AcidsRes.}, ChEMBL~\cite{Bento:2014:NuclAcidsRes} and PubChem~\cite{Kim:2016:NucleicAcidsRes.}.
 These databases can be valuable sources of, or at least starting points for, new protein-ligand benchmark datasets.
-In fact, automated procedures have already been used to extract about 700 downloadable validation sets (www.bindingdb.org/validation\_sets/index.jsp), each
+In fact, automated procedures have already been used to extract about 700 downloadable validation sets (\url{www.bindingdb.org/validation\_sets/index.jsp}), each
 comprising a congeneric series of \~10-50 ligands with binding data against a defined protein, and a cocrystal structure for at least one of the ligands in the series.
 However, there is still a need for a smaller collection of highly optimized benchmark sets as research foci for the computational chemistry community.
 Such sets should exemplify specific challenges not well covered by existing benchmark systems; be based upon high quality binding measurements for at least ~20 ligands, measured by consistent procedures across all ligands; and include crystal structures for the apo-protein and cocrystal structures for multiple ligands.
@@ -738,23 +737,22 @@ Here, however, we take the less systematic but more expedient approach of consid
 \subsubsection{Constructed Binding Sites in Cytochrome C Peroxidase}
 Two artificial binding sites have been designed into the enzyme cytochrome C peroxidase (CCP): the ``closed'' site, created by the mutation W191G~\cite{fitzgerald_ligand-gated_1996, rocklin_blind_2013}; and the ``open'' site mutant, created by supplementing mutation W191G with partial deletion of a loop, and thus opening the site to the outside of the protein~\cite{musah_artificial_2002, rosenfeld_excision_2002, rocklin_blind_2013}. 
 As for the artificial binding cavities in T4 lysozyme (Section~\ref{sec:t4}), the two CCP sites bind simple, fragment-like ligands with modest binding free energies (e.g., -3 to -7 kcal/mol for the open site \cite{rocklin_blind_2013}); discovery of new ligands is relatively straightforward~\cite{brenk_probing_2006, rocklin_blind_2013}; and new crystal structures can be obtained fairly readily. 
+The protein has relatively modest size (around 280 residues) as in, for example, the 1KXM structure.
 
-What is new is that the CCP binding sites contain a charged ASP. {\bf I'm curious how we know the Asp is charged; I think a citation would be appropriate.}
-%DLM to self: Add reference
+What is new is that the CCP binding sites contain a charged ASP (as evidenced by observed interactions in structures, and by experiments where replacing the ASP with ASN abolishes binding of imidazoles, despite minimal changes to the binding site structure~\cite{Fitzgerald:1995:ProteinScience}). 
 This side-chain interacts at short range with the ligands, which may be cationic or polar neutral compounds.
 As a consequence, the CCP sites challenge the ability of computational methods to accurately account for strong electrostatic interactions in the low-dielectric interior of a protein \cite{rocklin_blind_2013}. 
 Indeed, free energy calculations with two different force fields and distinct computational methods were found to overestimate the range of affinities, across a series of ligands, about three-fold, for the closed site~\cite{banba_free_2000, banba_efficient_2000}, and a similar pattern appears to hold for the open site~\cite{rocklin_blind_2013}.
 Further analysis suggests that these overestimates stem from overestimated electrostatic interactions in these buried sites~\cite{rocklin_blind_2013}, perhaps because the force fields used did not account explicitly for electronic polarization.  
 Additionally, the fact that different CCP ligands have different net charges may pose methodological challenges for some free energy techniques~\cite{rocklin_calculating_2013}. 
-In summary, these model CCP binding sites appear challenging yet tractable, and have already yielded insight regarding possible directions for force field improvements. Thus, they are good candidates to provide new benchmark sets in the near future.
+One modeling challenge is that CCP contains a heme, providing additional setup challenges (though since this is such an important cofactor, these may be worthwhile to face).
+In summary, these model CCP binding sites appear challenging yet tractable, and have already yielded insight regarding possible directions for force field improvements. 
+Thus, they are good candidates to provide new benchmark sets in the near future.
 
-{\bf Let's say something about the size of the protein. The PDF file 5CIB has about 800 residues.  Is this what one needs to simulate, or is there a smaller relevant unit? Also, I think we need to mention the heme group, and whether this adds computational challenges. Since you've worked on this, could you please draft something?}
-%DLM to self: Add discussion here.
 
 \subsubsection{Thrombin}
 Human thrombin, an enzyme of about 300 residues, is interesting both as a drug target related to blood coagulation and as a representative serine protease. 
-Binding and structural data are available for a wide variety of ligands \cite{},
-%DLM to self: Add reference
+Binding and structural data are available for a wide variety of ligands (\cite{baum_non-additivity_2010, StefanicAnderluh:2005:J.Med.Chem., Ueno:2005:Bioorganic&MedicinalChemistryLetters, Putta:2005:J.Med.Chem., baum_non-additivity_2010} and others),
 and have already been used as the basis for free energy simulations ~\cite{wang_achieving_2012, schrodinger_accurate_2015, calabro_elucidation_2016}.
 Some of the experimental binding data, obtained calorimetrically, highlight interesting trends, such as non-additivity (positive coupling) between substitutions at different locations on the chemical scaffolds of two compound series~\cite{baum_non-additivity_2010}. 
 
@@ -767,8 +765,8 @@ These prior studies suggests thrombin may be at a ``sweet spot'' for benchmark s
 \subsubsection{Bromodomain proteins}
 Bromodomains (BRDs) are a family of protein domains of about 100 residues that bind actylated lysine residues at the surface of histones and thus read out epigenetic markers.
 Bromodomains are present in many human proteins, and are being explored as potential drug targets for diseases including cancer and atherosclerosis~\cite{aldeghi_accurate_2016}.
-These compact domains can be expressed, purified and studied as independent proteins, and are associated with a growing body of small molecule binding data \cite{}, including some obtained by isothermal titration calorimetry \cite{}.
-%DLM: Add more bromodomain references; also contact Aldeghi, etc. for updates (new cite forthcoming?)
+These compact domains can be expressed, purified and studied as independent proteins, and are associated with a growing body of small molecule binding data \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Bamborough:2015:J.Med.Chem., Ran:2015:J.Med.Chem., Zhang:2013:J.Med.Chem., Gosmini:2014:J.Med.Chem., Yang:2016:BioorganicChemistry}, including some obtained by isothermal titration calorimetry \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Gosmini:2014:J.Med.Chem.}.
+%DLM: Contact Aldeghi, etc. for updates (new cite forthcoming?) -- waiting for response
 
 The small size of bromodomains, and the fact that their binding sites are relatively solvent-exposed,  makes them particularly suitable for free energy simulations.
 One recent study, which used alchemical techniques to compute absolute binding free energies of 11 different ligands for bromodomain BRD4~\cite{aldeghi_accurate_2016}, achieved a remarkable level of accuracy, RMS error $0.8\pm0.2$ kcal/mol, for binding free energies spanning a range of \~4 kcal/mol.
@@ -791,8 +789,7 @@ Markov state models \cite{plattner_protein_2015} may be particularly helpful her
 
 HIV integrase is also of potential interest as a benchmark system. 
 Indeed, blind predictions for a set of fragments binding to several sites formed part of the basis of the SAMPL4 challenge~\cite{mobley_blind_2014, peat_interrogating_2014}. 
-Although the range of affinities in this set is modest {\bf please supply a number}, many crystal structures are available, as is a wealth of verified nonbinders~\cite{peat_interrogating_2014}. 
-%DLM: Insert range of affinities
+Although the range of affinities in this set is modest (200 to 1450 $\mu M$~\cite{peat_interrogating_2014}), many crystal structures are available, as is a wealth of verified nonbinders~\cite{peat_interrogating_2014}. 
 One group actually did remarkably well using free energy calculations to recognize binding modes and predict nonbinders~\cite{gallicchio_virtual_2014, mobley_blind_2014}. 
 Coupled with other HIV integrase data available in the literature and binding databases for larger ligands or other series, this may make this system attractive for future benchmarks.
 
@@ -851,8 +848,7 @@ Probably we will need to define ways to automatically specify what order paramet
 
 \subsection{Modularization will be key}
 To achieve these goals, researchers should develop or package tools so that they take a set of well specified inputs and provide well specified outputs in an interchangeable way. 
-This may involve containerizing key pieces of workflows such as in Docker~\cite{docker_what_2015} or Singulaeiry \cite{} containers,
-%DLM to self: add singularity reference
+This may involve containerizing key pieces of workflows such as in Docker~\cite{docker_what_2015} or Singularity \cite{Kurtzer:2016:singularity} containers,
  and developing standards as to what inputs and outputs are provided to each component of the workflow. 
 Another key goal of modularization is to separate the \emph{operator} from the \emph{method}. 
 Currently, binding calculations are most often done by a human expert, who makes a variety of decisions along the way (though Schr\"odinger's workflow represents real progress toward automation~\cite{schrodinger_accurate_2015}), making it difficult to separate the importance of human expertise from the merits of the methods employed. 
@@ -879,7 +875,8 @@ However, progress is needed to improve these tools so that they can achieve thei
 Community adoption of well-chosen benchmark systems is vital for this, as it will allow researchers to rigorously test and compare methods, arrive at a shared understanding of problems, and measure progress on well-characterized yet challenging systems. 
 It is also worth emphasizing the importance of sharing information about apparently well thought-out and even promising methods that do \emph{not} work, rather than sharing only what does appear to work. 
 Identifying and addressing failure cases and problems is critically important to advancing this technology, but failures can be harder to publish, and may even go unpublished, even though they serve a unique role in advancing the field. 
-We therefore strongly encourage that such results be shared and welcomed by the research community. {\bf A thought: could we use this review+benchmarks construct also as a place to archive and share both encouraging and discouraging results?}
+We therefore strongly encourage that such results be shared and welcomed by the research community. 
+Potentially, the GitHub repository connected with this perpetual review paper could serve as a place to deposit input files and summary results of tests on these benchmark systems, with summary information perhaps being included in this work itself or topical sub-reviews within the same repository.
 
 Here, we have proposed several benchmark systems for binding free energy calculations. 
 These embody a subset of the key challenges facing the field, and we plan to expand the set as consensus emerges. 
