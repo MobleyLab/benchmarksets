@@ -48,7 +48,6 @@
 
 \title{Predicting binding free energies: Frontiers and benchmarks}
 
-
 %Authors, affiliations, address.
 \author{David L. Mobley}
 \email{dmobley@mobleylab.org}
@@ -58,11 +57,26 @@
 \affiliation{Skaggs School of Pharmacy and Pharmaceutical Sciences, University of California, San Diego, CA, USA, 92092}
 
 
+%%% DATE: 
+% For ongoing development use
+%\date{\today}
+% For release versions use
+\date{ December 8, 2016 }
+
 \begin{abstract}
 Binding free energy calculations based on molecular simulations provide predicted affinities for biomolecular complexes. 
 These calculations begin with a detailed description of a system, including its chemical composition and the interactions between its components. 
-Simulations of the system are then used to compute thermodynamic information, such as binding affinities. Because of their promise for guiding molecular design, these calculations have recently begun to see widespread applications in early stage drug discovery. However, many challenges remain to make them a robust and reliable tool. Here, we briefly explain how the calculations work, highlight key challenges, and argue for the development of accepted benchmark test systems that will help the research community generate and evaluate progress.
+Simulations of the system are then used to compute thermodynamic information, such as binding affinities. 
+Because of their growing promise for guiding molecular design, these calculations have recently begun to see widespread applications in early stage drug discovery. However, many challenges remain to make them a robust and reliable tool. 
+Here, we provide an overview of these methods, discuss determinants of accuracy and precision, highlight key challenges, and argue for the development of accepted benchmark test systems that will help the research community generate and evaluate progress.
+\\
+\\
+%PUT MANUSCRIPT VERSION HERE
+% Use this style for ongoing development: "Version 1.0.5 pre-release"
+% Use this style for releases: "Version 2.0" 
+{\bf Manuscript version 1.1.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
 \end{abstract}
+
 
 \maketitle
 
@@ -90,7 +104,7 @@ A considerable amount of science and engineering still remains to make this visi
 
 \subsection{Increasing accuracy will yield increasing payoffs}
 
-Recent progress in computational power, especially the widespread availability of graphics processing units (GPUs) and advances in automation~\cite{liu_lead_2013} and sampling protocols, have helped simulation-based techniques reach the point where they now appear to have sufficient accuracy to be genuinely useful in guiding pharmaceutical drug discovery at least for a certain subset of problems~\cite{mikulskis_large-scale_2014, homeyer_binding_2014, sherborne_preprint_2016,  schrodinger_accurate_2015, christ_binding_2016, cui_affinity_2016, verras_free_2016}.
+Recent progress in computational power, especially the widespread availability of graphics processing units (GPUs) and advances in automation~\cite{liu_lead_2013} and sampling protocols, have helped simulation-based techniques reach the point where they now appear to have sufficient accuracy to be genuinely useful in guiding pharmaceutical drug discovery, at least for a certain subset of problems~\cite{mikulskis_large-scale_2014, homeyer_binding_2014, sherborne_preprint_2016,  schrodinger_accurate_2015, christ_binding_2016, cui_affinity_2016, verras_free_2016}.
 Specifically, in some situations, free energy calculations appear to be capable of achieving RMS errors in the 1-2 kcal/mol range with current force fields, even in prospective applications.
 As a consequence, pharmaceutical companies are beginning to use these methods in discovery projects. 
 The most immediate application of these techniques is to guide synthesis for lead optimization, but applications to scaffold hopping and in other areas also appear possible.
@@ -102,7 +116,7 @@ If one targets a three-fold reduction, the answer appears to be that calculation
 Thus, one can gain substantial benefit from simulations that are good yet still quite imperfect.
 
 % Following paragraph could be cut for space reasons if needed.
-More broadly, this analysis does not address the net value of computational affinity predictions in drug discovery.
+More broadly, though, this analysis does not address the net value of computational affinity predictions in drug discovery.
 Costs include those of the software, computer time, and personnel required to incorporate calculations into the workflow; while benefits include the savings, revenue gains, and externalities attributable to reducing the number of low-affinity compounds synthesized and arriving earlier at a potent drug candidate.
 In addition, with sufficiently reliable predictions, chemists may choose to tackle difficult synthesis efforts they otherwise might have avoided, resulting in more novel and valuable chemical matter.
 
@@ -113,14 +127,14 @@ These samples are usually generated by molecular dynamics (MD) simulations~\cite
 In either case, the energy of a given configuration is provided by a potential function, or force field, which estimates the potential energy of a system of solute and solvent molecules as a function of the coordinates of all of its atoms. 
 Such simulations may be used in several different ways to compute binding free energies or relative binding free energies, as detailed elsewhere~\cite{michel_prediction_2010, christ_basic_2010,  chodera_alchemical_2011, shirts_introduction_2013} and summarized below. In all cases, however, the calculations yield the free energy difference between two states of a molecular system, and they do so by computing the reversible work for changing the initial state to the final one. Two broad approaches deserve mention.
 
-The first general approach directly computes the standard free energy of binding of two molecules by computing the reversible work of transferring the ligand from the binding site into solution. 
+The first general approach directly computes the standard free energy of binding of two molecules via evaluating the reversible work of transferring the ligand from the binding site into solution. 
 (This is sometimes called an absolute binding free energy calculation.) 
 The pathway of this change may be one that is physically realizable, or one that is only realizable {\em in silico}, in which case it is sometimes called an ``alchemical'' pathway. 
 Physical pathway methods provide the standard binding free energy by computing the reversible work of, in effect, pulling the ligand out of the binding site. 
 Although, by definition, the pathway used must be a physical one that could occur in nature, it need not be probable, and improbable pathways, governed by an order parameter specifying how far the ligand is from the binding site, are often used~\cite{woo_calculation_2005, ytreberg_absolute_2009, velez-vega_overcoming_2013, henriksen_computational_2015, hsiao_prediction_2014, bhakat_resolving_2016}.  
 In addition, artificial restraints may be useful to avoid sampling problems in the face of often complex barriers along the pathway ~\cite{woo_calculation_2005, velez-vega_overcoming_2013, henriksen_computational_2015, hsiao_prediction_2014, bhakat_resolving_2016}. 
 By contrast, alchemical pathway methods artificially decouple the ligand from the binding site and then recouple it to solution from the protein~\cite{jorgensen_efficient_1988, Hermans:1986:Isr.J.Chem., gilson_statistical-thermodynamic_1997, boresch_absolute_2003, mobley_use_2006}.
-Although alchemical decoupling methods may avoid clashes of the ligand with the protein that might be problematic in pathway methods for a tight binding site, they still can pose some of the same sampling challenges.
+Although alchemical decoupling methods may avoid clashes of the ligand with the protein that might be problematic when pathway methods are applied to a protein with a buried binding site, they still can pose some of the same sampling challenges.
 For example, sampling of the unbound receptor must be adequate after the ligand is removed, and water molecules must have time to equilibrate in the vacated binding site.
 Given that free energy is a state function, it is not surprising that alchemical and physical pathway approaches yield apparently comparable results when applied to the same systems~\cite{lee_calculation_2006, gumbart_standard_2013, de_ruiter_proteinligand_2013, yin_overview_2016}.  
 
@@ -129,11 +143,11 @@ Because these conversions are not physically realizable, such calculations are, 
 In addition, there may be concerns about slow conformational relaxation of the protein in response to the change in ligand. 
 Nonetheless, alchemical relative free energy calculations currently are the best automated and most widely used free energy methods~\cite{mobley_perspective_2012, liu_lead_2013, schrodinger_accurate_2015}.
 
-Importantly, the accuracy and precision of all of these methods are controlled by the same considerations.
+The accuracy and precision of all of these methods are controlled by three major considerations.
 First, many conformations typically need to be generated, or sampled, in order to obtain an adequate representation of the Boltzmann distribution. 
 In the limit of infinite sampling, a correctly implemented method would yield the single value of the free energy difference dictated by the specification of the molecular system and the chosen force field. 
 In reality, however, only finite sampling is possible, so the reported free energy will differ from the nominal value associated with infinite sampling. 
-In addition, because sampling methods are typically stochastic and the dynamics of molecular systems are highly sensitive to initial conditions~\cite{allen_computer_1989}, repeated calculations, using different random number seeds or initial states, will yield different results. 
+In addition, because sampling methods are typically stochastic and the dynamics of molecular systems are sensitive to initial conditions~\cite{allen_computer_1989}, repeated calculations, using different random number seeds or initial states, will yield somewhat different results. 
 The problem of finite sampling is most acute for systems where low-energy (hence highly occupied) conformational states are separated by high effective barriers, whether energetic or entropic. 
 Second, even if adequate sampling is achievable, free energy differences may disagree substantially with experiment if the force field is not sufficiently accurate. 
 Third, errors may also arise if the representation of the system in the simulation does not adequately represent the actual system, e.g. if protonation states are assigned incorrectly and held fixed.  
@@ -145,14 +159,14 @@ In the case of the more widely used alchemical relative free energy approach, th
 \item a high quality receptor structure is available, without missing loops or other major uncertainties
 \item the protonation state of the ligand and binding-site residues (as well as any other relevant residues) can reliably be inferred
 \item the ligand binding mode is defined by crystallographic studies and is not expected to change much on modification
-\item the receptor does not undergo substantial or slow conformational changes
+\item the receptor does not undergo substantial, slow conformational changes
 \item key interactions are expected to be well-described by underlying force fields 
 \end{itemize}
 \vspace{2mm}
 
 Beyond this domain of applicability---whose dimensions are, in fact, still somewhat vague~\cite{Abel:2016:vertex} --- substantial challenges may be encountered. 
 For example, binding free energy calculations for a cytochrome C peroxidase mutant suggest limitations of fixed-charge force fields. In this case, the strength of electrostatic interactions in a buried, relatively nonpolar binding site appears to be overestimated by a conventional fixed-charge force field, likely due to underestimation of polarization effects~\cite{rocklin_blind_2013}. 
-Sampling problems are also common, with slow sidechain rearrangements and ligand binding mode rearrangements in model binding sites in T4 lysozyme posing timescale problems unless enhanced or biased sampling methods are carefully applied~\cite{mobley_confine_2007, boyce_predicting_2009, mobley_predicting_2007, jiang_free_2010, gallicchio_binding_2010, wang_achieving_2012}; and larger-scale protein motions induced by some ligands also posing challenges~\cite{boyce_predicting_2009, lim_sensitivity_2016}. 
+Sampling problems are also common, with slow sidechain rearrangements and ligand binding mode rearrangements in model binding sites in T4 lysozyme posing timescale problems unless enhanced or biased sampling methods are carefully applied~\cite{mobley_confine_2007, boyce_predicting_2009, mobley_predicting_2007, jiang_free_2010, gallicchio_binding_2010, wang_achieving_2012}; and larger-scale protein motions induced by some ligands can also pose challenges~\cite{boyce_predicting_2009, lim_sensitivity_2016}. 
 
 Although such problems need not prevent free energy calculations from being used, they can require specific adjustment of procedures and parameters based on experience and knowledge of the system at hand.  
 Thus, a key challenge for the field is how to use insights from well-studied cases to enable automation and reduce the detailed knowledge of each system required to carry out high quality simulations. 
@@ -184,7 +198,7 @@ The following subsections provide examples of how hard and soft benchmark system
 
 \paragraph{Systems to test software implementations and usage}
 It is crucial yet nontrivial to validate that a simulation package correctly implements and applies the desired methods~\cite{shirts_lessons_2016}, and benchmark cases can help with this.  
-First, all software packages could be tested for their ability to generate correct potential energies for a single configuration of the specified molecular system and force field. 
+First, all software packages could be tested for their ability to generate correct potential energies for a single configuration of a specified molecular system and force field. 
 These results should be correct to within rounding error and the precision of the physical constants used in the calculations~\cite{shirts_lessons_2016}. 
 Similarly, different methods and software packages should give consistent binding free energies when identical force fields are applied with identical simulation setups and compositions. 
 The benchmark systems for such testing can be simple and easy to converge, and high precision free energies (e.g., uncertainty $\approx 0.1$ kcal/mol) should serve as a reference. 
@@ -197,8 +211,8 @@ As discussed above, free energy calculations require thorough sampling of molecu
 This sampling is typically done by running molecular dynamics simulations, and for systems as large and complex as proteins, it is difficult to carry out long enough simulations. 
 Calculations with inadequate sampling yield results that are imprecise, in the sense that multiple independent calculations with slightly different initial conditions will yield significantly different results, and these ill-converged results will in general be poor estimates of the ideal result obtained in the limit of infinite sampling. 
 Advanced simulation methods have been developed to speed convergence~\cite{tai_conformational_2004, shirts_introduction_2013},  but it is not always clear how various methods compare to one another. 
-To effectively compare such enhanced sampling methods, we need benchmark molecular systems, parameterized with a force field that many software packages can use, that embody various sampling challenges, such as high dimensionality and energetic and entropic barriers between highly occupied states, but which are just tractable enough that reliable results are available via suitable reference calculations.
-Again, experimental data are not required, and the point of comparison may be, at least in part, sampling measures.
+To effectively compare such enhanced sampling methods, we need benchmark molecular systems, parameterized with a force field that many software packages can use, that embody various sampling challenges, such as high dimensionality, and energetic and entropic barriers between highly occupied states, but which are just tractable enough that reliable results are available via suitable reference calculations.
+Again, experimental data are not required, as the main purpose is to test and compare the power of various enhanced sampling technologies. 
 
 \paragraph{Systems to assess force field accuracy}
 \label{pgph:accuracy}
@@ -208,7 +222,7 @@ More recently, advances in hardware and software have made it possible to comput
 simple molecular recognition systems~\cite{henriksen_computational_2015}, as further discussed below. 
 In such cases, absent complications like uncertain protonation states, the level of agreement with experiment reports directly on the accuracy of the force field.
 Thus, simple molecular recognition systems with reliable experimental binding data represent another valuable class of benchmarks.
-Here, of course, experimental data are needed. Ideally, the physical materials will be fairly easy to obtain so that measurements can be replicated or new experimental conditions (such as temperature and solvent composition) explored.
+Here, of course, experimental data are needed. Ideally, the physical materials will be fairly easy to obtain so that measurements can be replicated, and new experimental conditions, such as different temperatures and solvent compositions, can be explored.
 
 \subsubsection{Soft benchmarks}
 \paragraph{Systems to challenge conformational sampling techniques}
@@ -219,15 +233,15 @@ For example, it may become clear that some methods are better at sampling in sys
 Developers should test methods on a standard set of benchmark systems for informative comparisons.
 
 \paragraph{Direct tests of protein-ligand binding calculations}
-Although it is still very difficult to convincingly verify convergence of many protein-ligand binding calculations, it is still important to compare the performance of various methods in real-world challenges. 
-Appropriate soft benchmarks are likely to be cases which are still relatively tractable, involving small proteins and simple binding sites.
-We need a series of benchmark protein-ligand systems that introduce various challenges in a well-understood manner. 
-Systems should introduce none, one, two, or $N$ of the following challenges in various combinations:
+Although it is still very difficult to convincingly verify convergence of many protein-ligand binding calculations, it is still important to compare the performance of various methods for these real-world challenges. 
+Appropriate soft benchmarks are likely to be cases which are still not overly challenging, involving small proteins and simple binding sites.
+We propose defining a series of benchmark protein-ligand systems that systematically introduce specific challenges. 
+In particular, they should exemplify none, one, two, or $N$ of the following challenges, in various combinations:
 \begin{enumerate}
 \item Sampling challenges
   \begin{enumerate}
   \item Sidechains in the binding site rearrange on binding different ligands
-  \item Modest receptor conformational changes, such as loop motion
+  \item Modest backbone conformational changes, such as loop motion
   \item Large scale conformational changes, such as domain motions and allostery
   \item Ligand binding modes change unpredictably with small chemical modifications
   \item High occupancy water sites rearrange depending on bound ligand
@@ -235,7 +249,7 @@ Systems should introduce none, one, two, or $N$ of the following challenges in v
 \item System challenges
   \begin{enumerate}
   \item Protonation state of ligand and/or protein changes on binding
-  \item Multiple protonation states of the ligand and/or receptor are relevant
+  \item Multiple protonation states of the ligand and/or receptor are relevant, due to pKas near the experimental pH, or the presence of multiple relevant tautomers
   \item Results are sensitive to buffer, salts or other environmental factors
 \end{enumerate}
 \item Force field challenges
@@ -250,29 +264,31 @@ Systems should introduce none, one, two, or $N$ of the following challenges in v
 Eventually, some will become sufficiently well characterized and sampled that they become hard benchmarks.
 
 \subsection{Applications and limitations of benchmark systems}
-Standard benchmark systems along the lines sketched above will allow potential solutions to be tested in a straightforward, reproducible manner. 
+Benchmark systems along the lines sketched above will allow potential advances in computational methods to be tested in a straightforward, reproducible manner. 
 For example, force fields may be assessed by swapping new parameters, or even a new functional form, into an existing workflow to see the impact on accuracy for a hard benchmark test.
 Sampling methods may be assessed by using various enhanced sampling methods for either hard or soft sampling benchmarks, here without focusing on accuracy relative to experiment.
-And system preparation tools could be varied to see how different approaches to assigning protonation states, modeling missing loops, or setting initial ligand poses, affect agreement with experiment---with the understanding that force field and sampling also play a role. 
-Such studies will be greatly facilitated by well-characterized standard benchmarks.
+And system preparation tools could be varied to see how different approaches to assigning protonation states, modeling missing loops, or setting initial ligand poses, affect agreement of receptor-ligand binding calculations with experiment---with the understanding that force field and sampling also play a role. 
+Finally, comparisons across methods will be greatly facilitated by community acceptance of a set of standard cases: well-characterized and studied benchmarks utilized by the majority of developers and research groups, ideally on a routine basis.
 
 At the same time, there is a possibility that that some methods will inadvertently end up tuned specifically to generate good results for the set of accepted benchmarks. 
 In such cases, the results for systems outside the benchmark set might still be disappointing. 
 This means the field will need to work together to develop a truly representative set of benchmarks.
 This potential problem can also be mitigated by sharing of methods to enable broader testing by non-developers, and by participation in blinded prediction challenges, such as SAMPL and D3R, which confront methods with entirely new challenge cases. 
 
-\section{BENCHMARK SYSTEMS FOR BINDING PREDICTION}
+\section{CURRENT BENCHMARK SYSTEMS FOR BINDING PREDICTIONS}
 \label{benchmarks}
-No molecular systems have been explicitly accepted by the field as benchmarks for free energy calculations, but certain host molecules (see below) and designed binding sites in the enzyme T4 lysozyme have emerged as particularly helpful and widely studied test cases. 
+No molecular systems have yet been designated by the field as benchmarks for free energy calculations, but certain host molecules and designed binding sites in the enzyme T4 lysozyme have emerged as particularly helpful and widely studied test cases. 
 Here, we describe these artificial receptors and propose specific host-guest and T4 lysozyme-ligand combinations as initial benchmark systems for free energy calculations. 
-We also point to several additional hosts and small proteins that also have potential to generate useful benchmarks in the future (Section~\ref{sec:updates}). 
-The present focus is on cases where experimental data are available and add value, rather than ones chosen specifically to test conformational sampling methods, where experimental data are not required (Section~\ref{subsec:benchmarktypes}). 
+We also point to several additional hosts and small proteins that also have potential to generate useful benchmarks in the future (Section~\ref{sec:futuresystems}). 
+We focus on cases where experimental data are available and add value, rather than cases chosen to test conformational sampling methods, for which experimental data are not required (Section~\ref{subsec:benchmarktypes}). 
 
 \subsection{Host-guest benchmarks}
+\label{sec:hgbenchmarks}
 Chemical hosts are small molecules, often comprising fewer than 100 non-hydrogen atoms, with a cavity or cleft that allows them to bind other compounds, called guests, with significant affinity.  
 Hosts bind their guests via the same basic forces that proteins used to bind their ligands, so they can serve as simple test systems for computational models of noncovalent binding. 
 Moreover, their small size, and, in many cases, their rigidity, can make it feasible to sample all relevant conformations, making for ``hard" benchmarks as defined above (Section~\ref{subsec:benchmarktypes}).  
-Furthermore, experiments can often be run under conditions that make the protonation states of the host and guest unambiguous. Under these conditions, the level of agreement of correctly executed calculations with experiment effectively reports on the validity of the force field (Section~\ref{pgph:accuracy}. 
+Furthermore, experiments can often be run under conditions that make the protonation states of the host and guest unambiguous. 
+Under these conditions, the level of agreement of correctly executed calculations with experiment effectively reports on the validity of the force field (Section~\ref{pgph:accuracy}). 
 For a number of host-guest systems, the use of isothermal titration calorimetry (ITC) to characterize binding provides both binding free energies and binding enthalpies. 
 Binding enthalpies can often also be computed to good numerical precision~\cite{henriksen_computational_2015}, so they provide an additional check of the validity of simulations. A variety of curated host-guest binding data is available on BindingDB at \url{http://bindingdb.org/bind/HostGuest.jsp}.
 
@@ -280,7 +296,8 @@ Hosts fall into chemical families, such that all members of each family share a 
 For example, all members of the cyclodextrin family are chiral rings of glucose monomers; family members then differ in the number of monomers and in the presence or absence of various chemical substituents. 
 For tests of computational methods ultimately aimed at predicting protein-ligand binding affinities in aqueous solution, water soluble hosts are, arguably, most relevant. 
 On the other hand, host-guest systems in organic solvents may usefully test how well force fields work in the nonaqueous environment within a lipid membrane. 
-Here, we focus on two host families, the cucurbiturils \cite{freeman_cucurbituril_1981,mock_host-guest_1983}; and the octa-acids (more generally, Gibb deep cavity cavitands)~\cite{gibb_well-defined_2004, hillyer_synthesis_2016}, which have already been the subject of concerted attention from the simulation community, due in part to their use in the SAMPL blinded prediction challenges~\cite{muddana_sampl3_2012, muddana_sampl4_2014, yin_overview_2016}.  
+Here, we focus on two host families, the cucurbiturils \cite{freeman_cucurbituril_1981,mock_host-guest_1983} and the octa-acids (more generally, Gibb deep cavity cavitands)~\cite{gibb_well-defined_2004, hillyer_synthesis_2016}. 
+These have already been the subject of concerted attention from the simulation community, due in part to their use in the SAMPL blinded prediction challenges~\cite{muddana_sampl3_2012, muddana_sampl4_2014, yin_overview_2016}.  
 
 \begin{figure*}
 \includegraphics[width=\textwidth]{figures/hosts.pdf}
@@ -288,15 +305,16 @@ Here, we focus on two host families, the cucurbiturils \cite{freeman_cucurbituri
 \end{figure*}
 
 \subsubsection{Cucurbiturils}
-
+\label{sec:cb}
 The cucurbiturils ({\bf Figure~\ref{hosts}}) are achiral rings of glycoluril monomers~\cite{freeman_cucurbituril_1981}. The first characterized family member, cucurbit[6]uril, has six glycoluril units, and subsequent synthetic efforts led to the five-, seven-, eight- and ten-monomer versions, cucurbit[n]uril (n=5,6,7,8,10)~\cite{liu_cucurbituril_2005},
 which have been characterized to different extents. 
-Of note, the n=6,7,8 variants accommodate guests of progressively larger size, but are consistent in preferring to bind guests with a hydrophobic core sized to fit snugly into the relatively nonpolar binding cavity, along with at least one cationic moiety (though neutral compounds do bind~\cite{wyman_cucurbituril_2008, lee_deciphering_2015}) that forms stabilizing interactions with the oxygens of the carbonyl groups fringing both portals of the host~\cite{liu_cucurbituril_2005}. 
-Although derivatives of these parent compounds, have been made \cite{Lee:2003:AccountsofChemicalResearch, vinciguerra_synthesis_2015, assaf_cucurbiturils:_2015, Cong:2016:Org.Biomol.Chem.},
-most of the binding data published for this class of hosts pertain to the non-derivatized forms. A fairly extensive set of data is available in BindingDB at \url{http://bindingdb.org/bind/HostGuest.jsp}.
+The n=6,7,8 variants accommodate guests of progressively larger size, but are consistent in preferring to bind guests with a hydrophobic core sized to fit snugly into the relatively nonpolar binding cavity, along with at least one cationic moiety (though neutral compounds do bind~\cite{wyman_cucurbituril_2008, lee_deciphering_2015}) that forms stabilizing interactions with the oxygens of the carbonyl groups fringing both portals of the host~\cite{liu_cucurbituril_2005}. 
+Although derivatives of these host molecules have been made \cite{Lee:2003:AccountsofChemicalResearch, vinciguerra_synthesis_2015, assaf_cucurbiturils:_2015, Cong:2016:Org.Biomol.Chem.},
+most of the binding data published for this class of hosts pertain to the non-derivatized forms. 
+A fairly extensive set of data is available in BindingDB at \url{http://bindingdb.org/bind/HostGuest.jsp}.
 
 
-We propose cucurbit[7]uril (CB7) as the basis of one series of host-guest benchmark systems ({\bf Figure~\ref{hosts}}, {\bf Tables~\ref{cb7_benchmark1} and~\ref{cb7_benchmark2}}). 
+We propose cucurbit[7]uril (CB7) as the basis of one series of host-guest benchmark systems ({\bf Figure~\ref{hosts}}). 
 This host is convenient experimentally, because it is reasonably soluble in water; and computationally, because it is quite rigid and lacks acidic or basic groups. 
 In addition, it has attracted particular interest because of the high binding affinities of some guests, exceeding even the tightest-binding protein-ligand systems~\cite{liu_cucurbituril_2005, rekharsky_synthetic_2007, moghaddam_hostguest_2009, cao_attomolar_2014}.  
 Finally, CB7 is already familiar to a number of computational chemistry groups, as it figured in two of the three SAMPL challenges that included host-guest components~\cite{muddana_sampl3_2012, muddana_sampl4_2014}, and it is currently the focus of the ``hydrophobe challenge''~\cite{schreiner_theoretical_2016}. 
@@ -320,7 +338,7 @@ One way to solve this problem is to reversibly add restraints that open the port
 For CB7, we have selected two sets of guests that were studied experimentally under uniform conditions (50 mM sodium acetate buffer, pH 4.74, 298K) by one research group ~\cite{liu_cucurbituril_2005, cao_attomolar_2014}. Each series is based on a common chemical
 scaffold, making it amenable to not only absolute but also alchemical relative free energy calculations (Section~\ref{sec:FEMethods}). One set is based on an adamantane core ({\bf Table~\ref{cb7_benchmark1}}), and the other on an aromatic ring ({\bf Table~\ref{cb7_benchmark2}}).
 These systems can be run to convergence to allow detailed comparisons among methods and with experiment.
-Their binding free energies range from -5.99 to -17.19 kcal/mol, with the adamantane series spanning a particularly large range of free energies. 
+Their measured binding free energies range from -5.99 to -17.19 kcal/mol, with the adamantane series spanning a particularly large range. 
 
 
 \paragraph{Prior studies provide additional insight into CB7's challenges}
@@ -328,24 +346,30 @@ Their binding free energies range from -5.99 to -17.19 kcal/mol, with the adaman
 Sampling of the host appears relatively straightforward in CB7 as it is quite rigid and its symmetry provides for clever convergence checks~\cite{henriksen_computational_2015, monroe_converging_2014}. 
 Due to its top-bottom symmetry, flips of guests from ``head-in'' to ``head-out'' configurations are not necessary to obtain convergence~\cite{fenley_bridging_2014}.
 However, sampling of the guest geometry can be a challenge, with transitions between binding modes as slow as 0.07 flips/ns~\cite{monroe_converging_2014}, and flexible guests also presenting challenges~\cite{monroe_converging_2014}. 
-As noted above, water sampling can also be an issue, with wetting/dewetting transitions occurring on the 50 ns timescale~\cite{rogers_role_2013}.
+As noted above, water sampling can also be an issue, with wetting/dewetting transitions occurring on the 50 ns timescale~\cite{rogers_role_2013} when the guest is partly decoupled from the aqueous host in alchemical calculations.
 
 %System
 Salt and buffer conditions are also key. 
 In addition to the strong salt-dependence of binding~\cite{moghaddam_new_2011}, acetic acid (such as in a sodium acetate buffer) can compete with guests for the binding site~\cite{moghaddam_hostguest_2009}. 
 This may partially explain systematic errors in some computational studies~\cite{muddana_blind_2014,hsiao_prediction_2014}. 
 Indeed, the difference between 50 mM sodium acetate buffer and 100 mM sodium phosphate buffer impacts measured binding free energies by 2.5-2.8 kcal/mol~\cite{muddana_blind_2014, muddana_sampl4_2014}.  
-Cationic guests could also have substantial and differing interactions with the counterions in solution as well, potentially lowering affinity relative to zero-salt conditions~\cite{muddana_sampl4_2014}.  
-Thus, one group found a 6.4-6.8 kcal/mol dependence on salt concentration~\cite{hsiao_prediction_2014}, possibly impacting other studies as well~\cite{monroe_converging_2014}
+Cationic guests could also have substantial and differing interactions with the counterions in solution, potentially lowering affinity relative to zero-salt conditions~\cite{muddana_sampl4_2014}.  
+Additionally, CB7 can also bind cations fairly strongly~\cite{Isaacs:2009:Chem.Commun., cao_absolute_2014, Marquez:2004:J.Am.Chem.Soc.}.
+Thus, one group found a 6.4-6.8 kcal/mol dependence on salt concentration~\cite{hsiao_prediction_2014} (possibly due to cation competition for the binding site), possibly impacting other studies as well~\cite{monroe_converging_2014}. 
+
 
 %Force field
-Despite these issues, CB7 appears to be at the point where careful studies can probe the true accuracy of our force fields~\cite{henriksen_computational_2015, gao_binding_2015, yin_toward_2015}, and the results can be sobering, with RMS errors in the binding free energies as high as 8 kcal/mol~\cite{henriksen_computational_2015, monroe_converging_2014}. More encouragingly, the values of $R^2$ values can be as high as 0.92~\cite{henriksen_computational_2015}. 
-Some force fields appear relatively worse than others~\cite{hsiao_prediction_2014, muddana_prediction_2012}.
+Despite these issues, CB7 appears to be at the point where careful studies can probe the true accuracy of our force fields~\cite{hsiao_prediction_2014, muddana_prediction_2012,henriksen_computational_2015, gao_binding_2015, yin_toward_2015}, and the results can be sobering, with RMS errors in the binding free energies as high as 8 kcal/mol~\cite{henriksen_computational_2015, monroe_converging_2014}. 
+More encouragingly, the values of $R^2$ values can be as high as 0.92~\cite{henriksen_computational_2015}. 
 Calculated values are in many cases quite sensitive to details of force field parameters~\cite{monroe_converging_2014, moghaddam_new_2011, muddana_prediction_2012}. For example, modest modification of some Lennard-Jones parameters yielded dramatic improvements in calculated values~\cite{yin_toward_2015}, and host-guest binding data has, accordingly, been suggested as an input for force field development~\cite{yin_toward_2015, henriksen_computational_2015, gao_binding_2015}.
 Water structure around CB7 and calculated binding enthalpies also appear particularly sensitive to the choice of water model~\cite{rogers_role_2013, fenley_bridging_2014, gao_binding_2015}, and water is clearly important for modulating binding~\cite{nguyen_grid_2012}.
 The water model also impacts the number of sodium ions which must be displaced (in sodium-based buffer) on binding~\cite{gao_binding_2015, henriksen_computational_2015}.
 
-Despite its apparent simplicity, CB7 is still a challenging benchmark that can put important issues into high relief. For example, in SAMPL4, free energy methods yielded $R^2$ values from 0.1 to 0.8 and RMS errors of about 1.9 to 4.9 kcal/mol for the same set of CB7 cases. This spread of results across rather similar methods highlights the need for shared benchmarks. Potential explanations include convergence difficulties, subtle methodological differences, and details of how the methods were applied~\cite{muddana_sampl4_2014}. Until the origin of such discrepancies is clear, it is difficult to know how accurate our methods truly are. 
+In summary, CB7 is still a challenging benchmark that can put important issues into high relief. 
+For example, in SAMPL4, free energy methods yielded $R^2$ values from 0.1 to 0.8 and RMS errors of about 1.9 to 4.9 kcal/mol for the same set of CB7 cases~\cite{muddana_sampl4_2014}. 
+This spread of results across rather similar methods highlights the need for shared benchmarks. 
+Potential explanations include convergence difficulties, subtle methodological differences, and details of how the methods were applied. 
+Until the origin of such discrepancies is clear, it is difficult to know how accurate our methods truly are. 
 
 \begingroup
 \squeezetable
@@ -407,7 +431,7 @@ Binding data have been reported for the original form of this host (OA)~\cite{gi
 (Note that OA and TEMOA have also been called OAH and OAMe, respectively~\cite{yin_overview_2016}.) 
 Additional family members with other substituents around the portal have been reported, as has a new series in which the eponymic carboxylic groups are replaced by various other groups, including a number of basic amines~\cite{hillyer_synthesis_2016}. 
 However, we are not aware of binding data for these derivatives. 
-In view of these other hosts, however, we propose the more general name Gibb deep cavity cavitands (GDCCs) for this family of hosts. 
+Because these closely related hosts are clearly in the same family but do not have eight acidic groups, and in recognition of the family's developer, we propose the more general name Gibb deep cavity cavitands (GDCCs) for this family of hosts. 
 The binding cavities of the GDCCs are fairly rigid, though less so than the cucurbiturils. 
 Some simulators report ``breathing'' motions that vary the diameter of the entry by up to 8~\AA \cite{mikulskis_free-energy_2014}; and, in some studies, the benzoic acid ``flaps'' around the entry occasionally flip upward and into contact with the guest~\cite{yin_sampl5_2016, tofoleanu_absolute_2016}, though this motion has not been verified experimentally. 
 Additionally, the four priopionate groups protruding into solution from the exterior base of the cavity are all flexible. 
@@ -424,13 +448,18 @@ These effects are due in part to binding of anions by the host; indeed, trichlor
 Second, elongated guests can generate ternary complexes, in which two OA hosts encapsulate one guest, especially if both ends of the guest are not very polar~\cite{gibb_guests_2009}.  
 
 \paragraph{The proposed GDCC benchmark sets are drawn from SAMPL}
-As a core benchmark series for this family, we propose two sets which formed part of the SAMPL4 and SAMPL5 challenges, based on adamantane derivatives (Table~\ref{gdcc_benchmark1}) and cyclic (aromatic and saturated) carboxylic acids (Table~\ref{gdcc_benchmark2}) binding to hosts OA and TEMOA with free energies of -3.7 to -7.6 kcal/mol. These cases offer aqueous binding data with a reasonably broad range of binding free energies, frequently along with binding enthalpies; the hosts and many or all of their guests are small and rigid enough to allow convincing convergence of binding thermodynamics with readily feasible simulations; and, like the cucurbiturils, they are already emerging as \emph{de facto} computational benchmarks, due to their use in the SAMPL4 and SAMPL5 challenges~\cite{muddana_sampl4_2014, yin_overview_2016}. 
+We propose the establishment of two GDCC benchmark sets, based on data which formed part of the SAMPL4 and SAMPL5 challenges.
+One set is based on experiments carried out in phosphate buffer at pH 11.5, and the other on experiments in tetraborate buffer at pH 9.2
+The guests in the first set (Table~\ref{gdcc_benchmark1}) are adamantane derivatives and cyclic (aromatic and saturated) carboxylic acids (Table~\ref{gdcc_benchmark1}), which bind to hosts OA and TEMOA with free energies of -3.7 to -7.6 kcal/mol.
+The second set of guests (Table~\ref{gdcc_benchmark2}) comprises carboxylic acids based on phenyl and cyclohexane cores.
+Both sets offer aqueous binding data with free energies spanning about 4 kcal/mol, frequently along with binding enthalpies.
+The hosts and many or all of their guests are small and rigid enough to allow convincing convergence of binding thermodynamics with readily feasible simulations; and, like the cucurbiturils, they are already emerging as \emph{de facto} computational benchmarks, due to their use in the SAMPL4 and SAMPL5 challenges~\cite{muddana_sampl4_2014, yin_overview_2016}. 
 
-\paragraph{OA introduces new challenges beyond CB7} Issues deserving attention when interpreting the experimental data and calculating the binding thermodynamics of these systems include the following:
+\paragraph{The GDCC hosts introduce new challenges beyond CB7} Issues deserving attention when interpreting the experimental data and calculating the binding thermodynamics of these systems include the following:
 
 \begin{enumerate}
 \item{{\bf Tight exit portal}: The methyl groups of the TEMOA variant narrow the entryway and can generate a barrier to the entry or exit of guest molecules with bulky hydrophobic cores, though the degree of constriction is not as marked as for CB7 (above). 
-The TEMOA methyls groups can additionally hinder sampling of guest poses in the bound state, leading to convergence problems~\cite{yin_overview_2016} specific to TEMOA. }
+The TEMOA methyl groups can additionally hinder sampling of guest poses in the bound state, leading to convergence problems~\cite{yin_overview_2016}}
 
 \item{{\bf Host conformational sampling}: Although the flexible propionate groups are not proximal to the binding cavity, they are charged and so can have long-ranged interactions. 
 As a consequence, it may be important to ensure their conformations are well sampled, though motions may be slow~\cite{mikulskis_free-energy_2014}. 
@@ -453,31 +482,31 @@ Thus, attention should be given to ionization states and their modulation by bin
 \begin{table*}
 % \tabcolsep7.5pt
 \caption{Proposed GDCC Set 1 benchmark data}
+
 \label{gdcc_benchmark1}
-\begin{tabular}{lllp{1.5cm}>{\ttfamily}lS[table-format=-1.3, table-figures-uncertainty=1]S[table-format=-1.2, table-figures-uncertainty=1]}
+\begin{tabular}{llllp{1.5cm}>{\ttfamily}lS[table-format=-1.3, table-figures-uncertainty=1]S[table-format=-1.2, table-figures-uncertainty=1]}
 \toprule
-\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$}  & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{$\Delta H^{\rm d}$ \,{(}kcal/mol{)}} \\
+\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{SAMPL$^{\rm b}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm c}$}  & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{$\Delta H^{\rm d}$ \,{(}kcal/mol{)}} \\
+
 \midrule
-\multicolumn{7}{c}{Octa Acid binders} \\ 
+\multicolumn{8}{c}{OA host} \\ 
 \midrule                                                                                                                                                        
-3 / OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.40 \pm 0.003    & -7.71 \pm 0.05     \\
-4 / OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -5.34 \pm 0.005    & -5.67 \pm 0.01     \\
-5 / OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -4.73 \pm 0.01     & -4.45 \pm 0.08     \\
-6 / OA-G4    & 4-bromoadamantane-1-carboxylic acid & 12598766         & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12598766.pdf}} & C1C2CC3CC(C2)(CC1C3Br)C(=O)O       & -9.37 \pm 0.01     & -14.78 \pm 0.02    \\  
-7 / OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -4.49 \pm 0.01     & -5.91 \pm 0.10     \\ 
-8 / OA-G5    & trimethylphenethylaminium           & 14108            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/14108.pdf}}    & C[N+](C)(C)CCC1=CC=CC=C1           & -3.72 \pm 0.01     & -9.96 \pm 0.11     \\
+3 & OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.40 \pm 0.003    & -7.71 \pm 0.05     \\
+4 & OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -5.34 \pm 0.005    & -5.67 \pm 0.01     \\
+5 & OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -4.73 \pm 0.01     & -4.45 \pm 0.08     \\
+6 & OA-G4    & 4-bromoadamantane-1-carboxylic acid & 12598766         & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12598766.pdf}} & C1C2CC3CC(C2)(CC1C3Br)C(=O)O       & -9.37 \pm 0.01     & -14.78 \pm 0.02    \\  
+7 & OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -4.49 \pm 0.01     & -5.91 \pm 0.10     \\ 
+8 & OA-G5    & trimethylphenethylaminium           & 14108            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/14108.pdf}}    & C[N+](C)(C)CCC1=CC=CC=C1           & -3.72 \pm 0.01     & -9.96 \pm 0.11     \\
 \midrule
-\multicolumn{7}{c}{TEMOA/OAMe binders} \\ 
+\multicolumn{8}{c}{TEMOA/OAMe host} \\ 
 \midrule
-3 / OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.476 \pm 0.006   & -9.961 \pm 0.006   \\
-4 / OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -4.52 \pm 0.02     & -9.1 \pm 0.1       \\
-5 / OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -5.26 \pm 0.01     & -7.6 \pm 0.1       \\
-6 / OA-G4    & 4-bromoadamantane-1-carboxylic acid & 12598766         & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12598766.pdf}} & C1C2CC3CC(C2)(CC1C3Br)C(=O)O       & {ND$^{\rm e}$}       & {ND$^{\rm e}$}      \\  
-7 / OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -5.73 \pm 0.06     & -6.62 \pm 0.2      \\ 
-8 / OA-G5    & trimethylphenethylaminium           & 14108            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/14108.pdf}}    & C[N+](C)(C)CCC1=CC=CC=C1           & {ND$^{\rm e}$}       & {ND$^{\rm e}$}      \\
+3 & OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.476 \pm 0.006   & -9.961 \pm 0.006   \\
+4 & OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -4.52 \pm 0.02     & -9.1 \pm 0.1       \\
+5 & OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -5.26 \pm 0.01     & -7.6 \pm 0.1       \\
+7 & OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -5.73 \pm 0.06     & -6.62 \pm 0.2      \\ 
 \bottomrule
 \end{tabular}\\
-$^{\rm a}$ Compound ID from ~\cite{sullivan_binding_2016} and SAMPL5 ID from ~\cite{yin_overview_2016}; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from~\cite{sullivan_binding_2016}, where all measurements were done via ITC in 50 mM sodium phosphate buffer at pH 11.5 and 298 K. Uncertainties, drawn from the experimental paper, were computed from triplicate measurements taken with freshly made solutions of host and guest. However, based on personal communication with the authors, it may be advisable to regard the accuracy more conservatively, at $\sim$2\% for $\Delta$G and $\sim$6\% for $\Delta$H;  $^{\rm d}$ measured binding enthalpy~\cite{sullivan_binding_2016}, subject to the same conditions/caveats as $^{\rm c}$. $^{\rm e}$ not done.
+$^{\rm a}$ Compound ID from ~\cite{sullivan_binding_2016}; $^{\rm b}$ SAMPL5 ID from ~\cite{yin_overview_2016}; $^{\rm c}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from~\cite{sullivan_binding_2016}, where all measurements were done via ITC in 50 mM sodium phosphate buffer at pH 11.5 and 298 K. Uncertainties, drawn from the experimental paper, were computed from triplicate measurements taken with freshly made solutions of host and guest. However, based on personal communication with the authors, it may be advisable to regard the accuracy more conservatively, at $\sim$2\% for $\Delta$G and $\sim$6\% for $\Delta$H;  $^{\rm d}$ measured binding enthalpy~\cite{sullivan_binding_2016}, subject to the same conditions/caveats as $^{\rm c}$. $^{\rm e}$ not done.
 \end{table*}
 \endgroup
 
@@ -485,7 +514,7 @@ $^{\rm a}$ Compound ID from ~\cite{sullivan_binding_2016} and SAMPL5 ID from ~\c
 \squeezetable
 \begin{table*}
 % \tabcolsep7.5pt
-\caption{Proposed GDCC Set 2 benchmark data}
+\caption{Proposed GDCC Set 2 benchmark data for binding to the OA host.}
 \label{gdcc_benchmark2}
 \begin{tabular}{lllp{2cm}>{\ttfamily}llS[table-format=-1.2, table-figures-uncertainty=1]}
 \toprule
@@ -508,7 +537,7 @@ $^{\rm a}$ Compound ID from original paper ~\cite{gibb_binding_2013}; $^{\rm b}$
 
 %SAMPLING
 As noted, two different host conformational sampling issues have been observed, with dihedral transitions for the proprionate groups occurring on 1-2 ns timescales~\cite{mikulskis_free-energy_2014}); motions of the benzoic acid flaps were also relatively slow~\cite{yin_sampl5_2016, tofoleanu_absolute_2016} though perhaps thermodynamically unimportant. 
-Guest sampling can also be an issue, at least in TEMOA~\cite{yin_overview_2016}, and this hosts's tight cavity may also have implications for binding entropy~\cite{yin_sampl5_2016}.
+Guest sampling can also be an issue, at least in TEMOA~\cite{yin_overview_2016}, and this host's tight cavity may also have implications for binding entropy~\cite{yin_sampl5_2016}.
 
 % SYSTEM:
 Salt concentration strongly modulates binding affinity, at least for anions, and the nature of the salt also plays an important role~\cite{carnegie_anion_2014}. 
@@ -516,36 +545,39 @@ Co-solvent anions can also increase \emph{or} decrease binding depending on thei
 Some salts even bind to OA themselves, with perchlorate~\cite{gibb_anion_2011} and trichloroacetate~\cite{sokkalingam_binding_2016} being particularly potent, and thus will compete with guests for binding.  
 Computationally, including additional salt beyond that needed for system neutralization changed binding free energies by up to 4 kcal/mol~\cite{tofoleanu_absolute_2016}.  
 
-Naively, protonation states of the guests might seem clear and unambiguous.
-But since OA can bind guests of diverse net charges, the protonation state may not always be clear.  
-One study used absolute binding free energy calculations for different guest charge states, coupled with pKa calculations, and found that inclusion of pKa corrections and the possibility of alternate charge states of the guests affected calculated binding free energies by up to 2 kcal/mol~\cite{tofoleanu_absolute_2016}. As noted above, experimental evidence also indicates major pKa shifts on binding so that species such as acetate, formate and others would bind in neutral form at neutral pH~\cite{wang_itc_2016, sokkalingam_binding_2016}. 
-Even the host protonation state may be unclear; while OA is often assumed to have all eight carboxylic acids deprotonated at the basic pH of typical experiments, the four at the bottom are in close proximity, and these might make hydrogen bonds allowing retention of two protons~\cite{ewell_water_2008}.  
+Although the protonation states of the guests might seem clear and unambiguous, experimental evidence also indicates major pKa shifts on binding so that species such as acetate, formate and others could bind in neutral form at neutral pH~\cite{wang_itc_2016, sokkalingam_binding_2016}. 
+One study used absolute binding free energy calculations for different guest charge states, coupled with pKa calculations, and found that inclusion of pKa corrections and the possibility of alternate charge states of the guests affected calculated binding free energies by up to 2 kcal/mol~\cite{tofoleanu_absolute_2016}.
+Even the host protonation state may be unclear. Although OA might be assumed to have all eight carboxylic acids deprotonated at the basic pH of typical experiments, the four at the bottom are in close proximity, and these might make hydrogen bonds allowing retention of two protons~\cite{ewell_water_2008}.  
 Thus, there are uncertainties as to the host protonation state~\cite{muddana_sampl4_2014, ewell_water_2008}, which perhaps also could be modulated by guest binding.  
 
 %FORCE FIELD, etc.:
-%The challenges of system definition and conformational sampling appear to be greater for OA and TEMOA than for CB7, , so evidence of force field limitations, if present, is not yet as clear. There have been some comparisons of charge~\cite{mikulskis_free-energy_2014, muddana_sampl4_2014, monroe_converging_2014} and water models~\cite{yin_sampl5_2016}, but differences so far seem mostly inconclusive or at least not that large. Similarly, OPLS and GAFF results did not appear dramatically different in accuracy~\cite{bhakat_resolving_2016} 
-%The above paragraph could be cut for space if we need
-
-Several groups used different methods but the same force field and water model in SAMPL5, with rather varied levels of success because of discrepancies in calculated free energies~\cite{yin_overview_2016, bosisio_blinded_2016, bhakat_resolving_2016}. 
-However, some of these issues were resolved in follow-up work~\cite{bhakat_resolving_2016}, bringing the methods into fairly good agreement for the majority of cases~\cite{yin_sampl5_2016, bosisio_blinded_2016}.
+The challenges of system definition and conformational sampling appear to be greater for OA and TEMOA than for CB7, as discussed above, so it is harder to draw definite conclusions regarding force field accuracy and differences among force fields. 
+Thus, although there have been some comparisons of charge~\cite{mikulskis_free-energy_2014, muddana_sampl4_2014, monroe_converging_2014} and water models~\cite{yin_sampl5_2016}, the resulting differences in computed binding thermodynamics so far seem mostly inconclusive or at least not that large. 
+Similarly, OPLS and GAFF results did not appear dramatically different in accuracy~\cite{bhakat_resolving_2016}.
+It is worth noting that several groups using different computational approaches but the same force field and water model in SAMPL5 did not obtain identical binding free energies~\cite{yin_overview_2016, bosisio_blinded_2016, bhakat_resolving_2016}. 
+Some of these issues were resolved in follow-up work~\cite{bhakat_resolving_2016}, bringing the methods into fairly good agreement for the majority of cases~\cite{yin_sampl5_2016, bosisio_blinded_2016}.
 
 \subsection{Protein-ligand benchmarks: the T4 lysozyme model binding sites}
-
+\label{sec:t4}
 \begin{figure*}
 \includegraphics[width=\textwidth]{figures/lysozyme.pdf}
-\caption{\label{fig:lysozyme} Benzene and hexylbenzene in the lysozyme L99A site, and phenol and 4,5,6,7-tetrahydroindole in the L99A/M102Q site (PDBs 4W52, 4W59, 1LI2, and 3HUA, respectively). The binding site shape is shown as a semi-transparent surface, and the protein shown with cartoons. In both cases, the structure with the smaller ligand is shown in green and that with the larger ligand is shown in blue, and the larger ligand induces a motion of helix F bordering the binding site. Phenol and 4,5,6,7-tetrahydroindole both also bind with an ordered water, though this does not occur for all ligands in the polar L99A/M102Q site.}
+\caption{\label{fig:lysozyme} Benzene and hexylbenzene in the apolar lysozyme L99A site (left), and phenol and 4,5,6,7-tetrahydroindole in the polar L99A/M102Q site (right). 
+These structures are from PDBs 4W52, 4W59, 1LI2, and 3HUA, respectively. 
+The binding site cavities are shown as a semi-transparent surface, and the protein is shown with cartoons. 
+In both cases, the structure with the smaller ligand is shown in green and that with the larger ligand is shown in blue; the larger ligand (hexylbenzene in L99A, 4,5,6,7-tetrahydroindole in L99A/M102Q) induces a motion of helix F bordering the binding site. Phenol and 4,5,6,7-tetrahydroindole both also bind with an ordered water (red sphere, right panel), though this does not occur for all ligands in the polar L99A/M102Q site.}
 \end{figure*}
 
 
 Although we seek ultimately to predict binding in systems of direct pharmaceutical relevance, simpler protein-ligand systems can represent important stepping stones in this direction.
 Two model binding sites in T4 lysozyme have been particularly useful in this regard ({\bf Figure~\ref{fig:lysozyme}}). 
-These two binding sites, called L99A~\cite{morton_energetic_1995, morton_specificity_1995} and L99A/M102Q~\cite{wei_model_2002, graves_decoys_2005} for point mutations which create the cavities of interest, are created in artificial mutants of phage T4 lysozyme, and have been studied extensively experimentally and via modeling. 
+These two binding sites, called L99A~\cite{morton_energetic_1995, morton_specificity_1995} and L99A/M102Q~\cite{wei_model_2002, graves_decoys_2005} for point mutations which create the cavities of interest, have been studied extensively experimentally and via modeling. 
 As protein-ligand systems, they introduce additional complexities beyond those observed in host-guest systems, yet they share some of the same simplicity.
 The ligands are generally small, neutral, and relatively rigid, with clear protonation states.
-In many cases, substantial protein motions are absent, allowing calculated binding free energies to apparently converge relatively easily. 
-However, like host-guest systems, these binding sites are still surprisingly challenging~\cite{mobley_use_2006, mobley_confine_2007, mobley_predicting_2007, boyce_predicting_2009, jiang_free_2010, gallicchio_binding_2010, lim_sensitivity_2016}. In addition, precise convergence is sometimes difficult to achieve, and it is in all cases essentially impossible to fully verify.  As a consequence, these are ``soft benchmarks" as defined above (Section~\ref{subsec:benchmarktypes}).
-The importance of the lysozyme model sites is also driven by the relative wealth of experimental data. 
-It is relatively easy to identify new ligands and obtain high quality crystal structures and affinity measurements, allowing two different rounds of blind predictions testing free energy calculations~\cite{mobley_predicting_2007, boyce_predicting_2009}. 
+In many cases, substantial protein motions do not occur on binding, helping calculated binding free energies to reach apparent convergence relatively easily. 
+However, like host-guest systems, these binding sites are still surprisingly challenging~\cite{mobley_use_2006, mobley_confine_2007, mobley_predicting_2007, boyce_predicting_2009, jiang_free_2010, gallicchio_binding_2010, lim_sensitivity_2016}. 
+Thus, precise convergence is sometimes difficult to achieve, and it is in all cases essentially impossible to fully verify.  As a consequence, these are ``soft benchmarks" as defined above (Section~\ref{subsec:benchmarktypes}).
+The utility of the lysozyme model sites is also driven by the large body of available experimental data. 
+It has been relatively easy to identify new ligands and obtain high quality crystal structures and affinity measurements, and this has allowed two different rounds of blinded free energy prediction exercises~\cite{mobley_predicting_2007, boyce_predicting_2009}. 
 
 
 \subsubsection{The apolar and polar cavities and their ligands}
@@ -555,32 +587,31 @@ It still binds a variety of nonpolar ligands such as toluene (though not benzene
 One small downside of these binding sites is that the range of affinities is relatively narrow: about -4.5 to -6.7 kcal/mol in the apolar site~\cite{morton_energetic_1995, mobley_predicting_2007}, and about -4 to -5.5 kcal/mol in the polar site~\cite{boyce_predicting_2009}. Thus, even the strongest binders are not particularly strong, and the weakest binders tend to run up against their solubility limits. 
 Still, these sites offer immensely useful tests for free energy calculations.
 
-For both sites, fixed charge force fields seem to yield reasonably accurate free energies, with RMS errors between 1-2 kcal/mol, and some level of correlation with experiment, despite limited dynamic range~\cite{deng_calculation_2006, mobley_predicting_2007, boyce_predicting_2009, gallicchio_binding_2010, wang_identifying_2013}. 
+For both sites, fixed charge force fields seem to yield reasonably accurate free energies, with RMS errors of 1-2 kcal/mol, and some level of correlation with experiment, despite limited dynamic range~\cite{deng_calculation_2006, mobley_predicting_2007, boyce_predicting_2009, gallicchio_binding_2010, wang_identifying_2013}. 
 System composition/preparation issues also do not seem to be a huge factor.
 Instead, sampling issues predominate:
 \begin{enumerate}
 
-\item{Ligand binding mode/orientational sampling: The binding sites are buried and roughly oblong, with ligands which are similar in shape. 
+\item{Ligand orientation: These oblong binding sites are buried, and their ligands are similar in shape. 
 Ligands with axial symmetry typically have at least two reasonably likely binding modes, but broken symmetry can drive up the number of likely binding modes. 
 For example, phenol has two plausible binding modes in the polar cavity~\cite{graves_rescoring_2008, boyce_predicting_2009} but 3-chlorophenol has at least four, three of which appear to have some population in simulations~\cite{gallicchio_binding_2010}, because the chlorine could point in either direction within the site. 
 Timescales for binding mode interconversion are relatively slow, with in-plane transitions on the 1-10 nanosecond timescale, and out-of-plane transitions (e.g. between toluene's two symmetry-equivalent binding modes) taking hundreds of nanoseconds (Mobley group, unpublished data).}
 
-\item{Sidechain rearrangements: Some sidechains are known to reorganize when binding certain ligands. 
-The smallest ligands tend not to induce conformational changes, but larger ligands may induce sidechain rearrangements -- often, rotamer flips -- around the binding site region. 
-These can be slow in the tightly packed binding site. 
-This especially occurs for Val111 in the L99A site~\cite{morton_specificity_1995, mobley_confine_2007, jiang_free_2010} and Leu118, Val11, and Val103 in L99A/M102Q~\cite{wei_model_2002, wei_testing_2004, graves_rescoring_2008, boyce_predicting_2009}. 
-These sidechain motions typically present sampling problems for standard MD simulations~\cite{mobley_confine_2007, mobley_predicting_2007, boyce_predicting_2009, jiang_free_2010, wang_achieving_2012}.
+\item{Sidechain rearrangement: Some sidechains reorganize when certain ligands, particularly larger ones, bind. 
+This is common in particular for the side chain of Val 111 in the L99A site~\cite{morton_specificity_1995, mobley_confine_2007, jiang_free_2010} and Leu 118, Val 111, and Val 103 in L99A/M102Q~\cite{wei_model_2002, wei_testing_2004, graves_rescoring_2008, boyce_predicting_2009}. 
+These sidechain motions can be slow, due to the tight packing of the binding site, and therefore can present sampling problems for standard MD simulations~\cite{mobley_confine_2007, mobley_predicting_2007, boyce_predicting_2009, jiang_free_2010, wang_achieving_2012}.
 }
 
-\item{Backbone sampling: 
-Larger ligands induce shifts of the F helix, residues 107 or 108 to 115, adjacent to the binding site, allowing the site to enlarge.
+\item{Backbone rearrangement: 
+Larger ligands induce shifts of the F helix (residues 107 or 108 to 115), which is  adjacent to the binding site, allowing the site to enlarge.
 This occurs in both binding sites~\cite{wei_testing_2004, boyce_predicting_2009, merski_homologous_2015}, but is best characterized for L99A~\cite{merski_homologous_2015}.
 There, addition of a series of methyl groups from benzene up to n-hexylbenzene causes a conformational transition in the protein from closed to intermediate to open conformations.
 }
 \end{enumerate}
 
-{\bf Tables~\ref{apolar_benchmark} and~\ref{polar_benchmark}} introduce proposed benchmark sets for the apolar and polar cavities, giving ligands potentially amenable to both absolute and relative free energy calculations, and spanning the range of available affinities. 
-Co-crystal structures are available in most cases, and the PDB IDs are provided in the tables. 
+{\bf Tables~\ref{apolar_benchmark} and~\ref{polar_benchmark}} introduce two initial benchmark sets based on the apolar and polar T4 lysozyme binding sites. 
+These sets include ligands amenable to both absolute and relative free energy calculations, and have affinities that cover the currently available experimental range.
+Co-crystal structures are available in most cases; the corresponding PDB IDs are provided in the tables. 
 The selected ligands span a range of challenges and levels of difficulty, ranging from fairly simple to including most of the challenges noted above. 
 Essentially all of them have been included in at least one prior computational study, and some have appeared in a variety of prior studies.
 Additional known ligands and non-binders are available, with binding affinities available for 19 compounds in the L99A site~\cite{eriksson_cavity-containing_1992, morton_energetic_1995, mobley_predicting_2007} and 16 in L99A/M102Q~\cite{wei_model_2002, graves_decoys_2005, boyce_predicting_2009}. 
@@ -646,63 +677,214 @@ $^{\rm a}$T=283K, with measurements done at pH 6.8 in 50 mM potassium phosphate,
 
 \subsubsection{Computational challenges posed by the T4 lysozyme benchmarks}
 Early work on the lysozyme sites focused on the difficulty of predicting binding modes~\cite{mobley_use_2006, mobley_predicting_2007, boyce_predicting_2009} because of the slow interconversions noted above. 
-Docking methods often can generate reasonable poses spanning most of the important possibilities~\cite{mobley_use_2006, mobley_predicting_2007, boyce_predicting_2009, graves_rescoring_2008} but do not accurately predict the binding mode of individual compounds~\cite{mobley_predicting_2007, boyce_predicting_2009, graves_rescoring_2008}. 
-Thus it appears necessary to consider the possibility of multiple binding modes; this is also important since some ligands actually populate multiple binding modes~\cite{boyce_predicting_2009}. 
+Docking methods often can generate reasonable poses spanning most of the important possibilities~\cite{mobley_use_2006, mobley_predicting_2007, boyce_predicting_2009, graves_rescoring_2008} but do not accurately predict the binding modes of individual compounds~\cite{mobley_predicting_2007, boyce_predicting_2009, graves_rescoring_2008}. 
+Thus, binding calculations must explore multiple potential binding modes, especially as some ligands actually populate multiple poses at equilibrium~\cite{boyce_predicting_2009}. 
 In a number of studies, candidate binding modes from docking are relaxed with MD simulations, then clustered to select binding modes for further study. 
 It turns out an effective binding free energy for each distinct candidate binding mode can be computed separately~\cite{mobley_use_2006} and combined to find the population of each binding mode and determine the overall binding free energy.
-However, this is costly since each candidate binding mode requires a full binding free energy calculation.
+However, this is costly, since each binding mode requires a full binding free energy calculation.
 
-Relative binding free energy calculations do not dramatically simplify the situation. 
-Introduction of a ligand modification can leave the binding mode uncertain (e.g., introducing a chlorine onto phenol leaves at least two possible binding modes even if the binding mode of phenol is known)~\cite{boyce_predicting_2009}. 
-A na{\" i}ve solution is to consider multiple possible binding modes in relative free energy calculations~\cite{boyce_predicting_2009}, but this generates multiple results; determining the true relative binding free energy requires additional information~\cite{mobley_perspective_2012}. Enhanced sampling approaches provide one possible solution to the binding mode problem. 
-Particularly, with $\lambda$ or Hamiltonian exchange techniques, ligands can easily switch between binding modes when they are non-interacting unless they are restrained, and then moves in $\lambda$ space can allow transitions back to the interacting state.
+Relative binding free energy calculations do not dramatically simplify the situation,as
+introduction of a ligand modification can leave the binding mode uncertain. 
+For example, adding a chlorine to phenol generates at least two binding mode variants, even if the binding mode of phenol is known)~\cite{boyce_predicting_2009}. 
+A na{\" i}ve solution is to consider multiple possible binding modes in relative free energy calculations~\cite{boyce_predicting_2009}, but this generates multiple results; determining the true relative binding free energy requires additional information~\cite{mobley_perspective_2012}. 
+Enhanced sampling approaches provide one possible solution to the binding mode problem. 
+For example, $\lambda$ or Hamiltonian exchange techniques can incorporate sampling on an artificial energy surface where the ligand does not interact with the protein, and thus can readily reorient.
 Thus, approaches employing this strategy can naturally sample multiple binding modes~\cite{gallicchio_binding_2010, wang_identifying_2013}.
 
 While sidechain sampling has been a significant challenge, it is possible to use biased sampling techniques such as umbrella sampling to deliberately compute and include free energies of sampling slow sidechain rearrangements~\cite{mobley_confine_2007}. 
-However, this is not a general solution, since it requires knowing what sidechains might rearrange on binding and then expending substantial computational power on sampling free energy landscapes for these rearrangements. 
-An apparently better general strategy is including sidechains in enhanced sampling regions selected for Hamiltonian exchange~\cite{jiang_free_2010, khavrutskii_improved_2011} or REST~\cite{wang_achieving_2012}, allowing sidechains to be alchemically softened or torsion barriers lowered (or both), to enhance sampling at alchemical intermediate states.
-With swaps between $\lambda$ values, enhanced sidechain sampling at intermediate states can propagate to all states, improving convergence~\cite{jiang_free_2010, wang_achieving_2012}.
+However, this is not a general solution, since it requires knowing what sidechains might rearrange on binding and then expending substantial computational power to map the free energy landscapes for these rearrangements. 
+An apparently better general strategy is including sidechains in enhanced sampling regions selected for Hamiltonian exchange~\cite{jiang_free_2010, khavrutskii_improved_2011} or REST2~\cite{wang_achieving_2012}, {\bf allowing sidechains to be alchemically softened or torsion barriers lowered (or both), to enhance sampling at alchemical intermediate states}.
+%{\bf I don't understand the bolded text. For one thing, my impression is that REST only modifies T, and leaves the Hamiltonian unchanged.}
+% DLM: REST2 -- which is what they currently use -- they like to describe as modifying T of a "local region" but really it's just modifying the Hamiltonian for selected residues, so it's a type of Hamiltonian exchange. You pick sidechains with interactions you want to soften, alchemically, and the softening is done at intermediate lambda values. How would you suggest clarifying the phrasing? (If my explanation is still unclear we could discuss on Slack or on the phone.)
+Reduction of energy barriers at intermediate $\lambda$ states in this scheme allows enhanced conformational sampling at these $\lambda$ values. 
+Then, with swaps between $\lambda$ values, enhanced sidechain sampling at intermediate states can propagate to all states, improving convergence~\cite{jiang_free_2010, wang_achieving_2012}.
 
 Larger protein conformational changes in lysozyme have received less attention, partly because until very recently they seemed to be a peculiar oddity only rarely observed; i.e., for ligands 4,5,6,7-tetrahydroindole and benzyl acetate in the polar site~\cite{boyce_predicting_2009}. 
 However, recent work noted above highlighted how a helix in the apolar cavity can open to accommodate larger ligands~\cite{merski_homologous_2015}. 
 Timescales for this motion appear to be on the order of 50 ns, so it can pose sampling challenges, even for relative free energy calculations~\cite{lim_sensitivity_2016}. 
-Including part of the protein in the enhanced sampling region via REST2 provides some benefits, but sampling these motions will likely prove a valuable test for enhanced sampling methods.
+Including part of the protein in the enhanced sampling region via REST2 (described above) provides some benefits~\cite{lim_sensitivity_2016}, but sampling these motions will likely prove a valuable test for enhanced sampling methods.
 
-%This paragraph could be cut for space since it's speculative:
-%Potentially, water sampling could also be a challenge in the polar binding site, as phenol binds with one ordered water~\cite{wei_model_2002} but to our knowledge, timescales for water sampling have not yet been examined, other than noting that water does not enter the polar binding site as ligands are removed~\cite{boyce_predicting_2009}. The apolar cavity is dry both with ligands present and with empty, so water sampling in the there cavity seems unlikely to be a challenge.
+Accounting for water exchange into and out of these buried binding sites could also be a challenge in the polar binding site, as phenol binds with one ordered water~\cite{wei_model_2002}. However, to our knowledge, the simulation timescales for water sampling have not yet been examined, other than noting that water does not enter the polar binding site as ligands are removed~\cite{boyce_predicting_2009}. 
+In contrast, the apolar cavity is dry, both with and without a bound ligand, so water sampling is unlikely to be a challenge in this case.
 
-\section{THE FUTURE OF BENCHMARKS AND OF THIS REVIEW}
+\section{FUTURE BENCHMARK SYSTEMS}
+\label{sec:futuresystems}
+Although the benchmark systems detailed above are useful, more systems are needed to expand the dataset, broaden the range of challenges, and bridge to biomedically relevant protein-ligand binding.
+The following subsections discuss additional systems that have already been used to test computational methods and that may be suited for development as new benchmark systems in the near future.
+
+\subsection{Host-Guest Systems}
+The cyclodextrins (CDs; Section~\ref{sec:hgbenchmarks}) are a particularly promising source of additional host-guest benchmark sets.
+Cyclic glucose polymers, the CDs are produced from starch by an enzymatic process, and are available in gram quantities at low cost from multiple suppliers. 
+Many experimental binding data, for varied guest molecules, are available for this class of host molecules, especially for 6-membered $\alpha$-CD and 7-membered $\beta$-CD, which both have adequate aqueous solubility.
+Indeed, a thorough review 1998 review tabulates hundreds of binding data~\cite{rekharsky_complexation_1998}, and many additional measurements have been published since then; e.g. references~\cite{Connors:1997:Chem.Rev., Carrazana:2005:J.Phys.Chem.B, Cotner:1998:J.Org.Chem., Wszelaka-Rylik:2013:JThermAnalCalorim,  Shu:2007:BritishJournalofPharmacology, Rodriguez-Perez:2006:J.Pharm.Sci., Mic:2013:AIPConferenceProceedings}.
+A number of these studies were done calorimetrically, and thus provide not only binding free energies but also binding enthalpies. 
+Fewer data are available for 8-membered $\gamma$-CD, and the greater diameter of this host makes for a less well-defined and floppier binding cavity.
+Overall, the amount of existing binding data for CDs greatly exceeds what is currently available for CB7 and other cucurbiturils.
+
+Structurally, the binding cavity of $\beta$-CD is about the same size as CB7 (Section~\ref{sec:cb}), but the cyclodextrins are more flexible than CB7, as their glucose monomers are joined by one single bond, whereas CB7's glycouril monomers are joined by two single bonds.
+The CDs also appear easier to derivatize than the cucurbiturils. In particular, varied substituents may be appended by reactions involving secondary hydroxyls at the wide entry and primary hydroxyls at the narrow entry~\cite{Fromming:1994:CyclodextrinsinPharmacy, Dodziuk:2006:, Szente:1999:AdvancedDrugDeliveryReviews, Qu:2002:JournalofInclusionPhenomena, Jindrich:2005:J.Org.Chem.}, with the caveat that generating pure products can be difficult, because there are so many hydroxyls that may be modified. 
+Binding data on CD derivatives could be quite useful as a means of adding chemical diversity to host-guest benchmark sets, and such data are already available for some derivatives (see, e.g., \cite{rekharsky_complexation_1998, Faugeras:2012:Eur.J.Org.Chem.}).
+
+The CDs are computationally tractable \cite{Mark:1994:J.Am.Chem.Soc., Luzhkov:1999:ChemicalPhysicsLetters, Bea:2002:TheorChemAcc, Chen:2004:BiophysicalJournal, Sellner:2008:J.Phys.Chem.B, Cai:2009:J.Phys.Chem.B, Wickstrom:2013:J.Chem.TheoryComput., Shi:2014:TheorChemAcc, henriksen_computational_2015, Zhang:2015:J.Chem.TheoryComput., Khuntawee:2016:CarbohydratePolymers, Gebhardt:2016:FluidPhaseEquilibria, wickstrom_parameterization_2016}, and thus can be used for ``hard'' benchmark sets to test force fields (Section~\ref{pgph:accuracy}). 
+One complicating feature for calculations, relative to CB7, is that the two entryways to a CD are not equivalent, and asymmetric guest molecules may prefer to bind ``head-in'' or ``head-out''.
+As these two binding modes typically do not interchange on the microsecond timescale, they must be considered separately when one computes binding thermodynamics ~\cite{henriksen_computational_2015}.
+It is also worth noting that, because the CDs are glucose polymers, they may be best modeled with dedicated carbohydrate force fields \cite{Kirschner:2008:J.Comput.Chem., Cezard:2011:PhysicalChemistryChemicalPhysics, Guvench:2011:J.Chem.TheoryComput., Xiong:2015:CarbohydrateResearch}, rather than generalized small molecule force fields. 
+A number of CD (and other host guest) binding systems are available for download in electronic format at the BindingDB~\cite{Liu:2007:Nucl.AcidsRes., Gilson:2016:Nucl.AcidsRes.} website (\url{www.bindingdb.org/bind/HostGuest.jsp})
+
+\subsection{Protein-Ligand Systems}
+On the order of a million experimental protein-ligand binding measurements are currently accessible through open-access databases, notably BindingDB~\cite{Liu:2007:Nucl.AcidsRes.}, ChEMBL~\cite{Bento:2014:NuclAcidsRes} and PubChem~\cite{Kim:2016:NucleicAcidsRes.}.
+These databases can be valuable sources of, or at least starting points for, new protein-ligand benchmark datasets.
+In fact, automated procedures have already been used to extract about 700 downloadable validation sets (\url{www.bindingdb.org/validation\_sets/index.jsp}), each
+comprising a congeneric series of \~10-50 ligands with binding data against a defined protein, and a cocrystal structure for at least one of the ligands in the series.
+However, there is still a need for a smaller collection of highly optimized benchmark sets as research foci for the computational chemistry community.
+Such sets should exemplify specific challenges not well covered by existing benchmark systems; be based upon high quality binding measurements for at least ~20 ligands, measured by consistent procedures across all ligands; and include crystal structures for the apo-protein and cocrystal structures for multiple ligands.
+Analysis and extraction of such sets from the big databases is a promising future direction.
+Here, however, we take the less systematic but more expedient approach of considering several systems that have already proven themselves to be computationally tractable and informative.
+
+\subsubsection{Constructed Binding Sites in Cytochrome C Peroxidase}
+Two artificial binding sites have been designed into the enzyme cytochrome C peroxidase (CCP): the ``closed'' site, created by the mutation W191G~\cite{fitzgerald_ligand-gated_1996, rocklin_blind_2013}; and the ``open'' site mutant, created by supplementing mutation W191G with partial deletion of a loop, and thus opening the site to the outside of the protein~\cite{musah_artificial_2002, rosenfeld_excision_2002, rocklin_blind_2013}. 
+As for the artificial binding cavities in T4 lysozyme (Section~\ref{sec:t4}), the two CCP sites bind simple, fragment-like ligands with modest binding free energies (e.g., -3 to -7 kcal/mol for the open site \cite{rocklin_blind_2013}); discovery of new ligands is relatively straightforward~\cite{brenk_probing_2006, rocklin_blind_2013}; and new crystal structures can be obtained fairly readily. 
+The protein has relatively modest size (around 280 residues) as in, for example, the 1KXM structure.
+
+What is new is that the CCP binding sites contain an ASP which appears to be charged, at least in the presence of some ligands, as evidenced by observed interactions in structures, and by experiments where replacing the ASP with ASN abolishes binding of imidazoles, despite minimal changes to the binding site structure~\cite{Fitzgerald:1995:ProteinScience}. 
+This side-chain interacts at short range with the ligands, which may be cationic or polar neutral compounds.
+As a consequence, the CCP sites challenge the ability of computational methods to accurately account for strong electrostatic interactions in the low-dielectric interior of a protein \cite{rocklin_blind_2013}. 
+Indeed, free energy calculations with two different force fields and distinct computational methods were found to overestimate the range of affinities, across a series of ligands, about three-fold, for the closed site~\cite{banba_free_2000, banba_efficient_2000}, and a similar pattern appears to hold for the open site~\cite{rocklin_blind_2013}.
+Further analysis suggests that these overestimates stem from overestimated electrostatic interactions in these buried sites~\cite{rocklin_blind_2013}, perhaps because the force fields used did not account explicitly for electronic polarization.  
+Additionally, the fact that different CCP ligands have different net charges may pose methodological challenges for some free energy techniques~\cite{rocklin_calculating_2013}. 
+One modeling challenge is that CCP contains a heme, providing additional setup challenges (though since this is such an important cofactor, these may be worthwhile to face).
+In summary, these model CCP binding sites appear challenging yet tractable, and have already yielded insight regarding possible directions for force field improvements. 
+Thus, they are good candidates to provide new benchmark sets in the near future.
+
+
+\subsubsection{Thrombin}
+Human thrombin, an enzyme of about 300 residues, is interesting both as a drug target related to blood coagulation and as a representative serine protease. 
+Binding and structural data are available for a wide variety of ligands (\cite{baum_non-additivity_2010, StefanicAnderluh:2005:J.Med.Chem., Ueno:2005:Bioorganic&MedicinalChemistryLetters, Putta:2005:J.Med.Chem., baum_non-additivity_2010} and others),
+and have already been used as the basis for free energy simulations ~\cite{wang_achieving_2012, schrodinger_accurate_2015, calabro_elucidation_2016}.
+Some of the experimental binding data, obtained calorimetrically, highlight interesting trends, such as non-additivity (positive coupling) between substitutions at different locations on the chemical scaffolds of two compound series~\cite{baum_non-additivity_2010}. 
+
+One computational study obtained relative free energies for two compound series that largely captured experimental trends and achieved an overall mean unsigned error of 0.74 kcal/mol over a range of roughly 5 kcal/mol.
+However, the accuracy of the results differed significantly between the two series~\cite{calabro_elucidation_2016}.
+Another relative binding free energy study for thrombin found that the results changed, depending on the initial conformation of the ligands, and showed that enhanced sampling techniques could reduce the dependnce on starting conformation~\cite{wang_achieving_2012}.
+These prior studies suggests thrombin may be at a ``sweet spot'' for benchmark systems, where the system is relatively tractable, and encouraging results have been obtained, but where there are still clear challenges. 
+
+
+\subsubsection{Bromodomain proteins}
+Bromodomains (BRDs) are a family of protein domains of about 100 residues that bind actylated lysine residues at the surface of histones and thus read out epigenetic markers.
+Bromodomains are present in many human proteins, and are being explored as potential drug targets for diseases including cancer and atherosclerosis~\cite{aldeghi_accurate_2016}.
+These compact domains can be expressed, purified and studied as independent proteins, and are associated with a growing body of small molecule binding data \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Bamborough:2015:J.Med.Chem., Ran:2015:J.Med.Chem., Zhang:2013:J.Med.Chem., Gosmini:2014:J.Med.Chem., Yang:2016:BioorganicChemistry}, including some obtained by isothermal titration calorimetry \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Gosmini:2014:J.Med.Chem.}.
+%DLM: Contact Aldeghi, etc. for updates (new cite forthcoming?) -- waiting for response
+
+The small size of bromodomains, and the fact that their binding sites are relatively solvent-exposed,  makes them particularly suitable for free energy simulations.
+One recent study, which used alchemical techniques to compute absolute binding free energies of 11 different ligands for bromodomain BRD4~\cite{aldeghi_accurate_2016}, achieved a remarkable level of accuracy, RMS error $0.8\pm0.2$ kcal/mol, for binding free energies spanning a range of \~4 kcal/mol.
+Docking calculations included in the same study did not work as well.
+The compounds studied were diverse, and therefore not amenable to relative free energy methods in which one ligand is computationally converted into another. 
+Overall, then, this appears to be class of systems that could yield relatively tractable and informative protein-ligand benchmark systems. 
+One known challenge is that some ligands have multiple plausible binding modes \cite{aldeghi_accurate_2016}. 
+ In addition, a diverse ligand series can pose severe challenges for relative free energy techniques. 
+
+
+\subsubsection{Other protein-ligand systems}
+Several other systems may be of possible interest because of the wealth and quality of experimental data, the extent of prior computational work, or the combination of pharmaceutical relevance with important challenges. 
+None of these seem to be well-characterized or well-studied enough yet to be benchmark systems, but they may be interesting choices for the future. 
+The first system we would put in this category is trypsin, and especially binding of benzamidine and its derivatives. 
+While trypsin has been the focus of several free energy studies~\cite{talhout_understanding_2003, villa_sampling_2003, jiao_calculation_2008, jiao_trypsin_2009, de_ruiter_efficient_2012} and the SAMPL3 challenge~\cite{Newman:2011:JComputAidedMolDes, skillman_sampl3_2012}, it also appears to be subject to extremely slow protein motions (on the tens of microsecond timescale) which are only beginning to be characterized~\cite{plattner_protein_2015}.
+As a consequence, short free energy calculations may appear to converge~\cite{talhout_understanding_2003, jiao_calculation_2008, jiao_trypsin_2009}, but longer calculations can reveal a profound lack of convergence~\cite{plattner_protein_2015}. 
+Therefore, trypsin may become a good benchmark for studying binding that is coupled with slow conformational dynamics; enhanced sampling methods and
+Markov state models \cite{plattner_protein_2015} may be particularly helpful here.
+
+HIV integrase is also of potential interest as a benchmark system. 
+Indeed, blind predictions for a set of fragments binding to several sites formed part of the basis of the SAMPL4 challenge~\cite{mobley_blind_2014, peat_interrogating_2014}. 
+Although the range of affinities in this set is modest (200 to 1450 $\mu M$~\cite{peat_interrogating_2014}), many crystal structures are available, as is a wealth of verified nonbinders~\cite{peat_interrogating_2014}. 
+One group actually did remarkably well using free energy calculations to recognize binding modes and predict nonbinders~\cite{gallicchio_virtual_2014, mobley_blind_2014}. 
+Coupled with other HIV integrase data available in the literature and binding databases for larger ligands or other series, this may make this system attractive for future benchmarks.
+
+The protein FKBP has also been the focus of several different free energy studies on the same series of ligands over the years~\cite{shirts_calculating_2004, fujitani_direct_2005, jayachandran_parallelized-over-parts_2006, lee_calculation_2006, wang_absolute_2006, fujitani_massively_2009, ytreberg_absolute_2009}. 
+However, in many cases, differences in calculated values between different studies -- even with what appears to be the same force field and system preparation -- are larger than differences relative to experiment~\cite{fujitani_direct_2005, jayachandran_parallelized-over-parts_2006}. 
+Some challenges are clear, such as conformational sampling for some of the larger ligands~\cite{shirts_calculating_2004}, and there have been some suggestions of force field issues and long equilibration times for the protein~\cite{fujitani_massively_2009}. 
+Perhaps this may be suitable as a benchmark system in the near-term as well. 
+
+A number of other proteins also have strong potential to generate useful benchmark sets. For example, free energy calculations have been carried out for influenza neuraminidase inhibitors ~\cite{smith_dihydropyrancarboxamides_1998} with some success~\cite{michel_protein_2006}, but other series include more complicated structure-activity relationships and are associated with protein loop motions that may be difficult to model~\cite{kerry_structural_2013}. 
+Periplasmic oligopeptide binding protein A (OppA) binds a series of two to five-residue peptides, for which there exists a large amount of calorimetric and crystallographic binding data~\cite{tame_crystal_1995, davies_relating_1999, sleigh_crystallographic_1999}, and the system appears challenging but potentially tractable for free energy calculations~\cite{maurer_calculation_2016}. 
+The JNK kinase may pose an interesting conformational sampling challenge, due to its slow interconversion between binding modes for some ligands~\cite{kaus_how_2015}. 
+And the ongoing series of Drug Design Data Resource (D3R) \cite{} blinded challenges may also be source of informative protein-ligand systems (drugdesigndata.org/about/datasets) that are familiar to the computational chemistry community. 
+As noted above, however, many other protein-ligand binding systems have been characterized experimentally, and a systematic filtering would undoubtedly yield more benchmark candidates.
+
+\section{HOW TO USE BENCHMARK SYSTEMS}
+Benchmark systems will have multiple uses, as discussed above, but not all benchmark systems can cover all uses. 
+Some will be particularly valuable for testing accuracy relative to experiment. 
+For this purpose, relatively large numbers of ligands are needed to afford meaningful statistics. 
+Other benchmark systems will be more useful for testing sampling techniques, and still others will, at least initially, serve as test beds to determine the sensitivity of computational results to various factors.
+
+In our view, benchmark systems will serve also to help design careful computational experiments. 
+For example, researchers can test whether a particular method is sampling the motions which others have already shown to be important, or how the choice of starting conformation impacts the rate of convergence to a known, gold standard value for a particular force field and system composition. 
+The availability of benchmark systems will also facilitate comparisons where only a single piece of a workflow is modified. 
+For example, one may ask how results change if a different protonation state assignment tool is used to prepare a protein.
+Of course, such comparisons can already be done, but the results will be far more useful in the context of generally accepted and widely used test cases. 
+
+We hope that, ultimately, results from reliable ``gold standard'' binding free energy computations will be available for a set of benchmark systems. 
+These would be from fully converged binding free energy calculations, and give correct results for a particular force field and system preparation, allowing quantitative comparison of the force field results with experiment. 
+Such results will also facilitate a great deal of science on method efficiency, as new methods which purport to be more efficient could easily and \emph{automatically} be run on a standard set of systems to see how much more efficient they are than the (perhaps brute-force) method which yielded the gold standard results. 
+Thus, various enhanced sampling methods could easily be observed to have strengths and weaknesses on known problem classes. 
+These systems will allow automated testing of the efficiency of new methods on real-world problems. 
+
+\section{WE NEED WORKFLOW SCIENCE}
+While the benchmark systems discussed here will already be useful, to fully realize their benefits a great deal of engineering needs to be done to facilitate workflow science. 
+Currently, a wide variety of computational tools are available for different stages of the free energy calculation process, from system preparation (protonation state assignment, building in missing residues and loops, adding counterions, etc.) to force field assignment, to planning and conducting the calculations themselves (choice of method, simulation package, and so on). 
+Often, each set of tools lives in its own ecosystem and is not designed to be easily interchangeable with tools from another ecosystem.  
+This makes it very difficult to systematically compare methods that differ only in one respect; instead, one must adopt an entirely different toolset to change one aspect of a procedure. 
+For example, swapping different tools for assigning protein protonation states could yield valuable insights into the relative merits of these tools and the importance of protonation at specific residues, but currently, this is, at best, an arduous task.
+
+\subsection{Workflow automation is needed}
+At the most basic level, we need to allow calculations to be easily repeated on all of the benchmark systems via automated workflows.  
+One should not have to become an expert in the systems being studied in order to be able to successfully apply calculations to them; inputs should be easily available and repeating calculations should become fully automated so that a new method can be tested by simply specifying the set of benchmarks to run on.
+
+To achieve this, at least two major innovations are needed. 
+First, we need automated workflows that can proceed from the specification of a system to target to yielding the desired results without human intervention. 
+Second, we need a standard data structure for input to and output from these workflows so that people can easily obtain inputs for benchmark systems and only change the component they want to change (such as the force field or system preparation) and leave the other components unchanged so that, in an automated manner, they can focus their testing on only the components they want to test. 
+
+\subsection{Analysis automation will also be needed}
+At the most basic level, we can simply check whether we are getting the expected answer for each calculation performed, at least for systems where a gold standard result is available. 
+However, this does not provide nearly enough insight, especially in cases of failure, where we would like insight into \emph{why} we failed. 
+Are the relevant motions being sampled? 
+Do we have the right protonation states and binding modes? 
+Many other factors may need to be considered.
+We need ways to automatically check that we are sampling the right motions, identifying correct binding modes/conformations, and so on, without having to become experts on the specific systems examined. 
+Probably we will need to define ways to automatically specify what order parameters should be monitored to assess for adequate sampling. 
+
+\subsection{Modularization will be key}
+To achieve these goals, researchers should develop or package tools so that they take a set of well specified inputs and provide well specified outputs in an interchangeable way. 
+This may involve containerizing key pieces of workflows such as in Docker~\cite{docker_what_2015} or Singularity \cite{Kurtzer:2016:singularity} containers,
+ and developing standards as to what inputs and outputs are provided to each component of the workflow. 
+Another key goal of modularization is to separate the \emph{operator} from the \emph{method}. 
+Currently, binding calculations are most often done by a human expert, who makes a variety of decisions along the way (though Schr\"odinger's workflow represents real progress toward automation~\cite{schrodinger_accurate_2015}), making it difficult to separate the importance of human expertise from the merits of the methods employed. 
+Containerizing and modularization will be key for this, allowing methods to be employed only in a well-defined way which is reproducible. It is this type of science -- coupled with benchmark tests -- which is needed to advance the field.
+
+
+\section{THE FUTURE OF THIS WORK}
 \label{sec:updates}
-This work has so far presented a small set of benchmark systems for binding free energy calculations, and has highlighted some of the ways in which they have already proven their utility. 
-However, the scope of these sets is still quite limited. 
-More, increasingly diverse, host-guest systems will help probe the strengths and weaknesses of force fields, and to drive their improvement. 
-At the other end of the spectrum, we need more complex and challenging benchmark sets for proteins including simple models, like T4 lysozyme as well as candidate drug targets. 
-And there may be community interest in test systems specifically selected to challenge sampling algorithms, without reference to experimental data.
+This work has so far presented a small group of benchmarks for binding free energy calculations, highlighted some of the ways in which they have already proven their utility, and has suggested some potential future benchmark systems. 
+We hope that the community will become involved in identifying, characterizing, and helping to select additional benchmark systems, both from those proposed here as well as from systems which are currently being studied or which we have overlooked.
+We seek community input to help characterize, identify and share such systems. 
+We also expect that there may be community interest in test systems specifically selected to challenge sampling algorithms, without reference to experimental data.
 
-Several candidate hosts and proteins are worth mentioning in this regard. 
-Among host-guest systems, there is a particularly extensive experimental literature on cyclodextrins \cite{godinez_thermodynamic_1997, rekharsky_complexation_1998}, and they are tractable computationally ~\cite{henriksen_computational_2015, wickstrom_parameterization_2016}. 
-As to artificial protein binding sites, the two variants of the CCP protein model binding site~\cite{fitzgerald_ligand-gated_1996, banba_free_2000, banba_efficient_2000, rocklin_blind_2013, musah_artificial_2002, rosenfeld_excision_2002} offer a modest increase in difficulty relative to the T4 lysozyme sites discussed above. 
-And thrombin and the bromodomains appear to be promising examples of candidate drug targets for inclusion in a growing set of benchmark systems. 
-Thrombin is a serine protease that has received prior attention from free energy studies~\cite{wang_achieving_2012, schrodinger_accurate_2015, calabro_elucidation_2016}. 
-Experimental data exhibits interesting trends~\cite{baum_non-additivity_2010} that can partly be explained by simulations~\cite{calabro_elucidation_2016}; but challenges remain~\cite{calabro_accelerating_2015}.
-Bromodomains may also be interesting, especially given that relatively high accuracies have been reported, relative to experiment. 
-At the same time, binding modes may be non-obvious and the diversity of ligands could pose problems for relative free energy calculations~\cite{aldeghi_accurate_2016}.
-Other systems will undoubtedly emerge as promising benchmarks as well, and we seek community input to help identify these.
-
-In order to provide for updates of this material as new benchmark systems are defined, and to enable community input into the process of choosing them, we will make the LaTeX source for this article on GitHub at \url{http://www.github.com/mobleylab/benchmarksets}. 
-We encourage use of the issue tracker for discussion, comments, and proposed updates. We plan to incorporate new material via GitHub as one would for a coding project, then make it available via a preprint server, likely bioRxiv.
+In order to provide for updates of this material as new benchmark systems are defined, and to enable community input into the process of choosing them, we have made the LaTeX source for this article on GitHub at \url{http://www.github.com/mobleylab/benchmarksets}, with each version having a permanent DOI assigned by Zenodo. 
+We encourage use of the GitHub issue tracker for discussion, comments, and proposed updates. 
+We plan to incorporate new material via GitHub as one would for a coding project, then make it available via a preprint server, likely bioRxiv.
 Given substantial changes to this initial version of the paper, it may ultimately be appropriate to make it available as a ``perpetual review''~\cite{mobley_proposal_2015} via another forum allowing versioned updates of publications. 
 
-\section{CONCLUSIONS AND OUTLOOK}
+Ideally, we might also update this work in the future with results from ``standard'' calculations on the benchmark systems discussed here, along with links to code to allow reproduction of those calculations.
 
+\section{CONCLUSIONS AND OUTLOOK}
 Binding free energy calculations are a promising tool for predicting and understanding molecular interactions and appear to have enough accuracy to provide substantial benefits in a pharmaceutical drug discovery context.
 However, progress is needed to improve these tools so that they can achieve their potential. To achieve steady progress, and to avoid potentially damaging cycles of enthusiasm and disillusionment, we need to understand and be open and honest about key challenges. 
-Benchmarks are vital for this, as they allow researchers in the field to rigorously test their methods, arrive at a shared understanding of problems, and measure progress on well-characterized yet challenging systems. 
+Community adoption of well-chosen benchmark systems is vital for this, as it will allow researchers to rigorously test and compare methods, arrive at a shared understanding of problems, and measure progress on well-characterized yet challenging systems. 
 It is also worth emphasizing the importance of sharing information about apparently well thought-out and even promising methods that do \emph{not} work, rather than sharing only what does appear to work. 
 Identifying and addressing failure cases and problems is critically important to advancing this technology, but failures can be harder to publish, and may even go unpublished, even though they serve a unique role in advancing the field. 
-We therefore strongly encourage that such results be shared and welcomed by the research community.
+We therefore strongly encourage that such results be shared and welcomed by the research community. 
+Potentially, the GitHub repository connected with this perpetual review paper could serve as a place to deposit input files and summary results of tests on these benchmark systems, with summary information perhaps being included in this work itself or topical sub-reviews within the same repository.
 
-Here, we proposed several benchmark systems for binding free energy calculations. 
+Here, we have proposed several benchmark systems for binding free energy calculations. 
 These embody a subset of the key challenges facing the field, and we plan to expand the set as consensus emerges. 
 Hopefully, these systems will serve as challenging standard test cases for new methods, force fields, protocols, and workflows. 
 Our desire is that these benchmarks will advance the science and technology of modeling and predicting molecular interactions, and that other researchers in the field will contribute to identifying new benchmark sets and updating the information provided about these informative systems.
@@ -712,13 +894,10 @@ Our desire is that these benchmarks will advance the science and technology of m
 D.L.M. is a member of the Scientific Advisory Board for Schr\"{o}dinger, LLC. M.K.G. is a cofounder and has equity interest in the company VeraChem LLC.
 
 \section*{ACKNOWLEDGMENTS}
-DLM appreciates financial support from the National Institutes of Health (NIH; 1R01GM108889-01) and the National Science Foundation  (NSF; CHE 1352608). MKG thanks the NIH for partial support of this work through grant R01GM061300. The contents of this publication are solely the responsibility of the authors and do not necessarily represent the official views of the NIH or the NSF. 
+DLM appreciates financial support from the National Institutes of Health (NIH; 1R01GM108889-01) and the National Science Foundation  (NSF; CHE 1352608). MKG thanks the NIH for partial support of this work through grants R01GM061300, R01GM070064 and U01GM111528. The contents of this publication are solely the responsibility of the authors and do not necessarily represent the official views of the NIH or the NSF. 
 
 We also appreciate helpful discussions with a huge number of people in the field, including a wide variety of participants at recent meetings such as the 2016 Workshop on Free Energy Methods in Drug Discovery.
 Conversations with John Chodera (MSKCC), Chris Oostenbrink (BOKU), Julien Michel (Edinburgh), Robert Abel (Schr\"{o}dinger), Bruce Gibb (Tulane), Matt Sullivan (Tulane), and Lyle Isaacs (Maryland) were particularly helpful.
-
-%Remaining todos
-%\listoftodos
 
 
 \bibliographystyle{abbrv}
