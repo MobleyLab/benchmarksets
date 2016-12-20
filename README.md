@@ -59,8 +59,9 @@ If you have a specific suggestion or request relating to the material on GitHub 
 We also welcome contributions to the material which is already here to extend it (see Section IV in our paper) and encourage you to actually propose changes via a "pull request", even to the paper itself. This will allow us to track your contributions, as well. Specifically, the full list of contributors to the updated paper and data can be appended to subsequent versions of this work, as they would be for a software project.
 
 ## Contributors
-- David Slochower (UCSD): Grammar corrections and improved table formatting
+- David Slochower (UCSD, Gilson lab): Grammar corrections and improved table formatting
 - Nascimento (in a comment on biorxiv): Highlighted PDB code error for n-phenylglycinonitrile
+- Jian Yin (UCSD, Gilson lab): Provided host-guest structures and input files for the host-guest sets described in the paper
 
 ## Versions
 - [v1.0](https://github.com/MobleyLab/benchmarksets/releases/tag/v1.0): As posted to bioRxiv 
@@ -68,6 +69,10 @@ We also welcome contributions to the material which is already here to extend it
 - v1.0.4 ([10.5281/zenodo.167349](http://doi.org/10.5281/zenodo.167349)): Maintenance version fixing an incorrect PDB code and adding a new reference and some new links.
 - v1.1 ([10.5281/zenodo.197428](http://doi.org/10.5281/zenodo.197428)): Adds significant additional discussion on potential future benchmark sets, needs for workflow science, etc. See release notes for more details. Versions also now include the date and version number within the PDF.
 
+## Changes not yet in a release
+- Added host-guest structures and input files on 12/19/16 (see [PR 22](https://github.com/MobleyLab/benchmarksets/pull/22)).
+
 ## Manifest
 
 * paper: Provides LaTeX source files for the manuscript as submitted to bioRxiv (reformatted from the version submitted to Ann. Rev. and with 2D structures added to the tables); images, etc. are also available in sub-directories, as is the supporting information.
+* input_files: Host-guest structures and simulation input files for the host-guest benchmark sets proposed in the paper (provided by Jian Yin from the Gilson lab)
