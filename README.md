@@ -68,11 +68,9 @@ We also welcome contributions to the material which is already here to extend it
 - v1.0.1 ([10.5281/zenodo.155330](https://doi.org/10.5281/zenodo.15533)): Incorporating improved tables and typo fixes from D. Slochower; also, versions now have unique DOIs via Zenodo.
 - v1.0.4 ([10.5281/zenodo.167349](http://doi.org/10.5281/zenodo.167349)): Maintenance version fixing an incorrect PDB code and adding a new reference and some new links.
 - v1.1 ([10.5281/zenodo.197428](http://doi.org/10.5281/zenodo.197428)): Adds significant additional discussion on potential future benchmark sets, needs for workflow science, etc. See release notes for more details. Versions also now include the date and version number within the PDF.
+- v1.1.1 ([10.5281/zenodo.254619](http://doi.org/10.5281/zenodo.254619)): Adds input files for host-guest benchmarks; some revisions to text as recommended by Annual Reviews. See release notes for more details.
 
 ## Changes not yet in a release
-- Added host-guest structures and input files on 12/19/16 (see [PR 22](https://github.com/MobleyLab/benchmarksets/pull/22)).
-- Minor updates to figure captions on 1/20/17 (see [PR 26](https://github.com/MobleyLab/benchmarksets/pull/26)).
-- Various edits suggested by Annual Reviews (see [PR 27](https://github.com/MobleyLab/benchmarksets/pull/27)).
 
 ## Manifest
 
