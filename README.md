@@ -71,6 +71,7 @@ We also welcome contributions to the material which is already here to extend it
 
 ## Changes not yet in a release
 - Added host-guest structures and input files on 12/19/16 (see [PR 22](https://github.com/MobleyLab/benchmarksets/pull/22)).
+- Minor updates to figure captions on 1/20/17 (see [PR 26](https://github.com/MobleyLab/benchmarksets/pull/26)).
 
 ## Manifest
 
