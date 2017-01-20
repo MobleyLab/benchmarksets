@@ -67,14 +67,16 @@
 Binding free energy calculations based on molecular simulations provide predicted affinities for biomolecular complexes. 
 These calculations begin with a detailed description of a system, including its chemical composition and the interactions between its components. 
 Simulations of the system are then used to compute thermodynamic information, such as binding affinities. 
-Because of their growing promise for guiding molecular design, these calculations have recently begun to see widespread applications in early stage drug discovery. However, many challenges remain to make them a robust and reliable tool. 
-Here, we provide an overview of these methods, discuss determinants of accuracy and precision, highlight key challenges, and argue for the development of accepted benchmark test systems that will help the research community generate and evaluate progress.
+Because of their growing promise for guiding molecular design, these calculations have recently begun to see widespread applications in early stage drug discovery.
+However, many challenges remain to make them a robust and reliable tool. 
+Here, we highlight key challenges facing these calculations, describe known examples of these challenges, and call for the designation of standard community benchmark  test systems that will help the research community generate and evaluate progress.
+In our view, progress will require careful assessment and evaluation of new methods, force fields, and modeling innovations on well-characterized benchmark systems, and we lay out our vision for how this can be achieved.
 \\
 \\
 %PUT MANUSCRIPT VERSION HERE
 % Use this style for ongoing development: "Version 1.0.5 pre-release"
 % Use this style for releases: "Version 2.0" 
-{\bf Manuscript version 1.1.1 pre-release} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
+{\bf Manuscript version 1.1.1 pre-release.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
 \end{abstract}
 
 
@@ -89,6 +91,7 @@ Often, these techniques are valued because they provide a movie of what might be
 However, simulations also can be used to make quantitative predictions of thermodynamic and kinetic properties, with applications in fields including drug discovery, chemical engineering, and nanoengineering. 
 A thermodynamic property of particular interest is the binding affinity between biomolecules and ligands such as inhibitors, modulators, or activators. 
 With accurate and rapid affinity predictions, we could use simulations in varied health-related applications, such as the prediction of biomolecular interaction networks in support of systems biology, or rapid design of new medications with reduced side-effects and drug resistance.
+In this work, we give a view of how these simulations could impact drug discovery, briefly discuss where they stand now, and then argue for benchmark systems chosen to drive and assess the advancement of these methods, helping to make them practical for drug discovery.
 
 \subsection{Imagining a tool for drug discovery}
 A major aim in the development of molecular simulations is to create quantitative, accurate tools which will guide early stage drug discovery. 
@@ -177,6 +180,17 @@ Is the force field inaccurate?
 Would the results improve with more sampling?  Were protonation states misassigned---or do they perhaps even change on binding? 
 There might even be a software bug \cite{eklund_cluster_2016} or a human error in the use of the software. 
 As a consequence, it is not clear what steps are most urgently needed to advance the field as a whole.
+In this work, we argue that many of these problems can be alleviated, and that the field will advance more rapidly, if we select a set of well-chosen benchmark systems on which free energy methods are regularly tested.
+
+\subsection{Improving modeling by cycles of testing, prediction, and improvement}
+Modeling can in some cases improve rapidly, but, in our experience, rapid advances are most common when computational models undergo regular cycles of improvement, predictive testing, learning, and then further improvement.
+This can be particularly difficult for academic groups which may not have the resources for predictive tests; however, these are essential, since it is only in predictive tests that we can be sure we are assessing the performance of a method as it works in real life, rather than relying on knowledge of the expected outcome to inform setup of the calculations.
+With this in mind, the Statistical Assessment of the Modeling of Proteins and Ligands (SAMPL) blind challenges, as well as the Community Structure Activity Resource (CSAR) challenge, later replaced by the Drug Design Data Resource (D3R) grand challenges, have arisen to meet part of this need. 
+Currently, D3R focuses on running blind challenges on protein-ligand binding with datasets from the pharmaceutical industry, allowing testing and evaluation of computational methods on systems of direct pharmaceutical relevance.
+SAMPL, in contrast, focuses on predictions in simpler physical settings~\cite{Mobley:2016:}, such as small molecules in aqueous and organic phases, and small molecules binding to supramolecular hosts.
+Together, the SAMPL and D3R challenges roughly span the spectrum from properties we can predict now (though they may be challenging in some cases~\cite{bannan_blind_2016, yin_overview_2016, Mobley:2016:}) to the drug binding we want to be able to reliably predict. 
+These challenges are vital as they provide our only opportunity, at present, to routinely see how different methods compare when attempting to compute the same properties, and they provide the beginnings of a model for how we can best advance free energy techniques: routinely testing our methods on the same, well-understood systems to learn what does and doesn't work to improve performance. 
+Thus, we need not just blind tests, but retrospective testing on well-understood, ``benchmark'' systems, detailed below.
 
 
 \section{THE NEED FOR WELL-CHOSEN BENCHMARK SYSTEMS}
@@ -187,6 +201,7 @@ A few molecular systems have now emerged as \emph{de facto} standards for genera
 These selections result in part from two series of blinded prediction challenges (SAMPL~\cite{muddana_sampl4_2014}, and CSAR~\cite{dunbar_csar_2011} followed by D3R~\cite{Gathiaka:2016:JComputAidedMolDes}), which have helped focus the computational chemistry community on a succession of test cases and highlighted the need for methodological improvements. 
 However, broader adoption of a larger and more persistent set of test cases is needed. 
 By coalescing around a compact set of benchmarks, well chosen to challenge and probe free energy calculations, practitioners and developers will be able to better assess and drive progress in binding free energy calculations. 
+Our primary goals in this work are to explain how benchmark systems can be used to advance the field, to encourage adoption of a standard set of benchmark systems, and to propose some candidates for this set.
 
 
 \subsection{Benchmark types and applications}
@@ -290,7 +305,8 @@ Moreover, their small size, and, in many cases, their rigidity, can make it feas
 Furthermore, experiments can often be run under conditions that make the protonation states of the host and guest unambiguous. 
 Under these conditions, the level of agreement of correctly executed calculations with experiment effectively reports on the validity of the force field (Section~\ref{pgph:accuracy}). 
 For a number of host-guest systems, the use of isothermal titration calorimetry (ITC) to characterize binding provides both binding free energies and binding enthalpies. 
-Binding enthalpies can often also be computed to good numerical precision~\cite{henriksen_computational_2015}, so they provide an additional check of the validity of simulations. A variety of curated host-guest binding data is available on BindingDB at \url{http://bindingdb.org/bind/HostGuest.jsp}.
+Binding enthalpies can often also be computed to good numerical precision~\cite{henriksen_computational_2015}, so they provide an additional check of the validity of simulations.
+A variety of curated host-guest binding data is available on BindingDB at \url{http://bindingdb.org/bind/HostGuest.jsp}.
 
 Hosts fall into chemical families, such that all members of each family share a major chemical motif, but individuals vary in terms of localized chemical substitutions and, in some families, the number of characteristic monomers they comprise.  
 For example, all members of the cyclodextrin family are chiral rings of glucose monomers; family members then differ in the number of monomers and in the presence or absence of various chemical substituents. 
@@ -581,11 +597,16 @@ Two model binding sites in T4 lysozyme have been particularly useful in this reg
 These two binding sites, called L99A~\cite{morton_energetic_1995, morton_specificity_1995} and L99A/M102Q~\cite{wei_model_2002, graves_decoys_2005} for point mutations which create the cavities of interest, have been studied extensively experimentally and via modeling. 
 As protein-ligand systems, they introduce additional complexities beyond those observed in host-guest systems, yet they share some of the same simplicity.
 The ligands are generally small, neutral, and relatively rigid, with clear protonation states.
-In many cases, substantial protein motions do not occur on binding, helping calculated binding free energies to reach apparent convergence relatively easily. 
+For most ligands, substantial protein motions do not occur on binding at room temperature and ambient pressure, helping calculated binding free energies to reach apparent convergence relatively easily. 
 However, like host-guest systems, these binding sites are still surprisingly challenging~\cite{mobley_use_2006, mobley_confine_2007, mobley_predicting_2007, boyce_predicting_2009, jiang_free_2010, gallicchio_binding_2010, lim_sensitivity_2016}. 
 Thus, precise convergence is sometimes difficult to achieve, and it is in all cases essentially impossible to fully verify.  As a consequence, these are ``soft benchmarks" as defined above (Section~\ref{subsec:benchmarktypes}).
 The utility of the lysozyme model sites is also driven by the large body of available experimental data. 
 It has been relatively easy to identify new ligands and obtain high quality crystal structures and affinity measurements, and this has allowed two different rounds of blinded free energy prediction exercises~\cite{mobley_predicting_2007, boyce_predicting_2009}. 
+
+These binding sites do exhibit some surprising experimental complexities which make them interesting ongoing topics of study, such as the fact that the L99A site is empty of water when ligands are not bound~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS, Collins:2007:JournalofMolecularBiology} yet the protein can undergo pressure-induced filing~\cite{Collins:2007:JournalofMolecularBiology,Lerch:2015:PNAS} or denaturation~\cite{Nucci:2014:PNAS} which can be inhibited by binding of ligand~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS}. 
+Pressure may also cause the protein to populate an excited state~\cite{Maeno:2015:BiophysicalJournal, Kitahara:2015:PNAS} (but see~\cite{Wand:2015:PNAS}) which is already present to a very limited extent at equilibrium~\cite{Bouvignies:2011:Nature}.
+Still, as noted below, these issues do not seem to dramatically impact our ability to calculate binding free energies at standard temperature and pressure, probably in large part because these are effects which come into play only at high pressures~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS, Maeno:2015:BiophysicalJournal}, though as we discuss below, some ligands do induce a protein conformational change which affects the same helix as the proposed excited state~\cite{merski_homologous_2015}.
+It seems likely that the conformational hetereogeneity observed experimentally will make lysozyme even more of a valuable benchmark system as test cases here can range from simple to challenging depending on the ligand and pressure being considered.
 
 
 \subsubsection{The apolar and polar cavities and their ligands}
@@ -613,7 +634,7 @@ These sidechain motions can be slow, due to the tight packing of the binding sit
 \item{Backbone rearrangement: 
 Larger ligands induce shifts of the F helix (residues 107 or 108 to 115), which is  adjacent to the binding site, allowing the site to enlarge.
 This occurs in both binding sites~\cite{wei_testing_2004, boyce_predicting_2009, merski_homologous_2015}, but is best characterized for L99A~\cite{merski_homologous_2015}.
-There, addition of a series of methyl groups from benzene up to n-hexylbenzene causes a conformational transition in the protein from closed to intermediate to open conformations.
+There, addition of a series of methyl groups from benzene up to n-hexylbenzene causes a conformational transition in the protein from closed to intermediate to open conformations; ; this affects the same region of helix F that undergoes a conformational change in the proposed excited state which is partially populated at equilibrium~\cite{Bouvignies:2011:Nature}.
 }
 \end{enumerate}
 
@@ -815,7 +836,7 @@ Perhaps this may be suitable as a benchmark system in the near-term as well.
 A number of other proteins also have strong potential to generate useful benchmark sets. For example, free energy calculations have been carried out for influenza neuraminidase inhibitors ~\cite{smith_dihydropyrancarboxamides_1998} with some success~\cite{michel_protein_2006}, but other series include more complicated structure-activity relationships and are associated with protein loop motions that may be difficult to model~\cite{kerry_structural_2013}. 
 Periplasmic oligopeptide binding protein A (OppA) binds a series of two to five-residue peptides, for which there exists a large amount of calorimetric and crystallographic binding data~\cite{tame_crystal_1995, davies_relating_1999, sleigh_crystallographic_1999}, and the system appears challenging but potentially tractable for free energy calculations~\cite{maurer_calculation_2016}. 
 The JNK kinase may pose an interesting conformational sampling challenge, due to its slow interconversion between binding modes for some ligands~\cite{kaus_how_2015}. 
-And the ongoing series of Drug Design Data Resource (D3R) \cite{} blinded challenges may also be source of informative protein-ligand systems (drugdesigndata.org/about/datasets) that are familiar to the computational chemistry community. 
+And the ongoing series of Drug Design Data Resource (D3R) \cite{Gathiaka:2016:JComputAidedMolDes} blinded challenges may also be source of informative protein-ligand systems (drugdesigndata.org/about/datasets) that are familiar to the computational chemistry community. 
 As noted above, however, many other protein-ligand binding systems have been characterized experimentally, and a systematic filtering would undoubtedly yield more benchmark candidates.
 
 \section{HOW TO USE BENCHMARK SYSTEMS}
@@ -899,13 +920,14 @@ Our desire is that these benchmarks will advance the science and technology of m
 
 
 \section*{DISCLOSURE STATEMENT}
-D.L.M. is a member of the Scientific Advisory Board for Schr\"{o}dinger, LLC. M.K.G. is a cofounder and has equity interest in the company VeraChem LLC.
+D.L.M. is a member of the Scientific Advisory Board for OpenEye Scientific Software. M.K.G. is a cofounder and has equity interest in the company VeraChem LLC.
 
 \section*{ACKNOWLEDGMENTS}
 DLM appreciates financial support from the National Institutes of Health (NIH; 1R01GM108889-01) and the National Science Foundation  (NSF; CHE 1352608). MKG thanks the NIH for partial support of this work through grants R01GM061300, R01GM070064 and U01GM111528. The contents of this publication are solely the responsibility of the authors and do not necessarily represent the official views of the NIH or the NSF. 
 
 We also appreciate helpful discussions with a huge number of people in the field, including a wide variety of participants at recent meetings such as the 2016 Workshop on Free Energy Methods in Drug Discovery.
 Conversations with John Chodera (MSKCC), Chris Oostenbrink (BOKU), Julien Michel (Edinburgh), Robert Abel (Schr\"{o}dinger), Bruce Gibb (Tulane), Matt Sullivan (Tulane), and Lyle Isaacs (Maryland) were particularly helpful.
+We thank David Slochower (UCSD) for a critical reading of the manuscript, and others listed on our GitHub repository for their contributions.
 
 
 \bibliographystyle{abbrv}
