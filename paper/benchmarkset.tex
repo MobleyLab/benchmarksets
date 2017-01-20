@@ -391,7 +391,9 @@ In summary, CB7 is still a challenging benchmark that can put important issues i
 For example, in SAMPL4, free energy methods yielded $R^2$ values from 0.1 to 0.8 and RMS errors of about 1.9 to 4.9 kcal/mol for the same set of CB7 cases~\cite{muddana_sampl4_2014}. 
 This spread of results across rather similar methods highlights the need for shared benchmarks. 
 Potential explanations include convergence difficulties, subtle methodological differences, and details of how the methods were applied. 
-Until the origin of such discrepancies is clear, it is difficult to know how accurate our methods truly are. 
+Until the origin of such discrepancies is clear, it is difficult to know how accurate our methods truly are.
+
+To aid the adoption of these systems as benchmarks, input files for the CB7 systems proposed here are available in our GitHub repository. 
 
 \begingroup
 \squeezetable
@@ -578,6 +580,8 @@ Thus, although there have been some comparisons of charge~\cite{mikulskis_free-e
 Similarly, OPLS and GAFF results did not appear dramatically different in accuracy~\cite{bhakat_resolving_2016}.
 It is worth noting that several groups using different computational approaches but the same force field and water model in SAMPL5 did not obtain identical binding free energies~\cite{yin_overview_2016, bosisio_blinded_2016, bhakat_resolving_2016}. 
 Some of these issues were resolved in follow-up work~\cite{bhakat_resolving_2016}, bringing the methods into fairly good agreement for the majority of cases~\cite{yin_sampl5_2016, bosisio_blinded_2016}.
+
+To aid the adoption of these systems as benchmarks, input files for the GDCC systems proposed here are available in our GitHub repository. 
 
 \subsection{Protein-ligand benchmarks: the T4 lysozyme model binding sites}
 \label{sec:t4}
@@ -913,6 +917,7 @@ It is also worth emphasizing the importance of sharing information about apparen
 Identifying and addressing failure cases and problems is critically important to advancing this technology, but failures can be harder to publish, and may even go unpublished, even though they serve a unique role in advancing the field. 
 We therefore strongly encourage that such results be shared and welcomed by the research community. 
 Potentially, the GitHub repository connected with this perpetual review paper could serve as a place to deposit input files and summary results of tests on these benchmark systems, with summary information perhaps being included in this work itself or topical sub-reviews within the same repository.
+Host-guest input files are now available there.
 
 Here, we have proposed several benchmark systems for binding free energy calculations. 
 These embody a subset of the key challenges facing the field, and we plan to expand the set as consensus emerges. 
