@@ -191,7 +191,7 @@ Currently, D3R focuses on running blind challenges on protein-ligand binding wit
 SAMPL, in contrast, focuses on predictions in simpler physical settings~\cite{Mobley:2016:}, such as small molecules in aqueous and organic phases, and small molecules binding to supramolecular hosts.
 Together, the SAMPL and D3R challenges roughly span the spectrum from properties we can predict now (though they may be challenging in some cases~\cite{bannan_blind_2016, yin_overview_2016, Mobley:2016:}) to the drug binding we want to be able to reliably predict. 
 These challenges are vital as they provide our only opportunity, at present, to routinely see how different methods compare when attempting to compute the same properties, and they provide the beginnings of a model for how we can best advance free energy techniques: routinely testing our methods on the same, well-understood systems to learn what does and doesn't work to improve performance. 
-Thus, we need not just blind tests, but retrospective testing on well-understood, ``benchmark'' systems, detailed below.
+Thus, we need not just blind tests, but retrospective testing on well-understood, ``benchmark'' systems.
 
 
 \section{THE NEED FOR WELL-CHOSEN BENCHMARK SYSTEMS}
@@ -216,7 +216,7 @@ The following subsections provide examples of how hard and soft benchmark system
 It is crucial yet nontrivial to validate that a simulation package correctly implements and applies the desired methods~\cite{shirts_lessons_2016}, and benchmark cases can help with this.  
 First, all software packages could be tested for their ability to generate correct potential energies for a single configuration of a specified molecular system and force field. 
 These results should be correct to within rounding error and the precision of the physical constants used in the calculations~\cite{shirts_lessons_2016}. 
-Similarly, different methods and software packages should give consistent binding free energies when identical force fields are applied with identical simulation setups and compositions. 
+Second, different methods and software packages should give consistent binding free energies when identical force fields are applied with identical simulation setups and compositions. 
 The benchmark systems for such testing can be simple and easy to converge, and high precision free energies (e.g., uncertainty $\approx 0.1$ kcal/mol) should serve as a reference. 
 Test calculations should typically agree with reference results to within 95\% confidence intervals, from established methods~\cite{shirts_statistically_2008,flyvbjerg_error_1989},
 For this purpose, the correctly computed values need not agree with experiment; indeed, experimental results are unnecessary.
@@ -265,7 +265,7 @@ In particular, they should exemplify none, one, two, or $N$ of the following cha
 \item System challenges
   \begin{enumerate}
   \item Protonation state of ligand and/or protein changes on binding
-  \item Multiple protonation states of the ligand and/or receptor are relevant, due to pKas near the experimental pH, or the presence of multiple relevant tautomers
+  \item Multiple protonation states of the ligand and/or receptor are relevant, due to $pK_a$s near the experimental pH, or the presence of multiple relevant tautomers
   \item Results are sensitive to buffer, salts or other environmental factors
 \end{enumerate}
 \item Force field challenges
@@ -463,7 +463,7 @@ Additionally, the four priopionate groups protruding into solution from the exte
 The octa-acids tend to bind guest molecules possessing a hydrophobic moiety that fits into the host's cavity and a hydrophilic moiety that projects into the aqueous solvent.  
 Within these specifications, they bind a diversity of ligands, including both organic cations and anions, as well as neutral compounds with varying degrees of polarity~\cite{gibb_guests_2009, gibb_binding_2013}.  
 Compounds with adamantane or noradamantane groups display perhaps the highest affinities observed so far, with binding free energies ranging to about -8 kcal/mol~\cite{sun_calorimetric_2008}.  
-Much of the experimental binding data comes from ITC, so binding enthalpies are often available. 
+Many of the experimental binding data comes from ITC, so binding enthalpies are often available. 
 
 Two experimental aspects of binding are particularly intriguing and noteworthy. 
 First, the binding thermodynamics of OA is sensitive to the type and concentration of anions in solution. 
@@ -497,7 +497,7 @@ This poses significant challenges for some approaches, such as metadynamics, whe
 
 \item{{\bf Finite-size artifacts due to charge modification}: As for CB7, it should be ascertained that calculations in which charged guests are decoupled from the system do not generate artifacts related to long range Coulomb interactions.~\cite{rocklin_calculating_2013, lin_overview_2014, reif_net_2014, simonson_concepts_2016}.}
 
-\item{{\bf Protonation state effects}: Although experiments are typically run at pH values that lead to well-defined protonation states of the host and its guests, this may not always hold~\cite{muddana_sampl4_2014, ewell_water_2008, tofoleanu_absolute_2016}, particularly given experimental evidence for extreme binding-driven pKa shifts of 3-4 log units for some carboxylate compounds~\cite{wang_itc_2016, sokkalingam_binding_2016}. 
+\item{{\bf Protonation state effects}: Although experiments are typically run at pH values that lead to well-defined protonation states of the host and its guests, this may not always hold~\cite{muddana_sampl4_2014, ewell_water_2008, tofoleanu_absolute_2016}, particularly given experimental evidence for extreme binding-driven $pK_a$ shifts of 3-4 log units for some carboxylate compounds~\cite{wang_itc_2016, sokkalingam_binding_2016}. 
 Thus, attention should be given to ionization states and their modulation by binding.}
 \end{enumerate}
 
@@ -569,8 +569,8 @@ Co-solvent anions can also increase \emph{or} decrease binding depending on thei
 Some salts even bind to OA themselves, with perchlorate~\cite{gibb_anion_2011} and trichloroacetate~\cite{sokkalingam_binding_2016} being particularly potent, and thus will compete with guests for binding.  
 Computationally, including additional salt beyond that needed for system neutralization changed binding free energies by up to 4 kcal/mol~\cite{tofoleanu_absolute_2016}.  
 
-Although the protonation states of the guests might seem clear and unambiguous, experimental evidence also indicates major pKa shifts on binding so that species such as acetate, formate and others could bind in neutral form at neutral pH~\cite{wang_itc_2016, sokkalingam_binding_2016}. 
-One study used absolute binding free energy calculations for different guest charge states, coupled with pKa calculations, and found that inclusion of pKa corrections and the possibility of alternate charge states of the guests affected calculated binding free energies by up to 2 kcal/mol~\cite{tofoleanu_absolute_2016}.
+Although the protonation states of the guests might seem clear and unambiguous, experimental evidence also indicates major $pK_a$ shifts on binding so that species such as acetate, formate and others could bind in neutral form at neutral pH~\cite{wang_itc_2016, sokkalingam_binding_2016}. 
+One study used absolute binding free energy calculations for different guest charge states, coupled with $pK_a$ calculations, and found that inclusion of $pK_a$ corrections and the possibility of alternate charge states of the guests affected calculated binding free energies by up to 2 kcal/mol~\cite{tofoleanu_absolute_2016}.
 Even the host protonation state may be unclear. Although OA might be assumed to have all eight carboxylic acids deprotonated at the basic pH of typical experiments, the four at the bottom are in close proximity, and these might make hydrogen bonds allowing retention of two protons~\cite{ewell_water_2008}.  
 Thus, there are uncertainties as to the host protonation state~\cite{muddana_sampl4_2014, ewell_water_2008}, which perhaps also could be modulated by guest binding.  
 
@@ -608,7 +608,7 @@ Thus, precise convergence is sometimes difficult to achieve, and it is in all ca
 The utility of the lysozyme model sites is also driven by the large body of available experimental data. 
 It has been relatively easy to identify new ligands and obtain high quality crystal structures and affinity measurements, and this has allowed two different rounds of blinded free energy prediction exercises~\cite{mobley_predicting_2007, boyce_predicting_2009}. 
 
-These binding sites do exhibit some surprising experimental complexities which make them interesting ongoing topics of study, such as the fact that the L99A site is empty of water when ligands are not bound~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS, Collins:2007:JournalofMolecularBiology} yet the protein can undergo pressure-induced filing~\cite{Collins:2007:JournalofMolecularBiology,Lerch:2015:PNAS} or denaturation~\cite{Nucci:2014:PNAS} which can be inhibited by binding of ligand~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS}. 
+These binding sites do exhibit some surprising experimental complexities which make them interesting ongoing topics of study, such as the fact that the L99A site is empty of water when ligands are not bound~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS, Collins:2007:JournalofMolecularBiology} yet the protein can undergo pressure-induced filling~\cite{Collins:2007:JournalofMolecularBiology,Lerch:2015:PNAS} or denaturation~\cite{Nucci:2014:PNAS} which can be inhibited by binding of ligand~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS}. 
 Pressure may also cause the protein to populate an excited state~\cite{Maeno:2015:BiophysicalJournal, Kitahara:2015:PNAS} (but see~\cite{Wand:2015:PNAS}) which is already present to a very limited extent at equilibrium~\cite{Bouvignies:2011:Nature}.
 Still, as noted below, these issues do not seem to dramatically impact our ability to calculate binding free energies at standard temperature and pressure, probably in large part because these are effects which come into play only at high pressures~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS, Maeno:2015:BiophysicalJournal}, though as we discuss below, some ligands do induce a protein conformational change which affects the same helix as the proposed excited state~\cite{merski_homologous_2015}.
 It seems likely that the conformational hetereogeneity observed experimentally will make lysozyme even more of a valuable benchmark system as test cases here can range from simple to challenging depending on the ligand and pressure being considered.
@@ -728,8 +728,6 @@ Thus, approaches employing this strategy can naturally sample multiple binding m
 While sidechain sampling has been a significant challenge, it is possible to use biased sampling techniques such as umbrella sampling to deliberately compute and include free energies of sampling slow sidechain rearrangements~\cite{mobley_confine_2007}. 
 However, this is not a general solution, since it requires knowing what sidechains might rearrange on binding and then expending substantial computational power to map the free energy landscapes for these rearrangements. 
 An apparently better general strategy is including sidechains in enhanced sampling regions selected for Hamiltonian exchange~\cite{jiang_free_2010, khavrutskii_improved_2011} or REST2~\cite{wang_achieving_2012}, {\bf allowing sidechains to be alchemically softened or torsion barriers lowered (or both), to enhance sampling at alchemical intermediate states}.
-%{\bf I don't understand the bolded text. For one thing, my impression is that REST only modifies T, and leaves the Hamiltonian unchanged.}
-% DLM: REST2 -- which is what they currently use -- they like to describe as modifying T of a "local region" but really it's just modifying the Hamiltonian for selected residues, so it's a type of Hamiltonian exchange. You pick sidechains with interactions you want to soften, alchemically, and the softening is done at intermediate lambda values. How would you suggest clarifying the phrasing? (If my explanation is still unclear we could discuss on Slack or on the phone.)
 Reduction of energy barriers at intermediate $\lambda$ states in this scheme allows enhanced conformational sampling at these $\lambda$ values. 
 Then, with swaps between $\lambda$ values, enhanced sidechain sampling at intermediate states can propagate to all states, improving convergence~\cite{jiang_free_2010, wang_achieving_2012}.
 
