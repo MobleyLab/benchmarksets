@@ -58,7 +58,17 @@ If you have a specific suggestion or request relating to the material on GitHub 
 
 We also welcome contributions to the material which is already here to extend it (see Section IV in our paper) and encourage you to actually propose changes via a "pull request", even to the paper itself. This will allow us to track your contributions, as well. Specifically, the full list of contributors to the updated paper and data can be appended to subsequent versions of this work, as they would be for a software project.
 
-## Contributors
+## Authors
+- David L. Mobley (UCI)
+- Michael K. Gilson (UCSD)
+
+Your name, too, can go here if you help us substantially revise/extend the paper.
+
+
+## Acknowledgments
+
+We want to thank the following people who contributed to this repository and the paper, in addition to those acknowledged within the [text itself](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf)
+
 - David Slochower (UCSD, Gilson lab): Grammar corrections and improved table formatting
 - Nascimento (in a comment on biorxiv): Highlighted PDB code error for n-phenylglycinonitrile
 - Jian Yin (UCSD, Gilson lab): Provided host-guest structures and input files for the host-guest sets described in the paper
