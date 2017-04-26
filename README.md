@@ -73,6 +73,8 @@ We want to thank the following people who contributed to this repository and the
 - Nascimento (in a comment on biorxiv): Highlighted PDB code error for n-phenylglycinonitrile
 - Jian Yin (UCSD, Gilson lab): Provided host-guest structures and input files for the host-guest sets described in the paper
 
+Please note that GitHub's automatic "contributors" list does not provide a full accounting of everyone contributing to this work, as some contributions have been received by e-mail or other mechanisms.
+
 ## Versions
 - [v1.0](https://github.com/MobleyLab/benchmarksets/releases/tag/v1.0): As posted to bioRxiv 
 - v1.0.1 ([10.5281/zenodo.155330](https://doi.org/10.5281/zenodo.15533)): Incorporating improved tables and typo fixes from D. Slochower; also, versions now have unique DOIs via Zenodo.
