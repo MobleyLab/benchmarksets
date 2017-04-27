@@ -76,9 +76,15 @@ In our view, progress will require careful assessment and evaluation of new meth
 %PUT MANUSCRIPT VERSION HERE
 % Use this style for ongoing development: "Version 1.0.5 pre-release"
 % Use this style for releases: "Version 2.0" 
-{\bf Manuscript version 1.1.2 pre-release.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
-%{\bf Manuscript version 1.1.1.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
+%{\bf Manuscript version 1.1.2 pre-release.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
+{\bf Manuscript version 1.1.2.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
+\\
+\\
+%PUT AR COPYRIGHT INFO HERE
+{{\bf Permissions.} Posted with permission from the \emph{Annual Review of Biophysics}, Volume 46 (c) 2017 by Annual Reviews, \url{http://www.annualreviews.org/}. The right to create derivative works is also executed here with permission from the \emph{Annual Review of Biophysics}.}
+
 \end{abstract}
+
 
 
 \maketitle
@@ -88,7 +94,7 @@ In our view, progress will require careful assessment and evaluation of new meth
 \section{INTRODUCTION}
 
 Molecular simulations provide a powerful technique for predicting and understanding the structure, function, dynamics, and interactions of biomolecules. 
-Often, these techniques are valued because they provide a movie of what might be going on at the atomic level. 
+Often, these techniques are valued because they provide a way to actually watch what might be going on at the atomic level. 
 However, simulations also can be used to make quantitative predictions of thermodynamic and kinetic properties, with applications in fields including drug discovery, chemical engineering, and nanoengineering. 
 A thermodynamic property of particular interest is the binding affinity between biomolecules and ligands such as inhibitors, modulators, or activators. 
 With accurate and rapid affinity predictions, we could use simulations in varied health-related applications, such as the prediction of biomolecular interaction networks in support of systems biology, or rapid design of new medications with reduced side-effects and drug resistance.
@@ -103,12 +109,12 @@ The chemist then looks through the predicted properties for the top few compound
 If synthesizing and testing each compound takes several days, this workflow compresses roughly a year's work into a few days.
 
 
-While this workflow is not yet a reality, huge strides have been made in this direction, with calculated binding affinity predictions now showing real promise~\cite{mobley_perspective_2012, christ_accuracy_2014, deng_distinguishing_2015, sherborne_preprint_2016, schrodinger_accurate_2015, christ_binding_2016, cui_affinity_2016, verras_free_2016}, solubility predictions beginning to come online~\cite{Schnieders:2012:J.Chem.TheoryComput., park_absolute_2014, liu_using_2016}, and predicted drug resistance/selectivity also apparently tractable~\cite{leonis_contribution_2013, leonis_contribution_2013}, with some headway apparent on membrane permeability~\cite{lee_permeability_2016, comer_permeability_2014}. 
-A considerable amount of science and engineering still remains to make this vision a reality, but, given recent progress, the question now seems more one of \emph{when} rather than \emph{whether}. 
+While this workflow is not yet a reality, huge strides have been made in this direction, with calculated binding affinity predictions now showing real promise~\cite{mobley_perspective_2012, christ_accuracy_2014, deng_distinguishing_2015, Sherborne:2016:JComputAidedMolDes, schrodinger_accurate_2015, christ_binding_2016, cui_affinity_2016, verras_free_2016}, solubility predictions beginning to come online~\cite{Schnieders:2012:J.Chem.TheoryComput., park_absolute_2014, liu_using_2016}, and predicted drug resistance/selectivity also apparently tractable~\cite{leonis_contribution_2013, leonis_contribution_2013}, with some headway apparent on membrane permeability~\cite{lee_permeability_2016, comer_permeability_2014}. 
+A considerable amount of science and engineering still remains to be done to make this vision a reality, but, given recent progress, the question now seems more one of \emph{when} rather than \emph{whether}. 
 
 \subsection{Increasing accuracy will yield increasing payoffs}
 
-Recent progress in computational power, especially the widespread availability of graphics processing units (GPUs) and advances in automation~\cite{liu_lead_2013} and sampling protocols, have helped simulation-based techniques reach the point where they now appear to have sufficient accuracy to be genuinely useful in guiding pharmaceutical drug discovery, at least for a certain subset of problems~\cite{mikulskis_large-scale_2014, homeyer_binding_2014, sherborne_preprint_2016,  schrodinger_accurate_2015, christ_binding_2016, cui_affinity_2016, verras_free_2016}.
+Recent progress in computational power, especially the widespread availability of graphics processing units (GPUs) and advances in automation~\cite{liu_lead_2013} and sampling protocols, have helped simulation-based techniques reach the point where they now appear to have sufficient accuracy to be genuinely useful in guiding pharmaceutical drug discovery, at least for a certain subset of problems~\cite{mikulskis_large-scale_2014, homeyer_binding_2014, Sherborne:2016:JComputAidedMolDes,  schrodinger_accurate_2015, christ_binding_2016, cui_affinity_2016, verras_free_2016}.
 Specifically, in some situations, free energy calculations appear to be capable of achieving RMS errors in the 1-2 kcal/mol range with current force fields, even in prospective applications.
 As a consequence, pharmaceutical companies are beginning to use these methods in discovery projects. 
 The most immediate application of these techniques is to guide synthesis for lead optimization, but applications to scaffold hopping and in other areas also appear possible.
@@ -131,7 +137,7 @@ These samples are usually generated by molecular dynamics (MD) simulations~\cite
 In either case, the energy of a given configuration is provided by a potential function, or force field, which estimates the potential energy of a system of solute and solvent molecules as a function of the coordinates of all of its atoms. 
 Such simulations may be used in several different ways to compute binding free energies or relative binding free energies, as detailed elsewhere~\cite{michel_prediction_2010, christ_basic_2010,  chodera_alchemical_2011, shirts_introduction_2013} and summarized below. In all cases, however, the calculations yield the free energy difference between two states of a molecular system, and they do so by computing the reversible work for changing the initial state to the final one. Two broad approaches deserve mention.
 
-The first general approach directly computes the standard free energy of binding of two molecules via evaluating the reversible work of transferring the ligand from the binding site into solution. 
+The first general approach directly computes the standard binding free energy of two molecules via evaluating the reversible work of transferring the ligand from the binding site into solution. 
 (This is sometimes called an absolute binding free energy calculation.) 
 The pathway of this change may be one that is physically realizable, or one that is only realizable {\em in silico}, in which case it is sometimes called an ``alchemical'' pathway. 
 Physical pathway methods provide the standard binding free energy by computing the reversible work of, in effect, pulling the ligand out of the binding site. 
@@ -191,7 +197,7 @@ Currently, D3R focuses on running blind challenges on protein-ligand binding wit
 SAMPL, in contrast, focuses on predictions in simpler physical settings~\cite{Mobley:2016:}, such as small molecules in aqueous and organic phases, and small molecules binding to supramolecular hosts.
 Together, the SAMPL and D3R challenges roughly span the spectrum from properties we can predict now (though they may be challenging in some cases~\cite{bannan_blind_2016, yin_overview_2016, Mobley:2016:}) to the drug binding we want to be able to reliably predict. 
 These challenges are vital as they provide our only opportunity, at present, to routinely see how different methods compare when attempting to compute the same properties, and they provide the beginnings of a model for how we can best advance free energy techniques: routinely testing our methods on the same, well-understood systems to learn what does and doesn't work to improve performance. 
-Thus, we need not just blind tests, but retrospective testing on well-understood, ``benchmark'' systems, detailed below.
+Thus, we need not just blind tests, but retrospective testing on well-understood, ``benchmark'' systems.
 
 
 \section{THE NEED FOR WELL-CHOSEN BENCHMARK SYSTEMS}
@@ -216,7 +222,7 @@ The following subsections provide examples of how hard and soft benchmark system
 It is crucial yet nontrivial to validate that a simulation package correctly implements and applies the desired methods~\cite{shirts_lessons_2016}, and benchmark cases can help with this.  
 First, all software packages could be tested for their ability to generate correct potential energies for a single configuration of a specified molecular system and force field. 
 These results should be correct to within rounding error and the precision of the physical constants used in the calculations~\cite{shirts_lessons_2016}. 
-Similarly, different methods and software packages should give consistent binding free energies when identical force fields are applied with identical simulation setups and compositions. 
+Second, different methods and software packages should give consistent binding free energies when identical force fields are applied with identical simulation setups and compositions. 
 The benchmark systems for such testing can be simple and easy to converge, and high precision free energies (e.g., uncertainty $\approx 0.1$ kcal/mol) should serve as a reference. 
 Test calculations should typically agree with reference results to within 95\% confidence intervals, from established methods~\cite{shirts_statistically_2008,flyvbjerg_error_1989},
 For this purpose, the correctly computed values need not agree with experiment; indeed, experimental results are unnecessary.
@@ -265,7 +271,7 @@ In particular, they should exemplify none, one, two, or $N$ of the following cha
 \item System challenges
   \begin{enumerate}
   \item Protonation state of ligand and/or protein changes on binding
-  \item Multiple protonation states of the ligand and/or receptor are relevant, due to pKas near the experimental pH, or the presence of multiple relevant tautomers
+  \item Multiple protonation states of the ligand and/or receptor are relevant, due to $pK_a$s near the experimental pH, or the presence of multiple relevant tautomers
   \item Results are sensitive to buffer, salts or other environmental factors
 \end{enumerate}
 \item Force field challenges
@@ -381,7 +387,7 @@ Thus, one group found a 6.4-6.8 kcal/mol dependence on salt concentration~\cite{
 
 
 %Force field
-Despite these issues, CB7 appears to be at the point where careful studies can probe the true accuracy of our force fields~\cite{hsiao_prediction_2014, muddana_prediction_2012,henriksen_computational_2015, gao_binding_2015, yin_toward_2015}, and the results can be sobering, with RMS errors in the binding free energies as high as 8 kcal/mol~\cite{henriksen_computational_2015, monroe_converging_2014}. 
+Despite these issues, CB7 appears to be at the point where careful studies can probe the true accuracy of our force fields~\cite{hsiao_prediction_2014, muddana_prediction_2012,henriksen_computational_2015, gao_binding_2015, yin_toward_2015}, and the results can be sobering, with root mean square (RMS) errors in the binding free energies as high as 8 kcal/mol~\cite{henriksen_computational_2015, monroe_converging_2014}. 
 More encouragingly, the values of $R^2$ values can be as high as 0.92~\cite{henriksen_computational_2015}. 
 Calculated values are in many cases quite sensitive to details of force field parameters~\cite{monroe_converging_2014, moghaddam_new_2011, muddana_prediction_2012}. For example, modest modification of some Lennard-Jones parameters yielded dramatic improvements in calculated values~\cite{yin_toward_2015}, and host-guest binding data has, accordingly, been suggested as an input for force field development~\cite{yin_toward_2015, henriksen_computational_2015, gao_binding_2015}.
 Water structure around CB7 and calculated binding enthalpies also appear particularly sensitive to the choice of water model~\cite{rogers_role_2013, fenley_bridging_2014, gao_binding_2015}, and water is clearly important for modulating binding~\cite{nguyen_grid_2012}.
@@ -432,13 +438,13 @@ $^{\rm a}$ Compound ID from original paper; $^{\rm b}$ PubChem Compound ID; $^{\
 \toprule
 \multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$} & \multicolumn{1}{c}{2D}  & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm c,d}$ \,{(}kcal/mol{)}} \\
 \midrule
-2   & dopamine                 & 681       & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/681.pdf}}   & C1=CC(=C(C=C1CCN)O)O                 & -6.31 \pm 0.05                                            \\
-4   & o-phenylenediamine       & 7243      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7243.pdf}}  & C1=CC=C(C(=C1)N)N                    & -6.68 \pm 0.05                                            \\
-5   & m-phenylenediamine       & 7935      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7935.pdf}}  & C1=CC(=CC(=C1)N)N                    & -6.69 \pm 0.02                                            \\
-7   & 4-(aminomethyl)pyridine  & 77317     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/77317.pdf}} & C1=CN=CC=C1CN                        & -7.56 \pm 0.06                                            \\
-8   & p-phenylenediamine       & 7814      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7814.pdf}}  & C1=CC(=CC=C1N)N                      & -8.60 \pm 0.06                                            \\
-9   & p-toluidine              & 7813      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7813.pdf}}  & CC1=CC=C(C=C1)N                      & -9.43 \pm 0.05                                            \\
-20  & p-xylylenediamine        & 68315     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/68315.pdf}} & C1=CC(=CC=C1CN)CN                    & -12.62 \pm 0.06                                           \\
+2   & dopamine                 & 681       & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/681.pdf}}   & c1cc(c(cc1CCN)O)O                 & -6.31 \pm 0.05                                            \\
+4   & o-phenylenediamine       & 7243      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7243.pdf}}  & c1ccc(c(c1)N)N                    & -6.68 \pm 0.05                                            \\
+5   & m-phenylenediamine       & 7935      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7935.pdf}}  & c1cc(cc(c1)N)N                    & -6.69 \pm 0.02                                            \\
+7   & 4-(aminomethyl)pyridine  & 77317     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/77317.pdf}} & c1cnccc1CN                        & -7.56 \pm 0.06                                            \\
+8   & p-phenylenediamine       & 7814      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7814.pdf}}  & c1cc(ccc1N)N                      & -8.60 \pm 0.06                                            \\
+9   & p-toluidine              & 7813      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7813.pdf}}  & Cc1ccc(cc1)N                      & -9.43 \pm 0.05                                            \\
+20  & p-xylylenediamine        & 68315     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/68315.pdf}} & c1cc(ccc1CN)CN         & -12.62 \pm 0.06                                           \\
 \bottomrule
 \end{tabular}                                                                                                                                                                                                                                                           \\
 $^{\rm a}$ Compound ID from original paper; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy, where all measurements were done via NMR in 50mM sodium acetate buffer in $D_2O$ at pH 4.74 and 298 K. Uncertainties are obtained by taking the reported standard deviations across triplicate measurements~\cite{isaacs_personal_2016} and dividing by $\sqrt 3$;  $^{\rm d}$ drawn from~\cite{liu_cucurbituril_2005}.
@@ -463,7 +469,7 @@ Additionally, the four priopionate groups protruding into solution from the exte
 The octa-acids tend to bind guest molecules possessing a hydrophobic moiety that fits into the host's cavity and a hydrophilic moiety that projects into the aqueous solvent.  
 Within these specifications, they bind a diversity of ligands, including both organic cations and anions, as well as neutral compounds with varying degrees of polarity~\cite{gibb_guests_2009, gibb_binding_2013}.  
 Compounds with adamantane or noradamantane groups display perhaps the highest affinities observed so far, with binding free energies ranging to about -8 kcal/mol~\cite{sun_calorimetric_2008}.  
-Much of the experimental binding data comes from ITC, so binding enthalpies are often available. 
+Many of the experimental binding data comes from ITC, so binding enthalpies are often available. 
 
 Two experimental aspects of binding are particularly intriguing and noteworthy. 
 First, the binding thermodynamics of OA is sensitive to the type and concentration of anions in solution. 
@@ -497,7 +503,7 @@ This poses significant challenges for some approaches, such as metadynamics, whe
 
 \item{{\bf Finite-size artifacts due to charge modification}: As for CB7, it should be ascertained that calculations in which charged guests are decoupled from the system do not generate artifacts related to long range Coulomb interactions.~\cite{rocklin_calculating_2013, lin_overview_2014, reif_net_2014, simonson_concepts_2016}.}
 
-\item{{\bf Protonation state effects}: Although experiments are typically run at pH values that lead to well-defined protonation states of the host and its guests, this may not always hold~\cite{muddana_sampl4_2014, ewell_water_2008, tofoleanu_absolute_2016}, particularly given experimental evidence for extreme binding-driven pKa shifts of 3-4 log units for some carboxylate compounds~\cite{wang_itc_2016, sokkalingam_binding_2016}. 
+\item{{\bf Protonation state effects}: Although experiments are typically run at pH values that lead to well-defined protonation states of the host and its guests, this may not always hold~\cite{muddana_sampl4_2014, ewell_water_2008, tofoleanu_absolute_2016}, particularly given experimental evidence for extreme binding-driven $pK_a$ shifts of 3-4 log units for some carboxylate compounds~\cite{wang_itc_2016, sokkalingam_binding_2016}. 
 Thus, attention should be given to ionization states and their modulation by binding.}
 \end{enumerate}
 
@@ -516,17 +522,17 @@ Thus, attention should be given to ionization states and their modulation by bin
 \multicolumn{8}{c}{OA host} \\ 
 \midrule                                                                                                                                                        
 3 & OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.40 \pm 0.003    & -7.71 \pm 0.05     \\
-4 & OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -5.34 \pm 0.005    & -5.67 \pm 0.01     \\
-5 & OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -4.73 \pm 0.01     & -4.45 \pm 0.08     \\
+4 & OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & c1cc(cc(c1)[N+](=O)[O-])C(=O)O  & -5.34 \pm 0.005    & -5.67 \pm 0.01     \\
+5 & OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & c1cc(ccc1C\#N)C(=O)O            & -4.73 \pm 0.01     & -4.45 \pm 0.08     \\
 6 & OA-G4    & 4-bromoadamantane-1-carboxylic acid & 12598766         & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12598766.pdf}} & C1C2CC3CC(C2)(CC1C3Br)C(=O)O       & -9.37 \pm 0.01     & -14.78 \pm 0.02    \\  
 7 & OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -4.49 \pm 0.01     & -5.91 \pm 0.10     \\ 
-8 & OA-G5    & trimethylphenethylaminium           & 14108            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/14108.pdf}}    & C[N+](C)(C)CCC1=CC=CC=C1           & -3.72 \pm 0.01     & -9.96 \pm 0.11     \\
+8 & OA-G5    & trimethylphenethylaminium           & 14108            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/14108.pdf}}    & Cc1ccccc1CC(C)(C)[NH3+]           & -3.72 \pm 0.01     & -9.96 \pm 0.11     \\
 \midrule
 \multicolumn{8}{c}{TEMOA/OAMe host} \\ 
 \midrule
 3 & OA-G1    & 5-hexynoic acid                     & 143036           & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/143036.pdf}}   & C\#CCCCC(=O)O                      & -5.476 \pm 0.006   & -9.961 \pm 0.006   \\
-4 & OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & C1=CC(=CC(=C1)[N+](=O)[O-])C(=O)O  & -4.52 \pm 0.02     & -9.1 \pm 0.1       \\
-5 & OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & C1=CC(=CC=C1C\#N)C(=O)O            & -5.26 \pm 0.01     & -7.6 \pm 0.1       \\
+4 & OA-G6    & 3-nitrobenzoic acid                 & 8497             & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/8497.pdf}}     & c1cc(cc(c1)[N+](=O)[O-])C(=O)O  & -4.52 \pm 0.02     & -9.1 \pm 0.1       \\
+5 & OA-G2    & 4-cyanobenzoic acid                 & 12087            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/12087.pdf}}    & c1cc(ccc1C\#N)C(=O)O            & -5.26 \pm 0.01     & -7.6 \pm 0.1       \\
 7 & OA-G3    & N,N,N-trimethylhexan-1-aminium      & 84774            & \parbox[c]{1em}{\includegraphics[scale=0.15]{figures/84774.pdf}}    & CCCCCC[N+](C)(C)C                  & -5.73 \pm 0.06     & -6.62 \pm 0.2      \\ 
 \bottomrule
 \end{tabular}\\
@@ -544,11 +550,11 @@ $^{\rm a}$ Compound ID from ~\cite{sullivan_binding_2016}; $^{\rm b}$ SAMPL5 ID 
 \toprule
 \multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$} & \multicolumn{1}{c}{2D}  & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{Method} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} \\
 \midrule
-1            & benzoic acid                             & 243              & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/243.pdf}}   & C1=CC=C(C=C1)C(=O)O              & NMR    & -3.72 \pm 0.03     \\
-2            & 4-methylbenzoic acid                     & 7470             & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7470.pdf}}  & CC1=CC=C(C=C1)C(=O)O             & NMR    & -5.85 \pm 0.06     \\
-3            & 4-ethylbenzoic acid                      & 12086            & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/12086.pdf}} & CCC1=CC=C(C=C1)C(=O)O            & ITC    & -6.27 \pm 0.01     \\
-4            & 4-chlorobenzoic acid                     & 6318             & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/6318.pdf}}  & C1=CC(=CC=C1C(=O)O)Cl            & ITC    & -6.72 \pm 0.01     \\
-5            & 3-chlorobenzoic acid                     & 447              & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/447.pdf}}   & C1=CC(=CC(=C1)Cl)C(=O)O          & NMR    &  -5.24 \pm 0.02    \\
+1            & benzoic acid                             & 243              & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/243.pdf}}   & c1ccc(cc1)C(=O)O              & NMR    & -3.72 \pm 0.03     \\
+2            & 4-methylbenzoic acid                     & 7470             & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7470.pdf}}  & Cc1ccc(cc1)C(=O)O             & NMR    & -5.85 \pm 0.06     \\
+3            & 4-ethylbenzoic acid                      & 12086            & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/12086.pdf}} & CCc1ccc(cc1)C(=O)O            & ITC    & -6.27 \pm 0.01     \\
+4            & 4-chlorobenzoic acid                     & 6318             & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/6318.pdf}}  & c1cc(ccc1C(=O)O)Cl            & ITC    & -6.72 \pm 0.01     \\
+5            & 3-chlorobenzoic acid                     & 447              & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/447.pdf}}   & c1cc(cc(c1)Cl)C(=O)O          & NMR    &  -5.24 \pm 0.02    \\
 6            & cyclohexanecarboxylic acid               & 7413             & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7413.pdf}}  & C1CCC(CC1)C(=O)O                 & NMR    & -5.62 \pm 0.04     \\
 7            & trans-4-methylcyclohexanecarboxylic acid & 20330            & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/20330.pdf}} & [C@@H]1(CC[C@@H](CC1)C(=O)O[H])C & ITC    & -7.61 \pm 0.04     \\
 \bottomrule
@@ -569,8 +575,8 @@ Co-solvent anions can also increase \emph{or} decrease binding depending on thei
 Some salts even bind to OA themselves, with perchlorate~\cite{gibb_anion_2011} and trichloroacetate~\cite{sokkalingam_binding_2016} being particularly potent, and thus will compete with guests for binding.  
 Computationally, including additional salt beyond that needed for system neutralization changed binding free energies by up to 4 kcal/mol~\cite{tofoleanu_absolute_2016}.  
 
-Although the protonation states of the guests might seem clear and unambiguous, experimental evidence also indicates major pKa shifts on binding so that species such as acetate, formate and others could bind in neutral form at neutral pH~\cite{wang_itc_2016, sokkalingam_binding_2016}. 
-One study used absolute binding free energy calculations for different guest charge states, coupled with pKa calculations, and found that inclusion of pKa corrections and the possibility of alternate charge states of the guests affected calculated binding free energies by up to 2 kcal/mol~\cite{tofoleanu_absolute_2016}.
+Although the protonation states of the guests might seem clear and unambiguous, experimental evidence also indicates major $pK_a$ shifts on binding so that species such as acetate, formate and others could bind in neutral form at neutral pH~\cite{wang_itc_2016, sokkalingam_binding_2016}. 
+One study used absolute binding free energy calculations for different guest charge states, coupled with $pK_a$ calculations, and found that inclusion of $pK_a$ corrections and the possibility of alternate charge states of the guests affected calculated binding free energies by up to 2 kcal/mol~\cite{tofoleanu_absolute_2016}.
 Even the host protonation state may be unclear. Although OA might be assumed to have all eight carboxylic acids deprotonated at the basic pH of typical experiments, the four at the bottom are in close proximity, and these might make hydrogen bonds allowing retention of two protons~\cite{ewell_water_2008}.  
 Thus, there are uncertainties as to the host protonation state~\cite{muddana_sampl4_2014, ewell_water_2008}, which perhaps also could be modulated by guest binding.  
 
@@ -608,7 +614,7 @@ Thus, precise convergence is sometimes difficult to achieve, and it is in all ca
 The utility of the lysozyme model sites is also driven by the large body of available experimental data. 
 It has been relatively easy to identify new ligands and obtain high quality crystal structures and affinity measurements, and this has allowed two different rounds of blinded free energy prediction exercises~\cite{mobley_predicting_2007, boyce_predicting_2009}. 
 
-These binding sites do exhibit some surprising experimental complexities which make them interesting ongoing topics of study, such as the fact that the L99A site is empty of water when ligands are not bound~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS, Collins:2007:JournalofMolecularBiology} yet the protein can undergo pressure-induced filing~\cite{Collins:2007:JournalofMolecularBiology,Lerch:2015:PNAS} or denaturation~\cite{Nucci:2014:PNAS} which can be inhibited by binding of ligand~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS}. 
+These binding sites do exhibit some surprising experimental complexities which make them interesting ongoing topics of study, such as the fact that the L99A site is empty of water when ligands are not bound~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS, Collins:2007:JournalofMolecularBiology} yet the protein can undergo pressure-induced filling~\cite{Collins:2007:JournalofMolecularBiology,Lerch:2015:PNAS} or denaturation~\cite{Nucci:2014:PNAS} which can be inhibited by binding of ligand~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS}. 
 Pressure may also cause the protein to populate an excited state~\cite{Maeno:2015:BiophysicalJournal, Kitahara:2015:PNAS} (but see~\cite{Wand:2015:PNAS}) which is already present to a very limited extent at equilibrium~\cite{Bouvignies:2011:Nature}.
 Still, as noted below, these issues do not seem to dramatically impact our ability to calculate binding free energies at standard temperature and pressure, probably in large part because these are effects which come into play only at high pressures~\cite{Nucci:2014:PNAS, Lerch:2015:PNAS, Maeno:2015:BiophysicalJournal}, though as we discuss below, some ligands do induce a protein conformational change which affects the same helix as the proposed excited state~\cite{merski_homologous_2015}.
 It seems likely that the conformational hetereogeneity observed experimentally will make lysozyme even more of a valuable benchmark system as test cases here can range from simple to challenging depending on the ligand and pressure being considered.
@@ -728,8 +734,6 @@ Thus, approaches employing this strategy can naturally sample multiple binding m
 While sidechain sampling has been a significant challenge, it is possible to use biased sampling techniques such as umbrella sampling to deliberately compute and include free energies of sampling slow sidechain rearrangements~\cite{mobley_confine_2007}. 
 However, this is not a general solution, since it requires knowing what sidechains might rearrange on binding and then expending substantial computational power to map the free energy landscapes for these rearrangements. 
 An apparently better general strategy is including sidechains in enhanced sampling regions selected for Hamiltonian exchange~\cite{jiang_free_2010, khavrutskii_improved_2011} or REST2~\cite{wang_achieving_2012}, {\bf allowing sidechains to be alchemically softened or torsion barriers lowered (or both), to enhance sampling at alchemical intermediate states}.
-%{\bf I don't understand the bolded text. For one thing, my impression is that REST only modifies T, and leaves the Hamiltonian unchanged.}
-% DLM: REST2 -- which is what they currently use -- they like to describe as modifying T of a "local region" but really it's just modifying the Hamiltonian for selected residues, so it's a type of Hamiltonian exchange. You pick sidechains with interactions you want to soften, alchemically, and the softening is done at intermediate lambda values. How would you suggest clarifying the phrasing? (If my explanation is still unclear we could discuss on Slack or on the phone.)
 Reduction of energy barriers at intermediate $\lambda$ states in this scheme allows enhanced conformational sampling at these $\lambda$ values. 
 Then, with swaps between $\lambda$ values, enhanced sidechain sampling at intermediate states can propagate to all states, improving convergence~\cite{jiang_free_2010, wang_achieving_2012}.
 
@@ -807,15 +811,22 @@ These prior studies suggests thrombin may be at a ``sweet spot'' for benchmark s
 Bromodomains (BRDs) are a family of protein domains of about 100 residues that bind actylated lysine residues at the surface of histones and thus read out epigenetic markers.
 Bromodomains are present in many human proteins, and are being explored as potential drug targets for diseases including cancer and atherosclerosis~\cite{aldeghi_accurate_2016}.
 These compact domains can be expressed, purified and studied as independent proteins, and are associated with a growing body of small molecule binding data \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Bamborough:2015:J.Med.Chem., Ran:2015:J.Med.Chem., Zhang:2013:J.Med.Chem., Gosmini:2014:J.Med.Chem., Yang:2016:BioorganicChemistry}, including some obtained by isothermal titration calorimetry \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Gosmini:2014:J.Med.Chem.}.
-%DLM: Contact Aldeghi, etc. for updates (new cite forthcoming?) -- waiting for response
 
 The small size of bromodomains, and the fact that their binding sites are relatively solvent-exposed,  makes them particularly suitable for free energy simulations.
 One recent study, which used alchemical techniques to compute absolute binding free energies of 11 different ligands for bromodomain BRD4~\cite{aldeghi_accurate_2016}, achieved a remarkable level of accuracy, RMS error $0.8\pm0.2$ kcal/mol, for binding free energies spanning a range of \~4 kcal/mol.
 Docking calculations included in the same study did not work as well.
 The compounds studied were diverse, and therefore not amenable to relative free energy methods in which one ligand is computationally converted into another. 
-Overall, then, this appears to be class of systems that could yield relatively tractable and informative protein-ligand benchmark systems. 
-One known challenge is that some ligands have multiple plausible binding modes \cite{aldeghi_accurate_2016}. 
- In addition, a diverse ligand series can pose severe challenges for relative free energy techniques. 
+
+An additional study applied absolute binding free energy calculations to compute the \emph{selectivity} of three different bromodomain inhibitors across a variety of different bromodomain families. 
+Affinities of two similar ligands for seven different bromodomains were computed with a mean unsigned error of just 0.81 kcal/mol and a Pearson correlation coefficient of 0.75.
+Additionally, the affinity of a broad spectrum bromodomain inhibitor was calculated for some 22 different bromodomains with more modest accuracy. 
+Calculations also yielded insight into likely binding modes.
+The affinity data for this case is high quality, all from ITC, and a variety of crystal structures are available, making this a potentially exciting benchmark for absolute binding free energy calculations~\cite{Aldeghi:2017:J.Am.Chem.Soc.}.
+
+
+Overall, then, bromodomains appear to be class of systems that could yield relatively tractable and informative protein-ligand benchmark systems. 
+One known challenge is that some ligands have multiple plausible binding modes \cite{aldeghi_accurate_2016, Aldeghi:2017:J.Am.Chem.Soc.}. 
+In addition, a diverse ligand series (or binding to different proteins in a family!) can pose severe challenges for relative free energy techniques, meaning that bromodomains may perhaps be appealing primarily as a benchmark for absolute calculations, though perhaps suitable series for relative calculations may also be available.
 
 
 \subsubsection{Other protein-ligand systems}

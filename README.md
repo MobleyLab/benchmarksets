@@ -7,9 +7,12 @@ All versions -- current and prior -- are available via Zenodo DOIs, with the lat
 
 ## The paper
 
-The paper was just submitted (Sept. 10, 2016) to [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625) and Annual Reviews in Biophysics. Its source files are deposited here, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
+Versions of this paper are archived on [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625); additionally, an early version is being published in Annual Reviews in Biophysics. Source files for the paper are deposited here, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
 
-The paper's authors are David L. Mobley (UC Irvine) and Michael K. Gilson (UCSD).
+This work is posted with permission from the Annual Review of Biophysics, Volume 46 © 2017 by [Annual Reviews](http://www.annualreviews.org/). Only the Annual Reviews version fo the work is peer reviewed; versions posted here are effectively preprints updated at the authors' discretion. The right to create derivative works (exercised here) is also exercised with permission from the Annual Review of Biophysics, Volume 46 © 2017 by Annual Reviews, http://www.annualreviews.org/
+
+A list of authors is provided below.
+
 
 ## The vision
 
@@ -56,12 +59,24 @@ If you have a specific suggestion or request relating to the material on GitHub 
 
 ### Submit a pull request
 
-We also welcome contributions to the material which is already here to extend it (see Section IV in our paper) and encourage you to actually propose changes via a "pull request", even to the paper itself. This will allow us to track your contributions, as well. Specifically, the full list of contributors to the updated paper and data can be appended to subsequent versions of this work, as they would be for a software project.
+We also welcome contributions to the material which is already here to extend it (see Section IV in our paper) and encourage you to actually propose changes via a "pull request", even to the paper itself. This will allow us to track your contributions, as well. Specifically, the full list of contributors to the updated paper and data can be appended to subsequent versions of this work, as they would be for a software project. New versions of this work are assigned unique, cite-able DOIs and essentially constitute preprints, so they can be cited as interim research products.
 
-## Contributors
+## Authors
+- David L. Mobley (UCI)
+- Michael K. Gilson (UCSD)
+
+Your name, too, can go here if you help us substantially revise/extend the paper.
+
+
+## Acknowledgments
+
+We want to thank the following people who contributed to this repository and the paper, in addition to those acknowledged within the [text itself](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf)
+
 - David Slochower (UCSD, Gilson lab): Grammar corrections and improved table formatting
 - Nascimento (in a comment on biorxiv): Highlighted PDB code error for n-phenylglycinonitrile
 - Jian Yin (UCSD, Gilson lab): Provided host-guest structures and input files for the host-guest sets described in the paper
+
+Please note that GitHub's automatic "contributors" list does not provide a full accounting of everyone contributing to this work, as some contributions have been received by e-mail or other mechanisms.
 
 ## Versions
 - [v1.0](https://github.com/MobleyLab/benchmarksets/releases/tag/v1.0): As posted to bioRxiv 
@@ -69,6 +84,7 @@ We also welcome contributions to the material which is already here to extend it
 - v1.0.4 ([10.5281/zenodo.167349](http://doi.org/10.5281/zenodo.167349)): Maintenance version fixing an incorrect PDB code and adding a new reference and some new links.
 - v1.1 ([10.5281/zenodo.197428](http://doi.org/10.5281/zenodo.197428)): Adds significant additional discussion on potential future benchmark sets, needs for workflow science, etc. See release notes for more details. Versions also now include the date and version number within the PDF.
 - v1.1.1 ([10.5281/zenodo.254619](http://doi.org/10.5281/zenodo.254619)): Adds input files for host-guest benchmarks; some revisions to text as recommended by Annual Reviews. See release notes for more details.
+- v1.1.2: Adds consistently handled SMILES for aromatics, Annual Reviews copyright/rights info in TeX and README, additional citation information for one reference, and new discussion of some new bromodomain absolute binding free energy work.
 
 ## Changes not yet in a release
 
