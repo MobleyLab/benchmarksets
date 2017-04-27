@@ -817,9 +817,19 @@ The small size of bromodomains, and the fact that their binding sites are relati
 One recent study, which used alchemical techniques to compute absolute binding free energies of 11 different ligands for bromodomain BRD4~\cite{aldeghi_accurate_2016}, achieved a remarkable level of accuracy, RMS error $0.8\pm0.2$ kcal/mol, for binding free energies spanning a range of \~4 kcal/mol.
 Docking calculations included in the same study did not work as well.
 The compounds studied were diverse, and therefore not amenable to relative free energy methods in which one ligand is computationally converted into another. 
-Overall, then, this appears to be class of systems that could yield relatively tractable and informative protein-ligand benchmark systems. 
-One known challenge is that some ligands have multiple plausible binding modes \cite{aldeghi_accurate_2016}. 
- In addition, a diverse ligand series can pose severe challenges for relative free energy techniques. 
+
+%new
+An additional study applied absolute binding free energy calculations to compute the \emph{selectivity} of three different bromodomain inhibitors across a variety of different bromodomain families. 
+Affinities of two similar ligands for seven different bromodomains were computed with a mean unsigned error of just 0.81 kcal/mol and a Pearson correlation coefficient of 0.75.
+Additionally, the affinity of a broad spectrum bromodomain inhibitor was calculated for some 22 different bromodomains with more modest accuracy. 
+Calculations also yielded insight into likely binding modes.
+The affinity data for this case is high quality, usually from ITC, and a variety of crystal structures are available, making this a potentially exciting benchmark for absolute binding free energy calculations~\cite{Aldeghi:2017:J.Am.Chem.Soc.}.
+
+%end new
+
+Overall, then, bromodomains appear to be class of systems that could yield relatively tractable and informative protein-ligand benchmark systems. 
+One known challenge is that some ligands have multiple plausible binding modes \cite{aldeghi_accurate_2016, Aldeghi:2017:J.Am.Chem.Soc.}. 
+ In addition, a diverse ligand series (or binding to different proteins in a family!) can pose severe challenges for relative free energy techniques, meaning that bromodomains may be appealing only as a benchmark for absolute calculations. 
 
 
 \subsubsection{Other protein-ligand systems}
