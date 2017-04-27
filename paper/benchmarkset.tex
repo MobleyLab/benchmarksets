@@ -76,8 +76,8 @@ In our view, progress will require careful assessment and evaluation of new meth
 %PUT MANUSCRIPT VERSION HERE
 % Use this style for ongoing development: "Version 1.0.5 pre-release"
 % Use this style for releases: "Version 2.0" 
-{\bf Manuscript version 1.1.2 pre-release.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
-%{\bf Manuscript version 1.1.1.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
+%{\bf Manuscript version 1.1.2 pre-release.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
+{\bf Manuscript version 1.1.2.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
 \\
 \\
 %PUT AR COPYRIGHT INFO HERE
@@ -811,25 +811,22 @@ These prior studies suggests thrombin may be at a ``sweet spot'' for benchmark s
 Bromodomains (BRDs) are a family of protein domains of about 100 residues that bind actylated lysine residues at the surface of histones and thus read out epigenetic markers.
 Bromodomains are present in many human proteins, and are being explored as potential drug targets for diseases including cancer and atherosclerosis~\cite{aldeghi_accurate_2016}.
 These compact domains can be expressed, purified and studied as independent proteins, and are associated with a growing body of small molecule binding data \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Bamborough:2015:J.Med.Chem., Ran:2015:J.Med.Chem., Zhang:2013:J.Med.Chem., Gosmini:2014:J.Med.Chem., Yang:2016:BioorganicChemistry}, including some obtained by isothermal titration calorimetry \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Gosmini:2014:J.Med.Chem.}.
-%DLM: Contact Aldeghi, etc. for updates (new cite forthcoming?) -- waiting for response
 
 The small size of bromodomains, and the fact that their binding sites are relatively solvent-exposed,  makes them particularly suitable for free energy simulations.
 One recent study, which used alchemical techniques to compute absolute binding free energies of 11 different ligands for bromodomain BRD4~\cite{aldeghi_accurate_2016}, achieved a remarkable level of accuracy, RMS error $0.8\pm0.2$ kcal/mol, for binding free energies spanning a range of \~4 kcal/mol.
 Docking calculations included in the same study did not work as well.
 The compounds studied were diverse, and therefore not amenable to relative free energy methods in which one ligand is computationally converted into another. 
 
-%new
 An additional study applied absolute binding free energy calculations to compute the \emph{selectivity} of three different bromodomain inhibitors across a variety of different bromodomain families. 
 Affinities of two similar ligands for seven different bromodomains were computed with a mean unsigned error of just 0.81 kcal/mol and a Pearson correlation coefficient of 0.75.
 Additionally, the affinity of a broad spectrum bromodomain inhibitor was calculated for some 22 different bromodomains with more modest accuracy. 
 Calculations also yielded insight into likely binding modes.
-The affinity data for this case is high quality, usually from ITC, and a variety of crystal structures are available, making this a potentially exciting benchmark for absolute binding free energy calculations~\cite{Aldeghi:2017:J.Am.Chem.Soc.}.
+The affinity data for this case is high quality, all from ITC, and a variety of crystal structures are available, making this a potentially exciting benchmark for absolute binding free energy calculations~\cite{Aldeghi:2017:J.Am.Chem.Soc.}.
 
-%end new
 
 Overall, then, bromodomains appear to be class of systems that could yield relatively tractable and informative protein-ligand benchmark systems. 
 One known challenge is that some ligands have multiple plausible binding modes \cite{aldeghi_accurate_2016, Aldeghi:2017:J.Am.Chem.Soc.}. 
- In addition, a diverse ligand series (or binding to different proteins in a family!) can pose severe challenges for relative free energy techniques, meaning that bromodomains may be appealing only as a benchmark for absolute calculations. 
+In addition, a diverse ligand series (or binding to different proteins in a family!) can pose severe challenges for relative free energy techniques, meaning that bromodomains may perhaps be appealing primarily as a benchmark for absolute calculations, though perhaps suitable series for relative calculations may also be available.
 
 
 \subsubsection{Other protein-ligand systems}
