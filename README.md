@@ -7,9 +7,12 @@ All versions -- current and prior -- are available via Zenodo DOIs, with the lat
 
 ## The paper
 
-The paper was just submitted (Sept. 10, 2016) to [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625) and Annual Reviews in Biophysics. Its source files are deposited here, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
+Versions of this paper are archived on [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625); additionally, an early version is being published in Annual Reviews in Biophysics. Source files for the paper are deposited here, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
 
-The paper's authors are David L. Mobley (UC Irvine) and Michael K. Gilson (UCSD).
+This work is posted with permission from the Annual Review of Biophysics, Volume 46 © 2017 by [Annual Reviews](http://www.annualreviews.org/). Only the Annual Reviews version fo the work is peer reviewed; versions posted here are effectively preprints updated at the authors' discretion. The right to create derivative works (exercised here) is also exercised with permission from the Annual Review of Biophysics, Volume 46 © 2017 by Annual Reviews, http://www.annualreviews.org/
+
+A list of authors is provided below.
+
 
 ## The vision
 
@@ -83,6 +86,8 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 - v1.1.1 ([10.5281/zenodo.254619](http://doi.org/10.5281/zenodo.254619)): Adds input files for host-guest benchmarks; some revisions to text as recommended by Annual Reviews. See release notes for more details.
 
 ## Changes not yet in a release
+- Consistent kekulization of SMILES strings for aromatics
+- Addition of Annual Reviews copyright remarks in TeX and README
 
 ## Manifest
 
