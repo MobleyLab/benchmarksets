@@ -59,7 +59,7 @@ If you have a specific suggestion or request relating to the material on GitHub 
 
 ### Submit a pull request
 
-We also welcome contributions to the material which is already here to extend it (see Section IV in our paper) and encourage you to actually propose changes via a "pull request", even to the paper itself. This will allow us to track your contributions, as well. Specifically, the full list of contributors to the updated paper and data can be appended to subsequent versions of this work, as they would be for a software project.
+We also welcome contributions to the material which is already here to extend it (see Section IV in our paper) and encourage you to actually propose changes via a "pull request", even to the paper itself. This will allow us to track your contributions, as well. Specifically, the full list of contributors to the updated paper and data can be appended to subsequent versions of this work, as they would be for a software project. New versions of this work are assigned unique, cite-able DOIs and essentially constitute preprints, so they can be cited as interim research products.
 
 ## Authors
 - David L. Mobley (UCI)
