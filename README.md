@@ -1,13 +1,15 @@
 # Benchmark sets for free energy calculations
 
-This repository relates to the *[perpetual review](https://arxiv.org/abs/1502.01329)* paper called "[Predicting binding free energies: Frontiers and benchmarks](http://biorxiv.org/content/early/2016/09/11/074625)" by David L. Mobley and Michael Gilson. Its focus is benchmark sets for binding free energy calculations, including the perpetual review paper, but also all things relating to benchmark sets for free energy calculations. This includes discussion, datasets, and standards for datasets and data deposition.
+This repository relates to the *perpetual review* ([definition](https://arxiv.org/abs/1502.01329)) paper called "[Predicting binding free energies: Frontiers and benchmarks](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf)" by David L. Mobley and Michael K. Gilson. Its focus is benchmark sets for binding free energy calculations, including the perpetual review paper, but also all things relating to benchmark sets for free energy calculations. This includes discussion, datasets, and standards for datasets and data deposition.
 
-All versions -- current and prior -- are available via Zenodo DOIs, with the latest version at this DOI: [![DOI](https://zenodo.org/badge/67898475.svg)](https://zenodo.org/badge/latestdoi/67898475)
+The [latest version](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf) is always available on this GitHub repository, as well as all previous versions. Additionally, all release versions -- current and prior -- are available via Zenodo DOIs, with the latest release at this DOI: [![DOI](https://zenodo.org/badge/67898475.svg)](https://zenodo.org/badge/latestdoi/67898475)
 
 
 ## The paper
 
-Versions of this paper are archived on [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625); additionally, an early version is being published in Annual Reviews in Biophysics. Source files for the paper are deposited here, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
+The most up-to-date version of this perpetual review is always available [here](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf). Additionally, this repository provides the authoritative source for all versions of this paper. We also archive selected versions of the paper as preprints on [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625). An early version of this work is also being published in Annual Reviews in Biophysics. The Annual Reviews version will likely go out of date, though we are endeavoring to keep the bioRxiv version current.
+
+Source files for the paper are deposited here on this GitHub repository, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
 
 This work is posted with permission from the Annual Review of Biophysics, Volume 46 © 2017 by [Annual Reviews](http://www.annualreviews.org/). Only the Annual Reviews version fo the work is peer reviewed; versions posted here are effectively preprints updated at the authors' discretion. The right to create derivative works (exercised here) is also exercised with permission from the Annual Review of Biophysics, Volume 46 © 2017 by Annual Reviews, http://www.annualreviews.org/
 
