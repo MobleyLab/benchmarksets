@@ -7,11 +7,11 @@ The [latest version](https://github.com/MobleyLab/benchmarksets/blob/master/pape
 
 ## The paper
 
-The most up-to-date version of this perpetual review is always available [here](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf). Additionally, this repository provides the authoritative source for all versions of this paper. We also archive selected versions of the paper as preprints on [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625). An early version of this work is also being published in Annual Reviews in Biophysics. The Annual Reviews version will likely go out of date, though we are endeavoring to keep the bioRxiv version current.
+The most up-to-date version of this perpetual review is always available [here](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf). Additionally, this repository provides the authoritative source for all versions of this paper. Selected versions of the paper are also archived preprints on [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625). An early version of this work was published in [Annual Review of Biophysics 46:531-558 (2017)](https://doi.org/10.1146/annurev-biophys-070816-033654). The Annual Reviews version will likely go out of date, though we are endeavoring to keep the bioRxiv version current.
 
 Source files for the paper are deposited here on this GitHub repository, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
 
-This work is posted with permission from the Annual Review of Biophysics, Volume 46 © 2017 by [Annual Reviews](http://www.annualreviews.org/). Only the Annual Reviews version fo the work is peer reviewed; versions posted here are effectively preprints updated at the authors' discretion. The right to create derivative works (exercised here) is also exercised with permission from the Annual Review of Biophysics, Volume 46 © 2017 by Annual Reviews, http://www.annualreviews.org/
+This work is posted with permission from the Annual Review of Biophysics, Volume 46 © 2017 by [Annual Reviews](http://www.annualreviews.org/). Only the [Annual Reviews version](http://www.annualreviews.org/doi/abs/10.1146/annurev-biophys-070816-033654) of the work is peer reviewed; versions posted here are effectively preprints updated at the authors' discretion. The right to create derivative works (exercised here) is also exercised with permission from the Annual Review of Biophysics, Volume 46 © 2017 by Annual Reviews, http://www.annualreviews.org/
 
 A list of authors is provided below.
 
@@ -81,6 +81,7 @@ We want to thank the following people who contributed to this repository and the
 Please note that GitHub's automatic "contributors" list does not provide a full accounting of everyone contributing to this work, as some contributions have been received by e-mail or other mechanisms.
 
 ## Versions
+- [AR](https://doi.org/10.1146/annurev-biophys-070816-033654): Annual Review in Biophysics 46:531-558 (2017). This version split from this repo around the time of the 1.0 release below.
 - [v1.0](https://github.com/MobleyLab/benchmarksets/releases/tag/v1.0): As posted to bioRxiv 
 - v1.0.1 ([10.5281/zenodo.155330](https://doi.org/10.5281/zenodo.15533)): Incorporating improved tables and typo fixes from D. Slochower; also, versions now have unique DOIs via Zenodo.
 - v1.0.4 ([10.5281/zenodo.167349](http://doi.org/10.5281/zenodo.167349)): Maintenance version fixing an incorrect PDB code and adding a new reference and some new links.
@@ -90,6 +91,7 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 - v1.1.3 ([10.5281/zenodo.571227]( http://doi.org/10.5281/zenodo.571227)): Changes title to include "(a perpetual review)" to make more clear that this is not the same paper as the Annual Reviews version; makes clarifications to README.md about which version is which.
 
 ## Changes not yet in a release
+- Updates to README.md to reflect publication of Annual Reviews version
 
 ## Manifest
 
