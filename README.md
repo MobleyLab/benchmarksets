@@ -7,11 +7,11 @@ The [latest version](https://github.com/MobleyLab/benchmarksets/blob/master/pape
 
 ## The paper
 
-The most up-to-date version of this perpetual review is always available [here](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf). Additionally, this repository provides the authoritative source for all versions of this paper. We also archive selected versions of the paper as preprints on [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625). An early version of this work is also being published in Annual Reviews in Biophysics. The Annual Reviews version will likely go out of date, though we are endeavoring to keep the bioRxiv version current.
+The most up-to-date version of this perpetual review is always available [here](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf). Additionally, this repository provides the authoritative source for all versions of this paper. Released versions of the paper are also archived as preprints on[eScholarship](http://escholarship.org/uc/item/9p37m6bq). An early version of this work was published in [Annual Review of Biophysics 46:531-558 (2017)](https://doi.org/10.1146/annurev-biophys-070816-033654). The Annual Reviews version will likely go out of date, though we are endeavoring to keep the eScholarship version current.
 
 Source files for the paper are deposited here on this GitHub repository, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
 
-This work is posted with permission from the Annual Review of Biophysics, Volume 46 © 2017 by [Annual Reviews](http://www.annualreviews.org/). Only the Annual Reviews version fo the work is peer reviewed; versions posted here are effectively preprints updated at the authors' discretion. The right to create derivative works (exercised here) is also exercised with permission from the Annual Review of Biophysics, Volume 46 © 2017 by Annual Reviews, http://www.annualreviews.org/
+This work is posted with permission from the Annual Review of Biophysics, Volume 46 © 2017 by [Annual Reviews](http://www.annualreviews.org/). Only the [Annual Reviews version](http://www.annualreviews.org/doi/abs/10.1146/annurev-biophys-070816-033654) of the work is peer reviewed; versions posted here are effectively preprints updated at the authors' discretion. The right to create derivative works (exercised here) is also exercised with permission from the Annual Review of Biophysics, Volume 46 © 2017 by Annual Reviews, http://www.annualreviews.org/
 
 A list of authors is provided below.
 
@@ -81,7 +81,8 @@ We want to thank the following people who contributed to this repository and the
 Please note that GitHub's automatic "contributors" list does not provide a full accounting of everyone contributing to this work, as some contributions have been received by e-mail or other mechanisms.
 
 ## Versions
-- [v1.0](https://github.com/MobleyLab/benchmarksets/releases/tag/v1.0): As posted to bioRxiv 
+- [AR](https://doi.org/10.1146/annurev-biophys-070816-033654): Annual Review in Biophysics 46:531-558 (2017). This version split from this repo around the time of the 1.0 release below.
+- [v1.0](https://github.com/MobleyLab/benchmarksets/releases/tag/v1.0): As posted to [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625) 
 - v1.0.1 ([10.5281/zenodo.155330](https://doi.org/10.5281/zenodo.15533)): Incorporating improved tables and typo fixes from D. Slochower; also, versions now have unique DOIs via Zenodo.
 - v1.0.4 ([10.5281/zenodo.167349](http://doi.org/10.5281/zenodo.167349)): Maintenance version fixing an incorrect PDB code and adding a new reference and some new links.
 - v1.1 ([10.5281/zenodo.197428](http://doi.org/10.5281/zenodo.197428)): Adds significant additional discussion on potential future benchmark sets, needs for workflow science, etc. See release notes for more details. Versions also now include the date and version number within the PDF.
@@ -90,8 +91,11 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 - v1.1.3 ([10.5281/zenodo.571227]( http://doi.org/10.5281/zenodo.571227)): Changes title to include "(a perpetual review)" to make more clear that this is not the same paper as the Annual Reviews version; makes clarifications to README.md about which version is which.
 
 ## Changes not yet in a release
+- Updates to README.md to reflect publication of Annual Reviews version
+- Updates to README.md to reflect availability on eScholarship
+- Update to paper to reflect migration to eScholarship rather than bioRxiv
 
 ## Manifest
 
-* paper: Provides LaTeX source files for the manuscript as submitted to bioRxiv (reformatted from the version submitted to Ann. Rev. and with 2D structures added to the tables); images, etc. are also available in sub-directories, as is the supporting information.
+* paper: Provides LaTeX source files and final PDF for the current version of the manuscript (reformatted from the version submitted to Ann. Rev. and with 2D structures added to the tables); images, etc. are also available in sub-directories, as is the supporting information.
 * input_files: Host-guest structures and simulation input files for the host-guest benchmark sets proposed in the paper (provided by Jian Yin from the Gilson lab)
