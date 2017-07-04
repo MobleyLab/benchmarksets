@@ -798,43 +798,62 @@ the Asn140 $\chi_2$ dihedral during 350 ns of simulations of the apo BRD4(1), sh
 }
 \end{figure*}
 
+\todo[inline, color={yellow!20}]{DLM: What do you think about making this subsection be ``Computational challenges posed by the BRD4(1) benchmarks'' and then have the two things below which you currently have as "subsubsections" use a smaller (paragraph?) label instead? This would be more consistent with the lysozyme material. Alternatively, I would also be happy with subsubsections called "BRD4(1) computational challenge: ZA loop flexibility" and "BRD4(1) computational challenge: sidechain sampling" or something similar. My issue is just that right now the organization seems fairly different from lysozyme and it's hard to keep track of what the subsubsection headers are supposed to mean.}
 \subsubsection{Flexibility and transition of the ZA-loop}
 
+\todo[inline, color={yellow!20}]{DLM: I have some TeX comments suggesting rephrasings in this paragraph}
+%I like Kevin Plaxco's work on "The art of writing science" which advocates starting each paragraph with a sentence which explains what it's about. Currently the main point of this paragraph is sort of buried (it starts off saying that BRD4(1) is very stable, and doesn't get to the key sampling difficulty until the middle). What about an initial sentence more like: "While much of BRD4(1) is very stable in complex with various ligands, the ZA-loop region [which is near ligands???] can undergo considerable rearrangement..." or similar?
 Simulations starting from the cocrystal structures of BRD4(1) bound to different ligands show that the complexes are very stable, with reported backbone RMSD values being less than 1.00 {\AA} over simulations lasting up 
-to 120ns~\cite{Su:2017:J.Biomol.Struct.Dyn.}. The same behavior was reproduced in simulations over 300 ns long (Heinzelmann et al., unpublished results), with most of the fluctuations happening in the N and C-termini, which
-are far from the ligand binding site and can be disregarded. Even though the apo crystal structures of BRD4(1) have the same conformation as the complexes~\cite{Lucas:2013:Angew.Chem.Int.Ed., Filippa:2012:Cell}, long simulations 
-of this system using different force fields have shown considerable backbone RMSD values in the ZA-loop region~\cite{Su:2017:J.Biomol.Struct.Dyn., Kuang:2015:J.Chem.Inf.Model., Steiner:2013:FEBSLett.}. However, instead of large random
-fluctuations, all cases show a sharp irreversible transition on this loop generally after 20 ns of simulations, suggesting an initial metastable state followed by stabilization of the protein backbone. 
+to 120ns~\cite{Su:2017:J.Biomol.Struct.Dyn.}. 
+The same behavior was reproduced in simulations over 300 ns long (Heinzelmann et al., unpublished results), with most of the fluctuations happening in the N and C-termini, which
+are far from the ligand binding site and can be disregarded. 
+%How do we know they can be disregarded (reference)? Or, "probably can be disregarded"? (Key thought: Don't say something IS a certain way unless you know it, so clearly indicate what's speculative and what's not. You don't want to be in a position where you tell someone else NOT to investigate something unless you know it's not worth investigating...
+Even though the apo crystal structures of BRD4(1) have the same conformation as the complexes~\cite{Lucas:2013:Angew.Chem.Int.Ed., Filippa:2012:Cell}, long simulations 
+of this system using different force fields have shown considerable backbone RMSD values in the ZA-loop region~\cite{Su:2017:J.Biomol.Struct.Dyn., Kuang:2015:J.Chem.Inf.Model., Steiner:2013:FEBSLett.}. %Can you be more specific about "considerable", e.g. just give a value? One man's "considerable" is another man's "no big deal" so it's good to just be concrete.
+However, instead of large random
+fluctuations, all cases show a sharp irreversible transition on this loop generally after 20 ns of simulations, suggesting an initial metastable state followed by stabilization of the protein backbone. %"all cases" -- "all simulations"? "all simulations in this study"? 
 
-Heinzelmann et al.~\cite{Heinzelmann:2017:J.Chem.TheoryComput.} have investigated this phenomenon in more detail, with simulations and free energy calculations showing that apo crystal structures of BRD4(1) are indeed metastable, 
-and after around 50 ns of simulations a transition is seen from the so-called closed to the open state (Fig. 3B). According to the free energy calculations performed using the Amberff14SB protein force field and the TIP3P water model, 
-the latter conformation is  $\sim$2.5 kcal/mol more favorable than the former. This discrepancy between the crystal data and the simulations might arise from artifacts due to the simulation force-field, or, on the other hand, be caused by spurious 
-contacts involving loop residues and neighbouring molecules in the crystal arrangement. This last possibility has been proposed before, when noting the inconsistency between the relatively uniform crystallographic B-factors and the high 
+Further work found that the loop conformation seen in the \emph{apo} structure is metastable and transitions to an open state (Fig. ~\ref{fig:brd4}(B)) after around 50 ns~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}. 
+The open state appears to be $\sim$2.5 kcal/mol more favorable than the closed state, according to the free energy calculations performed using the Amberff14SB protein force field and the TIP3P water model. 
+This discrepancy between the crystal data and the simulations might arise from artifacts due to the simulation force field, or, on the other hand, be caused by crystal 
+contacts involving loop residues and neighbouring molecules. 
+This last possibility has been proposed before, when noting the inconsistency between the relatively uniform crystallographic B-factors and the high 
 flexibility of the ZA-loop observed in simulations of the apo CREBBP bromodomain~\cite{Spilio:2014:Isr.J.Chem.}. 
 
-The free energy of the apo BRD4(1) closed-to-open conformational change is independent of the substrate~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, so it will not impact the ligands $relative$ binding free energies, as long
-as this transition is avoided during the calculations. This would be the case when performing small alchemical transformations on the substrate inside the binding pocket~\cite{schrodinger_accurate_2015}, since the BRD4(1) bound (closed)
-state would be preserved due to the presence of the ligand. For the calculation of the ligands $absolute$ binding free energies, the conformational change of the apo BRD4(1) will influence the results and has to be taken into account.
-As we explain below, the absolute affinities for the benchmark ligands can be computed either relative to the metastable apo closed state, consistent with the apo crystal structures of BRD4(1), or the apo open state, consistent with the
-Amberff14SB force-field. 
+The free energy of the apo BRD4(1) closed-to-open conformational change is independent of the substrate~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, so it will not impact the ligands' \emph{relative} binding free energies, as long
+as this transition is avoided during the calculations. 
+This would be the case when performing small alchemical transformations on the substrate inside the binding pocket~\cite{schrodinger_accurate_2015}, since the BRD4(1) bound (closed)
+state will likely be preserved due to the presence of the ligand. %What if there is ever a ligand which binds to the open state?
+For the calculation of the ligands \emph{absolute} binding free energies, the conformational change of the apo BRD4(1) will influence computed binding free energies and has to be taken into account.
+As we explain below, the absolute binding free energies for the benchmark ligands can be computed either relative to the metastable \emph{apo} closed state, consistent with the \emph{apo} crystal structures of BRD4(1), or the \emph{apo} open state, consistent with the
+Amberff14SB force-field, but computed values will be considerably different depending on this choice.
 
-The ligand binding free energies relative to the metastable apo closed state of BRD4(1) are calculated by including a simple restraint-wall scheme on the Asp88 $\psi$ dihedral, as described in 
-Ref.~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, so they are properly compared for each benchmark molecule. Alternatively, to determine the absolute ligand binding free energies relative to the apo open state, 
-the free energy of the apo closed-to-open transition can also be determined. As shown by Heinzelmann et al.~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, this transition works through a double hinge mechanism centered on the 
-Asp88 and Asp96 residues, and it is tractable using a single reaction coordinate (the Asp88 $\psi$ dihedral), making it suitable for the application, testing and comparison of various enhanced sampling methods. 
+The ligand binding free energies relative to the metastable \emph{apo} closed state of BRD4(1) are calculated by including a simple restraint-wall scheme on the Asp88 $\psi$ dihedral, as described in 
+Ref.~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, so they are properly compared for each benchmark molecule. %What does "properly compared" here mean?
+Alternatively, to determine the absolute ligand binding free energies relative to the \emph{apo} open state, 
+the free energy of the \emph{apo} closed-to-open transition can also be determined.
+This transition appears to work through a double hinge mechanism centered on the 
+Asp88 and Asp96 residues~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, and the free energy for the conformational change can be observed using a single reaction coordinate (the Asp88 $\psi$ dihedral), making the conformational change problem suitable for various enhanced sampling methods. 
 
 \subsubsection{Possible side-chain rearrangements near the binding site}
 
+\todo[inline, color={yellow!20}]{DLM: Some questions in the TeX on what you mean}
+%Another proposed "start with a summary" addition:
+Protein side-chain rearrangements pose another significant sampling challenge for BRD4(1).
 Even with the ZA-loop transition described above, 350ns simulations of the apo BRD4(1) did not exhibit the slow side-chain displacements of the conserved Tyr97 and Tyr139 residues (Fig. 3C), 
-which are part of the acetyl-lysine binding site and are located on the ZA and BC-loops, respectively. The side-chain movements of these two residues were first observed on simulations of the apo CREBBP 
+which are part of the acetyl-lysine binding site and are located on the ZA and BC-loops, respectively. 
+%"the slow side-chain displacements": Which ones? Maybe you mean something like, "Certain sidechains are known to potentially reorganize on ligand binding, but even with 350 ns simulations, rearrangement of these sidechains is not observed...."?? 
+The side-chain movements of these two residues were first observed on simulations of the apo CREBBP 
 bromodomain~\cite{Steiner:2013:FEBSLett., Spilio:2014:Isr.J.Chem.}, with the Tyr1167 residue (equivalent to Tyr139 on BRD4(1)) adopting an outward conformation, followed by the occupation of the binding site by the side-chain of 
-Tyr1125 (Tyr97 on BRD4(1)). On the other hand, as in Refs.~\cite{Steiner:2013:FEBSLett., Spilio:2014:Isr.J.Chem.}, rotations on the Asn140 $\chi_2$ dihedral frequently take place in simulations of the apo BRD4(1), but they are found to
-be reversible and happening in a nanosecond time scale (Fig. 3D). Still, we cannot discard that slower side-chain transitions might still occur on BRD4(1) in the absence of the ligand, which would have to be accounted for if one is looking
-for gold standard results for this system.
+Tyr1125 (Tyr97 on BRD4(1)). 
+On the other hand, as in Refs.~\cite{Steiner:2013:FEBSLett., Spilio:2014:Isr.J.Chem.}, rotations on the Asn140 $\chi_2$ dihedral frequently take place in simulations of the apo BRD4(1), but they are found to
+be reversible and happening in a nanosecond time scale (Fig. ~\ref{fig:brd4}(D)). 
+Still, we cannot neglect the possibility that slower side-chain transitions might still occur on BRD4(1) in the absence of the ligand, which would have to be accounted for if one is looking for gold standard results for this system. %Does this last statement mean we might want to say that we currently call this a "soft" benchmark but we believe that it will be a hard benchmark in the near future?
+%(Tangentially, we are working on an enhanced sidehcain sampling method which might be interesting to test here in the near term!)
 
 
 \subsubsection{Binding free energy calculations on BRD4(1)}
-
+\todo[inline, color={yellow!20}]{DLM: For consistency with lysozyme organization, you probably want this section to be part of either the intro to bromodomains, or the section discussing sampling problems. For example, see the lysozyme section "The apolar and polar cavities and their ligands". ALSO, don't take a separate paragraph to describe each study. (We initially did that in the lysozyme and host-guest sections, but the paper gets way too long if this is done). Instead, focus just on the major take-aways. For example, accuracies of RMS error around 0.8 kcal/mol are possible; two studies basically agree on values of some of the ligands; the closed to open transition, etc. The idea is to tell people what they need to know (and give them references to read more) with as little extra text as possible.}
 Many studies have focused on the calculation of binding free energies of small molecules to BRD4(1), using a variety of methods such as alchemical transformations~\cite{aldeghi_accurate_2016, Aldeghi:2017:J.Am.Chem.Soc.}, 
 attach-pull-release (APR)~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, adaptive biasing potentials (ABP)\cite{Dickson:2016:J.Chem.Phys.}, steered molecular dynamics (SMD)~\cite{ Muvva:2014:Mol.Biosyst.}, as well as molecular 
 mechanics combined with either Poisson-Boltzmann (MM-PBSA)~\cite{Su:2017:J.Biomol.Struct.Dyn.,Deepak:2017:Chem.Biol.Drug.Des.} or generalized Born (MM-GBSA) surface area~\cite{Raj:2016:J.Biomol.Struct.Dyn.}. The first two methods have 
