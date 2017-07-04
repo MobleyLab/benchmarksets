@@ -8,9 +8,13 @@
 %\usepackage[numbers]{natbib}
 
 %Todonotes package
-\usepackage[obeyFinal]{todonotes}
+\newcommand*\mycommand[1]{\texttt{\emph{#1}}}
+\renewcommand{\thefootnote}{\alph{footnote}}
+\usepackage{subcaption} % Used to caption the subfigures
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\Dtodo}{\todo[inline, color=red!50!]}
+\newcommand{\Ctodo}{\todo[inline, color=blue!50!]}
 
-%Configure todonotes to set it up the way we want
 % Comments
 \newcounter{comment}
 \newcommand{\comment}[2][]{%
@@ -18,14 +22,9 @@
 \refstepcounter{comment}%
 {%
 \setstretch{0.7}% spacing
-\todo[inline, color={cyan!45},size=\small]{%
+\todo[inline, color={red!50},size=\small]{%
 \textbf{\footnotesize [\uppercase{#1}\thecomment]:}~#2}%
 }}
-
-
-\newcommand{\insertref}[1]{\todo[color=green!40]{#1}}
-\newcommand{\adddetail}[1]{\todo[color=blue!20]{#1}}
-\newcommand{\major}[1]{\todo[color=red]{#1}}
 
 \usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
 
@@ -89,7 +88,9 @@ In our view, progress will require careful assessment and evaluation of new meth
 
 \maketitle
 
-
+% List TODOs here
+\todototoc
+\listoftodos
 
 \section{INTRODUCTION}
 
@@ -904,6 +905,7 @@ These prior studies suggests thrombin may be at a ``sweet spot'' for benchmark s
 
 
 \subsubsection{Bromodomain proteins}
+\todo[inline, color={yellow!20}]{DLM: Germano, you will need to remove this section below and make sure everything relevant is incorporated into your earlier section}
 Bromodomains (BRDs) are a family of protein domains of about 100 residues that bind actylated lysine residues at the surface of histones and thus read out epigenetic markers.
 Bromodomains are present in many human proteins, and are being explored as potential drug targets for diseases including cancer and atherosclerosis~\cite{aldeghi_accurate_2016}.
 These compact domains can be expressed, purified and studied as independent proteins, and are associated with a growing body of small molecule binding data \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Bamborough:2015:J.Med.Chem., Ran:2015:J.Med.Chem., Zhang:2013:J.Med.Chem., Gosmini:2014:J.Med.Chem., Yang:2016:BioorganicChemistry}, including some obtained by isothermal titration calorimetry \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Gosmini:2014:J.Med.Chem.}.
