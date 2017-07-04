@@ -300,8 +300,9 @@ This potential problem can also be mitigated by sharing of methods to enable bro
 
 \section{CURRENT BENCHMARK SYSTEMS FOR BINDING PREDICTIONS}
 \label{benchmarks}
-No molecular systems have yet been designated by the field as benchmarks for free energy calculations, but certain host molecules and designed binding sites in the enzyme T4 lysozyme have emerged as particularly helpful and widely studied test cases. 
-Here, we describe these artificial receptors and propose specific host-guest and T4 lysozyme-ligand combinations as initial benchmark systems for free energy calculations. 
+No molecular systems have yet been designated by the field as benchmarks for free energy calculations, but certain test cases have proven particularly helpful and been widely studied, including specific host molecules, certain designed binding sites in the enzyme T4 lysozyme, and some bromodomain binding sites. 
+Here, we describe the artificial and biological receptors considered and propose specific host-guest and ligand-receptor combinations as initial benchmark systems for free energy calculations. 
+
 We also point to several additional hosts and small proteins that also have potential to generate useful benchmarks in the future (Section~\ref{sec:futuresystems}). 
 We focus on cases where experimental data are available and add value, rather than cases chosen to test conformational sampling methods, for which experimental data are not required (Section~\ref{subsec:benchmarktypes}). 
 
@@ -749,28 +750,44 @@ In contrast, the apolar cavity is dry, both with and without a bound ligand, so 
 \subsection{Protein-ligand benchmarks: the first bromodomain of the BRD4 protein}
 \label{sec:t5}
 
+\todo[inline, color={yellow!20}]{DLM: This organization is slightly inconsistent with the lysozyme organization, because this starts off with the biological relevance of bromodomains. I'm wondering if we should move the biology to a separate subsection and just jump in to what's relevant for modeling them? Specifically, the target audience I'm imagining is someone who just wants to benchmark methods and doesn't care about the biology of the system, just what is important for modeling it. Thoughts? PROBABLY that also means you want to lead with a summary of the most modeled binding systems (as in the lysozyme case) and what is known about the challenges there.}
 We extend our protein benchmarks to protein domains called bromodomains, which have recently been the topic of numerous studies in the search for high affinity ligands, using both 
 computational~\cite{Deepak:2017:Chem.Biol.Drug.Des., Dickson:2016:J.Chem.Phys., Raj:2016:J.Biomol.Struct.Dyn., Ran:2015:Mol.Biosyst., Zhao:2014:Bioorg.Med.Chem.Lett, Xu:2016:J.Med.Chem., Yang:2016:BioorganicChemistry} and experimental 
 structure-based techniques~\cite{ Zhang:2013:J.Med.Chem.,Bamborough:2015:J.Med.Chem., Ran:2015:J.Med.Chem., Gosmini:2014:J.Med.Chem., Chung:2011:J.Med.Chem., Xue:2016:J.Med.Chem., Fill:2012:Bioorg.Med.Chem., Fish:2012:J.Med.Chem.}. 
-In living cells, bromodomains are responsible for recognizing and binding to acetylated lysine residues present in the histone tails, a known epigenetic marker~\cite{Chung:2016:Prog.Med.Chem.}. They also bind a broad spectrum of small to 
-medium-size molecules with micro and nanomolar affinities, being a promising target for the treatment of conditions such as cancer and inflammation~\cite{Filippakopoulos:2010:Nature, Nicodeme:2010:Nature, Mirguet:2013:J.Med.Chem.}. Bromodomains 
-can be expressed, purified and studied as independent proteins, which facilitates the computational and experimental determination of ligand affinities. There are a total of 61 bromodomains identified in the human proteome, belonging 
-to 46 different proteins~\cite{Filippa:2012:Cell}. They all have about 110 aminoacids in length and, despite having large sequence variations, share a common fold, consisting of four anti-parallel $\alpha$-helices
-(named $\alpha$Z, $\alpha$A, $\alpha$B, and $\alpha$C) folded into a left-handed bundle (Fig. 3A). The first two and last two helices are connected by the ZA and BC-loops, respectively~\cite{Filippa:2012:Cell}. These loops are more 
-flexible and make part of the acetyl-lysine binding site, also displaying different lengths and sequences amongst the various bromodomains~\cite{Steiner:2013:FEBSLett.}. 
+In living cells, bromodomains are responsible for recognizing and binding to acetylated lysine residues present in the histone tails; these lysines serve as an epigenetic marker~\cite{Chung:2016:Prog.Med.Chem.}. 
+Bromodomains also bind a broad spectrum of small to 
+medium-size molecules with micro and nanomolar affinities, and are a promising target for the treatment of conditions such as cancer and inflammation~\cite{Filippakopoulos:2010:Nature, Nicodeme:2010:Nature, Mirguet:2013:J.Med.Chem.}. 
+Bromodomains can be expressed, purified and studied as independent proteins, which facilitates the computational and experimental determination of ligand affinities. 
+There are a total of 61 bromodomains identified in the human proteome, belonging 
+to 46 different proteins~\cite{Filippa:2012:Cell}. 
+They all have about 110 aminoacids in length and, despite having large sequence variations, share a common fold, consisting of four anti-parallel $\alpha$-helices
+(named $\alpha$Z, $\alpha$A, $\alpha$B, and $\alpha$C) folded into a left-handed bundle (Fig. 3A). The first two and last two helices are connected by the ZA and BC-loops, respectively~\cite{Filippa:2012:Cell}. 
+These loops are more  flexible and make part of the acetyl-lysine binding site, also displaying different lengths and sequences amongst the various bromodomains~\cite{Steiner:2013:FEBSLett.}. 
 
-In the present benchmark we are going to focus on the first bromodomain of the bromodomain-containing protein 4 (BRD4), part of the  BET (bromodomain and extra-terminal domain) family, 
-the latter also encompassing the BRD2, BRD3, and BRDT proteins~\cite{Filippa:2012:Cell}. The BRD4 first bromodomain, or BRD4(1), is the most widely studied bromodomain in the BET family~\cite{Filippa:2014:Nat.Rev.DrugDiscov.}, 
-with high-resolution cocrystal structures available for more than a hundred ligands, most of them accompanied by experimental affinities. Small molecule inhibitors of BRD4(1) have exceptional variety, including distinct groups such as 
-triazoles, diazepines, acetyl-pyrroles, and isoxazoles~\cite{Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem., Gehling:2013:ACSMed.Chem.Lett., Lucas:2013:Angew.Chem.Int.Ed.}. Due to the hydrophobic nature of the BRD4(1) binding 
+\subsubsection{The first bromodomain of BRD4 and its ligands}
+\todo[inline, color={yellow!20}]{DLM: In trying to organize like lysozyme, it seems like discussion of the specific benchmark proposed should get its own subsubsection header, so I proposed adding one above. Thoughts?}
+
+Our proposed bromodomain benchmark is the first bromodomain of the bromodomain-containing protein 4 (BRD4).
+ \todo[inline, color={yellow!20}]{DLM: Seems like the below text mostly belongs in the bit on biological background?}
+ ... part of the  BET (bromodomain and extra-terminal domain) family, 
+which also includes the BRD2, BRD3, and BRDT proteins~\cite{Filippa:2012:Cell}. 
+The BRD4 first bromodomain, or BRD4(1), is the most widely studied bromodomain in the BET family~\cite{Filippa:2014:Nat.Rev.DrugDiscov.}, 
+with high-resolution cocrystal structures available for more than a hundred ligands, most of them accompanied by experimental affinities. 
+Small molecule inhibitors of BRD4(1) have exceptional variety, including distinct groups such as 
+triazoles, diazepines, acetyl-pyrroles, and isoxazoles~\cite{Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem., Gehling:2013:ACSMed.Chem.Lett., Lucas:2013:Angew.Chem.Int.Ed.}. 
+%This part below could belong in this section as it gives an overview of issues more relvant to modeling
+Due to the hydrophobic nature of the BRD4(1) binding 
 site~\cite{Filippa:2014:Nat.Rev.DrugDiscov.}, all ligands are neutral, and many of them are also relatively rigid with the common presence of double and triple rings. This reduces the conformational space of the substrate in the bound 
 and unbound states, providing quicker convergence, and partially avoiding symmetry issues that might appear for ligands with a large number of torsional degrees of freedom~\cite{mobley_use_2006}. 
 
-In contrast to the T4 lysozyme, all molecules bind to the surface of BRD4(1)~\cite{Filippa:2014:Nat.Rev.DrugDiscov., Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem.}, making it particularly suitable for free energy calculations 
-that rely on a physical pathway~\cite{Heinzelmann:2017:J.Chem.TheoryComput., Kuang:2015:J.Chem.Inf.Model., Muvva:2014:Mol.Biosyst.}. Additionally, its folded state has shown remarkable stability over $\mu$s scale 
-simulations~\cite{Steiner:2013:FEBSLett., Spilio:2014:Isr.J.Chem.}, which allows for exhaustive (or brute-force) sampling with less risk of unfolding or irreversible deformation happening on the protein structure. These characteristics 
-make the BRD4(1) system a strong candidate for the first protein hard benchmark, but a few important issues have to be addressed in order to make this assertion. They involve the flexibility of the ZA-loop in the presence and absence of 
+In contrast to T4 lysozyme, all BRD4(1) ligands bind to its surface~\cite{Filippa:2014:Nat.Rev.DrugDiscov., Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem.}, making this target more suitable for free energy calculations 
+that rely on a physical pathway~\cite{Heinzelmann:2017:J.Chem.TheoryComput., Kuang:2015:J.Chem.Inf.Model., Muvva:2014:Mol.Biosyst.}. 
+Additionally, the domain's folded state has shown remarkable stability over $\mu$s scale 
+simulations~\cite{Steiner:2013:FEBSLett., Spilio:2014:Isr.J.Chem.}, which allows for relatively exhaustive sampling with less risk of unfolding or irreversible deformation happening on the protein structure.  %"less risk" than what? Where is unfolding risky?
+These characteristics, coupled with several careful free energy studies already conducted, make the BRD4(1) system a strong candidate for our first ``hard'' protein benchmark, but a few important issues have to be addressed in order to make this assertion. 
+They involve the flexibility of the ZA-loop in the presence and absence of 
 the substrate, and possible slow side-chain dihedral rotations near the binding site. Below we describe these challenges in more detail, and how they can be overcome. 
+\todo[inline, color={yellow!20}]{DLM: In the sentences just prior, perhaps make it clearer what assertion/what issues. Do you mean something like ``However, to serve as a hard benchmark, considerable care needs to be taken when dealing with several sampling challenges," or some such?}
 
 \begin{figure*}
 \includegraphics[width=\textwidth]{figures/brd4.pdf}
