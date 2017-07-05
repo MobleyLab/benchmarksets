@@ -8,9 +8,13 @@
 %\usepackage[numbers]{natbib}
 
 %Todonotes package
-\usepackage[obeyFinal]{todonotes}
+\newcommand*\mycommand[1]{\texttt{\emph{#1}}}
+\renewcommand{\thefootnote}{\alph{footnote}}
+\usepackage{subcaption} % Used to caption the subfigures
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\Dtodo}{\todo[inline, color=red!50!]}
+\newcommand{\Ctodo}{\todo[inline, color=blue!50!]}
 
-%Configure todonotes to set it up the way we want
 % Comments
 \newcounter{comment}
 \newcommand{\comment}[2][]{%
@@ -18,14 +22,9 @@
 \refstepcounter{comment}%
 {%
 \setstretch{0.7}% spacing
-\todo[inline, color={cyan!45},size=\small]{%
+\todo[inline, color={red!50},size=\small]{%
 \textbf{\footnotesize [\uppercase{#1}\thecomment]:}~#2}%
 }}
-
-
-\newcommand{\insertref}[1]{\todo[color=green!40]{#1}}
-\newcommand{\adddetail}[1]{\todo[color=blue!20]{#1}}
-\newcommand{\major}[1]{\todo[color=red]{#1}}
 
 \usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
 
@@ -89,7 +88,9 @@ In our view, progress will require careful assessment and evaluation of new meth
 
 \maketitle
 
-
+% List TODOs here
+\todototoc
+\listoftodos
 
 \section{INTRODUCTION}
 
@@ -299,8 +300,9 @@ This potential problem can also be mitigated by sharing of methods to enable bro
 
 \section{CURRENT BENCHMARK SYSTEMS FOR BINDING PREDICTIONS}
 \label{benchmarks}
-No molecular systems have yet been designated by the field as benchmarks for free energy calculations, but certain host molecules and designed binding sites in the enzyme T4 lysozyme have emerged as particularly helpful and widely studied test cases. 
-Here, we describe these artificial receptors and propose specific host-guest and T4 lysozyme-ligand combinations as initial benchmark systems for free energy calculations. 
+No molecular systems have yet been designated by the field as benchmarks for free energy calculations, but certain test cases have proven particularly helpful and been widely studied, including specific host molecules, certain designed binding sites in the enzyme T4 lysozyme, and some bromodomain binding sites. 
+Here, we describe the artificial and biological receptors considered and propose specific host-guest and ligand-receptor combinations as initial benchmark systems for free energy calculations. 
+
 We also point to several additional hosts and small proteins that also have potential to generate useful benchmarks in the future (Section~\ref{sec:futuresystems}). 
 We focus on cases where experimental data are available and add value, rather than cases chosen to test conformational sampling methods, for which experimental data are not required (Section~\ref{subsec:benchmarktypes}). 
 
@@ -748,28 +750,44 @@ In contrast, the apolar cavity is dry, both with and without a bound ligand, so 
 \subsection{Protein-ligand benchmarks: the first bromodomain of the BRD4 protein}
 \label{sec:t5}
 
+\todo[inline, color={yellow!20}]{DLM: This organization is slightly inconsistent with the lysozyme organization, because this starts off with the biological relevance of bromodomains. I'm wondering if we should move the biology to a separate subsection and just jump in to what's relevant for modeling them? Specifically, the target audience I'm imagining is someone who just wants to benchmark methods and doesn't care about the biology of the system, just what is important for modeling it. Thoughts? PROBABLY that also means you want to lead with a summary of the most modeled binding systems (as in the lysozyme case) and what is known about the challenges there.}
 We extend our protein benchmarks to protein domains called bromodomains, which have recently been the topic of numerous studies in the search for high affinity ligands, using both 
 computational~\cite{Deepak:2017:Chem.Biol.Drug.Des., Dickson:2016:J.Chem.Phys., Raj:2016:J.Biomol.Struct.Dyn., Ran:2015:Mol.Biosyst., Zhao:2014:Bioorg.Med.Chem.Lett, Xu:2016:J.Med.Chem., Yang:2016:BioorganicChemistry} and experimental 
 structure-based techniques~\cite{ Zhang:2013:J.Med.Chem.,Bamborough:2015:J.Med.Chem., Ran:2015:J.Med.Chem., Gosmini:2014:J.Med.Chem., Chung:2011:J.Med.Chem., Xue:2016:J.Med.Chem., Fill:2012:Bioorg.Med.Chem., Fish:2012:J.Med.Chem.}. 
-In living cells, bromodomains are responsible for recognizing and binding to acetylated lysine residues present in the histone tails, a known epigenetic marker~\cite{Chung:2016:Prog.Med.Chem.}. They also bind a broad spectrum of small to 
-medium-size molecules with micro and nanomolar affinities, being a promising target for the treatment of conditions such as cancer and inflammation~\cite{Filippakopoulos:2010:Nature, Nicodeme:2010:Nature, Mirguet:2013:J.Med.Chem.}. Bromodomains 
-can be expressed, purified and studied as independent proteins, which facilitates the computational and experimental determination of ligand affinities. There are a total of 61 bromodomains identified in the human proteome, belonging 
-to 46 different proteins~\cite{Filippa:2012:Cell}. They all have about 110 aminoacids in length and, despite having large sequence variations, share a common fold, consisting of four anti-parallel $\alpha$-helices
-(named $\alpha$Z, $\alpha$A, $\alpha$B, and $\alpha$C) folded into a left-handed bundle (Fig. 3A). The first two and last two helices are connected by the ZA and BC-loops, respectively~\cite{Filippa:2012:Cell}. These loops are more 
-flexible and make part of the acetyl-lysine binding site, also displaying different lengths and sequences amongst the various bromodomains~\cite{Steiner:2013:FEBSLett.}. 
+In living cells, bromodomains are responsible for recognizing and binding to acetylated lysine residues present in the histone tails; these lysines serve as an epigenetic marker~\cite{Chung:2016:Prog.Med.Chem.}. 
+Bromodomains also bind a broad spectrum of small to 
+medium-size molecules with micro and nanomolar affinities, and are a promising target for the treatment of conditions such as cancer and inflammation~\cite{Filippakopoulos:2010:Nature, Nicodeme:2010:Nature, Mirguet:2013:J.Med.Chem.}. 
+Bromodomains can be expressed, purified and studied as independent proteins, which facilitates the computational and experimental determination of ligand affinities. 
+There are a total of 61 bromodomains identified in the human proteome, belonging 
+to 46 different proteins~\cite{Filippa:2012:Cell}. 
+They all have about 110 aminoacids in length and, despite having large sequence variations, share a common fold, consisting of four anti-parallel $\alpha$-helices
+(named $\alpha$Z, $\alpha$A, $\alpha$B, and $\alpha$C) folded into a left-handed bundle (Fig. 3A). The first two and last two helices are connected by the ZA and BC-loops, respectively~\cite{Filippa:2012:Cell}. 
+These loops are more  flexible and make part of the acetyl-lysine binding site, also displaying different lengths and sequences amongst the various bromodomains~\cite{Steiner:2013:FEBSLett.}. 
 
-In the present benchmark we are going to focus on the first bromodomain of the bromodomain-containing protein 4 (BRD4), part of the  BET (bromodomain and extra-terminal domain) family, 
-the latter also encompassing the BRD2, BRD3, and BRDT proteins~\cite{Filippa:2012:Cell}. The BRD4 first bromodomain, or BRD4(1), is the most widely studied bromodomain in the BET family~\cite{Filippa:2014:Nat.Rev.DrugDiscov.}, 
-with high-resolution cocrystal structures available for more than a hundred ligands, most of them accompanied by experimental affinities. Small molecule inhibitors of BRD4(1) have exceptional variety, including distinct groups such as 
-triazoles, diazepines, acetyl-pyrroles, and isoxazoles~\cite{Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem., Gehling:2013:ACSMed.Chem.Lett., Lucas:2013:Angew.Chem.Int.Ed.}. Due to the hydrophobic nature of the BRD4(1) binding 
+\subsubsection{The first bromodomain of BRD4 and its ligands}
+\todo[inline, color={yellow!20}]{DLM: In trying to organize like lysozyme, it seems like discussion of the specific benchmark proposed should get its own subsubsection header, so I proposed adding one above. Thoughts?}
+
+Our proposed bromodomain benchmark is the first bromodomain of the bromodomain-containing protein 4 (BRD4).
+ \todo[inline, color={yellow!20}]{DLM: Seems like the below text mostly belongs in the bit on biological background?}
+ ... part of the  BET (bromodomain and extra-terminal domain) family, 
+which also includes the BRD2, BRD3, and BRDT proteins~\cite{Filippa:2012:Cell}. 
+The BRD4 first bromodomain, or BRD4(1), is the most widely studied bromodomain in the BET family~\cite{Filippa:2014:Nat.Rev.DrugDiscov.}, 
+with high-resolution cocrystal structures available for more than a hundred ligands, most of them accompanied by experimental affinities. 
+Small molecule inhibitors of BRD4(1) have exceptional variety, including distinct groups such as 
+triazoles, diazepines, acetyl-pyrroles, and isoxazoles~\cite{Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem., Gehling:2013:ACSMed.Chem.Lett., Lucas:2013:Angew.Chem.Int.Ed.}. 
+%This part below could belong in this section as it gives an overview of issues more relvant to modeling
+Due to the hydrophobic nature of the BRD4(1) binding 
 site~\cite{Filippa:2014:Nat.Rev.DrugDiscov.}, all ligands are neutral, and many of them are also relatively rigid with the common presence of double and triple rings. This reduces the conformational space of the substrate in the bound 
 and unbound states, providing quicker convergence, and partially avoiding symmetry issues that might appear for ligands with a large number of torsional degrees of freedom~\cite{mobley_use_2006}. 
 
-In contrast to the T4 lysozyme, all molecules bind to the surface of BRD4(1)~\cite{Filippa:2014:Nat.Rev.DrugDiscov., Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem.}, making it particularly suitable for free energy calculations 
-that rely on a physical pathway~\cite{Heinzelmann:2017:J.Chem.TheoryComput., Kuang:2015:J.Chem.Inf.Model., Muvva:2014:Mol.Biosyst.}. Additionally, its folded state has shown remarkable stability over $\mu$s scale 
-simulations~\cite{Steiner:2013:FEBSLett., Spilio:2014:Isr.J.Chem.}, which allows for exhaustive (or brute-force) sampling with less risk of unfolding or irreversible deformation happening on the protein structure. These characteristics 
-make the BRD4(1) system a strong candidate for the first protein hard benchmark, but a few important issues have to be addressed in order to make this assertion. They involve the flexibility of the ZA-loop in the presence and absence of 
+In contrast to T4 lysozyme, all BRD4(1) ligands bind to its surface~\cite{Filippa:2014:Nat.Rev.DrugDiscov., Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem.}, making this target more suitable for free energy calculations 
+that rely on a physical pathway~\cite{Heinzelmann:2017:J.Chem.TheoryComput., Kuang:2015:J.Chem.Inf.Model., Muvva:2014:Mol.Biosyst.}. 
+Additionally, the domain's folded state has shown remarkable stability over $\mu$s scale 
+simulations~\cite{Steiner:2013:FEBSLett., Spilio:2014:Isr.J.Chem.}, which allows for relatively exhaustive sampling with less risk of unfolding or irreversible deformation happening on the protein structure.  %"less risk" than what? Where is unfolding risky?
+These characteristics, coupled with several careful free energy studies already conducted, make the BRD4(1) system a strong candidate for our first ``hard'' protein benchmark, but a few important issues have to be addressed in order to make this assertion. 
+They involve the flexibility of the ZA-loop in the presence and absence of 
 the substrate, and possible slow side-chain dihedral rotations near the binding site. Below we describe these challenges in more detail, and how they can be overcome. 
+\todo[inline, color={yellow!20}]{DLM: In the sentences just prior, perhaps make it clearer what assertion/what issues. Do you mean something like ``However, to serve as a hard benchmark, considerable care needs to be taken when dealing with several sampling challenges," or some such?}
 
 \begin{figure*}
 \includegraphics[width=\textwidth]{figures/brd4.pdf}
@@ -780,43 +798,62 @@ the Asn140 $\chi_2$ dihedral during 350 ns of simulations of the apo BRD4(1), sh
 }
 \end{figure*}
 
+\todo[inline, color={yellow!20}]{DLM: What do you think about making this subsection be ``Computational challenges posed by the BRD4(1) benchmarks'' and then have the two things below which you currently have as "subsubsections" use a smaller (paragraph?) label instead? This would be more consistent with the lysozyme material. Alternatively, I would also be happy with subsubsections called "BRD4(1) computational challenge: ZA loop flexibility" and "BRD4(1) computational challenge: sidechain sampling" or something similar. My issue is just that right now the organization seems fairly different from lysozyme and it's hard to keep track of what the subsubsection headers are supposed to mean.}
 \subsubsection{Flexibility and transition of the ZA-loop}
 
+\todo[inline, color={yellow!20}]{DLM: I have some TeX comments suggesting rephrasings in this paragraph}
+%I like Kevin Plaxco's work on "The art of writing science" which advocates starting each paragraph with a sentence which explains what it's about. Currently the main point of this paragraph is sort of buried (it starts off saying that BRD4(1) is very stable, and doesn't get to the key sampling difficulty until the middle). What about an initial sentence more like: "While much of BRD4(1) is very stable in complex with various ligands, the ZA-loop region [which is near ligands???] can undergo considerable rearrangement..." or similar?
 Simulations starting from the cocrystal structures of BRD4(1) bound to different ligands show that the complexes are very stable, with reported backbone RMSD values being less than 1.00 {\AA} over simulations lasting up 
-to 120ns~\cite{Su:2017:J.Biomol.Struct.Dyn.}. The same behavior was reproduced in simulations over 300 ns long (Heinzelmann et al., unpublished results), with most of the fluctuations happening in the N and C-termini, which
-are far from the ligand binding site and can be disregarded. Even though the apo crystal structures of BRD4(1) have the same conformation as the complexes~\cite{Lucas:2013:Angew.Chem.Int.Ed., Filippa:2012:Cell}, long simulations 
-of this system using different force fields have shown considerable backbone RMSD values in the ZA-loop region~\cite{Su:2017:J.Biomol.Struct.Dyn., Kuang:2015:J.Chem.Inf.Model., Steiner:2013:FEBSLett.}. However, instead of large random
-fluctuations, all cases show a sharp irreversible transition on this loop generally after 20 ns of simulations, suggesting an initial metastable state followed by stabilization of the protein backbone. 
+to 120ns~\cite{Su:2017:J.Biomol.Struct.Dyn.}. 
+The same behavior was reproduced in simulations over 300 ns long (Heinzelmann et al., unpublished results), with most of the fluctuations happening in the N and C-termini, which
+are far from the ligand binding site and can be disregarded. 
+%How do we know they can be disregarded (reference)? Or, "probably can be disregarded"? (Key thought: Don't say something IS a certain way unless you know it, so clearly indicate what's speculative and what's not. You don't want to be in a position where you tell someone else NOT to investigate something unless you know it's not worth investigating...
+Even though the apo crystal structures of BRD4(1) have the same conformation as the complexes~\cite{Lucas:2013:Angew.Chem.Int.Ed., Filippa:2012:Cell}, long simulations 
+of this system using different force fields have shown considerable backbone RMSD values in the ZA-loop region~\cite{Su:2017:J.Biomol.Struct.Dyn., Kuang:2015:J.Chem.Inf.Model., Steiner:2013:FEBSLett.}. %Can you be more specific about "considerable", e.g. just give a value? One man's "considerable" is another man's "no big deal" so it's good to just be concrete.
+However, instead of large random
+fluctuations, all cases show a sharp irreversible transition on this loop generally after 20 ns of simulations, suggesting an initial metastable state followed by stabilization of the protein backbone. %"all cases" -- "all simulations"? "all simulations in this study"? 
 
-Heinzelmann et al.~\cite{Heinzelmann:2017:J.Chem.TheoryComput.} have investigated this phenomenon in more detail, with simulations and free energy calculations showing that apo crystal structures of BRD4(1) are indeed metastable, 
-and after around 50 ns of simulations a transition is seen from the so-called closed to the open state (Fig. 3B). According to the free energy calculations performed using the Amberff14SB protein force field and the TIP3P water model, 
-the latter conformation is  $\sim$2.5 kcal/mol more favorable than the former. This discrepancy between the crystal data and the simulations might arise from artifacts due to the simulation force-field, or, on the other hand, be caused by spurious 
-contacts involving loop residues and neighbouring molecules in the crystal arrangement. This last possibility has been proposed before, when noting the inconsistency between the relatively uniform crystallographic B-factors and the high 
+Further work found that the loop conformation seen in the \emph{apo} structure is metastable and transitions to an open state (Fig. ~\ref{fig:brd4}(B)) after around 50 ns~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}. 
+The open state appears to be $\sim$2.5 kcal/mol more favorable than the closed state, according to the free energy calculations performed using the Amberff14SB protein force field and the TIP3P water model. 
+This discrepancy between the crystal data and the simulations might arise from artifacts due to the simulation force field, or, on the other hand, be caused by crystal 
+contacts involving loop residues and neighbouring molecules. 
+This last possibility has been proposed before, when noting the inconsistency between the relatively uniform crystallographic B-factors and the high 
 flexibility of the ZA-loop observed in simulations of the apo CREBBP bromodomain~\cite{Spilio:2014:Isr.J.Chem.}. 
 
-The free energy of the apo BRD4(1) closed-to-open conformational change is independent of the substrate~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, so it will not impact the ligands $relative$ binding free energies, as long
-as this transition is avoided during the calculations. This would be the case when performing small alchemical transformations on the substrate inside the binding pocket~\cite{schrodinger_accurate_2015}, since the BRD4(1) bound (closed)
-state would be preserved due to the presence of the ligand. For the calculation of the ligands $absolute$ binding free energies, the conformational change of the apo BRD4(1) will influence the results and has to be taken into account.
-As we explain below, the absolute affinities for the benchmark ligands can be computed either relative to the metastable apo closed state, consistent with the apo crystal structures of BRD4(1), or the apo open state, consistent with the
-Amberff14SB force-field. 
+The free energy of the apo BRD4(1) closed-to-open conformational change is independent of the substrate~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, so it will not impact the ligands' \emph{relative} binding free energies, as long
+as this transition is avoided during the calculations. 
+This would be the case when performing small alchemical transformations on the substrate inside the binding pocket~\cite{schrodinger_accurate_2015}, since the BRD4(1) bound (closed)
+state will likely be preserved due to the presence of the ligand. %What if there is ever a ligand which binds to the open state?
+For the calculation of the ligands \emph{absolute} binding free energies, the conformational change of the apo BRD4(1) will influence computed binding free energies and has to be taken into account.
+As we explain below, the absolute binding free energies for the benchmark ligands can be computed either relative to the metastable \emph{apo} closed state, consistent with the \emph{apo} crystal structures of BRD4(1), or the \emph{apo} open state, consistent with the
+Amberff14SB force-field, but computed values will be considerably different depending on this choice.
 
-The ligand binding free energies relative to the metastable apo closed state of BRD4(1) are calculated by including a simple restraint-wall scheme on the Asp88 $\psi$ dihedral, as described in 
-Ref.~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, so they are properly compared for each benchmark molecule. Alternatively, to determine the absolute ligand binding free energies relative to the apo open state, 
-the free energy of the apo closed-to-open transition can also be determined. As shown by Heinzelmann et al.~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, this transition works through a double hinge mechanism centered on the 
-Asp88 and Asp96 residues, and it is tractable using a single reaction coordinate (the Asp88 $\psi$ dihedral), making it suitable for the application, testing and comparison of various enhanced sampling methods. 
+The ligand binding free energies relative to the metastable \emph{apo} closed state of BRD4(1) are calculated by including a simple restraint-wall scheme on the Asp88 $\psi$ dihedral, as described in 
+Ref.~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, so they are properly compared for each benchmark molecule. %What does "properly compared" here mean?
+Alternatively, to determine the absolute ligand binding free energies relative to the \emph{apo} open state, 
+the free energy of the \emph{apo} closed-to-open transition can also be determined.
+This transition appears to work through a double hinge mechanism centered on the 
+Asp88 and Asp96 residues~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, and the free energy for the conformational change can be observed using a single reaction coordinate (the Asp88 $\psi$ dihedral), making the conformational change problem suitable for various enhanced sampling methods. 
 
 \subsubsection{Possible side-chain rearrangements near the binding site}
 
+\todo[inline, color={yellow!20}]{DLM: Some questions in the TeX on what you mean}
+%Another proposed "start with a summary" addition:
+Protein side-chain rearrangements pose another significant sampling challenge for BRD4(1).
 Even with the ZA-loop transition described above, 350ns simulations of the apo BRD4(1) did not exhibit the slow side-chain displacements of the conserved Tyr97 and Tyr139 residues (Fig. 3C), 
-which are part of the acetyl-lysine binding site and are located on the ZA and BC-loops, respectively. The side-chain movements of these two residues were first observed on simulations of the apo CREBBP 
+which are part of the acetyl-lysine binding site and are located on the ZA and BC-loops, respectively. 
+%"the slow side-chain displacements": Which ones? Maybe you mean something like, "Certain sidechains are known to potentially reorganize on ligand binding, but even with 350 ns simulations, rearrangement of these sidechains is not observed...."?? 
+The side-chain movements of these two residues were first observed on simulations of the apo CREBBP 
 bromodomain~\cite{Steiner:2013:FEBSLett., Spilio:2014:Isr.J.Chem.}, with the Tyr1167 residue (equivalent to Tyr139 on BRD4(1)) adopting an outward conformation, followed by the occupation of the binding site by the side-chain of 
-Tyr1125 (Tyr97 on BRD4(1)). On the other hand, as in Refs.~\cite{Steiner:2013:FEBSLett., Spilio:2014:Isr.J.Chem.}, rotations on the Asn140 $\chi_2$ dihedral frequently take place in simulations of the apo BRD4(1), but they are found to
-be reversible and happening in a nanosecond time scale (Fig. 3D). Still, we cannot discard that slower side-chain transitions might still occur on BRD4(1) in the absence of the ligand, which would have to be accounted for if one is looking
-for gold standard results for this system.
+Tyr1125 (Tyr97 on BRD4(1)). 
+On the other hand, as in Refs.~\cite{Steiner:2013:FEBSLett., Spilio:2014:Isr.J.Chem.}, rotations on the Asn140 $\chi_2$ dihedral frequently take place in simulations of the apo BRD4(1), but they are found to
+be reversible and happening in a nanosecond time scale (Fig. ~\ref{fig:brd4}(D)). 
+Still, we cannot neglect the possibility that slower side-chain transitions might still occur on BRD4(1) in the absence of the ligand, which would have to be accounted for if one is looking for gold standard results for this system. %Does this last statement mean we might want to say that we currently call this a "soft" benchmark but we believe that it will be a hard benchmark in the near future?
+%(Tangentially, we are working on an enhanced sidehcain sampling method which might be interesting to test here in the near term!)
 
 
 \subsubsection{Binding free energy calculations on BRD4(1)}
-
+\todo[inline, color={yellow!20}]{DLM: For consistency with lysozyme organization, you probably want this section to be part of either the intro to bromodomains, or the section discussing sampling problems. For example, see the lysozyme section "The apolar and polar cavities and their ligands". ALSO, don't take a separate paragraph to describe each study. (We initially did that in the lysozyme and host-guest sections, but the paper gets way too long if this is done). Instead, focus just on the major take-aways. For example, accuracies of RMS error around 0.8 kcal/mol are possible; two studies basically agree on values of some of the ligands; the closed to open transition, etc. The idea is to tell people what they need to know (and give them references to read more) with as little extra text as possible.}
 Many studies have focused on the calculation of binding free energies of small molecules to BRD4(1), using a variety of methods such as alchemical transformations~\cite{aldeghi_accurate_2016, Aldeghi:2017:J.Am.Chem.Soc.}, 
 attach-pull-release (APR)~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, adaptive biasing potentials (ABP)\cite{Dickson:2016:J.Chem.Phys.}, steered molecular dynamics (SMD)~\cite{ Muvva:2014:Mol.Biosyst.}, as well as molecular 
 mechanics combined with either Poisson-Boltzmann (MM-PBSA)~\cite{Su:2017:J.Biomol.Struct.Dyn.,Deepak:2017:Chem.Biol.Drug.Des.} or generalized Born (MM-GBSA) surface area~\cite{Raj:2016:J.Biomol.Struct.Dyn.}. The first two methods have 
@@ -904,6 +941,7 @@ These prior studies suggests thrombin may be at a ``sweet spot'' for benchmark s
 
 
 \subsubsection{Bromodomain proteins}
+\todo[inline, color={yellow!20}]{DLM: Germano, you will need to remove this section below and make sure everything relevant is incorporated into your earlier section}
 Bromodomains (BRDs) are a family of protein domains of about 100 residues that bind actylated lysine residues at the surface of histones and thus read out epigenetic markers.
 Bromodomains are present in many human proteins, and are being explored as potential drug targets for diseases including cancer and atherosclerosis~\cite{aldeghi_accurate_2016}.
 These compact domains can be expressed, purified and studied as independent proteins, and are associated with a growing body of small molecule binding data \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Bamborough:2015:J.Med.Chem., Ran:2015:J.Med.Chem., Zhang:2013:J.Med.Chem., Gosmini:2014:J.Med.Chem., Yang:2016:BioorganicChemistry}, including some obtained by isothermal titration calorimetry \cite{Filippakopoulos:2010:Nature, Chung:2011:J.Med.Chem., Hewings:2012:J.Med.Chem., Gosmini:2014:J.Med.Chem.}.
