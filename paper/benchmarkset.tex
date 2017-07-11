@@ -751,7 +751,7 @@ In contrast, the apolar cavity is dry, both with and without a bound ligand, so 
 \label{sec:t5}
 
 
-In order to provide a detailed description of systems that have pharmaceutical relevance, we also include in our benchmarks small protein domains called bromodomains. These structures have been the subject of several experimental~\cite{Zhang:2013:J.Med.Chem.,Bamborough:2015:J.Med.Chem., Ran:2015:J.Med.Chem., Gosmini:2014:J.Med.Chem., Chung:2011:J.Med.Chem., Xue:2016:J.Med.Chem., Fill:2012:Bioorg.Med.Chem., Fish:2012:J.Med.Chem.} and computational~\cite{Deepak:2017:Chem.Biol.Drug.Des., Dickson:2016:J.Chem.Phys., Raj:2016:J.Biomol.Struct.Dyn., Ran:2015:Mol.Biosyst., Zhao:2014:Bioorg.Med.Chem.Lett, Xu:2016:J.Med.Chem., Yang:2016:BioorganicChemistry} methods in the search for high affinity ligands, in particular the first bromodomain of the BRD4 protein, or BRD4(1).
+In order to provide a detailed description of systems that have pharmaceutical relevance, we also include in our benchmarks small protein domains called bromodomains. These structures have been the subject of several experimental~\cite{Zhang:2013:J.Med.Chem.,Bamborough:2015:J.Med.Chem., Ran:2015:J.Med.Chem., Gosmini:2014:J.Med.Chem., Chung:2011:J.Med.Chem., Xue:2016:J.Med.Chem., Fill:2012:Bioorg.Med.Chem., Fish:2012:J.Med.Chem.} and computational~\cite{Deepak:2017:Chem.Biol.Drug.Des., Dickson:2016:J.Chem.Phys., Raj:2016:J.Biomol.Struct.Dyn., Ran:2015:Mol.Biosyst., Zhao:2014:Bioorg.Med.Chem.Lett, Xu:2016:J.Med.Chem., Yang:2016:BioorganicChemistry} studies in the search for high affinity ligands, in particular the first bromodomain of the BRD4 protein, or BRD4(1).
 As in the T4 lysozyme, most BRD4(1) inhibitors are relatively rigid, neutral and with clear protonation states~\cite{Filippa:2014:Nat.Rev.DrugDiscov.}. 
 When it comes to the application and comparison of binding free energy methods, BRD4(1) possesses a few advantages over T4, such as ligands with greater variety and a binding site with clear access to the solvent~\cite{Filippa:2014:Nat.Rev.DrugDiscov., Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem.}. 
 There is a large number of high-quality cocrystal structures and experimental affinities available for this system, as well as theoretical results that show encouraging agreement with experiments~\cite{aldeghi_accurate_2016,Aldeghi:2017:J.Am.Chem.Soc.,Heinzelmann:2017:J.Chem.TheoryComput.}. 
@@ -772,7 +772,7 @@ As we show below, each these challenges can be properly addressed, making them a
 In living cells the BRD4(1) bromodomain binds to acetylated lysines present in the histone tails~\cite{Chung:2016:Prog.Med.Chem.}, but it is also capable of binding a broad spectrum of small molecules with nano and micromolar affinities~\cite{Filippa:2014:Nat.Rev.DrugDiscov.}.
 Although the binding site of BRD4(1) has a hydrophobic character, most of its strong inhibitors engage in a hydrogen bond with the Asn140 residue, mimicking the binding mode of the acetylated lysine. 
 Small molecule inhibitors of BRD4(1) have exceptional variety, including distinct groups such as  triazoles, diazepines, acetyl-pyrroles, and isoxazoles~\cite{Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem., Gehling:2013:ACSMed.Chem.Lett., Lucas:2013:Angew.Chem.Int.Ed.}. 
-They also have a broad range of binding free energies, with available crystal structures and affinities spanning a $\sim$5 kcal/mol range~\cite{Vidler:2013:J.Med.Chem.,Gehling:2013:ACSMed.Chem.Lett.}. 
+They also have a broad range of binding free energies, with available crystal structures and affinities spanning a $\sim$6 kcal/mol range~\cite{Vidler:2013:J.Med.Chem.,Gehling:2013:ACSMed.Chem.Lett.}. 
 Charged ligands are possible~\cite{aldeghi_accurate_2016}, but most are neutral, with the common presence of double and triple rings. 
 This increases rigidity and reduces the conformational space of the substrate in the bound and unbound states, providing quicker convergence, and partially avoiding symmetry issues that might appear for ligands with a large number of torsional degrees of freedom~\cite{mobley_use_2006}. 
 
@@ -787,7 +787,12 @@ When the APR and the alchemical approaches are compared relative to the same \em
 Although slightly different protein force fields were used, Amber99SB-ILDN on Ref.~\cite{aldeghi_accurate_2016} versus Amberff14SB on Ref.~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}, this is an indication of the robustness of free energy techniques one can expect from this system. 
 The fact that the APR study used much longer simulation times shows that convergence for this system can be obtained relatively quickly, aside from the BRD4(1) transition in the \emph{apo} state which will be discussed in the next section. 
 
-Table ~\ref{polar_benchmark} shows
+{\bf Table~\ref{brd4_benchmark}} shows the initial benchmaks set for the BRD4(1) system, including one verified non-binder, and experimental binding free energies spanning a $\sim$6 kcal/mol range. 
+Some ligands are similar and can be treated with relative binding free energy calculations, but others present significant differences, being more suitable for absolute calculations.  
+There are crystal structures available for all ligands except the non-binder, for which there is an available structure for a very similar ligand.   
+For the initial benchmarks all ligands are neutral, but they present different levels of complexity, since fairly ridig molecules to molecules with several rotating groups. 
+Except for the first two, all the other ligands have already been treated with the alchemical and/or APR methods, including the three ligands for which these calculations were compared.   
+Even though our set initially is considered a soft benchmark, the application of free energy methods to the protein/ligand conformations in the bound and unbound states can turn this diverse set of ligands in to the first protein hard benchmark.  
 
 \begin{figure*}
 \includegraphics[width=\textwidth]{figures/brd4.pdf}
@@ -799,12 +804,40 @@ The two hinges, Asp88 and Asp96, are shown in green. (C) The same structures of 
 }
 \end{figure*}
 
+\begingroup
+\squeezetable
+\begin{table*}
+% \tabcolsep7.5pt
+\caption{Proposed BRD4(1) Set benchmark data}
+\label{brd4_benchmark}
+\begin{center}
+\begin{tabular}{llp{2cm}>{\ttfamily}lS[table-format=-1.2, table-figures-uncertainty=1]ll}
+\toprule
+\multicolumn{1}{c}{ligand}         & \multicolumn{1}{c}{PC CID$^{\rm e}$} & \multicolumn{1}{c}{2D}                                             & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{PDB code}      & \multicolumn{1}{c}{reference} \\
+\midrule
+Compound 8a                  & 2295889                                 & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/new-bromo/2295889.pdf}}     &                             & NB$^{\rm d}$                                                   & ND$^{\rm c}$                      & ~\cite{Vidler:2013:J.Med.Chem.}         \\ %included for symmetry with L99A site
+Compound 4                             & 975713                                & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/new-bromo/975713.pdf}}      &                           & -4.49$^{\rm a,f}$                                                  & 4MEQ~\cite{Vidler:2013:J.Med.Chem.}        & ~\cite{Vidler:2013:J.Med.Chem.}         \\ % relative set we did
+XD1                 & 234105                                  & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/new-bromo/234105.pdf}}      &                        & -5.95$^{\rm b}$                                            & 4LYS~~\cite{Lucas:2013:Angew.Chem.Int.Ed.}    & ~\cite{Lucas:2013:Angew.Chem.Int.Ed.}         \\ % relative set we did
+Quinazolin           & 2927305                                & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/new-bromo/2927305.pdf}}    &                          & -6.36\pm0.17$^{\rm a}$                                            & 4HBV~\cite{Fish:2012:J.Med.Chem.} & \cite{Fish:2012:J.Med.Chem.}  \\% relative set we did
+Alprazolam        & 2118                                 & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/new-bromo/2118.pdf}}     &                      & -7.40\pm0.05$^{\rm b}$                                            & 3U5J~\cite{Fill:2012:Bioorg.Med.Chem.} & \cite{Fill:2012:Bioorg.Med.Chem.}  \\ %induces helix motions
+RVX-208 & 24871506                             & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/new-bromo/24871506.pdf}} &                      & -7.84\pm0.06$^{\rm b}$                                            & 4MR4~\cite{Picaud:2013:PNAS} & \cite{Picaud:2013:PNAS}  \\ % induces helix motion
+Bzt-7   & 20350618                                & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/new-bromo/20350618.pdf}}    &                        & -8.16\pm0.03$^{\rm b}$                                            & 3U5L~\cite{Fill:2012:Bioorg.Med.Chem.} & \cite{Fill:2012:Bioorg.Med.Chem.}  \\ 
+RVX-OH                     & N/A                                 & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/new-bromo/RVX-OH.pdf}}     &                       & -8.99\pm0.07$^{\rm b}$                                                   & 4MR3~\cite{Picaud:2013:PNAS}        & \cite{Picaud:2013:PNAS}         \\ 
+JQ1(+)                   & 46907787                                  & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/new-bromo/46907787.pdf}}      &                          & -9.64\pm0.02$^{\rm b}$                                          & 3MXF~\cite{Filippakopoulos:2010:Nature}                      & \cite{Filippakopoulos:2010:Nature}  \\ % relative set
+Coumpound 3                    & N/A                                 & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/new-bromo/C-3.pdf}}     &                           & -10.41\pm0.23$^{\rm a}$                                          & 4LRG~\cite{Gehling:2013:ACSMed.Chem.Lett.}                     & \cite{Gehling:2013:ACSMed.Chem.Lett.}         \\ 
+\bottomrule
+\end{tabular}                                                                                                                                                                                                                                                                                                       \\
+\end{center}
+$^{\rm a}$ Obtained using Alphascreen; $^{\rm b}$ Obtained using Isothermal Titration Calorimetry; $^{\rm c}$ not determined; $^{\rm d}$ nonbinder; $^{\rm e}$ PubChem compound ID.; $^{\rm f}$ Extrapolated from 32\% inhibition at 250$\mu$M 
+\end{table*}
+\endgroup
+
 \subsubsection{BRD4 Computational challenge: ZA-loop flexibility}
 
 
 The \emph{apo} crystal structures of BRD4(1) have the same conformation as the complexes~\cite{Lucas:2013:Angew.Chem.Int.Ed., Filippa:2012:Cell}, but the ZA-loop near the binding site can display backbone RMSD values around $\sim$3.0 {\AA} in simulations over 100 ns~\cite{Kuang:2015:J.Chem.Inf.Model., Steiner:2013:FEBSLett.}.
 These simulations point to a sharp irreversible transition in this region generally after 20 ns, suggesting an initial metastable state followed by stabilization of the protein backbone in the absence of the substrate. 
-This behavior is not observed for BRD4(1) bound to various ligands in simulations up to 350 ns long, with backbone RMSD values close to 1.00 {\AA} relative to the cocrystal structures~\cite{Su:2017:J.Biomol.Struct.Dyn.} (Heinzelmann et. al, unpublished results). 
+This behavior is not observed for BRD4(1) bound to various ligands in simulations up to 350 ns long, with backbone RMSD values close to $\sim$1.0 {\AA} relative to the cocrystal structures~\cite{Su:2017:J.Biomol.Struct.Dyn.} (Heinzelmann et. al, unpublished results). 
 Further work found that the ZA-loop conformation seen in the \emph{apo} crystal structures (closed state) is metastable and transitions to an \emph{apo} open state (Fig. ~\ref{fig:brd4}(B)) after around 50 ns~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}. 
 The open state appears to be $\sim$2.5 kcal/mol more favorable than the closed state, according to the free energy calculations performed using the Amberff14SB protein force field and the TIP3P water model. 
 This discrepancy between the crystal data and the simulations might arise from artifacts due to the simulation force field, or, on the other hand, be caused by crystal contacts involving loop residues and neighbouring molecules. 
@@ -816,7 +849,7 @@ This would be the case when performing small alchemical transformations on the s
 
 To obtain the ligands' \emph{absolute} binding free energies, the conformational change of the \emph{apo} BRD4(1) has to be taken into account.
 The affinities can be computed either relative to the metastable \emph{apo} closed state, consistent with the \emph{apo} crystal structures of BRD4(1), or the \emph{apo} open state, consistent with the Amberff14SB force-field. 
-The results for a given ligand will differ only by an free energy offset depending on this choice. 
+The results for a set of ligands will differ only by an free energy offset depending on this choice. 
 The values relative to the metastable \emph{apo} closed state of BRD4(1) are calculated by including a simple restraint-wall scheme on the Asp88 $\psi$ dihedral, as described in  Ref.~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}. 
 That way the transiton is avoided during the calculations, so the results are all relative to the same final state of the protein. 
 Alternatively, for the absolute ligand binding free energies relative to the \emph{apo} open state, the free energy of the closed-to-open transition can also be determined.
