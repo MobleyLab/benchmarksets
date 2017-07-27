@@ -11,10 +11,10 @@ The structures for all ligands except Compound 8a (a non-binder) were obtained d
 ## References
 
 1. O’Boyle NM, Banck M, James CA, Morley C, Vandermeersch T, Hutchison GR. (2011) J Cheminform 3:33. doi: 10.1186/1758-2946-3-33
-2. Case DA, Betz, RM, Botello-Smith W, Cerutti, DS, Cheatham III TE, Darden, TA, Duke RE, Giese TJ, Gohlke H, Goetz AW, Homeyer N, Izadi S, Janowski P, Kaus J, Kovalenko A, Lee TS, LeGrand S, Li P, Lin C, Luchko T, Luo R, Madej B, Mermelstein D, Merz KM, Monard G, Nguyen H, Nguyen HT, Omelyan I, Onufriev A, Roe DR, Roitberg A, Sagui C, Simmerling CL, Swails J, Walker RC, Wang J, Wolf RM, Wu X, Xiao L, York DM, Kollman PA (2016) AMBER 16, University of California, San Francisco.
+2. Case DA, Betz, RM, Botello-Smith W, Cerutti, DS, Cheatham III TE, Darden, TA, Duke RE, Giese TJ, Gohlke H, Goetz AW, Homeyer N, Izadi S, Janowski P, Kaus J, Kovalenko A, Lee TS, LeGrand S, Li P, Lin C, Luchko T, Luo R, Madej B, Mermelstein D, Merz KM, Monard G, Nguyen H, Nguyen HT, Omelyan I, Onufriev A, Roe DR, Roitberg A, Sagui C, Simmerling CL, Swails J, Walker RC, Wang J, Wolf RM, Wu X, Xiao L, York DM, Kollman PA. (2016) AMBER 16, University of California, San Francisco.
 3. Jakalian A, Jack DB, Bayly CI. (2002) Fast, efficient generation of high-quality atomic charges. AM1-BCC model: II. Parameterization and validation. J Comput Chem 23:1623−1641. doi: 10.1002/jcc.10128
 4. Maier JA, Martinez C, Kasavajhala K, Wickstrom L, Hauser KE, Simmerling C. (2015) ff14SB: Improving the Accuracy of Protein Side Chain and Backbone Parameters from ff99SB. J Chem Theory Comput 11:3696−3713. doi: 10.1021/acs.jctc.5b00255
-5. Trott O, Olson AJ.(2010) AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization and multithreading. J Comput Chem 31:455-461. doi: 10.1002/jcc.21334
+5. Trott O, Olson AJ. (2010) AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization and multithreading. J Comput Chem 31:455-461. doi: 10.1002/jcc.21334
 6. Wang J, Wolf RM, Caldwell JW, Kollman PA, Case DA. (2004) Development and Testing of a General Amber Force Field. J Comput Chem 25:1157-1174. doi: 10.1002/jcc.20035
-7. Joung IS, Cheatham TE (2008). Determination of Alkali and Halide Monovalent Ion Parameters for Use in Explicitly Solvated Biomolecular Simulations. J Phys Chem B 112:9020−9041. doi: 10.1021/jp8001614
+7. Joung IS, Cheatham TE. (2008) Determination of Alkali and Halide Monovalent Ion Parameters for Use in Explicitly Solvated Biomolecular Simulations. J Phys Chem B 112:9020−9041. doi: 10.1021/jp8001614
 
