@@ -776,7 +776,8 @@ In living cells the BRD4(1) bromodomain binds to acetylated lysines present in h
 Although the binding site of BRD4(1) is largely hydrophobic, most of its strong inhibitors engage in a hydrogen bond with the Asn140 residue, mimicking the binding mode of the acetylated lysine. 
 Small molecule inhibitors of BRD4(1) have exceptional variety, including distinct groups such as triazoles, diazepines, acetyl-pyrroles, and isoxazoles~\cite{Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem., Gehling:2013:ACSMed.Chem.Lett., Lucas:2013:Angew.Chem.Int.Ed.}. 
 They also have a broad range of binding free energies, from non-binders to ligands with nanomolar affinities~\cite{Vidler:2013:J.Med.Chem.,Gehling:2013:ACSMed.Chem.Lett.}, and with crystal structures available for many. 
-Charged ligands are possible~\cite{aldeghi_accurate_2016}, but most are neutral, and many inhibitors have double or triple ring systems.  
+Charged ligands are possible~\cite{aldeghi_accurate_2016}, but most are neutral.
+Many inhibitors have double or triple ring systems.  
 This reduces the conformational freedom of the inhibitors in the bound and unbound states, providing quicker convergence for free energy calculations, and partially avoiding symmetry issues that might appear~\cite{mobley_use_2006}. 
 
 All BRD4(1) ligands bind to the protein surface~\cite{Filippa:2014:Nat.Rev.DrugDiscov., Fill:2012:Bioorg.Med.Chem., Xue:2016:J.Med.Chem.}, in contrast to T4 lysozyme where they bind in a buried cavity, making this target more suitable for free energy calculations that rely on a physical pathway~\cite{Heinzelmann:2017:J.Chem.TheoryComput., Kuang:2015:J.Chem.Inf.Model., Muvva:2014:Mol.Biosyst.}. 
@@ -796,7 +797,7 @@ The fact that the APR study used much longer simulation times suggests that conv
 Some ligands are similar and can be treated with relative binding free energy calculations, but others present significant structural diversity, and are likely more suitable for absolute calculations.  
 There are crystal structures available for all ligands except the non-binder Compound 8a, for which there is an available structure for a very similar ligand (Compound 4).   
 For this initial benchmark set, all ligands are neutral, but they present different levels of complexity, ranging from fairly rigid molecules to larger molecules with several rotating groups. 
-Except for the first two, all the other ligands have already been treated with the alchemical and/or APR methods, including the three ligands for which both types of calculations were compared.   
+Except for the first two, all the other, larger ligands have already been treated with alchemical and/or APR methods, including the three ligands for which both types of calculations were compared.   
 Even though our set initially is considered a soft benchmark, we are optimistic that further application of free energy methods to these cases, especially with a focus on enhanced conformational sampling in the bound and unbound states, can turn this diverse set of ligands into the first protein hard benchmark.  
 
 \begin{figure*}
@@ -843,7 +844,8 @@ $^{\rm a}$ Obtained using Alphascreen; $^{\rm b}$ Obtained using Isothermal Titr
 The \emph{apo} crystal structures of BRD4(1) have the same conformation as the complexes~\cite{Lucas:2013:Angew.Chem.Int.Ed., Filippa:2012:Cell}, but the ZA-loop near the binding site can display backbone RMSD values around $\sim$3.0 {\AA} in simulations over 100 ns~\cite{Kuang:2015:J.Chem.Inf.Model., Steiner:2013:FEBSLett.}.
 These simulations point to a sharp irreversible transition in this region generally after 20 ns, suggesting an initial metastable state followed by stabilization of the protein backbone in the absence of the substrate. 
 This behavior is not observed for BRD4(1) bound to various ligands in simulations up to 350 ns long, with backbone RMSD values close to $\sim$1.0 {\AA} relative to the cocrystal structures~\cite{Su:2017:J.Biomol.Struct.Dyn.} (Heinzelmann et. al, unpublished results). 
-Further work has reproduced the \emph{apo} state transition obtaining similar RMSD values, finding that the ZA-loop conformation seen in the \emph{apo} crystal structures (closed state) is metastable and transitions to an \emph{apo} open state (Fig. ~\ref{fig:brd4}(B)) after around 50 ns~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}. 
+Further work has reproduced this \emph{apo} state transition, obtaining similar RMSD values, finding that the ZA-loop conformation seen in the \emph{apo} crystal structures (closed state) is metastable and transitions to an \emph{apo} open state (Fig. ~\ref{fig:brd4}(B)) after around 50 ns~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}. 
+It is possible that the timescale depends on the force field and/or method; regardless, the observation of this conformational transition is consistent across studies.
 The open state appears to be $\sim$2.5 kcal/mol more favorable than the closed state, according to free energy calculations performed using the AMBER ff14SB protein force field and the TIP3P water model~\cite{Heinzelmann:2017:J.Chem.TheoryComput.}. 
 This discrepancy between the crystal data and the simulations might arise from artifacts due to the simulation force field, or crystal contacts involving loop residues and neighboring molecules. 
 This last possibility has been proposed before in a study which noted the inconsistency between the relatively uniform crystallographic B-factors and the high flexibility of the ZA-loop observed in simulations of the \emph{apo} CREBBP bromodomain~\cite{Spilio:2014:Isr.J.Chem.}. 
