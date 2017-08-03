@@ -1,17 +1,28 @@
 # Benchmark sets for free energy calculations
 
-This repository relates to the *perpetual review* ([definition](https://arxiv.org/abs/1502.01329)) paper called "[Predicting binding free energies: Frontiers and benchmarks](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf)" by David L. Mobley and Michael K. Gilson. Its focus is benchmark sets for binding free energy calculations, including the perpetual review paper, but also all things relating to benchmark sets for free energy calculations. This includes discussion, datasets, and standards for datasets and data deposition.
+This repository relates to the *perpetual review* ([definition](https://arxiv.org/abs/1502.01329)) paper called "[Predicting binding free energies: Frontiers and benchmarks](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf)" by David L. Mobley and Michael K. Gilson.
+The repository's focus is benchmark sets for binding free energy calculations, including the perpetual review paper, but also supporting files and other materials relating to free energy benchmarks.
+Thus, the repository includes not only the perpetual review paper but also further discussion, datasets, and (hopefully ultimately) standards for datasets and data deposition.
 
-The [latest version](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf) is always available on this GitHub repository, as well as all previous versions. Additionally, all release versions -- current and prior -- are available via Zenodo DOIs, with the latest release at this DOI: [![DOI](https://zenodo.org/badge/67898475.svg)](https://zenodo.org/badge/latestdoi/67898475)
+The [latest version of the paper](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf) is always available on this GitHub repository, as well as all previous versions.
+Additionally, all release versions -- current and prior -- are available via Zenodo DOIs, with the latest release at this DOI: [![DOI](https://zenodo.org/badge/67898475.svg)](https://zenodo.org/badge/latestdoi/67898475)
 
 
 ## The paper
 
-The most up-to-date version of this perpetual review is always available [here](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf). Additionally, this repository provides the authoritative source for all versions of this paper. Released versions of the paper are also archived as preprints on[eScholarship](http://escholarship.org/uc/item/9p37m6bq). An early version of this work was published in [Annual Review of Biophysics 46:531-558 (2017)](https://doi.org/10.1146/annurev-biophys-070816-033654). The Annual Reviews version will likely go out of date, though we are endeavoring to keep the eScholarship version current.
+The most up-to-date version of our perpetual review paper always available [here](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf).
+Additionally, this repository provides the authoritative source for all versions of this paper.
+Released versions of the paper are also archived as preprints on [eScholarship](http://escholarship.org/uc/item/9p37m6bq), and have Zenodo DOIs as noted above.
+An early version of this work was published in [Annual Review of Biophysics 46:531-558 (2017)](https://doi.org/10.1146/annurev-biophys-070816-033654).
+
+While a portion of this work was originally published with Annual Review, the version here is substantially expanded and updated, and will continue to deviate further from the AR version.
+Thus, we refer to this version as the "perpetual review version" and this is refelected in its title.
 
 Source files for the paper are deposited here on this GitHub repository, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
 
-This work is posted with permission from the Annual Review of Biophysics, Volume 46 © 2017 by [Annual Reviews](http://www.annualreviews.org/). Only the [Annual Reviews version](http://www.annualreviews.org/doi/abs/10.1146/annurev-biophys-070816-033654) of the work is peer reviewed; versions posted here are effectively preprints updated at the authors' discretion. The right to create derivative works (exercised here) is also exercised with permission from the Annual Review of Biophysics, Volume 46 © 2017 by Annual Reviews, http://www.annualreviews.org/
+The Annual Review portion of this work is posted with permission from the Annual Review of Biophysics, Volume 46 © 2017 by [Annual Reviews](http://www.annualreviews.org/).
+Only the [Annual Reviews version](http://www.annualreviews.org/doi/abs/10.1146/annurev-biophys-070816-033654) of the work is peer reviewed; versions posted here are effectively preprints updated at the authors' discretion.
+The right to create derivative works (exercised here) is also exercised with permission from the Annual Review of Biophysics, Volume 46 © 2017 by Annual Reviews, http://www.annualreviews.org/
 
 A list of authors is provided below.
 
@@ -65,6 +76,7 @@ We also welcome contributions to the material which is already here to extend it
 
 ## Authors
 - David L. Mobley (UCI)
+- Germano Heinzelmann (Universidade Federal de Santa Catarina)
 - Michael K. Gilson (UCSD)
 
 Your name, too, can go here if you help us substantially revise/extend the paper.
@@ -88,12 +100,11 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 - v1.1 ([10.5281/zenodo.197428](http://doi.org/10.5281/zenodo.197428)): Adds significant additional discussion on potential future benchmark sets, needs for workflow science, etc. See release notes for more details. Versions also now include the date and version number within the PDF.
 - v1.1.1 ([10.5281/zenodo.254619](http://doi.org/10.5281/zenodo.254619)): Adds input files for host-guest benchmarks; some revisions to text as recommended by Annual Reviews. See release notes for more details.
 - v1.1.2 ([10.5281/zenodo.569575](http://doi.org/10.5281/zenodo.569575)): Adds consistently handled SMILES for aromatics, Annual Reviews copyright/rights info in TeX and README, additional citation information for one reference, and new discussion of some new bromodomain absolute binding free energy work.
-- v1.1.3 ([10.5281/zenodo.571227]( http://doi.org/10.5281/zenodo.571227)): Changes title to include "(a perpetual review)" to make more clear that this is not the same paper as the Annual Reviews version; makes clarifications to README.md about which version is which.
+- v1.1.3 ([10.5281/zenodo.571227](http://doi.org/10.5281/zenodo.571227)): Changes title to include "(a perpetual review)" to make more clear that this is not the same paper as the Annual Reviews version; makes clarifications to README.md about which version is which.
+- v1.1.4 ([10.5281/zenodo.838361](http://doi.org/10.5281/zenodo.838361)): Updates README.md to reflect publication; clarify differences in material; reflect availability on eScholarship. Updates paper to reflect migration to eScholarship rather than bioRxiv. 
 
 ## Changes not yet in a release
-- Updates to README.md to reflect publication of Annual Reviews version
-- Updates to README.md to reflect availability on eScholarship
-- Update to paper to reflect migration to eScholarship rather than bioRxiv
+- Addition of bromodomain BRD4(1) test cases as a new ``soft'' benchmark, with help from Germano Heinzelmann. Addition of Heinzelmann as an author. Addition of files for BRD4(1) benchmark. Removed bromodomain material from future benchmarks in view of its presence now as a benchmark system.
 
 ## Manifest
 
