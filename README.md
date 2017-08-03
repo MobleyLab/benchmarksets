@@ -100,11 +100,9 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 - v1.1.1 ([10.5281/zenodo.254619](http://doi.org/10.5281/zenodo.254619)): Adds input files for host-guest benchmarks; some revisions to text as recommended by Annual Reviews. See release notes for more details.
 - v1.1.2 ([10.5281/zenodo.569575](http://doi.org/10.5281/zenodo.569575)): Adds consistently handled SMILES for aromatics, Annual Reviews copyright/rights info in TeX and README, additional citation information for one reference, and new discussion of some new bromodomain absolute binding free energy work.
 - v1.1.3 ([10.5281/zenodo.571227]( http://doi.org/10.5281/zenodo.571227)): Changes title to include "(a perpetual review)" to make more clear that this is not the same paper as the Annual Reviews version; makes clarifications to README.md about which version is which.
+- v1.1.4: Updates README.md to reflect publication; clarify differences in material; reflect availability on eScholarship. Updates paper to reflect migration to eScholarship rather than bioRxiv. 
 
 ## Changes not yet in a release
-- Updates to README.md to reflect publication of Annual Reviews version and clarify differences between material here and that in AR.
-- Updates to README.md to reflect availability on eScholarship
-- Update to paper to reflect migration to eScholarship rather than bioRxiv
 
 ## Manifest
 
