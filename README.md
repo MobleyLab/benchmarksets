@@ -12,7 +12,7 @@ Additionally, all release versions -- current and prior -- are available via Zen
 
 The most up-to-date version of our perpetual review paper always available [here](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf).
 Additionally, this repository provides the authoritative source for all versions of this paper.
-Released versions of the paper are also archived as preprints on[eScholarship](http://escholarship.org/uc/item/9p37m6bq), and have Zenodo DOIs as noted above.
+Released versions of the paper are also archived as preprints on [eScholarship](http://escholarship.org/uc/item/9p37m6bq), and have Zenodo DOIs as noted above.
 An early version of this work was published in [Annual Review of Biophysics 46:531-558 (2017)](https://doi.org/10.1146/annurev-biophys-070816-033654).
 
 While a portion of this work was originally published with Annual Review, the version here is substantially expanded and updated, and will continue to deviate further from the AR version.
@@ -76,6 +76,7 @@ We also welcome contributions to the material which is already here to extend it
 
 ## Authors
 - David L. Mobley (UCI)
+- Germano Heinzelmann (Universidade Federal de Santa Catarina)
 - Michael K. Gilson (UCSD)
 
 Your name, too, can go here if you help us substantially revise/extend the paper.
@@ -99,12 +100,11 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 - v1.1 ([10.5281/zenodo.197428](http://doi.org/10.5281/zenodo.197428)): Adds significant additional discussion on potential future benchmark sets, needs for workflow science, etc. See release notes for more details. Versions also now include the date and version number within the PDF.
 - v1.1.1 ([10.5281/zenodo.254619](http://doi.org/10.5281/zenodo.254619)): Adds input files for host-guest benchmarks; some revisions to text as recommended by Annual Reviews. See release notes for more details.
 - v1.1.2 ([10.5281/zenodo.569575](http://doi.org/10.5281/zenodo.569575)): Adds consistently handled SMILES for aromatics, Annual Reviews copyright/rights info in TeX and README, additional citation information for one reference, and new discussion of some new bromodomain absolute binding free energy work.
-- v1.1.3 ([10.5281/zenodo.571227]( http://doi.org/10.5281/zenodo.571227)): Changes title to include "(a perpetual review)" to make more clear that this is not the same paper as the Annual Reviews version; makes clarifications to README.md about which version is which.
+- v1.1.3 ([10.5281/zenodo.571227](http://doi.org/10.5281/zenodo.571227)): Changes title to include "(a perpetual review)" to make more clear that this is not the same paper as the Annual Reviews version; makes clarifications to README.md about which version is which.
+- v1.1.4 ([10.5281/zenodo.838361](http://doi.org/10.5281/zenodo.838361)): Updates README.md to reflect publication; clarify differences in material; reflect availability on eScholarship. Updates paper to reflect migration to eScholarship rather than bioRxiv. 
+- v1.2 ([10.5281/zenodo.839047](http://doi.org/10.5281/zenodo.839047)): Addition of bromodomain BRD4(1) test cases as a new ``soft'' benchmark, with help from Germano Heinzelmann. Addition of Heinzelmann as an author. Addition of files for BRD4(1) benchmark. Removed bromodomain material from future benchmarks in view of its presence now as a benchmark system.
 
 ## Changes not yet in a release
-- Updates to README.md to reflect publication of Annual Reviews version and clarify differences between material here and that in AR.
-- Updates to README.md to reflect availability on eScholarship
-- Update to paper to reflect migration to eScholarship rather than bioRxiv
 
 ## Manifest
 
