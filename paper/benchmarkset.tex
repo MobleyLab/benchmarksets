@@ -605,19 +605,19 @@ The CD host has many experimental upsides, including adequate solubility, at lea
 Additionally, CDs are familiar host-guest systems to many computational researchers and are known to tractable in simulation \cite{Mark:1994:J.Am.Chem.Soc., Luzhkov:1999:ChemicalPhysicsLetters, Bea:2002:TheorChemAcc, Chen:2004:BiophysicalJournal, Sellner:2008:J.Phys.Chem.B, Cai:2009:J.Phys.Chem.B, Wickstrom:2013:J.Chem.TheoryComput., Shi:2014:TheorChemAcc, henriksen_computational_2015, Zhang:2015:J.Chem.TheoryComput., Khuntawee:2016:CarbohydratePolymers, Gebhardt:2016:FluidPhaseEquilibria, wickstrom_parameterization_2016}. 
 However, CDs offer a contrast to the previous two benchmark series in a number of ways. 
 First, the hosts are more flexible than CB7 or the GDCCs, as their glucose units are joined by only a single bond, which allows greater rotation of each monomer relative to its neighbors. 
-Second, the binding cavity has two, non-equivalent entryways, allowing asymmetric guests to bind in either a "head-in" or "head-out" orientation. 
+Second, the binding cavity has two, non-equivalent entryways, allowing asymmetric guests to bind in either a ``head-in'' or ``head-out'' orientation. 
 It is also worth noting that, because the CDs are glucose polymers, they may be best modeled with dedicated carbohydrate force fields \cite{Kirschner:2008:J.Comput.Chem., Cezard:2011:PhysicalChemistryChemicalPhysics, Guvench:2011:J.Chem.TheoryComput., Xiong:2015:CarbohydrateResearch}, rather than generalized small molecule force fields. 
 These features combine to add complexity in predicting the dominant binding poses for guests, although the default assumption is that polar functional groups will orient towards solvent near the wider rim (also called the secondary face) and hydrophobic groups will nestle into the hydrophobic cavity of the narrow rim (also called the primary face).
 
 \paragraph{The proposed CD benchmark series includes an $\alpha$-CD set and a $\beta$-CD set}
 For each CD set (Tables~\ref{cd_benchmark1} and \ref{cd_benchmark2}), we have selected guests which include n-alkyl ammonium cations, neutral cyclic alcohols, and n-alkyl or aromatic carboxylate anions.
-The experiments were all taken from the same ITC study [CITE REKHARSKY 1997] and were performed under uniform conditions (50 mM sodium phosphate buffer, pH 6.90, 298K). 
-The buffer constituents are not expected to compete for binding in the CD cavity [CITE REKHARSKY 1995].
+The experiments were all taken from the same ITC study \cite{rekharsky_thermodynamic_1997} and were performed under uniform conditions (50 mM sodium phosphate buffer, pH 6.90, 298K). 
+The buffer constituents are not expected to compete for binding in the CD cavity \cite{rekharsky_thermodynamic_1995}.
 Both binding free energy and binding enthalpy measurements are available for all guests in the series.
 The binding free energies range from -1.27 to -4.62 kcal/mol and the binding enthalpies range from 1.89 to -5.46 kcal/mol. 
 In the case of $\alpha$-CD and its guests, the binding enthalpies are uniformly negative and therefore the binding entropies are uniformly positive. 
 In contrast, the $\beta$-CD set includes both positive and negative binding enthalpies and binding entropies.
-In addition to the formal benchmark sets listed in Tables V and VI, which only include a representative sample of eight and twelve guests, respectively, we have also made available (at GitHub LINK) an expanded set of guests which feature minor variations in the carbon substituents to molecule classes mentioned above.
+In addition to the formal benchmark sets listed in Tables~\ref{cd_benchmark1} and \ref{cd_benchmark2}, which only include a representative sample of eight and twelve guests, respectively, we have also made available (in our GitHub repository) an expanded set of guests which feature minor variations in the carbon substituents to molecule classes mentioned above.
 Despite the flexibility of CD hosts, the small size of the guests combined with long timescale simulations enable by GPUs should allow adequate convergence of these thermodynamic values.
 
 
@@ -641,7 +641,7 @@ Despite the flexibility of CD hosts, the small size of the guests combined with 
 8    & octanoic acid            & 379      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/379.pdf}}   & CCCCCCCC(=O)O   & ITC    & -4.622 \pm 0.017  & -4.89 \pm 0.03 \\
 \bottomrule
 \end{tabular}\\
-$^{\rm a}$ Compound ID assigned in the present work; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from [Rekharsky 1997], where all measurements were done in 0.050 mol kg$^{-1}$ sodium phosphate buffer at pH 6.90 and 298.15 K. At these buffer conditions, the amine guests are expected to be protonated with a formal charge of +1, and the carboxylic acids are expected to be deprotonated with a net charge of -1. Uncertainty is the standard error of the mean in free energy or enthalpy, computed from the reported standard deviations in $K_a$. 
+$^{\rm a}$ Compound ID assigned in the present work; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from \cite{rekharsky_thermodynamic_1997}, where all measurements were done in 0.050 mol kg$^{-1}$ sodium phosphate buffer at pH 6.90 and 298.15 K. At these buffer conditions, the amine guests are expected to be protonated with a formal charge of +1, and the carboxylic acids are expected to be deprotonated with a net charge of -1. Uncertainty is the standard error of the mean in free energy or enthalpy, computed from the reported standard deviations in $K_a$. 
 \end{table*}
 \endgroup
 
@@ -669,7 +669,7 @@ $^{\rm a}$ Compound ID assigned in the present work; $^{\rm b}$ PubChem Compound
 12   & 4-phenylbutanoic acid       & 4775     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/4775.pdf}}   & C1=CC=C(C=C1)CCCC(=O)O  & ITC    & -3.599 \pm 0.018  & -2.82 \pm 0.01 \\
 \bottomrule
 \end{tabular}\\
-$^{\rm a}$ Compound ID assigned in the present work; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from [Rekharsky 1997], where all measurements were done in 0.050 mol kg$^{-1}$ sodium phosphate buffer at pH 6.90 and 298.15 K. At these buffer conditions, the amine guests are expected to be protonated with a formal charge of +1, and the carboxylic acids are expected to be deprotonated with a net charge of -1. Uncertainty is the standard error of the mean in free energy or enthalpy, computed from the reported standard deviations in $K_a$. 
+$^{\rm a}$ Compound ID assigned in the present work; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from \cite{rekharsky_thermodynamic_1997}, where all measurements were done in 0.050 mol kg$^{-1}$ sodium phosphate buffer at pH 6.90 and 298.15 K. At these buffer conditions, the amine guests are expected to be protonated with a formal charge of +1, and the carboxylic acids are expected to be deprotonated with a net charge of -1. Uncertainty is the standard error of the mean in free energy or enthalpy, computed from the reported standard deviations in $K_a$. 
 \end{table*}
 \endgroup
 
@@ -678,48 +678,49 @@ Due to the dynamic nature of the CD host, along with the asymmetric binding site
 
 \begin{enumerate}
 \item{{\bf Multiple binding orientations}: Unlike CB7 or OA, CDs have a binding cavity with two unique openings to solvent. 
-Although the default expectation is that a guest's polar functional group will orient out of the wider (secondary) rim of the cavity [CITE?], and hydrophobic groups will favor the narrower (primary) side, it raises the possibility of the reverse type of binding or a mixture of both. 
+Although the default expectation is that a guest's polar functional group will orient out of the wider (secondary) rim of the cavity~\cite{rekharsky_thermodynamic_1997, rekharsky_complexation_1998}, and hydrophobic groups will favor the narrower (primary) side, it raises the possibility of the reverse type of binding or a mixture of both. 
 Since the cavity is both narrow and hydrophobic, interchange between the two orientations is usually slow and requires release into the solvent and subsequent rebinding. 
-Therefore unless frequent interchange between the two orientations is observed during simulation, it is advisable to perform free energy calculations for both orientations and then combine the results according to their Boltzmann contribution [CITE].}
+Therefore unless frequent interchange between the two orientations is observed during simulation, it is advisable to perform free energy calculations for both orientations and then combine the results according to their Boltzmann contribution \cite{henriksen_computational_2015}.}
 
-\item{{\bf Monomer flexibility}: Cyclodextrin molecules are known to be rather flexible [CITE Bell Heckt Barron 1997,Connors]. 
+\item{{\bf Monomer flexibility}: Cyclodextrin molecules are known to be rather flexible~\cite{bell_new_1997, Connors:1997:Chem.Rev.}. 
 In particular, each glucose monomer can flip conformation along the glycosidic bond, which tends to partially occlude the binding cavity. 
-In simulation, these flipping events occur on the multi-nanosecond timescale [CITE Henriksen] and thus can pose a challenge for convergence of binding thermodynamics. 
-For affinity calculations which rely on physical or alchemical methods, the portion of the free energy pathway in which the guest is only partially interacting with the host is expected to be the most problematic.}
+In simulation, these flipping events occur on the multi-nanosecond timescale and thus can pose a challenge for convergence of binding thermodynamics. 
+For affinity calculations which rely on physical or alchemical methods, the portion of the free energy pathway in which the guest is only partially interacting with the host is expected to be the most problematic.
+Conformational restraints, if properly accounted for, can help mitigate these convergence challenges~\cite{henriksen_computational_2015}.}
 
-\item{{\bf Buffer Conditions}: CDs are not expected to bind phosphate ions from the buffer with detectable affinity [CITE], however, due to limitations in force fields, it is possible that the guest and buffer could compete for binding in simulation. 
-The solution behavior of phosphate ions, particularly the doubly-charged hydrogen-phosphate, can be sensitive to the particular choice of water model and may be worthwhile investigating prior to extensive binding calculations. 
-Alternatively, one can substitute phosphate buffer for the equivalent ionic strength of monovalent salt [CITE]. }
+\item{{\bf Buffer Conditions}: CDs are not expected to bind phosphate ions from the buffer with detectable affinity~\cite{rekharsky_thermodynamic_1995, rekharsky_complexation_1998}, however, due to limitations in force fields, it is possible that the guest and buffer could compete for binding in simulation. 
+The solution behavior of phosphate ions, particularly the HPO$_4^{2-}$ species, can be sensitive to the particular choice of water model and may be worthwhile investigating prior to extensive binding calculations. 
+Alternatively, one can substitute phosphate buffer for the equivalent ionic strength of monovalent salt~\cite{henriksen_evaluating_2017}. }
 
-\item{{\bf Finite-size artifacts due to charge modification}: Once again, the presence of charged guests in the CD benchmarks necessitates care with regard to charge decoupling procedures which could generate artifacts in the long range Couloumb calculations [CITE]. }
+\item{{\bf Finite-size artifacts due to charge modification}: Once again, the presence of charged guests in the CD benchmarks necessitates care with regard to charge decoupling procedures which could generate artifacts in the long range Couloumb calculations ~\cite{rocklin_calculating_2013, lin_overview_2014, reif_net_2014, simonson_concepts_2016}. }
 \end{enumerate}
 
 \paragraph{Prior studies provide additional insight into the challenges of CD}
 Although experimental literature for CD binding is widely available, computational studies including more than just a few guests are rare and, since CDs have not been included in any SAMPL challenges, the unique properties of this host might not be as familiar as CB7 and OA. 
 As with these other hosts, the choice of buffer influences the binding measurements since any organic components will likely competitively bind.
-Phosphate buffer, which is used in both of the proposed CD benchmarks, did not show any evidence of binding to the host in ITC measurements, whereas acetate buffer demonstrated competitive activity [Rek 1995, Rek 1998].
-Ideally, simulations of these systems would match the experimental conditions, however phosphate buffer can be difficult to model, particularly the HPO$_4^{2-}$ species [CITE Henriksens].
-One remedy for this problem is to match the ionic strength of the phosphate buffer with monovalent salt [CITE Henriksen], although the impact of this approximation is not completely understood.
+Phosphate buffer, which is used in both of the proposed CD benchmarks, did not show any evidence of binding to the host in ITC measurements, whereas acetate buffer demonstrated competitive activity~\cite{rekharsky_thermodynamic_1995, rekharsky_complexation_1998}.
+Ideally, simulations of these systems would match the experimental conditions, however phosphate buffer can be difficult to model, particularly the HPO$_4^{2-}$ species~\cite{henriksen_computational_2015, henriksen_evaluating_2017}.
+One remedy for this problem is to match the ionic strength of the phosphate buffer with monovalent salt \cite{henriksen_evaluating_2017}, although the impact of this approximation is not fully understood.
 
 One often cited driving force for guests binding to CDs is the expulsion of structured water from the unoccupied host cavity.
-Although the size of this effect is debated [CITE Connors, Taulier], it is generally accepted that approximately two to ten water molecules occupy the unbound cavity, depending on how the cavity is defined and whether the host is $\alpha$- or $\beta$-CD [CITE Connors, Biedermann].
+Although the size of this effect is debated~\cite{Connors:1997:Chem.Rev., taulier_hydrophobic_2006}, it is generally accepted that approximately two to ten water molecules occupy the unbound cavity, depending on how the cavity is defined and whether the host is $\alpha$- or $\beta$-CD \cite{Connors:1997:Chem.Rev., biedermann_hydrophobic_2014}.
 In simulation, the choice of host force field can play a large role in the appearance of structured water.
-If the glycosidic torsional barriers are low, the CD host can contort itself in such a way as to expel these presumably high energy waters [CITE Henriksen].
+If the glycosidic torsional barriers are low, the CD host can contort itself in such a way as to expel these presumably high energy waters~\cite{henriksen_evaluating_2017}.
 
 There are a some recent large-scale computational studies of CD binding free energies which deserve mention. 
-One study, from the Levy group [CITE Levy], used the BEDAM method [CITE] to compute binding free energies for 57 guests to $\beta$-CD.
+One study, from the Levy group~\cite{Wickstrom:2013:J.Chem.TheoryComput.}, used the BEDAM method~\cite{gallicchio_bedam_2015-1} to compute binding free energies for 57 guests to $\beta$-CD.
 The method uses an implicit representation of solvent, although guest occupancy of water sites in the CD cavity are incorporated into the model. 
 The overall agreement with experiment was mediocre, with an RMSE value of 1.44 kcal/mol and R$^2$ value of 0.43. 
 Levy and co-workers noted that some guests, particularly those with ammoniums, oriented their polar group out the narrow, primary rim of the CD cavity. 
-Another study, by the van der Spoel group [CITE], computed umbrella sampling PMFs for removal of 75 neutral guests from $\beta$-CD using several Generalized Born implicit solvent models. 
+Another study, by the van der Spoel group~\cite{zhang_evaluation_2016}, computed umbrella sampling PMFs for removal of 75 neutral guests from $\beta$-CD using several Generalized Born implicit solvent models. 
 These solvent models did not include consideration of structured water and the results were sobering: across all solvent models, RMSEs ranged between 1.9 - 4.8 kcal/mol and R$^2$ values were less than 0.3.
 The authors noted that 70\% of the guests preferred to orient the guest polar group through the wider, secondary opening of the host cavity, suggesting that although this orienatation is preferred, the primary orientation must be considered as well.
-Finally, a recent study by the Gilson lab used the attach-pull-release method [CITE] to compute explicitly solvated binding free energies and enthalpies for 43 host-guest pairs, including both $\alpha$- and $\beta$-CD hosts, for which experimental calorimetry measurements are available [CITE Rek].
+Finally, a recent study by the Gilson lab~\cite{henriksen_evaluating_2017} used the attach-pull-release method~\cite{henriksen_computational_2015} to compute explicitly solvated binding free energies and enthalpies for 43 host-guest pairs, including both $\alpha$- and $\beta$-CD hosts, for which experimental calorimetry measurements are available~\cite{rekharsky_thermodynamic_1997}.
 The guests comprised three classes, including alkyl-ammoniums, cyclic alcohols, and alkyl- and aromatic-carboxylates.
 The two CD benchmark sets in this work were derived this study.
 Several water models and host force fields were investigated, but none of the force field combinations proved superior at both binding free energy and enthalpy.
-Across force fields, the RMSE values for binding free energy ranged between 0.9 - 1.8 kcal/mol and R$^2$ between 0.44 - 0.60. 
-For binding enthalpy, RMSE values ranged  between 0.9 - 4.0 kcal/mol and R$^2$ between 0.30 - 0.77. 
+Across force fields, the RMSE values for binding free energy ranged from 0.9 to 1.8 kcal/mol and R$^2$ from 0.44 to 0.60. 
+For binding enthalpy, RMSE values ranged  from 0.9 to 4.0 kcal/mol and R$^2$ from 0.30 to 0.77. 
 Once again, a preference of ammonium guests to orient out of the narrow, primary opening was observed. It remains to be determined whether experimental evidence will support this preference.
 
 To aid the adoption of these systems as benchmarks, input files for the CD systems proposed here are available in our GitHub repository.
