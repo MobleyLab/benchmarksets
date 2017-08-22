@@ -2,7 +2,7 @@
 
 ## File descriptions
 
-This set of files comprises PDB, sdf, and mol2 files for all the benchmark ligands and a PDB file for the apo BRD4(1), as well as AMBER parameter (.prmtop) and coordinate files (.crds and .pdb) for all solvated complexes. The files for each ligand/solvated complex are named according to Table 7 in the associated ligand benchmark paper, and the apo BRD4(1) crystal structure PDB file is named 4lyi.pdb (from its PDB ID). Compounds 3, 4, and 8a are named after their IDs in their respective references, also indicated on Table 7.
+This set of files contains PDB, sdf, and mol2 files for all the benchmark ligands and a PDB file for the apo BRD4(1), as well as AMBER parameter (.prmtop) and coordinate files (.crds and .pdb) for all solvated complexes. The files for each ligand/solvated complex are named according to Table 7 in the associated ligand benchmark paper, and the apo BRD4(1) crystal structure PDB file is named 4lyi.pdb (from its PDB ID). Compounds 3, 4, and 8a are named after their IDs in their respective references, also indicated on Table 7.
 
 ## Methods
 
