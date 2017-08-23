@@ -55,6 +55,10 @@
 \author{Germano Heinzelmann}
 \email{germano.heinzelmann@ufsc.br}
 \affiliation{Departamento de F\'isica, Universidade Federal de Santa Catarina, Florian\'opolis, Santa Catarina, Brazil 88040-900}
+\author{Niel M. Henriksen}
+\email{nhenriksen@ucsd.edu}
+\affiliation{Skaggs School of Pharmacy and Pharmaceutical Sciences, University of California, San Diego, CA, USA, 92092}
+\affiliation{Departamento de F\'isica, Universidade Federal de Santa Catarina, Florian\'opolis, Santa Catarina, Brazil 88040-900}
 \author{Michael K. Gilson}
 \email{mgilson@ucsd.edu}
 \affiliation{Skaggs School of Pharmacy and Pharmaceutical Sciences, University of California, San Diego, CA, USA, 92092}
@@ -79,7 +83,7 @@ In our view, progress will require careful assessment and evaluation of new meth
 %PUT MANUSCRIPT VERSION HERE
 % Use this style for ongoing development: "Version 1.0.5 pre-release"
 % Use this style for releases: "Version 2.0" 
-{\bf Manuscript version 1.2.1 pre-release.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
+{\bf Manuscript version 1.3 pre-release.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
 %{\bf Manuscript version 1.2.} See \url{https://github.com/mobleylab/benchmarksets} for all versions.
 \\
 \\
@@ -712,7 +716,8 @@ Although the size of this effect is debated~\cite{Connors:1997:Chem.Rev., taulie
 In simulations, the choice of host force field can play a large role in the appearance of structured water.
 If the glycosidic torsional barriers are low, the CD host can contort itself in such a way as to expel these presumably high energy waters~\cite{henriksen_evaluating_2017}.
 
-%DLM: This may be too extensive an overview of prior computational work; we ended up electing (in the other sections) to focus on major issues highlighted by the computational work and NOT to overview individual studies, as there are too many. Come back to this to edit. 
+%DLM: This may be too extensive an overview of prior computational work; we ended up electing (in the other sections) to focus on major issues highlighted by the computational work and NOT to overview individual studies, as there are too many. In other words, if, in the other sections, we provided the level of detail which is given here, the paper would be far far too long. I suggest making this more concise and focusing primarily on the conclusions, giving references.
+%I should come back to this and edit, or Niel can have a try. 
 There are a some recent large-scale computational studies of CD binding free energies which deserve mention. 
 One study, from the Levy group~\cite{Wickstrom:2013:J.Chem.TheoryComput.}, used the BEDAM method~\cite{gallicchio_bedam_2015-1} to compute binding free energies for 57 guests to $\beta$-CD.
 The method uses an implicit representation of solvent, although guest occupancy of water sites in the CD cavity are incorporated into the model. 
@@ -726,7 +731,7 @@ The guests comprised three classes, including alkyl-ammoniums, cyclic alcohols, 
 The two CD benchmark sets in this work were derived this study.
 Several water models and host force fields were investigated, but none of the force field combinations proved superior at both binding free energy and enthalpy.
 Across force fields, the RMSE values for binding free energy ranged from 0.9 to 1.8 kcal/mol and R$^2$ from 0.44 to 0.60. 
-For binding enthalpy, RMSE values ranged  from 0.9 to 4.0 kcal/mol and R$^2$ from 0.30 to 0.77. 
+For binding enthalpy, RMSE values ranged from 0.9 to 4.0 kcal/mol and R$^2$ from 0.30 to 0.77. 
 Once again, a preference of ammonium guests to orient out of the narrow, primary opening was observed. It remains to be determined whether experimental evidence will support this preference.
 
 To aid the adoption of these systems as benchmarks, input files for the CD systems proposed here are available in our GitHub repository.
@@ -1020,12 +1025,12 @@ Although the benchmark systems detailed above are useful, more systems are neede
 The following subsections discuss additional systems that have already been used to test computational methods and that may be suited for development as new benchmark systems in the near future.
 
 \subsection{Host-Guest Systems}
-The cyclodextrins (CDs; Section~\ref{sec:hgbenchmarks}) are a particularly promising source of additional host-guest benchmark sets.
-The CDs also appear easier to derivatize than the cucurbiturils. 
+Depending on whether the existing host-guest systems end up being sufficient for the community's needs, there may be further opportunities for host-guest benchmark systems. 
+The cyclodextrins (CDs; Section~\ref{sec:hgbenchmarks}) are a particularly promising source of additional host-guest benchmark sets; one interesting possibility may be new CD derivatives, as the CDs appear easier to derivatize than the cucurbiturils. 
 In particular, varied substituents may be appended by reactions involving secondary hydroxyls at the wide entry and primary hydroxyls at the narrow entry~\cite{Fromming:1994:CyclodextrinsinPharmacy, Dodziuk:2006:, Szente:1999:AdvancedDrugDeliveryReviews, Qu:2002:JournalofInclusionPhenomena, Jindrich:2005:J.Org.Chem.}, with the caveat that generating pure products can be difficult, because there are so many hydroxyls that may be modified. 
 Binding data on CD derivatives could be quite useful as a means of adding chemical diversity to host-guest benchmark sets, and such data are already available for some derivatives (see, e.g., \cite{rekharsky_complexation_1998, Faugeras:2012:Eur.J.Org.Chem.}).
 
-A number of additional CD (and other host guest) binding systems are available for download in electronic format at the BindingDB~\cite{Liu:2007:Nucl.AcidsRes., Gilson:2016:Nucl.AcidsRes.} website (\url{www.bindingdb.org/bind/HostGuest.jsp})
+A number of additional CD (and other host-guest) binding systems are available for download in electronic format at the BindingDB~\cite{Liu:2007:Nucl.AcidsRes., Gilson:2016:Nucl.AcidsRes.} website (\url{www.bindingdb.org/bind/HostGuest.jsp})
 
 \subsection{Protein-Ligand Systems}
 On the order of a million experimental protein-ligand binding measurements are currently accessible through open-access databases, notably BindingDB~\cite{Liu:2007:Nucl.AcidsRes.}, ChEMBL~\cite{Bento:2014:NuclAcidsRes} and PubChem~\cite{Kim:2016:NucleicAcidsRes.}.
