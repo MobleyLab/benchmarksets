@@ -7,7 +7,7 @@ This file documents what files are present here and how they were generated.
 ## Manifest
 - `BRD4`: BRD4-1 benchmarks as proposed in two Tables in the paper; provides its own `README.md` detailing its organization/contents/provenance.
 - `cb7-set1` and `cb7-set2`: Proposed CB7 benchmark sets, with organization/contents/provenance information below.
-- `cd-set1` and `cd-set2`: Proposed cyclodextrin benchmark sets (the first of which is on alpha cyclodextrin and the second on beta cyclodextrin), with organization/contents/provenance information below.
+- `cd-set1` and `cd-set2`: Proposed cyclodextrin benchmark sets (the first of which is on alpha cyclodextrin and the second on beta cyclodextrin), with organization/contents/provenance information below. **Additional, supplementary guests are also provided.** These also contain a machine-parseable `README.md` file with experimental binding free energies and enthalpies, with references.
 - `gdcc-set1` and `gdcc-set2`: Proposed Gibb deep cavity cavitand benchmark sets, with organization/contents/provenance information below.
 
 ## File Descriptions
