@@ -716,22 +716,12 @@ In simulations, the choice of host force field can play a large role in the appe
 If the glycosidic torsional barriers are low, the CD host can contort itself in such a way as to expel these presumably high energy waters~\cite{henriksen_evaluating_2017}.
 
 %DLM: This may be too extensive an overview of prior computational work; we ended up electing (in the other sections) to focus on major issues highlighted by the computational work and NOT to overview individual studies, as there are too many. In other words, if, in the other sections, we provided the level of detail which is given here, the paper would be far far too long. I suggest making this more concise and focusing primarily on the conclusions, giving references.
-%I should come back to this and edit, or Niel can have a try. 
-There are a some recent large-scale computational studies of CD binding free energies which deserve mention. 
-One study, from the Levy group~\cite{Wickstrom:2013:J.Chem.TheoryComput.}, used the BEDAM method~\cite{gallicchio_bedam_2015-1} to compute binding free energies for 57 guests to $\beta$-CD.
-The method uses an implicit representation of solvent, although guest occupancy of water sites in the CD cavity are incorporated into the model. 
-This study found an RMSE value of 1.44 kcal/mol and R$^2$ value of 0.43. 
-Levy and co-workers noted that some guests, particularly those with ammoniums, oriented their polar group out the narrow, primary rim of the CD cavity. 
-Another study, by the van der Spoel group~\cite{zhang_evaluation_2016}, computed umbrella sampling PMFs for removal of 75 neutral guests from $\beta$-CD using several Generalized Born implicit solvent models. 
-These solvent models did not include consideration of structured water and the results were sobering: across all solvent models, RMSEs ranged between 1.9 - 4.8 kcal/mol and R$^2$ values were less than 0.3.
-The authors noted that 70\% of the guests preferred to orient the guest polar group through the wider, secondary opening of the host cavity, suggesting that although this orienatation is preferred, the primary orientation must be considered as well.
-Finally, a recent study by the Gilson lab~\cite{henriksen_evaluating_2017} used the attach-pull-release method~\cite{henriksen_computational_2015} to compute explicitly solvated binding free energies and enthalpies for 43 host-guest pairs, including both $\alpha$- and $\beta$-CD hosts, for which experimental calorimetry measurements are available~\cite{rekharsky_thermodynamic_1997}.
-The guests comprised three classes, including alkyl-ammoniums, cyclic alcohols, and alkyl- and aromatic-carboxylates.
-The two CD benchmark sets in this work were derived this study.
-Several water models and host force fields were investigated, but none of the force field combinations proved superior at both binding free energy and enthalpy.
-Across force fields, the RMSE values for binding free energy ranged from 0.9 to 1.8 kcal/mol and R$^2$ from 0.44 to 0.60. 
-For binding enthalpy, RMSE values ranged from 0.9 to 4.0 kcal/mol and R$^2$ from 0.30 to 0.77. 
-Once again, a preference of ammonium guests to orient out of the narrow, primary opening was observed. It remains to be determined whether experimental evidence will support this preference.
+%Proposed condensed version -- I tried to hit on the main take-away messages, but feel free to adjust or make your own condensed version.
+There are a some recent large-scale computational studies of CD binding free energies which provide further insights into what performance and challenges to expect.
+With implicit solvent models, it appears particularly important to include treatment of water sites in the CD cavity; depending on how these sites are handled and the solvent model, RMS errors can be as low as 1.44 kcal/mol (with an $R^2$ of 0.43)~\cite{Wickstrom:2013:J.Chem.TheoryComput.} or as high as 1.9-4.8 kcal/mol ($R^2$ of less than 0.3)~\cite{zhang_evaluation_2016}, with these studies examining 57 and 75 guests, respectively.
+An extensive explicit solvent study compared a variety of different force fields and water models, with RMS errors of 0.9 to 1.8 kcal/mol ($R^2$ of 0.44 to 0.6) ans also examined accuracy on binding enthalpies~\cite{henriksen_evaluating_2017}.
+Overall, guests with ammoniums appear to prefer to orient their polar groups out of the narrow, primary opening of the CD cavity~\cite{Wickstrom:2013:J.Chem.TheoryComput., henriksen_evaluating_2017} (though this is yet to be determined experimentally) but one study suggests that as many as 70\% of neutral, polar guests prefer to orient their polar group toward the secondary, wider opening~\cite{zhang_evaluation_2016}, so both orientations will likely need to be considered.
+   
 
 To aid the adoption of these systems as benchmarks, input files for the CD systems proposed here are available in our GitHub repository.
 
