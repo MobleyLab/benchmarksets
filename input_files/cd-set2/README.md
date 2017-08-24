@@ -15,7 +15,7 @@ Guest ID labels with 's' (e.g., s13) indicate supplementary guests to the core s
 |bCD |4-methylphenylacetate     |10      |Cc1ccc(CC([O-])=O)cc1  |-2.192|0.013     | -2.89|0.05      | [1](#HenGil)|
 |bCD |4-methoxyphenylacetate    |11      |COc1ccc(CC([O-])=O)cc1 |-2.512|0.007     | -1.96|0.01      | [1](#HenGil)|
 |bCD |4-phenylbutanoate         |12      |[O-]C(=O)CCCc1ccccc1   |-3.599|0.018     | -2.82|0.01      | [1](#HenGil)|
-|Supplemental Guest Data|
+||
 |bCD |1-methylhexylammonium     |s13     |CCCCCC(C)[NH3+]        |-2.557|0.066     |  0.47|0.03      | [1](#HenGil)|
 |bCD |cyclobutanol              |s14     |OC1CCC1                |-1.554|0.167     |  0.88|0.17      | [1](#HenGil)|
 |bCD |1-methylcyclohexanol      |s15     |CC1(O)CCCCC1           |-4.175|0.010     | -2.29|0.03      | [1](#HenGil)|
