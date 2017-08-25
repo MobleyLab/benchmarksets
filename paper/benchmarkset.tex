@@ -602,8 +602,8 @@ To aid the adoption of these systems as benchmarks, input files for the GDCC sys
 \label{sec:cd}
 Cyclodextrins (CDs; {\bf Figure~\ref{hosts}}) are cyclic glucose polymers which feature a tapered, hydrophobic cavity ringed by secondary hydroxyls on the wider end and primary hydroxyls on the narrow end. 
 They are produced from starch by an enzymatic process which generates several versions, but the most common are $\alpha$-CD and $\beta$-CD which consist of six and seven glucose units, respectively.
-CDs are known to bind a diverse set of ligands which likely accounts for their widespread industrial use, including food applications, cosmetics, pharmaceuticals, and odor suppression.
-Indeed, a thorough review 1998 review tabulates hundreds of binding data~\cite{rekharsky_complexation_1998}, and many additional measurements have been published since then; e.g. references~\cite{Connors:1997:Chem.Rev., Carrazana:2005:J.Phys.Chem.B, Cotner:1998:J.Org.Chem., Wszelaka-Rylik:2013:JThermAnalCalorim,  Shu:2007:BritishJournalofPharmacology, Rodriguez-Perez:2006:J.Pharm.Sci., Mic:2013:AIPConferenceProceedings}.
+CDs are cheap to obtain, safe for consumption, and are known to bind a diverse set of ligands, all of which likely accounts for their widespread industrial use, including food applications, cosmetics, pharmaceuticals, and odor suppression.
+Indeed, a thorough 1998 review tabulates hundreds of binding data~\cite{rekharsky_complexation_1998}, and many additional measurements have been published since then; e.g. references~\cite{Connors:1997:Chem.Rev., Carrazana:2005:J.Phys.Chem.B, Cotner:1998:J.Org.Chem., Wszelaka-Rylik:2013:JThermAnalCalorim,  Shu:2007:BritishJournalofPharmacology, Rodriguez-Perez:2006:J.Pharm.Sci., Mic:2013:AIPConferenceProceedings}.
 A number of these studies were done calorimetrically, and thus provide not only binding free energies but also binding enthalpies. 
 Fewer data are available for the larger 8-membered $\gamma$-CD, and the greater diameter of this host makes for a less well-defined and floppier binding cavity.
 
@@ -611,20 +611,20 @@ We propose a benchmark series which includes both $\alpha$- and $\beta$-CD bindi
 The CD host has many experimental upsides, including adequate solubility, at least for these common variants, and they are available in gram quantities at low cost from multiple suppliers. 
 Additionally, CDs are familiar host-guest systems to many computational researchers and are known to be tractable for simulation \cite{Mark:1994:J.Am.Chem.Soc., Luzhkov:1999:ChemicalPhysicsLetters, Bea:2002:TheorChemAcc, Chen:2004:BiophysicalJournal, Sellner:2008:J.Phys.Chem.B, Cai:2009:J.Phys.Chem.B, Wickstrom:2013:J.Chem.TheoryComput., Shi:2014:TheorChemAcc, henriksen_computational_2015, Zhang:2015:J.Chem.TheoryComput., Khuntawee:2016:CarbohydratePolymers, Gebhardt:2016:FluidPhaseEquilibria, wickstrom_parameterization_2016}. 
 However, CDs offer a contrast to the previous two benchmark series in a number of ways. 
-First, the hosts are more flexible than CB7 or the GDCCs, as their glucose units are joined by only a single bond, which allows greater rotation of each monomer relative to its neighbors. 
+First, they are more flexible than CB7 or the GDCCs, as their glucose units are joined by only a single bond, which allows greater rotation of each monomer relative to its neighbors. 
 Second, the binding cavity has two, non-equivalent openings or ``rims'', allowing asymmetric guests to bind in either a ``head-in'' or ``head-out'' orientation. 
 It is also worth noting that, because the CDs are glucose polymers, they may be best modeled with dedicated carbohydrate force fields \cite{Kirschner:2008:J.Comput.Chem., Cezard:2011:PhysicalChemistryChemicalPhysics, Guvench:2011:J.Chem.TheoryComput., Xiong:2015:CarbohydrateResearch}, rather than generalized small molecule force fields. 
-These features combine to add complexity in predicting the dominant binding poses for guests, although the default assumption is that polar functional groups will orient towards solvent near the wider rim (also called the secondary face) and hydrophobic groups will nestle into the hydrophobic cavity of the narrow rim (also called the primary face).
+Together, these features combine to add complexity in predicting the dominant binding poses for guests.
 
 \paragraph{The proposed CD benchmark series includes an $\alpha$-CD set and a $\beta$-CD set}
 For each CD set (Tables~\ref{cd_benchmark1} and \ref{cd_benchmark2}), we have selected guests which include n-alkyl ammonium cations, neutral cyclic alcohols, and n-alkyl or aromatic carboxylate anions.
-The experimental data all originates from the same ITC study \cite{rekharsky_thermodynamic_1997} and experiments were performed under uniform conditions (50 mM sodium phosphate buffer, pH 6.90, 298K). 
+The experimental data all originate from the same ITC study \cite{rekharsky_thermodynamic_1997} and experiments were performed under uniform conditions (50 mM sodium phosphate buffer, pH 6.90, 298K). 
 The buffer constituents are not expected to compete for binding in the CD cavity \cite{rekharsky_thermodynamic_1995}.
 Both binding free energy and binding enthalpy measurements are available for all guests in the series.
-The binding free energies range from -1.27 to -4.62 kcal/mol and the binding enthalpies range from 1.89 to -5.46 kcal/mol. 
+The binding free energies range from $-1.27$ to $-4.62$ kcal/mol and the binding enthalpies range from 1.89 to $-5.46$ kcal/mol. 
 In the case of $\alpha$-CD and its guests, the binding enthalpies are uniformly negative and therefore the binding entropies are uniformly positive. 
 In contrast, the $\beta$-CD set includes both positive and negative binding enthalpies and binding entropies.
-In addition to the formal benchmark sets listed in Tables~\ref{cd_benchmark1} and \ref{cd_benchmark2}, which only include a representative sample of eight and twelve guests, respectively, we have also made available (in our GitHub repository) an expanded set of guests which differ only slightly from the molecule classes mentioned above, by minor variations in the carbon substituents.
+In addition to the formal benchmark sets listed in Tables~\ref{cd_benchmark1} and \ref{cd_benchmark2}, which only include a representative sample of eight and twelve guests, respectively, we have also made available (in our GitHub repository) an expanded set of guests which differ only slightly from the molecule classes mentioned above, by minor variations in the hydrocarbon substituents.
 Despite the flexibility of CD hosts, the small size of the guests combined with long timescale simulations enabled by GPUs appears to allow adequate convergence of these thermodynamic values \cite{henriksen_computational_2015}.
 
 
@@ -634,21 +634,21 @@ Despite the flexibility of CD hosts, the small size of the guests combined with 
 % \tabcolsep7.5pt
 \caption{Proposed Cyclodextrin Set 1 benchmark for the $\alpha$-CD host}
 \label{cd_benchmark1}
-\begin{tabular}{lllp{2cm}>{\ttfamily}llS[table-format=-1.3, table-figures-uncertainty=1]S[table-format=-1.2, table-figures-uncertainty=1]}
+\begin{tabular}{lllp{2cm}>{\ttfamily}lS[table-format=-1.2, table-figures-uncertainty=1]S[table-format=-1.2, table-figures-uncertainty=1]}
 \toprule
-\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$} & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{Method} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{$\Delta H^{\rm d}$ \,{(}kcal/mol{)}} \\
+\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$} & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{$\Delta H^{\rm c}$ \,{(}kcal/mol{)}} \\
 \midrule
-1    & 1-butylamine             & 8007     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8007.pdf}}  & CCCCN           & ITC    & -1.575 \pm 0.019  & -2.17 \pm 0.05 \\
-2    & 1-hexylamine             & 8102     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8102.pdf}}  & CCCCCCN         & ITC    & -3.533 \pm 0.004  & -4.19 \pm 0.02 \\
-3    & 1-octylamine             & 8143     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8143.pdf}}  & CCCCCCCCN       & ITC    & -4.606 \pm 0.007  & -5.46 \pm 0.03 \\
-4    & cyclopentanol            & 7298     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7298.pdf}}  &      OC1CCCC1        & ITC    & -2.130 \pm 0.016  & -2.74 \pm 0.02 \\
-5    & cycloheptanol            & 10399    & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/10399.pdf}} &    OC1CCCCCC1      & ITC    & -2.510 \pm 0.060  & -2.99 \pm 0.23 \\
-6    & butanoic acid            & 264      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/264.pdf}}   & CCCC(=O)O       & ITC    & -1.506 \pm 0.036  & -2.53 \pm 0.12 \\
-7    & hexanoic acid            & 8892     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8892.pdf}}  & CCCCCC(=O)O     & ITC    & -3.380 \pm 0.005  & -3.40 \pm 0.02 \\
-8    & octanoic acid            & 379      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/379.pdf}}   & CCCCCCCC(=O)O   & ITC    & -4.622 \pm 0.017  & -4.89 \pm 0.03 \\
+1    & 1-butylamine             & 8007     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8007.pdf}}  & CCCCN           & -1.58 \pm 0.02  & -2.17 \pm 0.05 \\
+2    & 1-hexylamine             & 8102     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8102.pdf}}  & CCCCCCN         & -3.53 \pm 0.01  & -4.19 \pm 0.02 \\
+3    & 1-octylamine             & 8143     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8143.pdf}}  & CCCCCCCCN       & -4.61 \pm 0.01  & -5.46 \pm 0.03 \\
+4    & cyclopentanol            & 7298     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7298.pdf}}  &      OC1CCCC1        & -2.13 \pm 0.02  & -2.74 \pm 0.02 \\
+5    & cycloheptanol            & 10399    & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/10399.pdf}} &    OC1CCCCCC1      & -2.51 \pm 0.06  & -2.99 \pm 0.23 \\
+6    & butanoic acid            & 264      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/264.pdf}}   & CCCC(=O)O       & -1.51 \pm 0.04  & -2.53 \pm 0.12 \\
+7    & hexanoic acid            & 8892     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8892.pdf}}  & CCCCCC(=O)O     & -3.38 \pm 0.01  & -3.40 \pm 0.02 \\
+8    & octanoic acid            & 379      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/379.pdf}}   & CCCCCCCC(=O)O   & -4.62 \pm 0.02  & -4.89 \pm 0.03 \\
 \bottomrule
 \end{tabular}\\
-$^{\rm a}$ Compound ID assigned in the present work; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from \cite{rekharsky_thermodynamic_1997}, where all measurements were done in 0.050 mol kg$^{-1}$ (approximately 50 mM) sodium phosphate buffer at pH 6.90 and 298.15 K. At these buffer conditions, the amine guests are expected to be protonated with a formal charge of +1, and the carboxylic acids are expected to be deprotonated with a net charge of -1. Uncertainty is the standard error of the mean in free energy or enthalpy, computed from the reported standard deviations in $K_a$. 
+$^{\rm a}$ Compound ID assigned in the present work; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy and enthalpy determined by ITC from \cite{rekharsky_thermodynamic_1997}, where all measurements were done in 0.050 mol kg$^{-1}$ (approximately 50 mM) sodium phosphate buffer at pH 6.90 and 298.15 K. At these buffer conditions, the amine guests are expected to be protonated with a formal charge of +1, and the carboxylic acids are expected to be deprotonated with a net charge of $-1$.; Uncertainty is the standard error of the mean in free energy or enthalpy, computed from the reported standard deviations in $K_a$. 
 \end{table*}
 \endgroup
 
@@ -658,25 +658,25 @@ $^{\rm a}$ Compound ID assigned in the present work; $^{\rm b}$ PubChem Compound
 % \tabcolsep7.5pt
 \caption{Proposed Cyclodextrin Set 2 benchmark for the $\beta$-CD host}
 \label{cd_benchmark2}
-\begin{tabular}{lllp{2cm}>{\ttfamily}llS[table-format=-1.3, table-figures-uncertainty=1]S[table-format=-1.2, table-figures-uncertainty=1]}
+\begin{tabular}{lllp{2cm}>{\ttfamily}lS[table-format=-1.2, table-figures-uncertainty=1]S[table-format=-1.2, table-figures-uncertainty=1]}
 \toprule
-\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$} & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{Method} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{$\Delta H^{\rm d}$ \,{(}kcal/mol{)}} \\
+\multicolumn{1}{c}{ID$^{\rm a}$} & \multicolumn{1}{c}{name} & \multicolumn{1}{c}{PC CID$^{\rm b}$} & \multicolumn{1}{c}{2D} & \multicolumn{1}{c}{\rmfamily SMILES} & \multicolumn{1}{c}{$\Delta G^{\rm c}$ \,{(}kcal/mol{)}} & \multicolumn{1}{c}{$\Delta H^{\rm c}$ \,{(}kcal/mol{)}} \\
 \midrule
-1    & 1-hexylamine                & 8012     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8102.pdf}}   & CCCCCCN                 & ITC    & -2.486 \pm 0.084  &  0.60 \pm 0.05 \\
-2    & 1-octylamine                & 8143     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8143.pdf}}   & CCCCCCCCN               & ITC    & -3.585 \pm 0.120  & -0.48 \pm 0.03 \\
-3    & cyclopentanol               & 7298     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7298.pdf}}   & OC1CCCC1                & ITC    & -3.050 \pm 0.010  & -1.09 \pm 0.01 \\
-4    & trans-4-methylcyclohexanol  & 11524    & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/11524.pdf}}  & C[C@H]1CC[C@H](O)CC1    & ITC    & -4.541 \pm 0.008  & -2.17 \pm 0.02 \\
-5    & cycloheptanol               & 10399    & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/10399.pdf}}  & OC1CCCCCC1              & ITC    & -4.560 \pm 0.011  & -2.96 \pm 0.01 \\
-6    & pentanoic acid              & 7991     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7991.pdf}}   & CCCCC(=O)O              & ITC    & -1.267 \pm 0.323  &  1.89 \pm 0.53 \\
-7    & heptanoic acid              & 8094     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8094.pdf}}   & CCCCCCC(=O)O            & ITC    & -3.394 \pm 0.179  &  0.42 \pm 0.04 \\
-8    & benzoic acid                & 243      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/243.pdf}}    & OC(=O)c1ccccc1         & ITC    & -1.640 \pm 0.024  & -2.51 \pm 0.08 \\
-9    & phenylacetic acid           & 999      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/999.pdf}}    & OC(=O)Cc1ccccc1        & ITC    & -1.697 \pm 0.048  & -1.79 \pm 0.11 \\
-10   & 4-methylphenylacetic acid   & 248474   & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/248474.pdf}} & Cc1ccc(CC(O)=O)cc1   & ITC    & -2.192 \pm 0.013  & -2.89 \pm 0.05 \\
-11   & 4-methoxyphenylacetic acid  & 7690     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7690.pdf}}   & COc1ccc(CC(O)=O)cc1    & ITC    & -2.512 \pm 0.007  & -1.96 \pm 0.01 \\
-12   & 4-phenylbutanoic acid       & 4775     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/4775.pdf}}   & OC(=O)CCCc1ccccc1      & ITC    & -3.599 \pm 0.018  & -2.82 \pm 0.01 \\
+1    & 1-hexylamine                & 8012     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8102.pdf}}   & CCCCCCN                 & -2.49 \pm 0.08  &  0.60 \pm 0.05 \\
+2    & 1-octylamine                & 8143     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8143.pdf}}   & CCCCCCCCN               & -3.59 \pm 0.12  & -0.48 \pm 0.03 \\
+3    & cyclopentanol               & 7298     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7298.pdf}}   & OC1CCCC1                & -3.05 \pm 0.01  & -1.09 \pm 0.01 \\
+4    & trans-4-methylcyclohexanol  & 11524    & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/11524.pdf}}  & C[C@H]1CC[C@H](O)CC1    & -4.54 \pm 0.01  & -2.17 \pm 0.02 \\
+5    & cycloheptanol               & 10399    & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/10399.pdf}}  & OC1CCCCCC1              & -4.56 \pm 0.01  & -2.96 \pm 0.01 \\
+6    & pentanoic acid              & 7991     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7991.pdf}}   & CCCCC(=O)O              & -1.27 \pm 0.32  &  1.89 \pm 0.53 \\
+7    & heptanoic acid              & 8094     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/8094.pdf}}   & CCCCCCC(=O)O            & -3.39 \pm 0.18  &  0.42 \pm 0.04 \\
+8    & benzoic acid                & 243      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/243.pdf}}    & OC(=O)c1ccccc1         & -1.64 \pm 0.02  & -2.51 \pm 0.08 \\
+9    & phenylacetic acid           & 999      & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/999.pdf}}    & OC(=O)Cc1ccccc1        & -1.70 \pm 0.05  & -1.79 \pm 0.11 \\
+10   & 4-methylphenylacetic acid   & 248474   & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/248474.pdf}} & Cc1ccc(CC(O)=O)cc1   & -2.19 \pm 0.01  & -2.89 \pm 0.05 \\
+11   & 4-methoxyphenylacetic acid  & 7690     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/7690.pdf}}   & COc1ccc(CC(O)=O)cc1    & -2.51 \pm 0.01  & -1.96 \pm 0.01 \\
+12   & 4-phenylbutanoic acid       & 4775     & \parbox[c]{1em}{\includegraphics[scale=0.2]{figures/4775.pdf}}   & OC(=O)CCCc1ccccc1      & -3.60 \pm 0.02  & -2.82 \pm 0.01 \\
 \bottomrule
 \end{tabular}\\
-$^{\rm a}$ Compound ID assigned in the present work; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy from \cite{rekharsky_thermodynamic_1997}, where all measurements were done in 0.050 mol kg$^{-1}$ (approximately 50 mM) sodium phosphate buffer at pH 6.90 and 298.15 K. At these buffer conditions, the amine guests are expected to be protonated with a formal charge of +1, and the carboxylic acids are expected to be deprotonated with a net charge of -1. Uncertainty is the standard error of the mean in free energy or enthalpy, computed from the reported standard deviations in $K_a$. 
+$^{\rm a}$ Compound ID assigned in the present work; $^{\rm b}$ PubChem Compound ID; $^{\rm c}$ Standard binding free energy and enthalpy determined by ITC from \cite{rekharsky_thermodynamic_1997}, where all measurements were done in 0.050 mol kg$^{-1}$ (approximately 50 mM) sodium phosphate buffer at pH 6.90 and 298.15 K. At these buffer conditions, the amine guests are expected to be protonated with a formal charge of +1, and the carboxylic acids are expected to be deprotonated with a net charge of $-1$. Uncertainty is the standard error of the mean in free energy or enthalpy, computed from the reported standard deviations in $K_a$. 
 \end{table*}
 \endgroup
 
@@ -685,41 +685,38 @@ Researchers should anticipate the following complexities due to the dynamic natu
 
 \begin{enumerate}
 \item{{\bf Multiple binding orientations}: Unlike CB7 or OA, CDs have a binding cavity with two unique openings to solvent. 
-Although the default expectation is that a guest's polar functional group will orient out of the wider (secondary) rim of the cavity~\cite{rekharsky_thermodynamic_1997, rekharsky_complexation_1998}, and hydrophobic groups will favor the narrower (primary) side, it raises the possibility of the reverse type of binding or a mixture of both. 
-Since the cavity is both narrow and hydrophobic, interchange between the two orientations is usually slow and requires release into the solvent and subsequent rebinding.
+Although it is speculated~\cite{rekharsky_thermodynamic_1997, rekharsky_complexation_1998} that polar functional groups will orient towards solvent near the wider rim (also called the secondary face), where they can be better hydrated, and hydrophobic groups will nestle into the hydrophobic cavity of the narrow rim (also called the primary face), there is little data to support this speculation.
+Thus it raises the possibility that some guests will prefer one orientation over the other, or possibly a mixture of both. 
+Since the cavity is narrow and hydrophobic, interchange between the two orientations is usually slow and requires release into the solvent and subsequent rebinding because the guest is unable to turn around inside the cavity.
 Sampling these events could require microsecond-scale simulations or longer, at least for guests which bind with high affinity, since they were not observed to undergo unbinding/binding during microsecond length simulations \cite{henriksen_evaluating_2017}.
 Therefore unless frequent interchange between the two orientations is observed during simulation, it may be advisable to perform free energy calculations for both orientations and then combine the results according to their Boltzmann weights~\cite{henriksen_computational_2015}.}
 
 \item{{\bf Monomer flexibility}: Cyclodextrin molecules are known to be rather flexible~\cite{bell_new_1997, Connors:1997:Chem.Rev.}. 
 In particular, each glucose monomer can flip conformation along the glycosidic bond, which tends to partially occlude the binding cavity. 
 In simulation, these flipping events occur on the multi-nanosecond timescale and thus can pose a challenge for convergence of binding thermodynamics. 
-For affinity calculations which rely on physical or alchemical methods, the portion of the free energy pathway in which the guest is only partially interacting with the host is expected to be the most problematic.
+For affinity calculations which rely on physical or alchemical methods, the portion of the free energy pathway in which the guest is only partially interacting with the host is expected to be the most problematic because the host and guest begin to adopt a variety of conformations that may not readily interconvert, although such behavior could be force field dependent.
 Conformational restraints, if properly accounted for, can help mitigate these convergence challenges~\cite{henriksen_computational_2015}.}
 
 \item{{\bf Buffer conditions}: CDs are not expected to bind phosphate ions from the buffer with detectable affinity~\cite{rekharsky_thermodynamic_1995, rekharsky_complexation_1998}; however, due to force field limitations, it is possible that the guest and buffer could compete for binding in simulations. 
-The solution behavior of phosphate ions, particularly the HPO$_4^{2-}$ species, can be sensitive to the particular choice of water model (unpublished, Gilson lab) and may be worth investigating prior to extensive binding calculations. 
-Alternatively, one could substitute an equivalent strength of monovalent salt for the phosphate buffer~\cite{henriksen_evaluating_2017}. }
+Force fields for multivalent ions, such as the HPO$_4^{2-}$ species, can be prone to unrealistic aggregation, which itself depends on the particular choice of water model (unpublished, Gilson lab) and may be worth investigating prior to extensive binding calculations. 
+Alternatively, one could substitute an equivalent strength of simple, monovalent salt, such as NaCl, for the phosphate buffer on the assumption that this substitution will not affect the binding thermodynamics~\cite{henriksen_evaluating_2017}. }
 
 \item{{\bf Finite-size artifacts due to charge modification}: Once again, the presence of charged guests in the CD benchmarks necessitates care with regard to charge decoupling procedures which could generate artifacts in the long range Couloumb calculations~\cite{rocklin_calculating_2013, lin_overview_2014, reif_net_2014, simonson_concepts_2016}. }
 \end{enumerate}
 
 \paragraph{Prior studies provide additional insight into the challenges of CD}
-Although experimental literature for CD binding is widely available, computational studies including more than just a few guests are rare and, since CDs have not been included in any SAMPL challenges, the unique properties of this host might not be as familiar to many as those of CB7 and OA. 
-As with these other hosts, the choice of buffer influences the binding measurements since any organic buffer components will likely competitively bind. 
-Phosphate buffer, which is used in both of the proposed CD benchmarks, did not show any evidence of binding to the host (as measured by ITC), whereas acetate buffer demonstrated competitive activity~\cite{rekharsky_thermodynamic_1995, rekharsky_complexation_1998}.
-Ideally, simulations of these systems would match the experimental conditions, however, phosphate buffer can be difficult to model accurately, particularly the HPO$_4^{2-}$ species~\cite{henriksen_computational_2015, henriksen_evaluating_2017}.
-One potential remedy to this problem is to match the ionic strength of the phosphate buffer with monovalent salt~\cite{henriksen_evaluating_2017}, although the impact of this approximation is not fully understood.
+Although experimental literature for CD binding is widely available, not many computational studies include more than just a few guests and, since CDs have not been included in any SAMPL challenges, the unique properties of this host might not be as familiar to many as those of CB7 and OA.
+Below, we breifly address prvious studies which offer additional insight on the binding of water and guests to CDs. 
 
 Expulsion of structured water from the unoccupied host cavity is one of the often-cited driving forces for guests binding to CDs.
 Although the size of this effect is debated~\cite{Connors:1997:Chem.Rev., taulier_hydrophobic_2006}, it is generally accepted that approximately two to ten water molecules occupy the unbound cavity, depending on how the cavity is defined and whether the host is $\alpha$- or $\beta$-CD \cite{Connors:1997:Chem.Rev., biedermann_hydrophobic_2014}.
 In simulations, the choice of host force field can play a large role in the appearance of structured water.
 If the glycosidic torsional barriers are low, the CD host can contort itself in such a way as to expel these presumably high energy waters~\cite{henriksen_evaluating_2017}.
 
-%DLM: This may be too extensive an overview of prior computational work; we ended up electing (in the other sections) to focus on major issues highlighted by the computational work and NOT to overview individual studies, as there are too many. In other words, if, in the other sections, we provided the level of detail which is given here, the paper would be far far too long. I suggest making this more concise and focusing primarily on the conclusions, giving references.
 %Proposed condensed version -- I tried to hit on the main take-away messages, but feel free to adjust or make your own condensed version.
 There are a some recent large-scale computational studies of CD binding free energies which provide further insights into what performance and challenges to expect.
-With implicit solvent models, it appears particularly important to include treatment of water sites in the CD cavity; depending on how these sites are handled and the solvent model, RMS errors can be as low as 1.44 kcal/mol (with an $R^2$ of 0.43)~\cite{Wickstrom:2013:J.Chem.TheoryComput.} or as high as 1.9-4.8 kcal/mol ($R^2$ of less than 0.3)~\cite{zhang_evaluation_2016}, with these studies examining 57 and 75 guests, respectively.
-An extensive explicit solvent study compared a variety of different force fields and water models, with RMS errors of 0.9 to 1.8 kcal/mol ($R^2$ of 0.44 to 0.6) ans also examined accuracy on binding enthalpies~\cite{henriksen_evaluating_2017}.
+With implicit solvent models, it appears particularly important to supplement the implicit model with a treatment of water sites in the CD cavity; depending on how these sites are handled and the solvent model, RMS errors can be as low as 1.44 kcal/mol (with an $R^2$ of 0.43)~\cite{Wickstrom:2013:J.Chem.TheoryComput.} or as high as 1.9 to 4.8 kcal/mol ($R^2$ of less than 0.3)~\cite{zhang_evaluation_2016}, with these studies examining 57 and 75 guests, respectively.
+An extensive explicit solvent study compared a variety of different force fields and water models, with RMS errors of 0.9 to 1.8 kcal/mol ($R^2$ of 0.44 to 0.6) and also examined accuracy of computed binding enthalpies~\cite{henriksen_evaluating_2017}.
 Overall, guests with ammoniums appear to prefer to orient their polar groups out of the narrow, primary opening of the CD cavity~\cite{Wickstrom:2013:J.Chem.TheoryComput., henriksen_evaluating_2017} (though this is yet to be determined experimentally) but one study suggests that as many as 70\% of neutral, polar guests prefer to orient their polar group toward the secondary, wider opening~\cite{zhang_evaluation_2016}, so both orientations will likely need to be considered.
    
 
