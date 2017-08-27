@@ -1,6 +1,6 @@
 # Benchmark sets for free energy calculations
 
-This repository relates to the *perpetual review* ([definition](https://arxiv.org/abs/1502.01329)) paper called "[Predicting binding free energies: Frontiers and benchmarks](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf)" by David L. Mobley and Michael K. Gilson.
+This repository relates to the *perpetual review* ([definition](https://arxiv.org/abs/1502.01329)) paper called "[Predicting binding free energies: Frontiers and benchmarks](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf)" by David L. Mobley, Germano Heinzelmann, Niel M. Henriksen, and Michael K. Gilson.
 The repository's focus is benchmark sets for binding free energy calculations, including the perpetual review paper, but also supporting files and other materials relating to free energy benchmarks.
 Thus, the repository includes not only the perpetual review paper but also further discussion, datasets, and (hopefully ultimately) standards for datasets and data deposition.
 
@@ -45,13 +45,14 @@ Currently proposed benchmark sets are detailed in [the paper](https://github.com
 * Host guest systems
     * CB7
     * Gibb deep cavity cavitands (GDCCs) OA and TEMOA
+    * Cyclodextrins (alpha and beta)
 * Lysozyme model binding sites
     * apolar L99A
     * polar L99A/M102Q
+* Bromodomain BRD4-1 
 
 Other near-term candidates include:
 * Thrombin
-* Bromodomains
 * Suggest and vote on your favorites via a feature request below
 
 Community involvement is needed to pick and advance the best benchmarks.
@@ -77,6 +78,7 @@ We also welcome contributions to the material which is already here to extend it
 ## Authors
 - David L. Mobley (UCI)
 - Germano Heinzelmann (Universidade Federal de Santa Catarina)
+- Niel M. Henriksen (UCSD)
 - Michael K. Gilson (UCSD)
 
 Your name, too, can go here if you help us substantially revise/extend the paper.
@@ -88,7 +90,7 @@ We want to thank the following people who contributed to this repository and the
 
 - David Slochower (UCSD, Gilson lab): Grammar corrections and improved table formatting
 - Nascimento (in a comment on biorxiv): Highlighted PDB code error for n-phenylglycinonitrile
-- Jian Yin (UCSD, Gilson lab): Provided host-guest structures and input files for the host-guest sets described in the paper
+- Jian Yin (UCSD, Gilson lab): Provided host-guest structures and input files for the CB7 and GDCC host-guest sets described in the paper
 
 Please note that GitHub's automatic "contributors" list does not provide a full accounting of everyone contributing to this work, as some contributions have been received by e-mail or other mechanisms.
 
@@ -102,11 +104,17 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 - v1.1.2 ([10.5281/zenodo.569575](http://doi.org/10.5281/zenodo.569575)): Adds consistently handled SMILES for aromatics, Annual Reviews copyright/rights info in TeX and README, additional citation information for one reference, and new discussion of some new bromodomain absolute binding free energy work.
 - v1.1.3 ([10.5281/zenodo.571227](http://doi.org/10.5281/zenodo.571227)): Changes title to include "(a perpetual review)" to make more clear that this is not the same paper as the Annual Reviews version; makes clarifications to README.md about which version is which.
 - v1.1.4 ([10.5281/zenodo.838361](http://doi.org/10.5281/zenodo.838361)): Updates README.md to reflect publication; clarify differences in material; reflect availability on eScholarship. Updates paper to reflect migration to eScholarship rather than bioRxiv. 
+- v1.2 ([10.5281/zenodo.839047](http://doi.org/10.5281/zenodo.839047)): Addition of bromodomain BRD4(1) test cases as a new ``soft'' benchmark, with help from Germano Heinzelmann. Addition of Heinzelmann as an author. Addition of files for BRD4(1) benchmark. Removed bromodomain material from future benchmarks in view of its presence now as a benchmark system.
 
 ## Changes not yet in a release
-- Addition of bromodomain BRD4(1) test cases as a new ``soft'' benchmark, with help from Germano Heinzelmann. Addition of Heinzelmann as an author. Addition of files for BRD4(1) benchmark. Removed bromodomain material from future benchmarks in view of its presence now as a benchmark system.
+- Include cyclodextrin benchmarks to data and to paper; removal of most of cyclodextrin material from future benchmarks. Addition of Niel Henriksen as an author based on his work on this.
 
 ## Manifest
 
-* paper: Provides LaTeX source files and final PDF for the current version of the manuscript (reformatted from the version submitted to Ann. Rev. and with 2D structures added to the tables); images, etc. are also available in sub-directories, as is the supporting information.
-* input_files: Host-guest structures and simulation input files for the host-guest benchmark sets proposed in the paper (provided by Jian Yin from the Gilson lab)
+* paper: Provides LaTeX source files and final PDF for the current version of the manuscript (reformatted and expanded from the version submitted to Ann. Rev. and with 2D structures added to the tables); images, etc. are also available in sub-directories, as is the supporting information.
+* input_files: Ultimately to include structures and simulation input files for all of the benchmark systems present as well as (we hope) gold standard calculated values for these files. Currently this includes:
+  * README.md: A more extensive document describing the files present
+  * BRD4 structures and simulation input files from Germano Heinzelmann
+  * CB7 structures and simulation input files from Jian Yin (Gilson lab)
+  * GDCC structures and simulation input files from Jian Yin (Gilson lab)
+  * Cyclodextrin structures and simulation input files from Niel Henriksen (Gilson lab)
