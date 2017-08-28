@@ -105,10 +105,9 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 - v1.1.3 ([10.5281/zenodo.571227](http://doi.org/10.5281/zenodo.571227)): Changes title to include "(a perpetual review)" to make more clear that this is not the same paper as the Annual Reviews version; makes clarifications to README.md about which version is which.
 - v1.1.4 ([10.5281/zenodo.838361](http://doi.org/10.5281/zenodo.838361)): Updates README.md to reflect publication; clarify differences in material; reflect availability on eScholarship. Updates paper to reflect migration to eScholarship rather than bioRxiv. 
 - v1.2 ([10.5281/zenodo.839047](http://doi.org/10.5281/zenodo.839047)): Addition of bromodomain BRD4(1) test cases as a new ``soft'' benchmark, with help from Germano Heinzelmann. Addition of Heinzelmann as an author. Addition of files for BRD4(1) benchmark. Removed bromodomain material from future benchmarks in view of its presence now as a benchmark system.
+- v1.3: Include cyclodextrin benchmarks to data and to paper; removal of most of cyclodextrin material from future benchmarks. Addition of Niel Henriksen as an author based on his work on this. BRD4(1) changes: Reorganize data files; improve BRD4(1) README; switch sd to sdf files; give each BRD4(1) ligand a unique identifier specific to this paper.
 
 ## Changes not yet in a release
-- Include cyclodextrin benchmarks to data and to paper; removal of most of cyclodextrin material from future benchmarks. Addition of Niel Henriksen as an author based on his work on this.
-- BRD4(1) changes: Reorganize data files; improve BRD4(1) README; switch sd to sdf files; give each BRD4(1) ligand a unique identifier specific to this paper.
 
 ## Manifest
 
