@@ -108,6 +108,7 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 
 ## Changes not yet in a release
 - Include cyclodextrin benchmarks to data and to paper; removal of most of cyclodextrin material from future benchmarks. Addition of Niel Henriksen as an author based on his work on this.
+- BRD4(1) changes: Reorganize data files; improve BRD4(1) README; switch sd to sdf files; give each BRD4(1) ligand a unique identifier specific to this paper.
 
 ## Manifest
 
