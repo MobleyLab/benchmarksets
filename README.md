@@ -10,13 +10,19 @@ Additionally, all release versions -- current and prior -- are available via Zen
 
 ## The paper
 
+### Versions
+
 The most up-to-date version of our perpetual review paper always available [here](https://github.com/MobleyLab/benchmarksets/blob/master/paper/benchmarkset.pdf).
 Additionally, this repository provides the authoritative source for all versions of this paper.
 Released versions of the paper are also archived as preprints on [eScholarship](http://escholarship.org/uc/item/9p37m6bq), and have Zenodo DOIs as noted above.
 An early version of this work was published in [Annual Review of Biophysics 46:531-558 (2017)](https://doi.org/10.1146/annurev-biophys-070816-033654).
 
+### Publication in Annual Review
+
 While a portion of this work was originally published with Annual Review, the version here is substantially expanded and updated, and will continue to deviate further from the AR version.
 Thus, we refer to this version as the "perpetual review version" and this is refelected in its title.
+
+### Ongoing updates and credit
 
 Source files for the paper are deposited here on this GitHub repository, as detailed below, and comments/suggestions, etc. are welcome via the issue tracker (https://github.com/MobleyLab/benchmarksets/issues).
 
@@ -26,16 +32,22 @@ The right to create derivative works (exercised here) is also exercised with per
 
 A list of authors is provided below.
 
+### Citing this work
+
+To cite this work, please cite both:
+- The latest eScholarship version (archiving point releases of this repo) at [`https://escholarship.org/uc/item/9p37m6bq`](https://escholarship.org/uc/item/9p37m6bq), with the authors currently listed there and the title "Predicting binding free energies: Frontiers and benchmarks (a perpetual review)"
+- Our Annual Review in Biophysics work ([DOI](https://doi.org/10.1146/annurev-biophys-070816-033654))
+
 
 ## The vision
 
-The field vitally needs benchmark sets to test and advance free energy calculations, as we detail in our paper. 
+The field vitally needs benchmark sets to test and advance free energy calculations, as we detail in our paper.
 Currently, there are no such standard benchmark systems.
-And when good test systems are found, the relevant data tends to be published but then forgotten, and never becomes widely available. 
+And when good test systems are found, the relevant data tends to be published but then forgotten, and never becomes widely available.
 Here, we want the community to be involved in selecting benchmark systems, highlighting their key challenges, and making the data and results readily available to drive new science.
 
-To make this happen, we need community input. 
-Please bring new, relevant work to our attention, including experimental or modeling work on the benchmark systems currently available here, or new work on systems that might make good candidate benchmark systems for the future. 
+To make this happen, we need community input.
+Please bring new, relevant work to our attention, including experimental or modeling work on the benchmark systems currently available here, or new work on systems that might make good candidate benchmark systems for the future.
 And please help us create consensus around a modest set of benchmark systems which can be used to drive forward progress in the field.
 
 
@@ -49,7 +61,7 @@ Currently proposed benchmark sets are detailed in [the paper](https://github.com
 * Lysozyme model binding sites
     * apolar L99A
     * polar L99A/M102Q
-* Bromodomain BRD4-1 
+* Bromodomain BRD4-1
 
 Other near-term candidates include:
 * Thrombin
@@ -96,24 +108,25 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 
 ## Versions
 - [AR](https://doi.org/10.1146/annurev-biophys-070816-033654): Annual Review in Biophysics 46:531-558 (2017). This version split from this repo around the time of the 1.0 release below.
-- [v1.0](https://github.com/MobleyLab/benchmarksets/releases/tag/v1.0): As posted to [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625) 
+- [v1.0](https://github.com/MobleyLab/benchmarksets/releases/tag/v1.0): As posted to [bioRxiv](http://biorxiv.org/content/early/2016/09/11/074625)
 - v1.0.1 ([10.5281/zenodo.155330](https://doi.org/10.5281/zenodo.15533)): Incorporating improved tables and typo fixes from D. Slochower; also, versions now have unique DOIs via Zenodo.
 - v1.0.4 ([10.5281/zenodo.167349](http://doi.org/10.5281/zenodo.167349)): Maintenance version fixing an incorrect PDB code and adding a new reference and some new links.
 - v1.1 ([10.5281/zenodo.197428](http://doi.org/10.5281/zenodo.197428)): Adds significant additional discussion on potential future benchmark sets, needs for workflow science, etc. See release notes for more details. Versions also now include the date and version number within the PDF.
 - v1.1.1 ([10.5281/zenodo.254619](http://doi.org/10.5281/zenodo.254619)): Adds input files for host-guest benchmarks; some revisions to text as recommended by Annual Reviews. See release notes for more details.
 - v1.1.2 ([10.5281/zenodo.569575](http://doi.org/10.5281/zenodo.569575)): Adds consistently handled SMILES for aromatics, Annual Reviews copyright/rights info in TeX and README, additional citation information for one reference, and new discussion of some new bromodomain absolute binding free energy work.
 - v1.1.3 ([10.5281/zenodo.571227](http://doi.org/10.5281/zenodo.571227)): Changes title to include "(a perpetual review)" to make more clear that this is not the same paper as the Annual Reviews version; makes clarifications to README.md about which version is which.
-- v1.1.4 ([10.5281/zenodo.838361](http://doi.org/10.5281/zenodo.838361)): Updates README.md to reflect publication; clarify differences in material; reflect availability on eScholarship. Updates paper to reflect migration to eScholarship rather than bioRxiv. 
+- v1.1.4 ([10.5281/zenodo.838361](http://doi.org/10.5281/zenodo.838361)): Updates README.md to reflect publication; clarify differences in material; reflect availability on eScholarship. Updates paper to reflect migration to eScholarship rather than bioRxiv.
 - v1.2 ([10.5281/zenodo.839047](http://doi.org/10.5281/zenodo.839047)): Addition of bromodomain BRD4(1) test cases as a new ``soft'' benchmark, with help from Germano Heinzelmann. Addition of Heinzelmann as an author. Addition of files for BRD4(1) benchmark. Removed bromodomain material from future benchmarks in view of its presence now as a benchmark system.
 - v1.3: Include cyclodextrin benchmarks to data and to paper; removal of most of cyclodextrin material from future benchmarks. Addition of Niel Henriksen as an author based on his work on this. BRD4(1) changes: Reorganize data files; improve BRD4(1) README; switch sd to sdf files; give each BRD4(1) ligand a unique identifier specific to this paper.
 
 ## Changes not yet in a release
+- Add info on how to cite this paper to main README.md
 
 ## Manifest
 
-* paper: Provides LaTeX source files and final PDF for the current version of the manuscript (reformatted and expanded from the version submitted to Ann. Rev. and with 2D structures added to the tables); images, etc. are also available in sub-directories, as is the supporting information.
-* input_files: Ultimately to include structures and simulation input files for all of the benchmark systems present as well as (we hope) gold standard calculated values for these files. Currently this includes:
-  * README.md: A more extensive document describing the files present
+* `paper`: Provides LaTeX source files and final PDF for the current version of the manuscript (reformatted and expanded from the version submitted to Ann. Rev. and with 2D structures added to the tables); images, etc. are also available in sub-directories, as is the supporting information.
+* `input_files`: Ultimately to include structures and simulation input files for all of the benchmark systems present as well as (we hope) gold standard calculated values for these files. Currently this includes:
+  * `README.md`: A more extensive document describing the files present
   * BRD4 structures and simulation input files from Germano Heinzelmann
   * CB7 structures and simulation input files from Jian Yin (Gilson lab)
   * GDCC structures and simulation input files from Jian Yin (Gilson lab)
