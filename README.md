@@ -121,6 +121,7 @@ Please note that GitHub's automatic "contributors" list does not provide a full 
 
 ## Changes not yet in a release
 - Add info on how to cite this paper to main README.md
+- Fix experimental reference for catechol binding free energy value in Table VIII
 
 ## Manifest
 
