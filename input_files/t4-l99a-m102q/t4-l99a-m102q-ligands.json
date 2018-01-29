@@ -1,0 +1,11 @@
+{
+  "ligand-t4-l99a-m102q-1": {"name": "toluene", "smiles": "Cc1ccccc1", "df_exp": -4.93, "df_exp_error": null, "temperature": 283.15, "pH": 6.8, "salt1": "NaCl", "salt1_conc": 0.5, "salt2": "sodium phosphate", "salt2_conc": 0.1, "doi": "10.1016/S0022-2836(02)00777-5"},
+  "ligand-t4-l99a-m102q-2": {"name": "phenol", "smiles": "c1ccc(cc1)O", "df_exp": -5.24, "df_exp_error": null, "temperature": 283.15, "pH": 6.8, "salt1": "NaCl", "salt1_conc": 0.5, "salt2": "sodium phosphate", "salt2_conc": 0.1, "doi": "10.1016/S0022-2836(02)00777-5"},
+  "ligand-t4-l99a-m102q-3": {"name": "3-chlorophenol", "smiles": "c1cc(cc(c1)Cl)O", "df_exp": -5.51, "df_exp_error": null, "temperature": 283.15, "pH": 6.8, "salt1": "NaCl", "salt1_conc": 0.5, "salt2": "sodium phosphate", "salt2_conc": 0.1, "doi": "10.1016/S0022-2836(02)00777-5"},
+
+  "ligand-t4-l99a-m102q-4": {"name": "catechol", "smiles": "c1ccc(c(c1)O)O", "df_exp": -4.16, "df_exp_error": 0.03, "temperature": 283.15, "pH": 6.8, "salt1": "KCl", "salt1_conc": 0.2, "salt2": "potassium phosphate", "salt2_conc": 0.05, "doi": "10.1016/j.jmb.2009.09.049"},
+  "ligand-t4-l99a-m102q-5": {"name": "2-ethoxyphenol", "smiles": "CCOc1ccccc1O", "df_exp": -4.02, "df_exp_error": 0.03, "temperature": 283.15, "pH": 6.8, "salt1": "KCl", "salt1_conc":0.2, "salt2": "potassium phosphate", "salt2_conc":0.05, "doi": "10.1016/j.jmb.2009.09.049"},
+  "ligand-t4-l99a-m102q-6": {"name": "benzyl acetate", "smiles": "CC(=O)OCc1ccccc1", "df_exp": -4.48, "df_exp_error": 0.16, "temperature": 283.15, "pH": 6.8, "salt1": "KCl", "salt1_conc":0.2, "salt2": "potassium phosphate", "salt2_conc":0.05, "doi": "10.1016/j.jmb.2009.09.049"},
+  "ligand-t4-l99a-m102q-7": {"name": "4,5,6,7-tetrahydroindole", "smiles": "c1c[nH]c2c1CCCC2", "df_exp": -4.61, "df_exp_error": 0.09, "temperature": 283.15, "pH": 6.8, "salt1": "KCl", "salt1_conc":0.2, "salt2": "potassium phosphate", "salt2_conc":0.05, "doi": "10.1016/j.jmb.2009.09.049"},
+  "ligand-t4-l99a-m102q-8": {"name": "n-phenylglycinonitrile", "smiles": "c1ccccc1NCC#N", "df_exp": -5.52, "df_exp_error": 0.18, "temperature": 283.15, "pH": 6.8, "salt1": "KCl", "salt1_conc":0.2, "salt2": "potassium phosphate", "salt2_conc":0.05, "doi": "10.1016/j.jmb.2009.09.049"}
+}
