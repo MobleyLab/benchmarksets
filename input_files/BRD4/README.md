@@ -45,3 +45,10 @@ The structures for all ligands except ligand 1 (a non-binder) were obtained dire
 14. <a name="Geh13"></a> Gehling VS, Hewitt MC, Vaswani RG, Leblanc Y, Cote A, Nasveschuk CG, Taylor AM, Harmange JC, Audia JE, Pardo E, Joshi S, Sandy P, Mertz JA, Sims III RJ, Bergeron L, Bryant BM, Bellon S, Poy F, Jayaram H, Sankaranarayanan R, Yellapantula S, Srinivasamurthy NB, Birudukota S, Albrecht BK. (2013) Discovery, design, and optimization of isoxazole azepine BET inhibitors. ACS Med Chem Lett 4:835–840. doi: 10.1021/ml4001485
 15. <a name="Hei17"></a> Heinzelmann G, Henriksen NM, Gilson MK. (2017) Attach-pull-release calculations of ligand binding and conformational changes on the first BRD4 bromodomain. J Chem Theory Comput 13:3260–3275. doi: 10.1021/acs.jctc.7b00275
 16. <a name="Ald16"></a> Aldeghi M, Heifetz A, Bodkin MJ, Knapp S, and Biggin PC. (2016) Accurate calculation of the absolute free energy of binding for drug molecules. Chem Sci 7:207–218. doi: 10.1039/c5sc02678d
+
+## Updates
+
+The PDB files in `prmtop-coords` were updated to include `CONECT` records with
+```bash
+for i in 1 2 3 4 5 6 7 8 9 10 ; do ambpdb -p BRD4-$i.prmtop -c BRD4-$i.crds -conect > BRD4-$i.pdb ; done
+```
