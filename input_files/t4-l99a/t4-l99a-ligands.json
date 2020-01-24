@@ -1,0 +1,25 @@
+{
+  "ligand-t4-l99a-1": {"name": "benzene", "smiles": "c1ccccc1", "df_exp": -5.19, "df_exp_error": 0.16, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-2": {"name": "toluene", "smiles": "Cc1ccccc1", "df_exp": -5.52, "df_exp_error": 0.04, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-3": {"name": "ethylbenzene", "smiles": "CCc1ccccc1", "df_exp": -5.76, "df_exp_error": 0.07, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-4": {"name": "propylbenzene", "smiles": "CCCc1ccccc1", "df_exp": -6.55, "df_exp_error": 0.02, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-5": {"name": "butylbenzene", "smiles": "CCCCc1ccccc1", "df_exp": -6.70, "df_exp_error": 0.02, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-6": {"name": "p-xylene", "smiles": "Cc1ccc(cc1)C", "df_exp": -4.67, "df_exp_error": 0.06, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-7": {"name": "benzofuran", "smiles": "c1ccc2c(c1)cco2", "df_exp": -5.46, "df_exp_error": 0.03, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-8": {"name": "4-ethyltoluene", "smiles": "CCc1ccc(C)cc1", "df_exp": -5.42, "df_exp_error": 0.01, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-9": {"name": "isobutylbenzene", "smiles": "CC(C)Cc1ccccc1", "df_exp": -6.51, "df_exp_error": 0.06, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-10": {"name": "2-ethyltoluene",  "smiles": "CCc1ccccc1C","df_exp": -4.56, "df_exp_error": 0.06, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-11": {"name": "indene",  "smiles": "C1C=Cc2ccccc21", "df_exp": -5.13, "df_exp_error": 0.01, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-12": {"name": "thianaphthene", "smiles": "c2cc1ccccc1s2", "df_exp": -5.71, "df_exp_error": 0.05, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-13": {"name": "m-xylene",  "smiles": "Cc1cccc(c1)C", "df_exp": -4.75, "df_exp_error": 0.15, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-14": {"name": "3-ethyltoluene",  "smiles": "CCc1cccc(C)c1", "df_exp": -5.12, "df_exp_error": 0.02, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-15": {"name": "indole",  "smiles": "c2cc1ccccc1[nH]2", "df_exp": -4.89, "df_exp_error": 0.06, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+  "ligand-t4-l99a-16": {"name": "o-xylene", "smiles": "Cc1ccccc1C", "df_exp": -4.60, "df_exp_error": 0.06, "temperature": 302.15, "pH": 5.5, "salt1": "CH3COONa", "salt1_conc":0.05, "doi": "10.1021/bi00027a006"},
+
+  "ligand-t4-l99a-17": {"name": "1,2-dichlorobenzene", "smiles": "C1=CC=C(C(=C1)Cl)Cl", "df_exp": -6.37, "df_exp_error": null, "temperature": 283.15, "pH": 6.8, "salt1": "NaCl", "salt1_conc": 0.5, "salt2": "sodium phosphate", "salt2_conc": 0.1, "doi": "10.1016/j.jmb.2007.06.002"},
+  "ligand-t4-l99a-18": {"name": "n-methylaniline", "smiles": "CNC1=CC=CC=C1", "df_exp": -4.70, "df_exp_error": null, "temperature": 283.15, "pH": 6.8, "salt1": "NaCl", "salt1_conc": 0.5, "salt2": "sodium phosphate", "salt2_conc": 0.1, "doi": "10.1016/j.jmb.2007.06.002"},
+  "ligand-t4-l99a-19": {"name": "1-methylpyrrole", "smiles": "CN1C=CC=C1", "df_exp": -4.44, "df_exp_error": null, "temperature": 283.15, "pH": 6.8, "salt1": "NaCl", "salt1_conc": 0.5, "salt2": "sodium phosphate", "salt2_conc": 0.1, "doi": "10.1016/j.jmb.2007.06.002"},
+
+  "ligand-t4-l99a-20": {"name": "iodopentafluorobenzene", "smiles": "C1(=C(C(=C(C(=C1F)F)I)F)F)F", "df_exp": -4.45, "df_exp_error": null, "temperature": 276.15, "pH": 5.45, "salt1": "H0.14Na0.86OAc", "salt1_conc": 0.05, "doi": "10.1016/j.jmb.2008.10.086"},
+  "ligand-t4-l99a-21": {"name": "iodobenzene", "smiles": "Ic1ccccc1", "df_exp": -5.95, "df_exp_error": null, "temperature": 276.15, "pH": 5.45, "salt1": "H0.14Na0.86OAc", "salt1_conc": 0.05, "doi": "10.1016/j.jmb.2008.10.086"}
+}
